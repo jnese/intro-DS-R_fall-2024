@@ -1,0 +1,52 @@
+---
+title: "Data"
+output:
+  html:
+    toc: true
+execute: 
+  echo: false
+---
+
+```{r}
+#| message: false
+
+library(tidyverse)
+library(downloadthis)
+library(here)
+library(knitr)
+```
+
+<br> <br>
+
+```{r fx, results='asis'}
+
+data_makr_fx <- function(file, name){
+  downloadthis::download_file(
+  path = here("data", file),
+  output_name = name,
+  button_label = paste0("Download ", name ," data"),
+  button_type = "primary",
+  has_icon = TRUE,
+  icon = "fa fa-save",
+  self_contained = FALSE
+)
+}
+
+
+datas <- tibble(
+ file = list.files(here("data")), 
+ name = fs::path_ext_remove(list.files(here("data")))
+) %>% 
+  mutate(heading = paste0("### ", file),
+         dl = map2(file, name,
+                    ~data_makr_fx(.x, .y))
+         )
+
+eh <- function(h, b){
+  cat(paste0(h, "\n"))
+  print(b)
+  cat(paste0("<br><br><br>\n\n"))
+}
+
+walk2(datas$heading, datas$dl, eh)
+```

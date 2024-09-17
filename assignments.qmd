@@ -1,0 +1,176 @@
+---
+title: "Assignments"
+output:
+  html:
+    toc: true
+    embed-resources: true
+execute: 
+  echo: false
+  warning: false
+---
+
+```{r setup, include=FALSE}
+#| message: false
+
+library(tidyverse)
+library(here)
+library(readxl)
+library(fontawesome)
+library(gt)
+library(xfun)
+library(htmltools)
+library(mime)
+
+table_style <- function(data) {
+  data %>%
+    opt_table_lines(extent = "none") %>%
+    opt_table_outline(style = "solid", width = px(3), color = "black") %>% 
+    tab_options(
+      heading.border.bottom.color = "black",
+      heading.border.bottom.style = "solid",
+      table.border.top.color = "black",
+      table_body.hlines.color = "black",
+      table_body.border.top.color = "black",
+      table_body.border.top.style = "solid",
+      table_body.border.bottom.color = "black",
+      table_body.border.bottom.style = "solid",
+      column_labels.border.bottom.color = "black",
+      column_labels.border.bottom.style = "solid",
+      column_labels.border.top.color = "black",
+      column_labels.background.color = "#56B4E9",
+      table.width = pct(100),
+      container.width = pct(100)
+    )
+}
+
+dta <- read_xlsx(here::here("nopublish", "schedule.xlsx"), sheet = "assignments") %>% 
+  mutate(
+    across(starts_with("Date"), ~format(as.Date(.), "%b-%d")),
+    Assigned = ifelse(str_detect(Assigned, "Homework"), Assigned,
+                      paste0(Assigned, "(", assigned_link, ")")),
+    across(everything(), ~str_remove(., "\\(NA\\)"))
+  ) 
+```
+
+As outlined in the [Syllabus](syllabus.qmd), most class meetings will include a homework assignment. Supplemental Learning platforms (RStudio Primers, R-Bootcamp, and Codecademy) will also be used as additional homework assignments, and the course will conclude with a final project. More detail about each is provided below. <br> <br>
+
+```{r}
+tibble::tribble(
+     ~Assignments, ~Points,
+      "Homeworks",    100L,
+  "Supplementals",    100L,
+  "Final Project",    200L,
+          "Total",    400L
+  ) %>% 
+  gt() %>% 
+  table_style()
+```
+
+## Homework Assignments
+
+Each homework assignment is worth 10 points, and require your **"best honest effort"**, which includes contacting me if you need help. Please do not turn in partial work. Instead, please ask for help! For the homework assignments, if you are stuck for more than 10-15 minutes, reach out for help. Don't spend any more than 15 minues before reaching out. You can ask your classmates, the internet, or me! <br> <br>
+
+```{r}
+dta %>%
+  filter(type == "homework") %>%
+  mutate(
+    Assigned = map2_chr(assigned_link, Assigned,
+                        ~ifelse(is.na(.x),
+                                .y,
+                                paste0(xfun::embed_file(path = here::here("homeworks", .x), text = .y)))),
+    Assigned = str_replace_all(Assigned, "\"", "'"),
+    Key = map2_chr(key_link, Key,
+                        ~ifelse(is.na(.x),
+                                .y,
+                                paste0(xfun::embed_file(path = here::here("homeworks", .x), text = .y)))),
+    Key = str_replace_all(Key, "\"", "'")) %>%
+  select(`Date Assigned`, `Date Due`, Assigned, Key, Points) %>%
+  gt() %>%
+  table_style() %>%
+  fmt_markdown(columns = c(3, 4))
+
+```
+
+## Supplemental Learning Assignments
+
+```{r}
+dta %>% 
+  filter(type == "supplemental") %>% 
+  select(-c(assigned_link, type, Week, assign_type), -contains("ey")) %>%
+  mutate(Screenshot = ifelse(str_detect(Screenshot, "href", negate = TRUE), paste0("**", Screenshot, "**"), Screenshot)) %>% 
+  gt() %>% 
+  table_style() %>% 
+  fmt_markdown(columns = c(Assigned, Screenshot))
+```
+
+## Final Project
+
+```{r}
+dta %>% 
+  filter(type == "final") %>% 
+  select(-c(assigned_link, type, Week, Screenshot, assign_type), -contains("ey")) %>% 
+  gt() %>% 
+  table_style()
+```
+
+### Final Project
+
+The final project in this class is a group project, requiring students use a "real world" dataset to write, essentially, a miniature manuscript, including an introduction (paragraph or two), methods, results, and discussion (again, maybe 2-3 paragraphs). Ideally, students would work with a dataset that includes variables they are interested in using beyond just this class; however, if students do not have access to a dataset, the instructor will provide one. Students who do not have access to data should plan to meet with the instructor as soon as possible so a dataset can be provided. Additionally, the dataset must be able to be shared publicly, as the full project will be required to be housed on GitHub and be fully reproducible. If making your data publicly available is a problem for you, please contact the instructor as soon as possible. We can work together to either find a dataset that will work for you, or simulate a dataset that is similar to the data you'd like to work with in reality (and then all your code should work for the real dataset, but you can share the simulated data with your classmates). Students are required to work in groups of 2-4 people. The final assignment is assigned during the first class, and groups must be finalized by the end of Week 2 (at which point students who have not self-selected into groups will be randomly assigned).
+
+I will investigate the commits made by different authors when evaluating the final project. If it is obvious that one person did not utilize GitHub, and instead added all of their contributions through a single or only a few commits, I will dock points from that individual. There should be numerous commits by each author, and they should be roughly even in terms of contribution activity (which GitHub has metrics to track, both in terms of the number of commits as well as the number of lines modified). <br> <br>
+
+### Outline (15 points)
+
+A basic outline of the final project is due at the end of Week 5. The outline should include a description of the data to be used, a discussion of what preparatory work will need to be done, and how the requirements of the final project will be met. The outline is intended to be low-stakes and is primarily designed to be a means for you to obtain feedback on the feasibility of the project and areas to consider. <br> <br>
+
+### Draft Data Preparation Script (25 points)
+
+At the end of Week 8, you must have a draft of the data preparation complete, including moving the data from its raw to tidy form and a variety of exploratory data visualizations. Final project must use the following functions: `pivot_longer()`, `select()`, `filter()`, `mutate()`, `pivot_wider()`, `group_by()`, and `summarize()`. <br> <br>
+
+### Peer Review of Data Preparation Script (25 points)
+
+Following the submission of the data preparation scripts, you will be assigned to review your peers' code. The purpose of this exercise is to learn from each other. Programming is an immensely open-ended enterprise and there are lots of winding paths that all ultimately end up at the same destination. During your peer review, you must note (a) at least three areas of strength, (b) at least one thing you learned from reviewing their script, and (c) at least one and no more than three areas for improvement. Making your code publicly available can feel daunting. The purpose of this portion of the final project is to help us all learn from each other, not to denigrate. Under no circumstances will negative comments be tolerated. Any comments that could be perceived as negative, and outside the scope of the code, will result in an immediate score of zero. Be constructive in your feedback. Be kind. We are all learning. <br> <br>
+
+### Final Project Presentation (25 points)
+
+Each group will present on their final project during Week 10, which is expected to still be in progress. These presentations are expected to be informal, and emphasize what learning occurred during the project. Specifically, the presentations are to commiserate with each other about the failures and challenges experienced along the way, while also celebrating the successes. Learning R is a difficult task, and we should all take solace knowing that others are struggling along with us. The final presentation should be equal parts "journey" and substantive findings/conclusions/results. Students are expected to present for approximately 10 minutes each (20-40 minutes per group), although the time may change depending on the enrollment of the class. <br> <br>
+
+```{r}
+read_csv(here("rubrics", "final-presentation_rubric.csv")) %>% 
+  mutate(across(everything(), ~ifelse(is.na(.), "", .))) %>% 
+  gt() %>% 
+  table_style() %>% 
+  tab_header(
+    title = md("**Presentation Rubric**")
+  ) %>% 
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(
+      columns = c(1:2),
+      rows = c(6))
+  )
+```
+
+### Final Paper (110)
+
+The purpose of the final project is to allow students an opportunity to demonstrate all the skills they have learned throughout the course. The final project must (a) be a reproducible and dynamic R Markdown document with references to the extant literature; (b) be housed on GitHub, with contributions from all authors obvious; (c) demonstrate moving data from its raw "messy" format to a tidy data format through the R Markdown file, but not in the final document; (d) include at least two exploratory data visualizations, and (e) include at least summary statistics of the data in tables, although fitted models of any sort are an added bonus (not literally, there are not extra points for fitting a model). The points for the final project are broken down as follows. <br> <br>
+
+```{r}
+
+read_csv(here("rubrics", "final-project_rubric.csv")) %>% 
+  mutate(`Points Possible` = ifelse(is.na(`Points Possible`), "", `Points Possible`),
+         Criteria = ifelse(str_detect(Criteria, "\\(\\)"), paste0("`", Criteria, "`"), Criteria)) %>% 
+  gt() %>% 
+  fmt_markdown(columns = c(Criteria)) %>% 
+  table_style() %>% 
+  tab_header(
+    title = md("**Final Paper Rubric**")
+  ) %>% 
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(
+      columns = Criteria,
+      rows = c(1, 8, 12, 20))
+  )
+
+```

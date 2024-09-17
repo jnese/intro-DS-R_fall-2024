@@ -1,0 +1,477 @@
+---
+title: "Syllabus"
+subtitle: 'EDLD 651: Introduction to Data Science with R<br>(CRN: 11817; 3 credit hours)'
+toc: true
+toc-depth: 4
+format:
+  html: default
+  pdf: default
+execute: 
+  echo: false
+  warning: false
+  freeze: false
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+library(knitr)
+library(kableExtra)
+library(readxl)
+library(fontawesome)
+library(gt)
+
+source("./nopublish/sched_prep.R")
+
+fontawesome::fa_html_dependency()
+
+```
+
+<font size="4">\
+**Term:** Fall 2024
+
+**Time:** Wed, 1:00-3:50pm
+
+**Classroom:** 119 Lokey
+
+**Instructor:** Joe Nese, PhD
+
+-   *email*: jnese\@uoregon.edu (preferred contact method)
+-   *office hours*: By appointment
+-   *pronouns*: he/him/his </font>
+
+# Course Overview
+
+This is the first course in a sequence of courses that will eventually lead to a data science in educational research specialization. All courses will be taught through [`R`](https://cran.r-project.org/), a free and open-source statistical computing environment. This course will introduce students to`R` and [RStudio](https://www.rstudio.com/), version control with [git](https://git-scm.com/) and [GitHub](https://github.com/), dynamic and reproducible workflows with Quarto, and basic data wrangling and visualization with the [`tidyverse`](https://www.tidyverse.org/) suite of packages.
+
+This course, and much of the materials prepared and content presented, was originally developed by [Daniel Anderson](https://www.datalorax.com/). In collaboration with Daniel Anderson, [Alison Hill](https://twitter.com/apreshill), [Chester Ismay](https://twitter.com/old_man_chester), and [Andrew Bray](https://andrewpbray.github.io/), helped design the content for this course and the specialization as a whole.
+
+## Student Learning Outcomes
+
+By the end of this course, students should be able to:
+
+-   Understand the R package ecosystem (how to find, install, load, and learn about package functionality)
+-   Read "flat" (i.e., rectangular) datasets into R
+-   Perform basic data wrangling and transformations in R, using the `tidyverse`
+    -   Leverage appropriate functions for introductory data science tasks (pipeline)
+    -   "clean up" the dataset using scripts and reproducible workflows
+-   Use version control with R via GitHub
+-   Use Quarto to create reproducible, dynamic reports
+-   Understand and create different types of data visualizations
+
+### Course Modality
+
+This is an in-person course: that means that, unlike asynchronous online/ASYNC WEB courses, we will meet during scheduled class meeting times in (class location). I will accommodate absences as described in the Absences policy below. If you need additional flexibility, UO encourages you to consider ASYNC WEB courses. If you need accommodation related to a medical or other disability, you can request those by working with the Accessible Education Center.
+
+## Course Reading Materials and Resources
+
+All required course readings are freely available online or will be provided by the instructor. Note that the assigned readings should be read before each class.
+
+### Books (required)
+
+-   Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). [R for data science](https://r4ds.hadley.nz/). O'Reilly. (referred to as **R4DS(2e)** in the weekly schedule)
+    -   Freely available online in the link above. A full-color paper copy is also available from [Bookshop.org](https://bookshop.org/p/books/r-for-data-science-import-tidy-transform-visualize-and-model-data-hadley-wickham/19667446?ean=9781492097402&gclid=Cj0KCQjw9rSoBhCiARIsAFOiplnsoAzgdl4pxcZmN-bzyI4Y6TCNx5ph3lS-nF62MgiIIcxjLclBfeAaAp9sEALw_wcB) for (currently) \$74.39.
+
+#### Books (optional and possibly helpful)
+
+-   Ismay, C. and Kim, A. Y. (2021). [Statistical Inference via Data Science: A ModernDive into R and the Tidyverse](https://moderndive.com/). (referred to as **MD** in the weekly schedule)
+
+## Resources
+
+### Supplemental Learning
+
+The best way to learn to use `R` is to be exposed to and use R, so in this course we will use some supplemental content developed outside this course. Specifically, we will be using some RStudio Primers, and R-Bootcamp.
+
+#### RStudio Primers
+
+We will use some of the [primers](https://posit.cloud/learn/primers) offered and developed by RStudio, mostly around introducing `R` programming, data visualization, and data cleaning in `R`. You will be working through:
+
+-   [Programming Basics](https://posit.cloud/learn/primers/1.2),
+-   [Visualization Basics](https://posit.cloud/learn/primers/1.1),
+-   [Working with Tibbles](https://posit.cloud/learn/primers/2.1), and
+-   [Join Data Sets](https://posit.cloud/learn/primers/4.3).
+
+#### R-Bootcamp
+
+We will be using some content from the [R-Bootcamp](https://r-bootcamp.netlify.com/) course, developed by [Ted Laderas](https://laderast.github.io/) and [Jessica Minnier](http://jessicaminnier.com/), to supplement lectures. R-Bootcamp offers an introduction to manipulating and visualizing data in R using the tidyverse suite of packages. You will be working through:
+
+-   [Chapter 2](https://r-bootcamp.netlify.app/chapter2), and
+-   [Chapter 3](https://r-bootcamp.netlify.app/chapter3).
+
+#### Codecademy
+
+We will also be using some content from the [Learn R](https://www.codecademy.com/learn/learn-r) course through [Codecademy](https://www.codecademy.com/). You will need to sign up for a free account. Codecademy can be used as a place for you to practice/grow the skills you learn in class, and a resource for your own exploration of topics not covered by this class if you so choose. You will be working through:
+
+-   [Introduction: Introduction to R Syntax](https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/exercises/why-r),
+-   [Fundamentals of Data Visualization with ggplot2: Introduction to Visualization with R](https://www.codecademy.com/courses/learn-r/lessons/intro-visualization-ggplot2-r/exercises/layers-and-geoms),
+-   [Learn R: Aggregates in R](https://www.codecademy.com/courses/learn-r/lessons/r-aggregates/exercises/column-statistics), and
+-   [Learn R: Joining Tables in R](https://www.codecademy.com/courses/learn-r/lessons/r-multiple-tables/exercises/introduction)
+
+### Helpful People/Groups
+
+#### [UO Libraries Data Services](https://library.uoregon.edu/department-of-open-research/data-service)
+
+The team at the [UO Libraries' Statistical Help Desk](https://library.uoregon.edu/research-data-management/consultations) is here to assist you with everything from intermediate statistics-based coursework to dissertation-level analysis. They are available this term **Monday through Friday 11am to 4pm** with in-person support at the [Knight Library DREAM Lab](https://map.uoregon.edu/f36893138) and [by appointment](https://uoregon.libcal.com/appointments?lid=916&g=7803) (in person or via Zoom). They cover a wide array of topics, including introductory and advanced statistics, statistical software (like R and Python), research design, GIS, git/GitHub, Zotero, and qualitative software like Dedoose.
+
+In addition to one-on-one assistance, they also provide a series of workshops. This term, workshops encompass a range of topics from [introduction to R](https://uoregon.libcal.com/event/11326378) (!) and [Python](https://uoregon.libcal.com/event/11228199) to effectively managing citations with Zotero. They also offer specialized workshops upon request, including qualitative data analysis and GitHub tutorials.
+
+They host Friday lunch chats, [**Coffee + Data && Code**](https://uoregon.libcal.com/event/11326111) that provide an opportunity for students and faculty to connect with like-minded peers from across the university. This term, they're hosting a book club exploring [How Statistics Revolutionized Science in the Twentieth Century](https://uoregon.libcal.com/event/11326128) and reading David Salsburg's [The Lady Tasting Tea: How Statistics Revolutionized Science in the Twentieth Century](https://en.wikipedia.org/wiki/The_Lady_Tasting_Tea) (such a fun read!).
+
+#### learnR4free
+
+[learnR4free](https://www.learnr4free.com/en/index.html) includes all sorts of resources (including books, videos, interactive websites, papers) to learn `R` for free.
+
+#### R-Ladies
+
+Regardless of how you identify, but particularly if you identify as a woman or gender non-binary, connect with the global [R-Ladies](https://rladies.org/) organization. They are an excellent organization of incredibly supportive individuals who routinely share great information.
+
+#### RStudio Community
+
+The [RStudio community](https://community.rstudio.com/) is similar to stackoverflow but is generally more friendly, willing to engage in more philosophical and deeper discussions than "how do you do X", and more opinionated about workflows/software design. This last part is important because these discussions will generally be biased toward the `{tidyverse}` philosophy, and so it's important that you understand that going in. However, this course is also biased toward the `{tidyverse}` philosophy, as I think it's a good one. Stackoverflow is a very useful resource, but the RStudio community is a better place for beginners to post questions.
+
+# Weekly Schedule (Topics, Assignments, and Readings)
+
+## Week 1: Introduction
+
+```{r}
+tbl_fx(1) %>% 
+  tab_footnote(
+    footnote = "I do not rearrange my RStudio panes as he does.",
+    locations = cells_column_labels(
+      columns = Assigned)
+  )
+```
+
+## Week 2: Workflow
+
+```{r}
+tbl_fx(2)
+```
+
+## Week 3: `{ggplot2}`
+
+```{r}
+sched %>% 
+  slice(3) %>% 
+  select(data) %>% 
+  unnest(cols = c(data)) %>% 
+  mutate(Lecture = c("<i class='fa-solid fa-video'></i>", rep(NA_character_, 4))) %>% 
+  gt::gt() %>% 
+  fmt_markdown(columns = c(Reading, Slides, Lecture, Assigned, Due)) %>%   
+  sub_missing(
+    columns = everything(),
+    missing_text = ""
+  ) %>% 
+  cols_label(
+    Date = md("<i class='far fa-calendar'></i>")
+  ) %>% 
+  tab_footnote(
+    footnote = "Posted to Canvas : Files",
+    locations = cells_column_labels(
+      columns = Lecture)
+  ) %>% 
+  table_style()
+```
+
+## Week 4: `{dplyr}`
+
+```{r}
+tbl_fx(4)
+```
+
+## Week 5: GitHub
+
+```{r}
+tbl_fx(5)
+```
+
+## Week 6: Quarto
+
+```{r}
+tbl_fx(6)
+```
+
+## Week 7: Mutating Joins
+
+```{r}
+tbl_fx(7)
+```
+
+## Week 8: Tidy Data
+
+```{r}
+tbl_fx(8)
+```
+
+## Week 9: Factors & Pull Request
+
+```{r}
+tbl_fx(9)
+```
+
+## Week 10: Presentations
+
+```{r}
+tbl_fx(10)
+```
+
+## Week 11: No class: Final papers due
+
+# Assignments (400 points total)
+
+As outlined in the [Weekly Schedule](schedule.qmd), most class meetings will include a homework assignment. Supplemental Learning platforms (RStudio Primers, R-Bootcamp, and Codecademy) will also be used as additional homework assignments, and the course will conclude with a final project. More detail about each is provided below.
+
+## Homework (200 points; 50%)
+
+### Homework Assignments (100 points)
+
+There are 10 homework assignments during the course, which must be submitted to the instructor prior to the start of the following class. At 10 points per lab, these labs will be scored on a **"best honest effort"** basis, which generally implies zero or full credit (i.e., the assignment was or was not fully completed). However, many of the homework assignments require students complete specific portions before moving on to the next sections. If you find yourself stuck and unable to proceed, please contact the instructor for help rather than submitting incomplete work. Contacting the instructor is part of the **"best honest effort"**, and can result in full credit for an assignment even if the work is not fully complete. If the assignment is not complete, and the student has not contacted the instructor for help, it is likely to result is a score of zero.
+
+### Supplemental Learning Platforms
+
+#### RStudio Primers, R-Bootcamp Chapters, & Codecademy-Learn R (100 points)
+
+In addition to providing supplemental support, four RStudio Primers, two R-Bootcamp Chapters, and four Codecademy Lessons will be assigned and scored as part of homework at 10 points each. For the RStudio Primers and R-Bootcamp assignments you will submit a screenshot of a specific part of each lesson as evidence of completion (see below). For the Codecademy assignments you will submit a screenshot of the completed lesson with a black checkmark in a yellow circle on your [syllabus page](https://www.codecademy.com/learn/learn-r). This information is also in the [Weekly Schedule](schedule.qmd).
+
+##### **RStudio Primers Screenshot to submit (10 points each)**
+
+-   [Programming Basics](https://posit.cloud/learn/primers/1.2): screenshot of **Types \> Character or object?**
+-   [Visualization Basics](https://posit.cloud/learn/primers/1.1): screenshot of **A code template \> A graphing template**
+-   [Working with Tibbles](https://posit.cloud/learn/primers/2.1): screenshot of **tidyverse \> Quiz**
+-   [Join Data Sets](https://posit.cloud/learn/primers/4.3): screenshot of **Mutating Joins \> Test your comprehension**
+
+##### **R-Bootcamp Screenshots to submit (10 points each)**
+
+-   [Chapter 2](https://r-bootcamp.netlify.app/chapter2): screenshot of **part 13**
+-   [Chapter 3](https://r-bootcamp.netlify.app/chapter3): screenshot of **part 21**
+-   [Chapter 4](https://r-bootcamp.netlify.app/chapter4): screenshot of **part 7**
+
+##### **Codecademy Screenshots to submit (10 points each)**
+
+-   [Introduction: Introduction to R Syntax](https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/exercises/introduction): screenshot of **completion checkmark** <a href=./images/codecademy_complete.png>(example)</a>
+-   [Fundamentals of Data Visualization with ggplot2: Introduction to Visualization with R](https://www.codecademy.com/courses/learn-r/lessons/intro-visualization-ggplot2-r/exercises/introduction): screenshot of **completion checkmark**
+-   [Learn R: Aggregates in R](https://www.codecademy.com/courses/learn-r/lessons/r-aggregates/exercises/introduction): screenshot of **completion checkmark**
+-   [Learn R: Joining Tables in R](https://www.codecademy.com/courses/learn-r/lessons/r-multiple-tables/exercises/introduction): screenshot of **completion checkmark**
+
+## Final Project (200 points; 50%)
+
+The final project in this class is a group project, requiring students use a "real world" dataset to write, essentially, a miniature manuscript, including an introduction (paragraph or two), methods, results, and discussion (again, maybe 2-3 paragraphs). Ideally, students would work with a dataset that includes variables they are interested in using beyond just this class; however, if students do not have access to a dataset, the instructor will provide one. Students who do not have access to data should plan to meet with the instructor as soon as possible so a dataset can be provided. Additionally, the dataset must be able to be shared publicly, as the full project will be required to be housed on GitHub and be fully reproducible. If making your data publicly available is a problem for you, please contact the instructor as soon as possible. We can work together to either find a dataset that will work for you, or simulate a dataset that is similar to the data you'd like to work with in reality (and then all your code should work for the real dataset, but you can share the simulated data with your classmates). Students are required to work in groups of 2-4 people. The final assignment is assigned during the first class, and groups must be finalized by the end of Week 2 (at which point students who have not self-selected into groups will be randomly assigned).
+
+### Outline (15 points)
+
+A basic outline of the final project is due at the end of Week 5. The outline should include a description of the data to be used, a discussion of what preparatory work will need to be done, and how the requirements of the final project will be met. The outline is intended to be low-stakes and is primarily designed to be a means for you to obtain feedback on the feasibility of the project and areas to consider.
+
+### Draft Data Preparation Script (25 points)
+
+At the end of Week 8, you must have a draft of the data preparation complete, including moving the data from its raw to tidy form and a variety of exploratory data visualizations. Final project must use the following functions: `pivot_longer()`, `select()`, `filter()`, `mutate()`, `pivot_wider()`, `group_by()`, and `summarize()`.
+
+### Peer Review of Data Preparation Script (25 points)
+
+Following the submission of the data preparation scripts, you will be assigned to review your peers' code. The purpose of this exercise is to learn from each other. Programming is an immensely open-ended enterprise and there are lots of winding paths that all ultimately end up at the same destination. During your peer review, you must note (a) at least three areas of strength, (b) at least one thing you learned from reviewing their script, and (c) at least one and no more than three areas for improvement. Making your code publicly available can feel daunting. The purpose of this portion of the final project is to help us all learn from each other, not to denigrate. Under no circumstances will negative comments be tolerated. Any comments that could be perceived as negative, and outside the scope of the code, will result in an immediate score of zero. Be constructive in your feedback. Be kind. We are all learning.
+
+### Final Project Presentation (25 points)
+
+Each group will present on their final project during Week 10, which is expected to still be in progress. These presentations are expected to be informal, and emphasize what learning occurred during the project. Specifically, the presentations are to commiserate with each other about the failures and challenges experienced along the way, while also celebrating the successes. Learning R is a difficult task, and we should all take solace knowing that others are struggling along with us. The final presentation should be equal parts "journey" and substantive findings/conclusions/results. Students are expected to present for approximately 10 minutes each (20-40 minutes per group), although the time may change depending on the enrollment of the class.
+
+### Final Paper (110)
+
+The purpose of the final project is to allow students an opportunity to demonstrate all the skills they have learned throughout the course. The final project must (a) be a reproducible and dynamic R Markdown document with references to the extant literature; (b) be housed on GitHub, with contributions from all authors obvious; (c) demonstrate moving data from its raw "messy" format to a tidy data format through the R Markdown file, but not in the final document; (d) include at least two exploratory data visualizations, and (e) include at least summary statistics of the data in tables, although fitted models of any sort are an added bonus (not literally, there are not extra points for fitting a model). The points for the final project are broken down as follows.
+
+```{r, echo=FALSE}
+
+read_csv(here("rubrics", "final-project_rubric.csv")) %>% 
+  mutate(`Points Possible` = ifelse(is.na(`Points Possible`), "", `Points Possible`)) %>% 
+  gt() %>% 
+  table_style() %>% 
+  fmt_markdown(columns = 1) %>% 
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+      ),
+    locations = cells_body(
+      columns = Criteria,
+      rows = c(1, 8, 12, 20)
+    )
+  ) %>% 
+  tab_header(
+    title = md("**Final Paper Rubric**"))
+```
+
+I will investigate the commits made by different authors when evaluating the final project. If it is obvious that one person did not utilize GitHub, and instead added all of their contributions through a single or only a few commits, I will dock points from that individual. There should be numerous commits by each author, and they should be roughly even in terms of contribution activity (which GitHub has metrics to track, both in terms of the number of commits as well as the number of lines modified).
+
+## Grading Components
+
+```{r}
+read_csv(here("rubrics", "grades_rubric.csv")) %>% 
+  mutate(across(everything(), ~ifelse(is.na(.), "", .))) %>% 
+  gt() %>% 
+  table_style() %>% 
+  tab_header(
+    title = md("**Grading Components**"))
+```
+
+## Student Engagement Inventory
+
+Graduate: 1 credit hour = 40 hours of student engagement (3 credit hours = 120 hours of student engagement).
+
+```{r}
+read_csv(here("rubrics", "student-engagement-inventory_rubric.csv")) %>% 
+  mutate(across(everything(), ~ifelse(is.na(.), "", .))) %>% 
+  gt() %>% 
+  table_style() %>% 
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+      ),
+    locations = cells_body(
+      columns = everything(),
+      rows = c(5)
+    )
+  ) %>% 
+  tab_header(
+    title = md("**Student Engagement Inventory**"))
+```
+
+# Course Policies
+
+## Indigenous Recognition Statement
+
+The University of Oregon is located on Kalapuya Ilihi, the traditional indigenous homeland of the Kalapuya people. Today, descendants are citizens of the Confederated Tribes of the Grand Ronde Community of Oregon and the Confederated Tribes of the Siletz Indians of Oregon, and they continue to make important contributions in their communities, at UO, and across the land we now refer to as Oregon.
+
+## Communicating with Me: How and Why
+
+**How will I communicate with you?** Our class will communicate through our Canvas site. Announcements and emails are archived there, automatically forwarded to your UO email, and can even reach you by text. Check and adjust your settings under Account \> Notifications.
+
+When I need to get in touch with individual students, I do so through email.
+
+When giving feedback on assignments, I do so in Canvas, and turnaround time for feedback is generally one week.
+
+**How can you communicate with me?** If your question (or comment) is about a technical challenge with Canvas or another technology, please contact the UO Service Portal. IF it about course content or activities, about something personal, time sensitive, or something else that doesn't feel like it fits above, please reach out to me by email. I try to respond to questions within one business day.
+
+**Why should you communicate with me?** I enjoy talking with students about our course material! Are you confused or excited about something? Wondering how what we're learning relates to current events, career choices, or other classes you can take UO? Please be in touch! Please also be in touch to tell me how you are doing in the course. If you are having trouble with some aspect of it, I would like to strategize with you. I believe every student can succeed in this course, and I care about your success.
+
+## Classroom Community Expectations
+
+**Participate and Contribute:** All students are expected to participate by sharing ideas and contributing to the learning environment. This entails preparing, following instructions, and engaging respectfully and thoughtfully with others. While all students should participate, participation is not just talking, and a range of participation activities support learning. Participation might look like speaking aloud in the full class and in small groups as well as submitting questions prior to class or engaging with Discussion posts. We will establish more specific participation guidelines and criteria for contributions in our first weeks of the term.
+
+**Expect and Respect Diversity:** All classes at the University of Oregon welcome and respect diverse experiences, perspectives, and approaches. What is not welcome are behaviors or contributions that undermine, demean, or marginalize others based on race, ethnicity, gender, sex, age, sexual orientation, religion, ability, or socioeconomic status. We will value differences and communicate disagreements with respect. We may establish more specific guidelines and protocols to ensure inclusion and equity for all members of our learning community.
+
+**Help Everyone Learn:** Part of how we learn together is by learning from one another. To do this effectively, we need to be patient with each other, identify ways we can assist others, and be open-minded to receiving help and feedback from others. Don't hesitate to contact me to ask for assistance or offer suggestions that might help us learn better.
+
+**Guidelines for using Canvas Discussion:**
+
+-   Use subject lines that clearly communicate the content of your post - Write concisely, and be aware that humor or sarcasm doesn't always translate in writing.
+-   Be supportive and considerate when replying to others' posts. This means avoiding use of jargon or inappropriate language, and it means disagreeing with respect and providing clear rationale or evidence to support your different view.\
+-   Keep focused on the topic and reference readings and other class materials to support your points (as applicable).\
+-   Try to use correct spelling and grammar and proofread your submissions. After submitting, use the edit feature to make corrections and resubmit (don't create a new or duplicate post that corrects your error).
+
+## Absences
+
+This is a face-to-face course. Attendance is important because we will develop our knowledge through in-class activities that require your active engagement. We'll have discussions, small-group activities, and do other work during class that will be richer for your presence, and that you won't be able to benefit from if you are not there. Excessive absences make it impossible to learn well and succeed in the course. While there is not an automatic grade deduction for missing classes, it is unlikely that students who miss X or more classes will be able pass this course.
+
+We know our UO community will still be navigating COVID-19, and some students will need to isolate and rest if they get COVID. Please take absences only when necessary, so when they are necessary, your prior attendance will have positioned you for success.
+
+Attendance at all class and discussion groups is expected and required. Students must contact the instructor in case of illness or emergencies that preclude attending class sessions. Messages can be left on the instructor's e-mail at any time of the day or night, prior to class. If you are unable to complete an assignment due to a personal and/or family emergency, you should contact your instructor as soon as possible.
+
+If you must miss a class please fill out the [absence report form](https://lor.instructure.com/resources/30f8469edcc045b3aaf1e6a535301b9b?shared).
+
+## Generative Artificial Intelligence Use
+
+Students can use GenAI tools in this class to help with course work and assignments. However, if you use a GenAI tool, you need to document your use, including the tool you use and when, where, and how in your work process you used it (for example: "I used ChatGPT to generate this part of my code, which I then revised before submitting"). In certain cases, as part of your documentation, I may ask you to submit any GenAI results you obtained, so you need to keep GenAI-created drafts and logs of your interactions with GenAI tools; failure to provide such documentation may result in a grade reduction in certain instances.
+
+Along with documentation of your GenAI use, you are also required to cite GenAI if you use any GenAI-created content in your work submissions, for example text or images or graphics generated by GenAI tools. That is, you need to treat GenAI just like other sources such as books, articles, videos, etc.
+
+## Children in Class
+
+I understand the difficulty in balancing academic, work, and family commitments and I want you to succeed. Here are my policies regarding children in class.
+
+-   All breastfeeding babies are welcome in class as often as necessary.
+-   Non-nursing babies and older children are welcome whenever alternate arrangements cannot be made. As a parent, I understand that babysitters fall through, partners have conflicting schedules, and other issues arise that leave parents with few other options. Please do not bring a sick child into class.
+-   In cases where children come to class, I invite parents/caregivers to sit close to the door so as to more easily excuse yourself to attend to your child's needs. Non-parents in the class: please reserve seats near the door for your parenting classmates.
+-   All students are expected to join with me in creating a welcoming environment that is respectful of your classmates who bring children to class.
+
+I understand that sleep deprivation and exhaustion are among the most difficult aspects of parenting young children. The struggle of balancing school, work, childcare, and graduate school is tiring, and I will do my best to accommodate any such issues while maintaining the same high expectations for all students enrolled in the class. Please do not hesitate to contact me with any questions or concerns.
+
+## Using Pronouns and Personal Preference
+
+Please feel safe to share your pronouns, or the words you want to be called when people aren't using your name. Like names, pronouns are an important part of how we identify that deserves to be respected. And I recognize that assuming someone's gender can be hurtful, especially to members of our community who are transgender, genderqueer, or non-binary. As a community, we are all learning together about the importance of pronouns and being better allies to the trans community on campus. Please discuss the pronouns you wish to be used with me so I can address you respectfully. Please visit this university website for more information - https://studentlife.uoregon.edu/pronouns
+
+# University Policies
+
+## Access and Accommodations
+
+The University of Oregon and I are dedicated to fostering inclusive learning environments for all students and welcomes students with disabilities into all of the University's educational programs. The Accessible Education Center (AEC) assists students with disabilities in reducing campus-wide and classroom-related barriers. If you have or think you have a disability (https://aec.uoregon.edu/content/what-disability) and experience academic barriers, please contact the AEC to discuss appropriate accommodations or support. Visit 360 Oregon Hall or aec.uoregon.edu for more information. You can contact AEC at 541-346-1155 or via email at uoaec\@uoregon.edu.
+
+## Accommodation for Religious Observances
+
+The University of Oregon respects the right of all students to observe their religious holidays, and will make reasonable accommodations, upon request, for these observances. If you need to be absent from a class period this term because of a religious obligation or observance, please fill out the [Student Religious Accommodation Request fillable PDF form](https://registrar.uoregon.edu/sites/all/files/pdf/form-religious-accommodation-request.pdf) and send it to me within the first weeks of the course so we can make arrangements in advance.
+
+## Your Wellbeing
+
+Life at college can be very complicated. Students often feel overwhelmed or stressed, experience anxiety or depression, struggle with relationships, or just need help navigating challenges in their life. If you're facing such challenges, you don't need to handle them on your own - there's help and support on campus.
+
+As your instructor if I believe you may need additional support, I will express my concerns, the reasons for them, and refer you to resources that might be helpful. It is not my intention to know the details of what might be bothering you, but simply to let you know I care and that help is available. Getting help is a courageous thing to do - for yourself and those you care about.
+
+[University Health Services](https://health.uoregon.edu/ducknest) help students cope with difficult emotions and life stressors. . If you need general resources on coping with stress or want to talk with another student who has been in the same place as you, visit the Duck Nest (located in the EMU on the ground floor) and get help from one of the specially trained Peer Wellness Advocates.
+
+University Counseling Services (UCS) has a team of dedicated staff members to support you with your concerns, many of whom can provide identity-based support. All clinical services are free and confidential. Find out more at [counseling.uoregon.edu](https://counseling.uoregon.edu/) or by calling 541-346-3227 (anytime UCS is closed, the After-Hours Support and Crisis Line is available by calling this same number).
+
+## Basic Needs
+
+Being able to meet your basic needs is foundational to your success as a student at the University of Oregon. If you are having difficulty affording food, don't have a stable, safe place to live, or are struggling to meet another need, visit the [UO Basic Needs Resource page](https://blogs.uoregon.edu/basicneeds) for information on how to get support. They have information food, housing, healthcare, childcare, transportation, technology, finances (including emergency funds), and legal support.
+
+If your need is urgent, please contact the Care and Advocacy Program by calling 541-346-3216, filling out the [Community Care and Support form](https://cm.maxient.com/reportingform.php?UnivofOregon&layout_id=1), or by [scheduling an appointment](https://outlook.office365.com/owa/calendar/CareandAdvocacyProgram@uoregon.edu/bookings/) with an advocate.
+
+## Respect for Diversity
+
+You can expect to be treated with respect in this course. Both students and your instructor(s) enter with many identities, backgrounds, and beliefs. Students of all racial identities, ethnicities, genders, gender identities, gender expressions, national origins, religious affiliations, sexual orientations, citizenship statuses, ability and other visible and non-visible differences belong in and contribute to this class and this discipline. All students are expected to contribute to a respectful, welcoming and inclusive environment for every other member of the class.
+
+Class rosters are provided to instructors with students' legal names. Please let me know if the name or pronouns I have for you are not accurate. It is important to me to address you properly.
+
+Please let me know if aspects of the instruction, course design, or class activities undermine these principles in any way. You may also notify the \[Home Department\] at \[contact information\]. For additional assistance and resources, you may also consider contacting the [Division of Equity and Inclusion through their website](http://inclusion.uoregon.edu/) or by phone (at 541-346-3175), or the [Center for Multicultural Academic Excellence through their website](https://inclusion.uoregon.edu/center-multicultural-academic-excellence-cmae) or by phone (at 541-346-3479).
+
+## Academic Integrity
+
+The [University Student Conduct Code](https://dos.uoregon.edu/conduct) defines academic misconduct, which includes using unauthorized help on assignments and examinations, the use of sources without acknowledgment, and recording class without "the express written permission of the instructor(s)." Academic misconduct is prohibited at UO. I will report all suspected misconduct to the Office of Student Conduct and Community Standards. If the Office finds a student has committed misconduct, consequences can include of the relevant assignment or exam, or of the course.
+
+While unauthorized help and use of sources without citation is prohibited, learning together and citing sources is crucial! Each assignment and assessment will have a note about whether and how you might work with others so that you can clearly act with academic integrity. All assignments will use APA citation (preferred), and you can find support in using \[citation method\] at the [UO Libraries' Citation Guides research guide](https://researchguides.uoregon.edu/citing-plagiarism/whycite#s-lg-box-8000742).
+
+If at any point in the term you are unsure about whether a behavior aligns with academic integrity in our course, please contact me. I view student questions about academic integrity as a desire to act with integrity, so I welcome your questions.
+
+## Student Experience Surveys
+
+The midway and end-of-term Student Experience Surveys will be conducted during week four and week 10, respectively. These are important opportunities to provide feedback about your learning experiences. I value this feedback and am continually improving the course with students' responses in mind. The key parts of the survey are the open-ended questions where you share concrete, actionable feedback and about the teaching practices that stand out to you. Thank you for your thoughtful reflections!
+
+## Reporting Obligations
+
+I am a designated reporter. For information about my reporting obligations as an employee, please see [Employee Reporting Obligations](https://investigations.uoregon.edu/employee-responsibilities#employee-obligations) on the Office of Investigations and Civil Rights Compliance (OICRC) website. Students experiencing sex or gender-based discrimination, harassment or violence should call the 24-7 hotline 541-346-SAFE \[7244\] or [visit safe.uoregon.edu](https://safe.uoregon.edu/) for help. Students experiencing all forms of prohibited discrimination or harassment may contact the Dean of Students Office at 5411-346-3216 or the non-confidential Title IX Coordinator/OICRC at 541-346-3123. Additional resources are available at [UO's How to Get Support webpage](https://investigations.uoregon.edu/how-get-support).
+
+I am also a mandatory reporter of child abuse. Please find more information at [Mandatory Reporting of Child Abuse and Neglect](https://hr.uoregon.edu/policies-leaves/general-information/mandatory-reporting-child-abuse-and-neglect).
+
+## Conflict Resolution
+
+Several options, both informal and formal, are available to resolve conflicts for students who believe they have been subjected to or have witnessed bias, unfairness, or other improper treatment.
+
+It is important to exhaust the administrative remedies available to you including discussing the conflict with the specific individual, contacting the Department Head, or within the College of Education, fall term you can contact the Associate Dean for Academic Affairs, Sylvia Thompson, (541) 346-2483, sthomps5\@uoregon.edu. Outside the College, you can contact:
+
+-   [UO Bias Response Team](http://bias.uoregon.edu/whatbrt.htm): 346-3216\
+-   [Conflict Resolution Services](http://studentlife.uoregon.edu/support): 346-3216
+-   [Affirmative Action and Equal Opportunity](http://aaeo.uoregon.edu/): 346-3123
+
+## Grievance Policy
+
+A student or group of students of the College of Education may appeal decisions or actions pertaining to admissions, programs, evaluation of performance and program retention and completion. Students who decide to file a grievance should follow University student grievance procedures (https://policies.uoregon.edu/grievance-procedures) and/or consult with the College Associate Dean for Academic Affairs (Sylvia Thompson, 541-346-2483, sthomps5\@uoregon.edu). \<br
+
+## Academic Disruption due to Campus Emergency
+
+In the event of a campus emergency that disrupts academic activities, course requirements, deadlines, and grading percentages are subject to change. Information about changes in this course will be communicated as soon as possible by email, and on Canvas. If we are not able to meet face-to-face, students should immediately log onto Canvas and read any announcements and/or access alternative assignments. Students are also expected to continue coursework as outlined in this syllabus or other instructions on Canvas.
+
+## Inclement Weather
+
+It is generally expected that class will meet unless the University is officially closed for inclement weather. If it becomes necessary to cancel class while the University remains open, this will be announced on Canvas and by email. Updates on inclement weather and closure are also communicated as described on the Inclement Weather webpage.
+
+## Course Incomplete Policy
+
+Students are expected to be familiar with university policy regarding grades of "incomplete" and the timeline for completion. For details on the policy and procedures regarding incompletes, Please see: https://education.uoregon.edu/academics/incompletes-courses

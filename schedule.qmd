@@ -1,0 +1,132 @@
+---
+title: "Schedule"
+format: 
+  html:
+    toc: true
+execute:
+  echo: false
+  warning: false
+  freeze: false
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(here)
+library(readxl)
+library(glue)
+library(downloadthis)
+library(fontawesome)
+library(gt)
+library(xfun)
+library(gtExtras)
+library(fontawesome)
+
+source("./nopublish/sched_prep.R")
+
+fontawesome::fa_html_dependency()
+```
+
+
+### Before Week 1
+
+Please complete the following **five** installs before our first class.
+
+Instructions for each are on the [Installs page](installs.qmd).
+
+(1) Install `R`
+(2) Install RStudio
+(3) Register a GitHub account
+(4) Install Git
+(5) Install GitKraken
+
+### Week 1: Introduction
+
+```{r}
+
+tbl_fx(1) %>% 
+  tab_footnote(
+    footnote = "I do not rearrange my RStudio panes as he does.",
+    locations = cells_column_labels(
+      columns = Assigned)
+  ) 
+```
+
+### Week 2: Workflow
+
+```{r}
+
+tbl_fx(2)
+```
+
+### Week 3: `{ggplot2}`
+
+```{r}
+
+sched %>% 
+  slice(3) %>% 
+  select(data) %>% 
+  unnest(cols = c(data)) %>% 
+  mutate(Lecture = c("<i class='fa-solid fa-video'></i>", rep(NA_character_, 4))) %>% 
+  gt::gt() %>% 
+  fmt_markdown(columns = c(Reading, Slides, Lecture, Assigned, Due)) %>%   
+  sub_missing(
+    columns = everything(),
+    missing_text = ""
+  ) %>% 
+  cols_label(
+    Date = md("<i class='far fa-calendar'></i>")
+  ) %>% 
+  tab_footnote(
+    footnote = "Posted to Canvas : Files",
+    locations = cells_column_labels(
+      columns = Lecture)
+  ) %>% 
+  table_style()
+
+```
+
+### Week 4: `{dplyr}`
+
+```{r}
+tbl_fx(4)
+```
+
+### Week 5: GitHub
+
+```{r}
+tbl_fx(5)
+```
+
+### Week 6: Quarto
+
+```{r}
+tbl_fx(6)
+```
+
+### Week 7: Mutating Joins
+
+```{r}
+tbl_fx(7)
+```
+
+### Week 8: Tidy Data
+
+```{r}
+tbl_fx(8)
+```
+
+### Week 9: Factors & Pull Request
+
+```{r}
+tbl_fx(9)
+```
+
+### Week 10: Presentations
+
+```{r}
+tbl_fx(10)
+```
+
+### Week 11: No class: Final papers due

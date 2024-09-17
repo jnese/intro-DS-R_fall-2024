@@ -1,0 +1,14 @@
+---
+title: "EDLD 651: Introduction to Data Science with R"
+execute: 
+  echo: false
+  warning: false
+  freeze: false
+toc: false
+---
+
+## Fall 2024
+
+This is the first course in a sequence of courses on educational data science that will lead to a [Data Science Specialization in Educational Leadership](https://education.uoregon.edu/data-science-specialization-educational-leadership). All courses will be taught through [`R`](https://cran.r-project.org/), a free and open-source statistical computing environment. This course focuses on introductory programming with `R` and [RStudio](https://posit.co/products/open-source/rstudio/), basic data wrangling and visualization with the [`{tidyverse}`](https://www.tidyverse.org/) suite of packages, version control with [git](https://git-scm.com/) and [GitHub](https://github.com/), and dynamic and reproducible workflows with [quarto](https://quarto.org/).
+
+
