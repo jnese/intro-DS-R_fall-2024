@@ -1,0 +1,21 @@
+Criteria,Points Possible
+Writing,
+Abstract,5
+Introduction,5
+Methods,5
+Results,5
+Discussion,5
+References,5
+Code,
+Document is fully reproducible,25
+Demonstrate use of inline code,5
+At least two data visualizations,10 (5 pts each)
+Demonstrate tidying messy data using:,
+`pivot_longer()`,5
+`mutate()`,5
+`select()`` and ``filter()`,5
+`pivot_wider()`,5
+At least one table of descriptive statistics,10
+`group_by()`,5
+`summarize()`,5
+Total,110
