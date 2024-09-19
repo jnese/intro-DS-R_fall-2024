@@ -29,6 +29,8 @@ fontawesome::fa_html_dependency()
 
 ```
 
+# Introduction to Course and Instructor
+
 <font size="4">\
 **Term:** Fall 2024
 
@@ -42,9 +44,9 @@ fontawesome::fa_html_dependency()
 -   *office hours*: By appointment
 -   *pronouns*: he/him/his </font>
 
-# Course Overview
+## Course Overview
 
-This is the first course in a sequence of courses that will eventually lead to a data science in educational research specialization. All courses will be taught through [`R`](https://cran.r-project.org/), a free and open-source statistical computing environment. This course will introduce students to`R` and [RStudio](https://www.rstudio.com/), version control with [git](https://git-scm.com/) and [GitHub](https://github.com/), dynamic and reproducible workflows with Quarto, and basic data wrangling and visualization with the [`tidyverse`](https://www.tidyverse.org/) suite of packages.
+This is the first course in a sequence of courses that will eventually lead to a data science in educational research specialization. All courses will be taught through [`R`](https://cran.r-project.org/), a free and open-source statistical computing environment. This course will introduce students to`R` and [RStudio](https://posit.co/download/rstudio-desktop/), version control with [git](https://git-scm.com/) and [GitHub](https://github.com/), dynamic and reproducible workflows with [Quarto](https://quarto.org/), and basic data wrangling and visualization with the [`tidyverse`](https://www.tidyverse.org/) suite of packages.
 
 This course, and much of the materials prepared and content presented, was originally developed by [Daniel Anderson](https://www.datalorax.com/). In collaboration with Daniel Anderson, [Alison Hill](https://twitter.com/apreshill), [Chester Ismay](https://twitter.com/old_man_chester), and [Andrew Bray](https://andrewpbray.github.io/), helped design the content for this course and the specialization as a whole.
 
@@ -52,16 +54,16 @@ This course, and much of the materials prepared and content presented, was origi
 
 By the end of this course, students should be able to:
 
--   Understand the R package ecosystem (how to find, install, load, and learn about package functionality)
--   Read "flat" (i.e., rectangular) datasets into R
--   Perform basic data wrangling and transformations in R, using the `tidyverse`
+-   Understand the `R` package ecosystem (how to find, install, load, and learn about package functionality)
+-   Read "flat" (i.e., rectangular) datasets into `R`
+-   Perform basic data wrangling and transformations in `R`, using the `tidyverse`
     -   Leverage appropriate functions for introductory data science tasks (pipeline)
     -   "clean up" the dataset using scripts and reproducible workflows
--   Use version control with R via GitHub
--   Use Quarto to create reproducible, dynamic reports
+-   Use version control with `R` via GitHub
+-   Use `Quarto` to create reproducible, dynamic reports
 -   Understand and create different types of data visualizations
 
-### Course Modality
+## Course Modality
 
 This is an in-person course: that means that, unlike asynchronous online/ASYNC WEB courses, we will meet during scheduled class meeting times in (class location). I will accommodate absences as described in the Absences policy below. If you need additional flexibility, UO encourages you to consider ASYNC WEB courses. If you need accommodation related to a medical or other disability, you can request those by working with the Accessible Education Center.
 
@@ -111,13 +113,12 @@ We will also be using some content from the [Learn R](https://www.codecademy.com
 
 ### Helpful People/Groups
 
-#### [UO Libraries Data Services](https://library.uoregon.edu/department-of-open-research/data-service)
+#### [UO Libraries Data Services](https://uoregon.libcal.com/calendar/dataservices?cid=11979&t=d&d=0000-00-00&cal=11979&inc=0)
 
-The team at the [UO Libraries' Statistical Help Desk](https://library.uoregon.edu/research-data-management/consultations) is here to assist you with everything from intermediate statistics-based coursework to dissertation-level analysis. They are available this term **Monday through Friday 11am to 4pm** with in-person support at the [Knight Library DREAM Lab](https://map.uoregon.edu/f36893138) and [by appointment](https://uoregon.libcal.com/appointments?lid=916&g=7803) (in person or via Zoom). They cover a wide array of topics, including introductory and advanced statistics, statistical software (like R and Python), research design, GIS, git/GitHub, Zotero, and qualitative software like Dedoose.
+The team at the [UO Libraries' Statistical Help Desk](https://library.uoregon.edu/research-data-management/consultations) is here to assist you with everything from intermediate statistics-based coursework to dissertation-level analysis. They are available this term **Monday through Friday 11am to 4pm** with in-person support at the [Knight Library DREAM Lab](https://map.uoregon.edu/f36893138) and [by appointment](https://uoregon.libcal.com/appointments/data_services) (in person or via Zoom). They cover a wide array of topics, including introductory and advanced statistics, statistical software (like R and Python), research design, GIS, git/GitHub, Zotero, and qualitative software like Dedoose.
 
-In addition to one-on-one assistance, they also provide a series of workshops. This term, workshops encompass a range of topics from [introduction to R](https://uoregon.libcal.com/event/11326378) (!) and [Python](https://uoregon.libcal.com/event/11228199) to effectively managing citations with Zotero. They also offer specialized workshops upon request, including qualitative data analysis and GitHub tutorials.
+In addition to one-on-one assistance, they also provide a series of workshops. This term, workshops encompass a range of topics from [Introduction to R](https://uoregon.libcal.com/event/12830923) and [Python](https://uoregon.libcal.com/event/12830938). They also offer specialized workshops upon request, including qualitative data analysis and GitHub tutorials.
 
-They host Friday lunch chats, [**Coffee + Data && Code**](https://uoregon.libcal.com/event/11326111) that provide an opportunity for students and faculty to connect with like-minded peers from across the university. This term, they're hosting a book club exploring [How Statistics Revolutionized Science in the Twentieth Century](https://uoregon.libcal.com/event/11326128) and reading David Salsburg's [The Lady Tasting Tea: How Statistics Revolutionized Science in the Twentieth Century](https://en.wikipedia.org/wiki/The_Lady_Tasting_Tea) (such a fun read!).
 
 #### learnR4free
 
@@ -127,97 +128,9 @@ They host Friday lunch chats, [**Coffee + Data && Code**](https://uoregon.libcal
 
 Regardless of how you identify, but particularly if you identify as a woman or gender non-binary, connect with the global [R-Ladies](https://rladies.org/) organization. They are an excellent organization of incredibly supportive individuals who routinely share great information.
 
-#### RStudio Community
+#### Posit Community
 
-The [RStudio community](https://community.rstudio.com/) is similar to stackoverflow but is generally more friendly, willing to engage in more philosophical and deeper discussions than "how do you do X", and more opinionated about workflows/software design. This last part is important because these discussions will generally be biased toward the `{tidyverse}` philosophy, and so it's important that you understand that going in. However, this course is also biased toward the `{tidyverse}` philosophy, as I think it's a good one. Stackoverflow is a very useful resource, but the RStudio community is a better place for beginners to post questions.
-
-# Weekly Schedule (Topics, Assignments, and Readings)
-
-## Week 1: Introduction
-
-```{r}
-tbl_fx(1) %>% 
-  tab_footnote(
-    footnote = "I do not rearrange my RStudio panes as he does.",
-    locations = cells_column_labels(
-      columns = Assigned)
-  )
-```
-
-## Week 2: Workflow
-
-```{r}
-tbl_fx(2)
-```
-
-## Week 3: `{ggplot2}`
-
-```{r}
-sched %>% 
-  slice(3) %>% 
-  select(data) %>% 
-  unnest(cols = c(data)) %>% 
-  mutate(Lecture = c("<i class='fa-solid fa-video'></i>", rep(NA_character_, 4))) %>% 
-  gt::gt() %>% 
-  fmt_markdown(columns = c(Reading, Slides, Lecture, Assigned, Due)) %>%   
-  sub_missing(
-    columns = everything(),
-    missing_text = ""
-  ) %>% 
-  cols_label(
-    Date = md("<i class='far fa-calendar'></i>")
-  ) %>% 
-  tab_footnote(
-    footnote = "Posted to Canvas : Files",
-    locations = cells_column_labels(
-      columns = Lecture)
-  ) %>% 
-  table_style()
-```
-
-## Week 4: `{dplyr}`
-
-```{r}
-tbl_fx(4)
-```
-
-## Week 5: GitHub
-
-```{r}
-tbl_fx(5)
-```
-
-## Week 6: Quarto
-
-```{r}
-tbl_fx(6)
-```
-
-## Week 7: Mutating Joins
-
-```{r}
-tbl_fx(7)
-```
-
-## Week 8: Tidy Data
-
-```{r}
-tbl_fx(8)
-```
-
-## Week 9: Factors & Pull Request
-
-```{r}
-tbl_fx(9)
-```
-
-## Week 10: Presentations
-
-```{r}
-tbl_fx(10)
-```
-
-## Week 11: No class: Final papers due
+The [Posit community](https://forum.posit.co/) is similar to stackoverflow but is generally more friendly, willing to engage in more philosophical and deeper discussions than "how do you do X", and more opinionated about workflows/software design. This last part is important because these discussions will generally be biased toward the `{tidyverse}` philosophy, and so it's important that you understand that going in. However, this course is also biased toward the `{tidyverse}` philosophy, as I think it's a good one. Stackoverflow is a very useful resource, but the RStudio community is a better place for beginners to post questions.
 
 # Assignments (400 points total)
 
@@ -227,7 +140,9 @@ As outlined in the [Weekly Schedule](schedule.qmd), most class meetings will inc
 
 ### Homework Assignments (100 points)
 
-There are 10 homework assignments during the course, which must be submitted to the instructor prior to the start of the following class. At 10 points per lab, these labs will be scored on a **"best honest effort"** basis, which generally implies zero or full credit (i.e., the assignment was or was not fully completed). However, many of the homework assignments require students complete specific portions before moving on to the next sections. If you find yourself stuck and unable to proceed, please contact the instructor for help rather than submitting incomplete work. Contacting the instructor is part of the **"best honest effort"**, and can result in full credit for an assignment even if the work is not fully complete. If the assignment is not complete, and the student has not contacted the instructor for help, it is likely to result is a score of zero.
+There are 10 homework assignments during the course, which must be submitted to the instructor prior to the start of the following class. At 10 points each, these homeworks will be scored on a **"best honest effort"** basis, which generally implies zero or full credit (i.e., the assignment was or was not fully completed). However, many of the homework assignments require students complete specific portions before moving on to the next sections. If you find yourself stuck and unable to proceed, please contact the instructor for help rather than submitting incomplete work. Contacting the instructor is part of the **"best honest effort"**, and can result in full credit for an assignment even if the work is not fully complete. If the assignment is not complete, and the student has not contacted the instructor for help, it is likely to result is a score of zero.
+
+If your homework is not submitted prior to the start of the following class without approval from the instructor, it will receive at most 3 points when/if it is submitted. If your homework is submitted more than two weeks late, it will receive zero points. 
 
 ### Supplemental Learning Platforms
 
@@ -301,6 +216,96 @@ read_csv(here("rubrics", "final-project_rubric.csv")) %>%
 
 I will investigate the commits made by different authors when evaluating the final project. If it is obvious that one person did not utilize GitHub, and instead added all of their contributions through a single or only a few commits, I will dock points from that individual. There should be numerous commits by each author, and they should be roughly even in terms of contribution activity (which GitHub has metrics to track, both in terms of the number of commits as well as the number of lines modified).
 
+# Weekly Schedule (Topics, Assignments, and Readings)
+
+### Week 1: Introduction
+
+```{r}
+tbl_fx(1) %>% 
+  tab_footnote(
+    footnote = "I do not rearrange my RStudio panes as he does.",
+    locations = cells_column_labels(
+      columns = Assigned)
+  )
+```
+
+### Week 2: Workflow
+
+```{r}
+tbl_fx(2)
+```
+
+### Week 3: `{ggplot2}`
+
+```{r}
+sched %>% 
+  slice(3) %>% 
+  select(data) %>% 
+  unnest(cols = c(data)) %>% 
+  mutate(Lecture = c("<i class='fa-solid fa-video'></i>", rep(NA_character_, 4))) %>% 
+  gt::gt() %>% 
+  fmt_markdown(columns = c(Reading, Slides, Lecture, Assigned, Due)) %>%   
+  sub_missing(
+    columns = everything(),
+    missing_text = ""
+  ) %>% 
+  cols_label(
+    Date = md("<i class='far fa-calendar'></i>")
+  ) %>% 
+  tab_footnote(
+    footnote = "Posted to Canvas : Files",
+    locations = cells_column_labels(
+      columns = Lecture)
+  ) %>% 
+  table_style()
+```
+
+### Week 4: `{dplyr}`
+
+```{r}
+tbl_fx(4)
+```
+
+### Week 5: GitHub
+
+```{r}
+tbl_fx(5)
+```
+
+### Week 6: Quarto
+
+```{r}
+tbl_fx(6)
+```
+
+### Week 7: Mutating Joins
+
+```{r}
+tbl_fx(7)
+```
+
+### Week 8: Tidy Data
+
+```{r}
+tbl_fx(8)
+```
+
+### Week 9: Factors & Pull Request
+
+```{r}
+tbl_fx(9)
+```
+
+### Week 10: Presentations
+
+```{r}
+tbl_fx(10)
+```
+
+### Week 11: No class: Final papers due
+
+# Course Policies
+
 ## Grading Components
 
 ```{r}
@@ -334,12 +339,6 @@ read_csv(here("rubrics", "student-engagement-inventory_rubric.csv")) %>%
     title = md("**Student Engagement Inventory**"))
 ```
 
-# Course Policies
-
-## Indigenous Recognition Statement
-
-The University of Oregon is located on Kalapuya Ilihi, the traditional indigenous homeland of the Kalapuya people. Today, descendants are citizens of the Confederated Tribes of the Grand Ronde Community of Oregon and the Confederated Tribes of the Siletz Indians of Oregon, and they continue to make important contributions in their communities, at UO, and across the land we now refer to as Oregon.
-
 ## Communicating with Me: How and Why
 
 **How will I communicate with you?** Our class will communicate through our Canvas site. Announcements and emails are archived there, automatically forwarded to your UO email, and can even reach you by text. Check and adjust your settings under Account \> Notifications.
@@ -348,7 +347,7 @@ When I need to get in touch with individual students, I do so through email.
 
 When giving feedback on assignments, I do so in Canvas, and turnaround time for feedback is generally one week.
 
-**How can you communicate with me?** If your question (or comment) is about a technical challenge with Canvas or another technology, please contact the UO Service Portal. IF it about course content or activities, about something personal, time sensitive, or something else that doesn't feel like it fits above, please reach out to me by email. I try to respond to questions within one business day.
+**How can you communicate with me?** If your question (or comment) is about a technical challenge with Canvas or another technology, please contact the UO Service Portal. If it is about course content or activities, about something personal, time sensitive, or something else that doesn't feel like it fits above, please reach out to me by email. I try to respond to questions within one business day.
 
 **Why should you communicate with me?** I enjoy talking with students about our course material! Are you confused or excited about something? Wondering how what we're learning relates to current events, career choices, or other classes you can take UO? Please be in touch! Please also be in touch to tell me how you are doing in the course. If you are having trouble with some aspect of it, I would like to strategize with you. I believe every student can succeed in this course, and I care about your success.
 
@@ -369,9 +368,9 @@ When giving feedback on assignments, I do so in Canvas, and turnaround time for 
 
 ## Absences
 
-This is a face-to-face course. Attendance is important because we will develop our knowledge through in-class activities that require your active engagement. We'll have discussions, small-group activities, and do other work during class that will be richer for your presence, and that you won't be able to benefit from if you are not there. Excessive absences make it impossible to learn well and succeed in the course. While there is not an automatic grade deduction for missing classes, it is unlikely that students who miss X or more classes will be able pass this course.
+This is a face-to-face course. Attendance is important because we will develop our knowledge through in-class activities that require your active engagement. We'll have discussions, small-group activities, and do other work during class that will be richer for your presence, and that you won't be able to benefit from if you are not there. Excessive absences make it impossible to learn well and succeed in the course. While there is not an automatic grade deduction for missing classes, it is unlikely that students who miss 3 or more classes will be able pass this course.
 
-We know our UO community will still be navigating COVID-19, and some students will need to isolate and rest if they get COVID. Please take absences only when necessary, so when they are necessary, your prior attendance will have positioned you for success.
+That said, if you are feeling ill, please stay home to heal and avoid infecting your classmates. Please take absences only when necessary, so when they are necessary, your prior attendance will have positioned you for success.
 
 Attendance at all class and discussion groups is expected and required. Students must contact the instructor in case of illness or emergencies that preclude attending class sessions. Messages can be left on the instructor's e-mail at any time of the day or night, prior to class. If you are unable to complete an assignment due to a personal and/or family emergency, you should contact your instructor as soon as possible.
 
@@ -398,6 +397,10 @@ I understand that sleep deprivation and exhaustion are among the most difficult 
 
 Please feel safe to share your pronouns, or the words you want to be called when people aren't using your name. Like names, pronouns are an important part of how we identify that deserves to be respected. And I recognize that assuming someone's gender can be hurtful, especially to members of our community who are transgender, genderqueer, or non-binary. As a community, we are all learning together about the importance of pronouns and being better allies to the trans community on campus. Please discuss the pronouns you wish to be used with me so I can address you respectfully. Please visit this university website for more information - https://studentlife.uoregon.edu/pronouns
 
+## Indigenous Recognition Statement
+
+The University of Oregon is located on Kalapuya Ilihi, the traditional indigenous homeland of the Kalapuya people. Today, descendants are citizens of the Confederated Tribes of the Grand Ronde Community of Oregon and the Confederated Tribes of the Siletz Indians of Oregon, and they continue to make important contributions in their communities, at UO, and across the land we now refer to as Oregon.
+
 # University Policies
 
 ## Access and Accommodations
@@ -406,7 +409,7 @@ The University of Oregon and I are dedicated to fostering inclusive learning env
 
 ## Accommodation for Religious Observances
 
-The University of Oregon respects the right of all students to observe their religious holidays, and will make reasonable accommodations, upon request, for these observances. If you need to be absent from a class period this term because of a religious obligation or observance, please fill out the [Student Religious Accommodation Request fillable PDF form](https://registrar.uoregon.edu/sites/all/files/pdf/form-religious-accommodation-request.pdf) and send it to me within the first weeks of the course so we can make arrangements in advance.
+The University of Oregon respects the right of all students to observe their religious holidays, and will make reasonable accommodations, upon request, for these observances. If you need to be absent from a class period this term because of a religious obligation or observance, please fill out the [Student Religious Accommodation Request fillable PDF form](https://registrar.uoregon.edu/sites/all/files/pdf/form-religious-accommodation-request.pdf) and send it to me within the first two weeks of the course so we can make arrangements in advance.
 
 ## Your Wellbeing
 
@@ -430,7 +433,7 @@ You can expect to be treated with respect in this course. Both students and your
 
 Class rosters are provided to instructors with students' legal names. Please let me know if the name or pronouns I have for you are not accurate. It is important to me to address you properly.
 
-Please let me know if aspects of the instruction, course design, or class activities undermine these principles in any way. You may also notify the \[Home Department\] at \[contact information\]. For additional assistance and resources, you may also consider contacting the [Division of Equity and Inclusion through their website](http://inclusion.uoregon.edu/) or by phone (at 541-346-3175), or the [Center for Multicultural Academic Excellence through their website](https://inclusion.uoregon.edu/center-multicultural-academic-excellence-cmae) or by phone (at 541-346-3479).
+Please let me know if aspects of the instruction, course design, or class activities undermine these principles in any way. You may also notify Educational Leadership at krista@cosa.k12.or.us. For additional assistance and resources, you may also consider contacting the [Division of Equity and Inclusion through their website](http://inclusion.uoregon.edu/) or by phone (at 541-346-3175), or the [Center for Multicultural Academic Excellence through their website](https://inclusion.uoregon.edu/center-multicultural-academic-excellence-cmae) or by phone (at 541-346-3479).
 
 ## Academic Integrity
 
@@ -446,15 +449,17 @@ The midway and end-of-term Student Experience Surveys will be conducted during w
 
 ## Reporting Obligations
 
-I am a designated reporter. For information about my reporting obligations as an employee, please see [Employee Reporting Obligations](https://investigations.uoregon.edu/employee-responsibilities#employee-obligations) on the Office of Investigations and Civil Rights Compliance (OICRC) website. Students experiencing sex or gender-based discrimination, harassment or violence should call the 24-7 hotline 541-346-SAFE \[7244\] or [visit safe.uoregon.edu](https://safe.uoregon.edu/) for help. Students experiencing all forms of prohibited discrimination or harassment may contact the Dean of Students Office at 5411-346-3216 or the non-confidential Title IX Coordinator/OICRC at 541-346-3123. Additional resources are available at [UO's How to Get Support webpage](https://investigations.uoregon.edu/how-get-support).
+I am a designated reporter. For information about my reporting obligations as an employee, please see [Employee Reporting Obligations](https://investigations.uoregon.edu/employee-responsibilities#employee-obligations) on the Office of Investigations and Civil Rights Compliance (OICRC) website. Students experiencing sex or gender-based discrimination, harassment or violence should call the 24-7 hotline 541-346-SAFE \[7244\] or [visit safe.uoregon.edu](https://safe.uoregon.edu/) for help. Students experiencing all forms of prohibited discrimination or harassment may contact the Dean of Students Office at 541-346-3216 or the non-confidential Title IX Coordinator/OICRC at 541-346-3123 to request information and resources. Students are not required to participate in an investigation to receive support, including requesting academic supportive measures. Additional resources are available at [investigations.uoregon.edu/how-get-support](https://investigations.uoregon.edu/how-get-support).
 
 I am also a mandatory reporter of child abuse. Please find more information at [Mandatory Reporting of Child Abuse and Neglect](https://hr.uoregon.edu/policies-leaves/general-information/mandatory-reporting-child-abuse-and-neglect).
+
+**Pregnancy Modifications.** Pregnant and parenting students are eligible for academic and work modifications related to pregnancy, childbirth, loss of pregnancy, termination of pregnancy, lactation, and related medical conditions. To request pregnancy-related modifications, students should complete the [Request for Pregnancy Modifications](https://cm.maxient.com/reportingform.php?UnivofOregon&layout_id=108) form on the OICRC website. OICRC coordinates academic and other modifications for pregnant and parenting students to ensure students can continue to access their education and university programs and activities.
 
 ## Conflict Resolution
 
 Several options, both informal and formal, are available to resolve conflicts for students who believe they have been subjected to or have witnessed bias, unfairness, or other improper treatment.
 
-It is important to exhaust the administrative remedies available to you including discussing the conflict with the specific individual, contacting the Department Head, or within the College of Education, fall term you can contact the Associate Dean for Academic Affairs, Sylvia Thompson, (541) 346-2483, sthomps5\@uoregon.edu. Outside the College, you can contact:
+It is important to exhaust the administrative remedies available to you including discussing the conflict with the specific individual, contacting the Department Head, or within the College of Education, fall term you can contact the Associate Dean for Academic Affairs. Outside the College, you can contact:
 
 -   [UO Bias Response Team](http://bias.uoregon.edu/whatbrt.htm): 346-3216\
 -   [Conflict Resolution Services](http://studentlife.uoregon.edu/support): 346-3216
@@ -462,7 +467,7 @@ It is important to exhaust the administrative remedies available to you includin
 
 ## Grievance Policy
 
-A student or group of students of the College of Education may appeal decisions or actions pertaining to admissions, programs, evaluation of performance and program retention and completion. Students who decide to file a grievance should follow University student grievance procedures (https://policies.uoregon.edu/grievance-procedures) and/or consult with the College Associate Dean for Academic Affairs (Sylvia Thompson, 541-346-2483, sthomps5\@uoregon.edu). \<br
+A student or group of students of the College of Education may appeal decisions or actions pertaining to admissions, programs, evaluation of performance and program retention and completion. Students who decide to file a grievance should follow University student grievance procedures (https://policies.uoregon.edu/grievance-procedures) and/or consult with the College Associate Dean for Academic Affairs. \<br
 
 ## Academic Disruption due to Campus Emergency
 

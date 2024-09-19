@@ -2,7 +2,7 @@
 title: "Introduction to Data Science with `R`"
 subtitle: "EDLD 651"
 author: "Joe Nese"
-institute: "University of Oregon<br>Fall 2023"
+institute: "University of Oregon<br>Fall 2024"
 format:
   revealjs: 
     theme: default
@@ -101,7 +101,7 @@ Like these!
 
 ## Create a website!
 
-with `{blogdown}`, `{distill}`, `{bookdown}`, `{rmarkdown}`, or `{quarto}`
+with `{quarto}` or `{bookdown}`
 
 ::: columns
 ::: {.column width="50%"}
@@ -111,7 +111,7 @@ with `{blogdown}`, `{distill}`, `{bookdown}`, `{rmarkdown}`, or `{quarto}`
 :::
 
 ::: {.column width="50%"}
-[**For this class**](https://uo-datasci-specialization.github.io/c1-intro-fall-2021/)
+[**For this class**](https://jnese.github.io/intro-DS-R_fall-2024/)
 
 ```{r}
 knitr::include_graphics("images/edld651home.png")
@@ -361,16 +361,18 @@ Credit: Dr. Rhonda Nese
     -   all sorts of resources (books, videos, websites, papers) to learn `R` for free
 -   [R-Ladies](https://rladies.org/)
     -   Global organization to promote gender diversity in the R community
--   [RStudio Community](https://community.rstudio.com/)
+-   [Posit Community]https://forum.posit.co/)
     -   Similar to [stackoverflow](https://stackoverflow.com/questions/tagged/r) but friendlier (great place to post questions)
     -   Opinionated
-    -   RStudio-philosophy dominant (as is this class)
+    -   Posit-philosophy dominant (as is this class)
 
 ## Weekly Schedule
 
 -   Readings - do before class
 -   Homeworks - due before following class
-    -   You **can** work in groups on these
+    - You **can** work in groups on these
+    - 1 week late: 3 points (max)
+    - 2 weeks late: 0 points
 
 ## Assignements {.smaller}
 

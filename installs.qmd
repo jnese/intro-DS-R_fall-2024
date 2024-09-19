@@ -10,23 +10,23 @@ execute:
 
 Please complete the following **five** items before our first class. Instructions for each are below.
 
-(1) Install `R`
-(2) Install RStudio
-(3) Register a GitHub account
-(4) Install Git
-(5) Install GitKraken
+## (1) Install `R`
+## (2) Install RStudio
+## (3) Register a GitHub account
+## (4) Install Git
+## (5) Install GitKraken
 
 <br>
 
-## (1) Install R\*
+## (1) Install R\* 
 
-#### https://cloud.r-project.org/
+#### [https://cloud.r-project.org/](https://cloud.r-project.org/)
 
 Install `R` from CRAN, the Comprehensive R Archive Network
 
 ## (2) Install RStudio\*
 
-#### https://www.rstudio.com/products/rstudio/#Desktop
+#### [https://posit.co/downloads/](https://posit.co/downloads/)
 
 [**\***]{style="font-size:200%;"} *Note*: If you have a pre-existing installation of `R` and/or RStudio, I strongly recommend that you reinstall both and get as current as possible. It can often be problematic to run old software.
 
@@ -38,13 +38,13 @@ This will only look for updates on CRAN. So if you use a package that lives only
 
 ## (3) Register a GitHub account
 
-#### https://github.com
+#### [https://github.com](https://github.com)
 
 Before you register for your free GitHub account, please read this [username advice](https://happygitwithr.com/github-acct.html) from Jenny Bryan.
 
 ## (4) Install Git
 
-#### https://www.git-scm.com/download
+#### [https://www.git-scm.com/download](https://www.git-scm.com/download)
 
 Be sure to download the version of Git that is appropriate for your operating system (Mac, Windows, Linux).
 
@@ -94,4 +94,4 @@ knitr::include_graphics("img/install_6.png")
 
 ## (5) Install GitKraken
 
-#### https://www.gitkraken.com/download
+#### [https://www.gitkraken.com/download](https://www.gitkraken.com/download)

@@ -126,11 +126,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#install-r" id="toc-install-r" class="nav-link active" data-scroll-target="#install-r">(1) Install R*</a></li>
-  <li><a href="#install-rstudio" id="toc-install-rstudio" class="nav-link" data-scroll-target="#install-rstudio">(2) Install RStudio*</a></li>
+  <li><a href="#install-r" id="toc-install-r" class="nav-link active" data-scroll-target="#install-r">(1) Install <code>R</code></a></li>
+  <li><a href="#install-rstudio" id="toc-install-rstudio" class="nav-link" data-scroll-target="#install-rstudio">(2) Install RStudio</a></li>
   <li><a href="#register-a-github-account" id="toc-register-a-github-account" class="nav-link" data-scroll-target="#register-a-github-account">(3) Register a GitHub account</a></li>
   <li><a href="#install-git" id="toc-install-git" class="nav-link" data-scroll-target="#install-git">(4) Install Git</a></li>
   <li><a href="#install-gitkraken" id="toc-install-gitkraken" class="nav-link" data-scroll-target="#install-gitkraken">(5) Install GitKraken</a></li>
+  <li><a href="#install-r-1" id="toc-install-r-1" class="nav-link" data-scroll-target="#install-r-1">(1) Install R*</a></li>
+  <li><a href="#install-rstudio-1" id="toc-install-rstudio-1" class="nav-link" data-scroll-target="#install-rstudio-1">(2) Install RStudio*</a></li>
+  <li><a href="#register-a-github-account-1" id="toc-register-a-github-account-1" class="nav-link" data-scroll-target="#register-a-github-account-1">(3) Register a GitHub account</a></li>
+  <li><a href="#install-git-1" id="toc-install-git-1" class="nav-link" data-scroll-target="#install-git-1">(4) Install Git</a></li>
+  <li><a href="#install-gitkraken-1" id="toc-install-gitkraken-1" class="nav-link" data-scroll-target="#install-gitkraken-1">(5) Install GitKraken</a></li>
   </ul>
 </nav>
     </div>
@@ -157,42 +162,50 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Please complete the following <strong>five</strong> items before our first class. Instructions for each are below.</p>
-<ol type="1">
-<li>Install <code>R</code></li>
-<li>Install RStudio</li>
-<li>Register a GitHub account</li>
-<li>Install Git</li>
-<li>Install GitKraken</li>
-</ol>
-<p><br></p>
 <section id="install-r" class="level2">
-<h2 class="anchored" data-anchor-id="install-r">(1) Install R*</h2>
+<h2 class="anchored" data-anchor-id="install-r">(1) Install <code>R</code></h2>
+</section>
+<section id="install-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="install-rstudio">(2) Install RStudio</h2>
+</section>
+<section id="register-a-github-account" class="level2">
+<h2 class="anchored" data-anchor-id="register-a-github-account">(3) Register a GitHub account</h2>
+</section>
+<section id="install-git" class="level2">
+<h2 class="anchored" data-anchor-id="install-git">(4) Install Git</h2>
+</section>
+<section id="install-gitkraken" class="level2">
+<h2 class="anchored" data-anchor-id="install-gitkraken">(5) Install GitKraken</h2>
+<p><br></p>
+</section>
+<section id="install-r-1" class="level2">
+<h2 class="anchored" data-anchor-id="install-r-1">(1) Install R*</h2>
 <section id="httpscloud.r-project.org" class="level4">
-<h4 class="anchored" data-anchor-id="httpscloud.r-project.org">https://cloud.r-project.org/</h4>
+<h4 class="anchored" data-anchor-id="httpscloud.r-project.org"><a href="https://cloud.r-project.org/">https://cloud.r-project.org/</a></h4>
 <p>Install <code>R</code> from CRAN, the Comprehensive R Archive Network</p>
 </section>
 </section>
-<section id="install-rstudio" class="level2">
-<h2 class="anchored" data-anchor-id="install-rstudio">(2) Install RStudio*</h2>
-<section id="httpswww.rstudio.comproductsrstudiodesktop" class="level4">
-<h4 class="anchored" data-anchor-id="httpswww.rstudio.comproductsrstudiodesktop">https://www.rstudio.com/products/rstudio/#Desktop</h4>
+<section id="install-rstudio-1" class="level2">
+<h2 class="anchored" data-anchor-id="install-rstudio-1">(2) Install RStudio*</h2>
+<section id="httpsposit.codownloads" class="level4">
+<h4 class="anchored" data-anchor-id="httpsposit.codownloads"><a href="https://posit.co/downloads/">https://posit.co/downloads/</a></h4>
 <p><span style="font-size:200%;"><strong>*</strong></span> <em>Note</em>: If you have a pre-existing installation of <code>R</code> and/or RStudio, I strongly recommend that you reinstall both and get as current as possible. It can often be problematic to run old software.</p>
 <p>If you upgrade <code>R</code>, you will need to update any packages you have installed. The command below should get you started, but you might also need to specify more arguments if you have been using a non-default library for your packages.</p>
 <p><code>update.packages(ask = FALSE, checkBuilt = TRUE)</code></p>
 <p>This will only look for updates on CRAN. So if you use a package that lives only on GitHub or if you want a development version from GitHub, you will need to update it manually via <code>devtools::install_github()</code></p>
 </section>
 </section>
-<section id="register-a-github-account" class="level2">
-<h2 class="anchored" data-anchor-id="register-a-github-account">(3) Register a GitHub account</h2>
+<section id="register-a-github-account-1" class="level2">
+<h2 class="anchored" data-anchor-id="register-a-github-account-1">(3) Register a GitHub account</h2>
 <section id="httpsgithub.com" class="level4">
-<h4 class="anchored" data-anchor-id="httpsgithub.com">https://github.com</h4>
+<h4 class="anchored" data-anchor-id="httpsgithub.com"><a href="https://github.com">https://github.com</a></h4>
 <p>Before you register for your free GitHub account, please read this <a href="https://happygitwithr.com/github-acct.html">username advice</a> from Jenny Bryan.</p>
 </section>
 </section>
-<section id="install-git" class="level2">
-<h2 class="anchored" data-anchor-id="install-git">(4) Install Git</h2>
+<section id="install-git-1" class="level2">
+<h2 class="anchored" data-anchor-id="install-git-1">(4) Install Git</h2>
 <section id="httpswww.git-scm.comdownload" class="level4">
-<h4 class="anchored" data-anchor-id="httpswww.git-scm.comdownload">https://www.git-scm.com/download</h4>
+<h4 class="anchored" data-anchor-id="httpswww.git-scm.comdownload"><a href="https://www.git-scm.com/download">https://www.git-scm.com/download</a></h4>
 <p>Be sure to download the version of Git that is appropriate for your operating system (Mac, Windows, Linux).</p>
 <p>That should give you an installer. (If you have a Mac and you’re having a hard time opening the installer, please see <a href="#issues">below</a>.</p>
 <p>Note that Git is not like other software. You will not have an app to launch. To ensure the installation was successful, open RStudio after running the installer, go to:</p>
@@ -262,10 +275,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 </section>
-<section id="install-gitkraken" class="level2">
-<h2 class="anchored" data-anchor-id="install-gitkraken">(5) Install GitKraken</h2>
+<section id="install-gitkraken-1" class="level2">
+<h2 class="anchored" data-anchor-id="install-gitkraken-1">(5) Install GitKraken</h2>
 <section id="httpswww.gitkraken.comdownload" class="level4">
-<h4 class="anchored" data-anchor-id="httpswww.gitkraken.comdownload">https://www.gitkraken.com/download</h4>
+<h4 class="anchored" data-anchor-id="httpswww.gitkraken.comdownload"><a href="https://www.gitkraken.com/download">https://www.gitkraken.com/download</a></h4>
 
 
 </section>
