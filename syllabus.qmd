@@ -113,11 +113,13 @@ We will also be using some content from the [Learn R](https://www.codecademy.com
 
 ### Helpful People/Groups
 
-#### [UO Libraries Data Services](https://uoregon.libcal.com/calendar/dataservices?cid=11979&t=d&d=0000-00-00&cal=11979&inc=0)
+#### [UO Libraries Data Services](https://library.uoregon.edu/department-of-open-research/data-services)
 
-The team at the [UO Libraries' Statistical Help Desk](https://library.uoregon.edu/research-data-management/consultations) is here to assist you with everything from intermediate statistics-based coursework to dissertation-level analysis. They are available this term **Monday through Friday 11am to 4pm** with in-person support at the [Knight Library DREAM Lab](https://map.uoregon.edu/f36893138) and [by appointment](https://uoregon.libcal.com/appointments/data_services) (in person or via Zoom). They cover a wide array of topics, including introductory and advanced statistics, statistical software (like R and Python), research design, GIS, git/GitHub, Zotero, and qualitative software like Dedoose.
+The [Data Services Help Desk](https://library.uoregon.edu/research-data-management/consultations) is available this term Monday - Friday 11 am - 4 pm in the [DREAM Lab](https://map.uoregon.edu/f36893138). The Help Desk offers drop-in services and consultations [by appointment](https://uoregon.libcal.com/appointments/data_services) for statistical methods, R, Python, Git, Excel, Dedoose, Qualtrics, research data management, and entry-level GIS and Talapas questions.
 
-In addition to one-on-one assistance, they also provide a series of workshops. This term, workshops encompass a range of topics from [Introduction to R](https://uoregon.libcal.com/event/12830923) and [Python](https://uoregon.libcal.com/event/12830938). They also offer specialized workshops upon request, including qualitative data analysis and GitHub tutorials.
+They also provide interactive [workshops](https://uoregon.libcal.com/calendar/dataservices/?cid=11979&t=d&d=0000-00-00&cal=11979,5245,11173,15812,6522&inc=0) on topics ranging from biweekly [`Python`](https://uoregon.libcal.com/event/12830938) and [`R`](https://uoregon.libcal.com/event/12830923) courses to shorter sessions on [Git](https://uoregon.libcal.com/event/12934413) and [Qualtrics.](https://uoregon.libcal.com/event/12843077) This term we are also offering a [One-Day Bootcamp on R](https://uoregon.libcal.com/event/12842981) and a [One-day Bootcamp in Python](https://uoregon.libcal.com/event/12843036). These sessions (lunch included) compress almost a term's worth of material into one day. 
+
+If you are looking to connect with peers, their [Coffee + Data && Code](https://uoregon.libcal.com/event/12843102) sessions offer short talks, while [Coding Circles](https://uoregon.libcal.com/event/13001631) are casual co-working spaces. Their [book club](https://uoregon.libcal.com/calendar/dataservices?cid=11979&t=d&d=0000-00-00&cal=11979&ct=61628,71944&inc=0) this term is reading Sarah Lamdan’s Data Cartels.
 
 
 #### learnR4free
@@ -142,7 +144,7 @@ As outlined in the [Weekly Schedule](schedule.qmd), most class meetings will inc
 
 There are 10 homework assignments during the course, which must be submitted to the instructor prior to the start of the following class. At 10 points each, these homeworks will be scored on a **"best honest effort"** basis, which generally implies zero or full credit (i.e., the assignment was or was not fully completed). However, many of the homework assignments require students complete specific portions before moving on to the next sections. If you find yourself stuck and unable to proceed, please contact the instructor for help rather than submitting incomplete work. Contacting the instructor is part of the **"best honest effort"**, and can result in full credit for an assignment even if the work is not fully complete. If the assignment is not complete, and the student has not contacted the instructor for help, it is likely to result is a score of zero.
 
-If your homework is not submitted prior to the start of the following class without approval from the instructor, it will receive at most 3 points when/if it is submitted. If your homework is submitted more than two weeks late, it will receive zero points. 
+If your homework is not submitted prior to the start of the following class without approval from the instructor, it will receive at most 5 points when/if it is submitted. If your homework is submitted more than two weeks late, it will receive zero points. 
 
 ### Supplemental Learning Platforms
 

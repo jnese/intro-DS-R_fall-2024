@@ -97,7 +97,7 @@ Like we just did!
 
 with `quarto`
 
-Like these!
+Like the ones you're looking at right now!
 
 ## Create a website!
 
@@ -331,13 +331,13 @@ Credit: Dr. Rhonda Nese
 
 ## Course Site {.smaller}
 
-**https://jnese.github.io/intro-DS-R_fall-2023/**
+[**https://jnese.github.io/intro-DS-R_fall-2024/**](https://jnese.github.io/intro-DS-R_fall-2024/)
 
--   [schedule](https://jnese.github.io/intro-DS-R_fall-2023/)
--   [slides](https://jnese.github.io/intro-DS-R_fall-2023/) (posted *before* each class)
--   [assignments](https://jnese.github.io/intro-DS-R_fall-2023/assignments.html) (posted *after* each class)
--   [syllabus](https://jnese.github.io/intro-DS-R_fall-2023/syllabus.html)
--   [data](https://jnese.github.io/intro-DS-R_fall-2023/data_list.html)
+-   [schedule](https://jnese.github.io/intro-DS-R_fall-2024/schedule.html)
+-   [slides](https://jnese.github.io/intro-DS-R_fall-2024/schedule.html) (posted *before* each class)
+-   [assignments](https://jnese.github.io/intro-DS-R_fall-2024/assignments.html) (posted *after* each class)
+-   [syllabus](https://jnese.github.io/intro-DS-R_fall-2024/syllabus.html)
+-   [data](https://jnese.github.io/intro-DS-R_fall-2024/data_list.html)
 
 **Canvas**
 
@@ -361,7 +361,7 @@ Credit: Dr. Rhonda Nese
     -   all sorts of resources (books, videos, websites, papers) to learn `R` for free
 -   [R-Ladies](https://rladies.org/)
     -   Global organization to promote gender diversity in the R community
--   [Posit Community]https://forum.posit.co/)
+-   [Posit Community](https://forum.posit.co/)
     -   Similar to [stackoverflow](https://stackoverflow.com/questions/tagged/r) but friendlier (great place to post questions)
     -   Opinionated
     -   Posit-philosophy dominant (as is this class)
@@ -371,8 +371,6 @@ Credit: Dr. Rhonda Nese
 -   Readings - do before class
 -   Homeworks - due before following class
     - You **can** work in groups on these
-    - 1 week late: 3 points (max)
-    - 2 weeks late: 0 points
 
 ## Assignements {.smaller}
 
@@ -413,16 +411,18 @@ read_csv(here("rubrics", "grades_rubric.csv")) %>%
 
 -   Scored on a "best honest effort" basis
     -   generally zero or full credit
--   If you find yourself stuck and unable to proceed, **please contact the instructor/GE for help rather than submitting incomplete work**
-    -   Contacting the instructor/GE is part of the "best honest effort" and can result in full credit for an assignment even if the work is not fully complete
+-   If you find yourself stuck and unable to proceed, **please contact the instructor for help rather than submitting incomplete work**
+    -   Contacting the instructor is part of the "best honest effort" and can result in full credit for an assignment even if the work is not fully complete
 -   **If the assignment is not complete, and the student has not contacted the instructor for help, it is likely to result is a partial credit score or a zero**
-    -   Labs submitted late will be docked by 30% (3 points)
--   Labs are generally due the class after they are assigned, before class starts
+-   Homeworks are generally due the class after they are assigned, before class starts
+    - 1 week late: 5 points (max)
+    - 2 weeks late: 0 points
 
 ## Final Project {.smaller}
 
 -   Group project, 3-4 people
     + You select or me organize?
+    + The expectations if you select
 -   Quarto document
 
 **Final project must:**
@@ -436,12 +436,12 @@ read_csv(here("rubrics", "grades_rubric.csv")) %>%
 
 ## Final Project - Dates
 
--   **Week 3 (10/11)**: Self-selected groups finalized
--   **Week 5 (10/25)**: Final Project Outline due
--   **Week 9 (11/23)**: Data prep script due
--   **Week 10 (11/29)**: Peer review due
--   **Week 10 (11/29)**: Final project presentations
--   **Week 11 (12/6)**: Final Paper due
+-   **Week 3 (10/16)**: Self-selected groups finalized
+-   **Week 5 (10/30)**: Final Project Outline due
+-   **Week 9 (11/28)**: Data prep script due
+-   **Week 10 (12/4)**: Peer review due
+-   **Week 10 (12/4)**: Final project presentations
+-   **Week 11 (12/11)**: Final Paper due
 
 ## Final Project - Paper Scoring Rubric
 
@@ -821,7 +821,7 @@ Generative AI (e.g., ChatGPT)
 
 ## Install Check {.smaller}
 
-[Installs](installs.qmd)
+[Installs](https://jnese.github.io/intro-DS-R_fall-2024/installs.html)
 
 -   [R](https://cloud.r-project.org/)
 -   [Rstudio](https://www.rstudio.com/products/rstudio/#Desktop)
@@ -856,12 +856,13 @@ Also
 
 3. __Tools > Global Options > Pane Layout__
 
-* As you like
+As you like
 
 4. __Tools > Global Options > Appearance__
 
-* Font, font size
-* Editor theme!!
+Font, font size
+
+Editor theme!!
 
 ## Keyboard Shortcuts {.smaller}
 
@@ -870,8 +871,6 @@ Also
 **Tools > Keyboard Shortcuts Help** (`Alt + Shift + K`)
 
 **Tools > Modify Keyboard Shortcuts**
-
-. . .
 
 My favorites (for Macs, sub `Command` for `Ctrl`)
 
@@ -989,6 +988,24 @@ You will only need to install a package **once** (generally). After that, it is 
 -   you will do this **every** time you use the package in your scripts
 -   notices no quotes
 
+## OK, last time {.smaller}
+
+. . .
+
+`install.packages(“package_name”)`
+
+. . .
+
+one time!
+
+. . .
+
+`library(package_name)`
+
+. . .
+
+every time!
+
 ## Other packages
 
 On GitHub
@@ -1005,8 +1022,8 @@ On GitHub
 With just a basic knowledge of `R` you have access to thousands of packages
 
 -   Expanding on a daily basis
-    + Currently, the CRAN package repository features 19,900+ packages
-    + 18,700+ last year at this time
+    + Currently, the CRAN package repository features 21,000+ packages 
+    + 19,900+ last year at this time
     + constantly evolving to keep up with the varied demands of the data science community
 -   Provides access to cutting edge and specialized functionality for analysis, data visualization, and data preparation
 -   Some of the most modern thinking on data analysis topics are often represented in these packages
@@ -1199,14 +1216,14 @@ slice(arrange(select(filter(gss_cat, relig == "Buddhism", age > 55), age, partyi
 
 -   Reading
 
-    -   [Week 1 reading](https://jnese.github.io/intro-DS-R_fall-2023/#week-1-introduction) (if you haven't already)
+    -   [Week 1 reading](https://jnese.github.io/intro-DS-R_fall-2024/#week-1-introduction) (if you haven't already)
         + [R4DS(2e) Ch. 5](https://r4ds.hadley.nz/workflow-style)
         + [R4DS(2e) Ch. 3](https://r4ds.hadley.nz/workflow-basics)
         + [R4DS(2e) Ch. 7](https://r4ds.hadley.nz/workflow-scripts)
 
 -   Assignments
 
-    -   [Installs](https://jnese.github.io/intro-DS-R_fall-2023/install.qmd)
+    -   [Installs](https://jnese.github.io/intro-DS-R_fall-2024/install.qmd)
     -   [A Quick Tour of the RStudio IDE](http://milton-the-cat.rocks/learnr/r/r_getting_started/#section-a-quick-tour-of-r-studio)
     -   [RStudio Primer: Programming basics](https://posit.cloud/learn/primers/1.2)
     -   [Codecademy: Introduction to R Syntax](https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/exercises/why-r)
