@@ -75,8 +75,7 @@ Please introduce yourself
 
 1.  Name and program/year of study
 2.  Do you have any `R` experience?
-3.  Tell me whatever you'd like me and the class to know (e.g., pronouns, circumstances, etc.)
-4.  How many popcorn kernels are in the jar?
+3.  How many popcorn kernels are in the jar?
     -   No changing your answer! *Academic integrity!*
 
 # The Great Popcorn Experiment! {.center background-color="#CC79A7"}
