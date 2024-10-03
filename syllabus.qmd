@@ -84,32 +84,20 @@ All required course readings are freely available online or will be provided by 
 
 ### Supplemental Learning
 
-The best way to learn to use `R` is to be exposed to and use R, so in this course we will use some supplemental content developed outside this course. Specifically, we will be using some RStudio Primers, and R-Bootcamp.
-
-#### RStudio Primers
-
-We will use some of the [primers](https://posit.cloud/learn/primers) offered and developed by RStudio, mostly around introducing `R` programming, data visualization, and data cleaning in `R`. You will be working through:
-
--   [Programming Basics](https://posit.cloud/learn/primers/1.2),
--   [Visualization Basics](https://posit.cloud/learn/primers/1.1),
--   [Working with Tibbles](https://posit.cloud/learn/primers/2.1), and
--   [Join Data Sets](https://posit.cloud/learn/primers/4.3).
-
-#### R-Bootcamp
-
-We will be using some content from the [R-Bootcamp](https://r-bootcamp.netlify.com/) course, developed by [Ted Laderas](https://laderast.github.io/) and [Jessica Minnier](http://jessicaminnier.com/), to supplement lectures. R-Bootcamp offers an introduction to manipulating and visualizing data in R using the tidyverse suite of packages. You will be working through:
-
--   [Chapter 2](https://r-bootcamp.netlify.app/chapter2), and
--   [Chapter 3](https://r-bootcamp.netlify.app/chapter3).
+The best way to learn to use `R` is to be exposed to and use R, so in this course we will use some supplemental content developed outside this course. 
 
 #### Codecademy
 
-We will also be using some content from the [Learn R](https://www.codecademy.com/learn/learn-r) course through [Codecademy](https://www.codecademy.com/). You will need to sign up for a free account. Codecademy can be used as a place for you to practice/grow the skills you learn in class, and a resource for your own exploration of topics not covered by this class if you so choose. You will be working through:
+We will be using some content from the [Learn R](https://www.codecademy.com/learn/learn-r) course through [Codecademy](https://www.codecademy.com/). You will need to sign up for a free account. Codecademy can be used as a place for you to practice/grow the skills you learn in class, and a resource for your own exploration of topics not covered by this class if you so choose. You will be working through the following.
 
--   [Introduction: Introduction to R Syntax](https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/exercises/why-r),
--   [Fundamentals of Data Visualization with ggplot2: Introduction to Visualization with R](https://www.codecademy.com/courses/learn-r/lessons/intro-visualization-ggplot2-r/exercises/layers-and-geoms),
--   [Learn R: Aggregates in R](https://www.codecademy.com/courses/learn-r/lessons/r-aggregates/exercises/column-statistics), and
--   [Learn R: Joining Tables in R](https://www.codecademy.com/courses/learn-r/lessons/r-multiple-tables/exercises/introduction)
+- [Codecademy: Introduction to R Syntax](https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/exercises/why-r)
+- [Codecademy: Introduction to Data Frames in R](https://www.codecademy.com/courses/learn-r/lessons/r-data-frames-intro)
+- [Codecademy: Introduction to Visualization with R](https://www.codecademy.com/courses/learn-r/lessons/intro-visualization-ggplot2-r/exercises/layers-and-geoms)
+- [Codecademy: Modifying Data Frames](https://www.codecademy.com/courses/learn-r/lessons/r-data-frames-modifying)
+- [Codecademy: Aggregates in R](https://www.codecademy.com/courses/learn-r/lessons/r-aggregates/exercises/column-statistics)
+- [Codecademy: Joining Tables in R](https://www.codecademy.com/courses/learn-r/lessons/r-multiple-tables/exercises/introduction)
+- [Codecademy: Data Cleaning in R](https://www.codecademy.com/courses/learn-r/lessons/r-data-cleaning)
+
 
 ### Helpful People/Groups
 
@@ -136,41 +124,31 @@ The [Posit community](https://forum.posit.co/) is similar to stackoverflow but i
 
 # Assignments (400 points total)
 
-As outlined in the [Weekly Schedule](schedule.qmd), most class meetings will include a homework assignment. Supplemental Learning platforms (RStudio Primers, R-Bootcamp, and Codecademy) will also be used as additional homework assignments, and the course will conclude with a final project. More detail about each is provided below.
+As outlined in the [Weekly Schedule](schedule.qmd), most class meetings will include a homework assignment. Supplemental Learning platforms (Codecademy) will also be used as additional homework assignments, and the course will conclude with a final project. More detail about each is provided below.
 
 ## Homework (200 points; 50%)
 
-### Homework Assignments (100 points)
+### Homework Assignments (130 points)
 
-There are 10 homework assignments during the course, which must be submitted to the instructor prior to the start of the following class. At 10 points each, these homeworks will be scored on a **"best honest effort"** basis, which generally implies zero or full credit (i.e., the assignment was or was not fully completed). However, many of the homework assignments require students complete specific portions before moving on to the next sections. If you find yourself stuck and unable to proceed, please contact the instructor for help rather than submitting incomplete work. Contacting the instructor is part of the **"best honest effort"**, and can result in full credit for an assignment even if the work is not fully complete. If the assignment is not complete, and the student has not contacted the instructor for help, it is likely to result is a score of zero.
+There are 10 homework assignments during the course, which must be submitted to the instructor prior to the start of the following class. At 13 points each, these homeworks will be scored on a **"best honest effort"** basis, which generally implies zero or full credit (i.e., the assignment was or was not fully completed). However, many of the homework assignments require students complete specific portions before moving on to the next sections. If you find yourself stuck and unable to proceed, please contact the instructor for help rather than submitting incomplete work. Contacting the instructor is part of the **"best honest effort"**, and can result in full credit for an assignment even if the work is not fully complete. If the assignment is not complete, and the student has not contacted the instructor for help, it is likely to result is a score of zero.
 
-If your homework is not submitted prior to the start of the following class without approval from the instructor, it will receive at most 5 points when/if it is submitted. If your homework is submitted more than two weeks late, it will receive zero points. 
+If your homework is not submitted prior to the start of the following class without approval from the instructor, it will receive at most 7 points when/if it is submitted. If your homework is submitted more than two weeks late, it will receive zero points. 
 
-### Supplemental Learning Platforms
+### Supplemental Learning Platforms (70 points)
 
-#### RStudio Primers, R-Bootcamp Chapters, & Codecademy-Learn R (100 points)
+#### Codecademy-Learn R 
 
-In addition to providing supplemental support, four RStudio Primers, two R-Bootcamp Chapters, and four Codecademy Lessons will be assigned and scored as part of homework at 10 points each. For the RStudio Primers and R-Bootcamp assignments you will submit a screenshot of a specific part of each lesson as evidence of completion (see below). For the Codecademy assignments you will submit a screenshot of the completed lesson with a black checkmark in a yellow circle on your [syllabus page](https://www.codecademy.com/learn/learn-r). This information is also in the [Weekly Schedule](schedule.qmd).
-
-##### **RStudio Primers Screenshot to submit (10 points each)**
-
--   [Programming Basics](https://posit.cloud/learn/primers/1.2): screenshot of **Types \> Character or object?**
--   [Visualization Basics](https://posit.cloud/learn/primers/1.1): screenshot of **A code template \> A graphing template**
--   [Working with Tibbles](https://posit.cloud/learn/primers/2.1): screenshot of **tidyverse \> Quiz**
--   [Join Data Sets](https://posit.cloud/learn/primers/4.3): screenshot of **Mutating Joins \> Test your comprehension**
-
-##### **R-Bootcamp Screenshots to submit (10 points each)**
-
--   [Chapter 2](https://r-bootcamp.netlify.app/chapter2): screenshot of **part 13**
--   [Chapter 3](https://r-bootcamp.netlify.app/chapter3): screenshot of **part 21**
--   [Chapter 4](https://r-bootcamp.netlify.app/chapter4): screenshot of **part 7**
+In addition to providing supplemental support, seven Codecademy Lessons will be assigned and scored as part of homework at 10 points each. For the Codecademy assignments you will submit a screenshot of the completed lesson with a black checkmark in a yellow circle on your [syllabus page](https://www.codecademy.com/learn/learn-r). This information is also in the [Weekly Schedule](schedule.qmd).
 
 ##### **Codecademy Screenshots to submit (10 points each)**
 
--   [Introduction: Introduction to R Syntax](https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/exercises/introduction): screenshot of **completion checkmark** <a href=./images/codecademy_complete.png>(example)</a>
--   [Fundamentals of Data Visualization with ggplot2: Introduction to Visualization with R](https://www.codecademy.com/courses/learn-r/lessons/intro-visualization-ggplot2-r/exercises/introduction): screenshot of **completion checkmark**
--   [Learn R: Aggregates in R](https://www.codecademy.com/courses/learn-r/lessons/r-aggregates/exercises/introduction): screenshot of **completion checkmark**
--   [Learn R: Joining Tables in R](https://www.codecademy.com/courses/learn-r/lessons/r-multiple-tables/exercises/introduction): screenshot of **completion checkmark**
+- [Codecademy: Introduction to R Syntax](https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/exercises/why-r): screenshot of **completion checkmark** <a href=./images/codecademy_complete.png>(example)</a>
+- [Codecademy: Introduction to Data Frames in R](https://www.codecademy.com/courses/learn-r/lessons/r-data-frames-intro): screenshot of **completion checkmark** <a href=./images/codecademy_complete.png>(example)</a>
+- [Codecademy: Introduction to Visualization with R](https://www.codecademy.com/courses/learn-r/lessons/intro-visualization-ggplot2-r/exercises/layers-and-geoms): screenshot of **completion checkmark** <a href=./images/codecademy_complete.png>(example)</a>
+- [Codecademy: Modifying Data Frames](https://www.codecademy.com/courses/learn-r/lessons/r-data-frames-modifying): screenshot of **completion checkmark** <a href=./images/codecademy_complete.png>(example)</a>
+- [Codecademy: Aggregates in R](https://www.codecademy.com/courses/learn-r/lessons/r-aggregates/exercises/column-statistics): screenshot of **completion checkmark** <a href=./images/codecademy_complete.png>(example)</a>
+- [Codecademy: Joining Tables in R](https://www.codecademy.com/courses/learn-r/lessons/r-multiple-tables/exercises/introduction): screenshot of **completion checkmark** <a href=./images/codecademy_complete.png>(example)</a>
+- [Codecademy: Data Cleaning in R](https://www.codecademy.com/courses/learn-r/lessons/r-data-cleaning): screenshot of **completion checkmark** <a href=./images/codecademy_complete.png>(example)</a>
 
 ## Final Project (200 points; 50%)
 
@@ -218,7 +196,7 @@ read_csv(here("rubrics", "final-project_rubric.csv")) %>%
 
 I will investigate the commits made by different authors when evaluating the final project. If it is obvious that one person did not utilize GitHub, and instead added all of their contributions through a single or only a few commits, I will dock points from that individual. There should be numerous commits by each author, and they should be roughly even in terms of contribution activity (which GitHub has metrics to track, both in terms of the number of commits as well as the number of lines modified).
 
-# Weekly Schedule (Topics, Assignments, and Readings)
+# [Weekly Schedule (Topics, Assignments, and Readings)](schedule.qmd)
 
 ### Week 1: Introduction
 
@@ -240,26 +218,7 @@ tbl_fx(2)
 ### Week 3: `{ggplot2}`
 
 ```{r}
-sched %>% 
-  slice(3) %>% 
-  select(data) %>% 
-  unnest(cols = c(data)) %>% 
-  mutate(Lecture = c("<i class='fa-solid fa-video'></i>", rep(NA_character_, 4))) %>% 
-  gt::gt() %>% 
-  fmt_markdown(columns = c(Reading, Slides, Lecture, Assigned, Due)) %>%   
-  sub_missing(
-    columns = everything(),
-    missing_text = ""
-  ) %>% 
-  cols_label(
-    Date = md("<i class='far fa-calendar'></i>")
-  ) %>% 
-  tab_footnote(
-    footnote = "Posted to Canvas : Files",
-    locations = cells_column_labels(
-      columns = Lecture)
-  ) %>% 
-  table_style()
+tbl_fx(3)
 ```
 
 ### Week 4: `{dplyr}`

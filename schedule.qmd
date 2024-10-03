@@ -64,26 +64,7 @@ tbl_fx(2)
 
 ```{r}
 
-sched %>% 
-  slice(3) %>% 
-  select(data) %>% 
-  unnest(cols = c(data)) %>% 
-  mutate(Lecture = c("<i class='fa-solid fa-video'></i>", rep(NA_character_, 4))) %>% 
-  gt::gt() %>% 
-  fmt_markdown(columns = c(Reading, Slides, Lecture, Assigned, Due)) %>%   
-  sub_missing(
-    columns = everything(),
-    missing_text = ""
-  ) %>% 
-  cols_label(
-    Date = md("<i class='far fa-calendar'></i>")
-  ) %>% 
-  tab_footnote(
-    footnote = "Posted to Canvas : Files",
-    locations = cells_column_labels(
-      columns = Lecture)
-  ) %>% 
-  table_style()
+tbl_fx(3)
 
 ```
 

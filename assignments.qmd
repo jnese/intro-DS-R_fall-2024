@@ -52,13 +52,13 @@ dta <- read_xlsx(here::here("nopublish", "schedule.xlsx"), sheet = "assignments"
   ) 
 ```
 
-As outlined in the [Syllabus](syllabus.qmd), most class meetings will include a homework assignment. Supplemental Learning platforms (RStudio Primers, R-Bootcamp, and Codecademy) will also be used as additional homework assignments, and the course will conclude with a final project. More detail about each is provided below. <br> <br>
+As outlined in the [Syllabus](syllabus.qmd), most class meetings will include a homework assignment. Supplemental Learning platforms (Codecademy) will also be used as additional homework assignments, and the course will conclude with a final project. More detail about each is provided below. <br> <br>
 
 ```{r}
 tibble::tribble(
      ~Assignments, ~Points,
-      "Homeworks",    100L,
-  "Supplementals",    100L,
+      "Homeworks",    130L,
+  "Supplementals",    70L,
   "Final Project",    200L,
           "Total",    400L
   ) %>% 
@@ -68,7 +68,7 @@ tibble::tribble(
 
 ## Homework Assignments
 
-Each homework assignment is worth 10 points, and require your **"best honest effort"**, which includes contacting me if you need help. Please do not turn in partial work. Instead, please ask for help! For the homework assignments, if you are stuck for more than 10-15 minutes, reach out for help. Don't spend any more than 15 minues before reaching out. You can ask your classmates, the internet, or me! <br> <br>
+Each homework assignment is worth 10 points, and require your **"best honest effort"**, which includes contacting me if you need help. Please do not turn in partial work. Instead, please ask for help! For the homework assignments, if you are stuck for more than 10-15 minutes, reach out for help. Don't spend any more than 15 minutes before reaching out. You can ask your classmates, the internet, or me! <br> <br>
 
 ```{r}
 dta %>%

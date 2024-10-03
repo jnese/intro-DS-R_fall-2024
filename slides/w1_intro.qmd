@@ -347,7 +347,7 @@ Credit: Dr. Rhonda Nese
 
 ![https://r4ds.hadley.nz/](https://r4ds.hadley.nz/cover.jpg)
 
-## RStudio Primers, R-Bootcamp, & Codecademy
+## Codecademy
 
 -   Supplemental learning opportunities that I hope are helpful
 -   Part of your "Supplemental Learning" grade
@@ -375,11 +375,9 @@ Credit: Dr. Rhonda Nese
 
 **Homework (200 points)**
 
--   Homeworks -- 10 at 10 points each (100 points)
--   Supplemental Learning - 10 at 10 points each (100 points)
-    -   RStudio Primers $\times$ 4
-    -   R-Bootcamp $\times$ 2
-    -   Codeacademy $\times$ 4
+-   Homeworks -- 10 at 13 points each (130 points)
+-   Supplemental Learning - 7 at 10 points each (70 points)
+    -   Codeacademy $\times$ 7
     -   Screenshot of specific part of "Supplemental Learning"
 
 **Final Project (200 points)**
@@ -414,7 +412,7 @@ read_csv(here("rubrics", "grades_rubric.csv")) %>%
     -   Contacting the instructor is part of the "best honest effort" and can result in full credit for an assignment even if the work is not fully complete
 -   **If the assignment is not complete, and the student has not contacted the instructor for help, it is likely to result is a partial credit score or a zero**
 -   Homeworks are generally due the class after they are assigned, before class starts
-    - 1 week late: 5 points (max)
+    - 1 week late: 7 points (max)
     - 2 weeks late: 0 points
 
 ## Final Project {.smaller}
@@ -1224,5 +1222,4 @@ slice(arrange(select(filter(gss_cat, relig == "Buddhism", age > 55), age, partyi
 
     -   [Installs](https://jnese.github.io/intro-DS-R_fall-2024/install.qmd)
     -   [A Quick Tour of the RStudio IDE](http://milton-the-cat.rocks/learnr/r/r_getting_started/#section-a-quick-tour-of-r-studio)
-    -   [RStudio Primer: Programming basics](https://posit.cloud/learn/primers/1.2)
     -   [Codecademy: Introduction to R Syntax](https://www.codecademy.com/courses/learn-r/lessons/introduction-to-r/exercises/why-r)
