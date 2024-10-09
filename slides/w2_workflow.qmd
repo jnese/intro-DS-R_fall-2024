@@ -40,12 +40,12 @@ Let's give Aden a hex sticker!
 
 ## Housekeeping
 
-Screenshots
-
-- Something to show you completed the Codecademy lesson in its entirety
-- Only responsible for the free Lessons
+- Slides as pdf
+- Screenshots
+  - Something to show you completed the Codecademy lesson in its entirety
+  - Only responsible for the free Lessons
     
-![](https://jnese.github.io/intro-DS-R_fall-2024/slides/images/codecademy_complete.png)
+![](https://jnese.github.io/intro-DS-R_fall-2024/slides/images/codecademy_complete.png){width=30%}
 
 # Workflow
 
@@ -248,7 +248,7 @@ Let's make two folder in different ways (either is fine)
 
 Let's save the following data files into our project "data" folder
 
-(*go [here](https://jnese.github.io/intro-DS-R_fall-2023/data_list.html) to download*)
+(*go [here](https://jnese.github.io/intro-DS-R_fall-2024/data_list.html) to download*)
 
 1.  ecls-k_samp.sav
 2.  Fatality.txt
