@@ -75,7 +75,7 @@ Week 3
 * Copy and paste data to and from `R`
 * VERY handy!
 * Good for [reprex](https://github.com/tidyverse/reprex) 
-  + posting questions on Rstudio Community or stackoverflow
+  + posting questions on [Posit Community](https://forum.posit.co/) or stackoverflow
 
 [**demo**]{style="color:#D55E00;"}
 
@@ -249,7 +249,7 @@ It's ready for you to add some `geom`etric <ins>layers</ins>...what should we ad
 
 ```{r}
 #| output-location: fragment
-#| code-line-numbers: "|2"
+#| code-line-numbers: "|3"
 
 penguins %>% 
   ggplot(aes(bill_length_mm, body_mass_g)) +
@@ -279,7 +279,7 @@ How would you find out about changing the color of the points?
 
 ```{r peng-2}
 #| output-location: fragment
-#| code-line-numbers: "|2"
+#| code-line-numbers: "|3"
 
 penguins %>% 
   ggplot(aes(bill_length_mm, body_mass_g)) +
@@ -294,7 +294,7 @@ Let's add a smoothed line with `geom_smooth()`
 ```{r}
 #| output-location: fragment
 #| message: false
-#| code-line-numbers: "|3"
+#| code-line-numbers: "|4"
 
 penguins %>% 
   ggplot(aes(bill_length_mm, body_mass_g)) +
@@ -317,7 +317,7 @@ penguins %>%
   geom_smooth()
 ```
 
-*Note*: This is **not** the same as `geom_line()`. We are fitting a line of best fit with `geom_smooth()`
+*Note*: This is **NOT** the same as `geom_line()`. We are fitting a line of best fit with `geom_smooth()`
 
 ## You try
 
@@ -371,7 +371,7 @@ Let’s check the data again (`head()`) and the "species" variable (`table()`)
 ```{r peng-5}
 #| message: false
 #| output-location: fragment
-#| code-line-numbers: "|2"
+#| code-line-numbers: "|3"
 
 penguins %>% 
   ggplot(aes(bill_length_mm, body_mass_g)) +
@@ -393,8 +393,8 @@ penguins %>%
 
 . . .
 
-* color names/hex codes are in quotes **NOT** in the `aes()`
-* variable names are in the `aes()` **NOT** in quotes
+* <ins>color names/hex codes are in quotes</ins> **NOT** in the `aes()`
+* <ins>variable names are in the `aes()`</ins> **NOT** in quotes
 * `aes()` is where you map to your data!
 
 ## Conditional flow through layers {.smaller}
@@ -473,6 +473,7 @@ Kind of helpful message here.
   + `theme_minimal()` is my favorite
 * Check out the [`{ggthemes}`](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) package for a lot of alternatives
   + These days I often use the [`colorblind`](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/colorblind/) theme for discrete values in my plots
+  + I also like the [`{MetBrewer}`](https://github.com/BlakeRMills/MetBrewer) package, inspired by art in the Met
 * Check out the [`{ggthemeassist}`](https://github.com/calligross/ggthemeassist) add-in
 
 # More themes
@@ -506,7 +507,7 @@ penguins %>%
 ##
 
 ```{r}
-#| code-line-numbers: "3"
+#| code-line-numbers: "4"
 penguins %>% 
   ggplot(aes(bill_length_mm, body_mass_g)) +
   geom_point(color = "black") + 
@@ -516,7 +517,7 @@ penguins %>%
 ##
 
 ```{r}
-#| code-line-numbers: "4"
+#| code-line-numbers: "5"
 
 penguins %>% 
   ggplot(aes(bill_length_mm, body_mass_g)) +
@@ -528,7 +529,7 @@ penguins %>%
 ##
 
 ```{r}
-#| code-line-numbers: "5"
+#| code-line-numbers: "6"
 
 penguins %>% 
   ggplot(aes(bill_length_mm, body_mass_g)) +
@@ -543,7 +544,7 @@ penguins %>%
 `{gghighlight}` varying flexibility
 
 ```{r}
-#| code-line-numbers: "|3"
+#| code-line-numbers: "|4"
 
 penguins %>% 
   ggplot(aes(bill_length_mm, body_mass_g)) +
@@ -554,20 +555,20 @@ penguins %>%
 
 ## Line plots
 
-* When should you use line plots instead of smooths?
+When should you use line plots instead of smooths?
 
 . . .
 
-    + usually when time is involved
+* *Usually when time is involved*
 
 . . .
 
 
-* What are some good candidate data for line plots?
+What are some good candidate data for line plots?
 
 . . .
 
-    + observed versus model-implied (estimated)
+* *Oserved versus model-implied (estimated)*
 
 ## `geom_line()`
 
@@ -618,7 +619,7 @@ It would work better on a plot with fewer time points, but you get the idea
 
 ```{r axes-1}
 #| output-location: fragment
-#| code-line-numbers: "|4|5"
+#| code-line-numbers: "|5|6"
 
 economics %>% 
   ggplot(aes(date, unemploy)) +
@@ -632,7 +633,7 @@ economics %>%
 
 ```{r axes-2}
 #| output-location: fragment
-#| code-line-numbers: "|6"
+#| code-line-numbers: "|7"
 
 economics %>% 
   ggplot(aes(date, unemploy)) +
@@ -647,7 +648,7 @@ economics %>%
 
 ```{r axes-3}
 #| output-location: fragment
-#| code-line-numbers: "|7"
+#| code-line-numbers: "|8"
 
 economics %>% 
   ggplot(aes(date, unemploy)) +
@@ -663,7 +664,7 @@ economics %>%
 
 ```{r axes-4}
 #| output-location: fragment
-#| code-line-numbers: "|8"
+#| code-line-numbers: "|9"
 
 economics %>% 
   ggplot(aes(date, unemploy)) +
@@ -680,7 +681,7 @@ economics %>%
 
 ```{r axes-5}
 #| output-location: fragment
-#| code-line-numbers: "|9"
+#| code-line-numbers: "|10"
 
 economics %>% 
   ggplot(aes(date, unemploy)) +
@@ -698,7 +699,7 @@ economics %>%
 
 ```{r axes-6}
 #| output-location: fragment
-#| code-line-numbers: "|1,6"
+#| code-line-numbers: "|2,7"
 
 penguins %>% 
   ggplot(aes(bill_length_mm, body_mass_g, color = species)) + # 'color = '
@@ -724,7 +725,7 @@ penguins %>%
 
 ```{r facet-1}
 #| output-location: fragment
-#| code-line-numbers: "|4"
+#| code-line-numbers: "|5"
 
 penguins %>% 
   ggplot(aes(bill_length_mm, body_mass_g)) + 
@@ -754,7 +755,7 @@ two variables (like a matrix)
 ```{r}
 #| message: false
 #| warning: false
-#| code-line-numbers: "|4"
+#| code-line-numbers: "|5"
 
 penguins %>% 
   ggplot(aes(bill_length_mm, body_mass_g)) + 
@@ -767,7 +768,7 @@ penguins %>%
 
 ```{r}
 #| eval: false
-#| code-line-numbers: "|4"
+#| code-line-numbers: "|5"
 
 penguins %>% 
   ggplot(aes(bill_length_mm, body_mass_g)) + 
@@ -780,7 +781,7 @@ penguins %>%
 
 ```{r}
 #| eval: false
-#| code-line-numbers: "|4"
+#| code-line-numbers: "|5"
 
 penguins %>% 
   ggplot(aes(bill_length_mm, body_mass_g)) + 
@@ -824,7 +825,7 @@ pc %>%
 ## Viridis
 
 ```{r}
-#| code-line-numbers: "|3"
+#| code-line-numbers: "|4"
 
 pc %>% 
   ggplot(aes(row, col, fill = cor)) +
@@ -867,7 +868,7 @@ grad %>%
 Add some transparency – perhaps this looks nicer
 
 ```{r, fig.height=4, fig.width=8}
-#| code-line-numbers: "2"
+#| code-line-numbers: "3"
 
 grad %>% 
   ggplot(aes(x = grad_total)) +
@@ -918,9 +919,9 @@ grad %>%
 
 ## How would we change the ~~color~~ fill of this plot?
 
-. . .
-
 ```{r, fig.height=4, fig.width=8}
+#| output-location: fragment
+
 grad %>% 
   ggplot(aes(x = grad_total)) +
   geom_histogram(alpha = 0.7, fill = "magenta")
@@ -931,9 +932,9 @@ grad %>%
 What if we wanted different colors by a variable -- *major_category*
 
 ```{r,fig.height=4, fig.width=8}
-grad %>% 
-  ggplot(aes(x = grad_total)) +
-  geom_histogram(aes(fill = major_category), alpha = 0.7)
+penguins %>% 
+  ggplot(aes(x = body_mass_g)) +
+  geom_histogram(aes(fill = species), alpha = 0.7)
 ```
 
 ## Density plot
@@ -948,31 +949,28 @@ Alternative representation of distribution
 `geom_density()`
 
 ```{r, fig.height=4, fig.width=8}
-grad %>% 
-  ggplot(aes(x = grad_total)) +
+penguins %>% 
+  ggplot(aes(x = body_mass_g)) +
   geom_density()
 ```
 
 ## Density plot
 
-Now let’s fill by *major_category*
+Now let’s fill by *species*
 
 ```{r, fig.height=4, fig.width=8}
-grad %>% 
-  ggplot(aes(x = grad_total)) +
-  geom_density(aes(fill = major_category), alpha = 0.2)
+penguins %>% 
+  ggplot(aes(x = body_mass_g)) + 
+  geom_density(aes(fill = species), alpha = 0.2)
 ```
-
-::: {.fragment}
-Not a good plot, just an example
-:::
 
 ## Possible alternative? `facet_wrap`
 
 ```{r, fig.height=6, fig.width=10}
-grad %>% ggplot(aes(x = grad_total)) +
+penguins %>% 
+  ggplot(aes(x = body_mass_g)) + 
   geom_density(alpha = 0.2) +
-  facet_wrap(~major_category) #<<
+  facet_wrap(~species)
 ```
 
 ## Even better
@@ -982,23 +980,17 @@ density ridges `{ggridges}`
 ```{r, fig.height=4, fig.width=8}
 library(ggridges)
 
-grad %>% 
-  ggplot(aes(x = grad_total, y = major_category)) +
-  geom_density_ridges()
-```
-
-## Density  Ridges
-
-```{r}
 penguins %>% 
-  ggplot(aes(bill_length_mm , species)) +
+  ggplot(aes(x = bill_length_mm, y = species)) + 
   geom_density_ridges()
+
 ```
+
 
 ## `fill` 
 
 ```{r}
-#| code-line-numbers: "2"
+#| code-line-numbers: "3"
 
 penguins %>% 
   ggplot(aes(bill_length_mm , species)) +
@@ -1008,7 +1000,7 @@ penguins %>%
 ## Add transparency for clarity
 
 ```{r}
-#| code-line-numbers: "2"
+#| code-line-numbers: "3"
 
 penguins %>% 
   ggplot(aes(bill_length_mm , species)) +
@@ -1021,7 +1013,7 @@ penguins %>%
 * prints well in gray scale
 
 ```{r, fig.height=5}
-#| code-line-numbers: "|3"
+#| code-line-numbers: "|4"
 
 penguins %>% 
   ggplot(aes(bill_length_mm , species)) +
@@ -1032,7 +1024,7 @@ penguins %>%
 ## Same fill function, different "`option`"
 
 ```{r, fig.height=4, fig.width=8}
-#| code-line-numbers: "|3"
+#| code-line-numbers: "|4"
 
 penguins %>% 
   ggplot(aes(bill_length_mm , species)) +
@@ -1100,6 +1092,8 @@ head(mpg)
 * expects numbers in your data
 * if you want the heights of the bars to represent values in the data
 * leaves the data as is
+<br>
+<br>
 * uses `stat_identity()` by default
 
 :::
@@ -1266,7 +1260,7 @@ ecls_smry %>%
 ## Grouped bar plot
 
 ```{r, fig.height=4, fig.width=10}
-#| code-line-numbers: "|3"
+#| code-line-numbers: "|4"
 
 ecls_smry %>% 
   ggplot(aes(ethnic, t1r_mean)) +
@@ -1279,7 +1273,7 @@ ecls_smry %>%
 I have to look [this](https://stackoverflow.com/questions/1330989/rotating-and-spacing-axis-labels-in-ggplot2) up *every* time
 
 ```{r, fig.height=6, fig.width=10}
-#| code-line-numbers: "|4"
+#| code-line-numbers: "|5"
 
 ecls_smry %>% 
   ggplot(aes(ethnic, t1r_mean)) +
@@ -1293,7 +1287,7 @@ ecls_smry %>%
 `coord_flip()`
 
 ```{r, fig.height=4, fig.width=10}
-#| code-line-numbers: "|4"
+#| code-line-numbers: "|5"
 
 ecls_smry %>% 
   ggplot(aes(ethnic, t1r_mean)) +
@@ -1359,8 +1353,7 @@ For each of the following, produce a separate plot
 * Reading
   + [R4DS(2e) 4](https://r4ds.hadley.nz/data-transform)
 * Supplemental Learning
-  + [RStudio Primer: Working with Tibbles](https://posit.cloud/learn/primers/2.1)
-  + [Rbootcamp: Ch 3](https://r-bootcamp.netlify.app/chapter3)
+  + [Codecademy: Modifying Data Frames](https://www.codecademy.com/courses/learn-r/lessons/r-data-frames-modifying)
   + [Codecademy: Aggregates in R](https://www.codecademy.com/courses/learn-r/lessons/r-aggregates/exercises/column-statistics)
 * Homework
   + **Homework 2**

@@ -690,7 +690,7 @@
     "href": "slides/w3_ggplot2.html#datapasta",
     "title": "Week 3: Data Visualization",
     "section": "{datapasta}",
-    "text": "{datapasta}\n\nCopy and paste data to and from R\nVERY handy!\nGood for reprex\n\nposting questions on Rstudio Community or stackoverflow\n\n\ndemo"
+    "text": "{datapasta}\n\nCopy and paste data to and from R\nVERY handy!\nGood for reprex\n\nposting questions on Posit Community or stackoverflow\n\n\ndemo"
   },
   {
     "objectID": "slides/w3_ggplot2.html#section",
@@ -816,7 +816,7 @@
     "href": "slides/w3_ggplot2.html#add-another-layer-1",
     "title": "Week 3: Data Visualization",
     "section": "Add another layer",
-    "text": "Add another layer\nLet’s add a smoothed line with geom_smooth()\n\npenguins %&gt;% \n  ggplot(aes(bill_length_mm, body_mass_g)) +\n  geom_point(color = \"magenta\") + \n  geom_smooth()\n\nNote: This is not the same as geom_line(). We are fitting a line of best fit with geom_smooth()"
+    "text": "Add another layer\nLet’s add a smoothed line with geom_smooth()\n\npenguins %&gt;% \n  ggplot(aes(bill_length_mm, body_mass_g)) +\n  geom_point(color = \"magenta\") + \n  geom_smooth()\n\nNote: This is NOT the same as geom_line(). We are fitting a line of best fit with geom_smooth()"
   },
   {
     "objectID": "slides/w3_ggplot2.html#you-try",
@@ -851,7 +851,7 @@
     "href": "slides/w3_ggplot2.html#color-global-vs.-conditional-1",
     "title": "Week 3: Data Visualization",
     "section": "color: global vs. conditional",
-    "text": "color: global vs. conditional\n\npenguins %&gt;% \n  ggplot(aes(bill_length_mm, body_mass_g)) +\n  geom_point(aes(color = species))\n\n\nWhen we did geom_point(color = \"magenta\") we put quotes around the color\nWhy now is “species” not in quotes?\n\n\n\ncolor names/hex codes are in quotes NOT in the aes()\nvariable names are in the aes() NOT in quotes\naes() is where you map to your data!"
+    "text": "color: global vs. conditional\n\npenguins %&gt;% \n  ggplot(aes(bill_length_mm, body_mass_g)) +\n  geom_point(aes(color = species))\n\n\nWhen we did geom_point(color = \"magenta\") we put quotes around the color\nWhy now is “species” not in quotes?\n\n\n\n\ncolor names/hex codes are in quotes\n\nNOT in the aes()\n\nvariable names are in the aes()\n\nNOT in quotes\naes() is where you map to your data!"
   },
   {
     "objectID": "slides/w3_ggplot2.html#conditional-flow-through-layers",
@@ -879,7 +879,7 @@
     "href": "slides/w3_ggplot2.html#lets-talk-themes",
     "title": "Week 3: Data Visualization",
     "section": "Let’s talk themes",
-    "text": "Let’s talk themes\n\nThe default is theme_gray()\n\nI don’t like it\n\nBut there are a lot of build-in alternative in {ggplot2}\n\ntheme_minimal() is my favorite\n\nCheck out the {ggthemes} package for a lot of alternatives\n\nThese days I often use the colorblind theme for discrete values in my plots\n\nCheck out the {ggthemeassist} add-in"
+    "text": "Let’s talk themes\n\nThe default is theme_gray()\n\nI don’t like it\n\nBut there are a lot of build-in alternative in {ggplot2}\n\ntheme_minimal() is my favorite\n\nCheck out the {ggthemes} package for a lot of alternatives\n\nThese days I often use the colorblind theme for discrete values in my plots\nI also like the {MetBrewer} package, inspired by art in the Met\n\nCheck out the {ggthemeassist} add-in"
   },
   {
     "objectID": "slides/w3_ggplot2.html#get-a-little-fancy",
@@ -928,7 +928,7 @@
     "href": "slides/w3_ggplot2.html#line-plots",
     "title": "Week 3: Data Visualization",
     "section": "Line plots",
-    "text": "Line plots\n\nWhen should you use line plots instead of smooths?\n\n\n+ usually when time is involved\n\n\n\nWhat are some good candidate data for line plots?\n\n\n\n+ observed versus model-implied (estimated)"
+    "text": "Line plots\nWhen should you use line plots instead of smooths?\n\n\nUsually when time is involved\n\n\n\nWhat are some good candidate data for line plots?\n\n\n\nOserved versus model-implied (estimated)"
   },
   {
     "objectID": "slides/w3_ggplot2.html#geom_line",
@@ -1103,14 +1103,14 @@
     "href": "slides/w3_ggplot2.html#how-would-we-change-the-color-fill-of-this-plot",
     "title": "Week 3: Data Visualization",
     "section": "How would we change the color fill of this plot?",
-    "text": "How would we change the color fill of this plot?\n\n\ngrad %&gt;% \n  ggplot(aes(x = grad_total)) +\n  geom_histogram(alpha = 0.7, fill = \"magenta\")"
+    "text": "How would we change the color fill of this plot?\n\ngrad %&gt;% \n  ggplot(aes(x = grad_total)) +\n  geom_histogram(alpha = 0.7, fill = \"magenta\")"
   },
   {
     "objectID": "slides/w3_ggplot2.html#color-by-variable",
     "href": "slides/w3_ggplot2.html#color-by-variable",
     "title": "Week 3: Data Visualization",
     "section": "Color by variable",
-    "text": "Color by variable\nWhat if we wanted different colors by a variable – major_category\n\ngrad %&gt;% \n  ggplot(aes(x = grad_total)) +\n  geom_histogram(aes(fill = major_category), alpha = 0.7)"
+    "text": "Color by variable\nWhat if we wanted different colors by a variable – major_category\n\npenguins %&gt;% \n  ggplot(aes(x = body_mass_g)) +\n  geom_histogram(aes(fill = species), alpha = 0.7)"
   },
   {
     "objectID": "slides/w3_ggplot2.html#density-plot",
@@ -1124,28 +1124,28 @@
     "href": "slides/w3_ggplot2.html#density-plot-1",
     "title": "Week 3: Data Visualization",
     "section": "Density plot",
-    "text": "Density plot\ngeom_density()\n\ngrad %&gt;% \n  ggplot(aes(x = grad_total)) +\n  geom_density()"
+    "text": "Density plot\ngeom_density()\n\npenguins %&gt;% \n  ggplot(aes(x = body_mass_g)) +\n  geom_density()"
   },
   {
     "objectID": "slides/w3_ggplot2.html#density-plot-2",
     "href": "slides/w3_ggplot2.html#density-plot-2",
     "title": "Week 3: Data Visualization",
     "section": "Density plot",
-    "text": "Density plot\nNow let’s fill by major_category\n\ngrad %&gt;% \n  ggplot(aes(x = grad_total)) +\n  geom_density(aes(fill = major_category), alpha = 0.2)\n\n\n\nNot a good plot, just an example"
+    "text": "Density plot\nNow let’s fill by species\n\npenguins %&gt;% \n  ggplot(aes(x = body_mass_g)) + \n  geom_density(aes(fill = species), alpha = 0.2)"
   },
   {
     "objectID": "slides/w3_ggplot2.html#possible-alternative-facet_wrap",
     "href": "slides/w3_ggplot2.html#possible-alternative-facet_wrap",
     "title": "Week 3: Data Visualization",
     "section": "Possible alternative? facet_wrap",
-    "text": "Possible alternative? facet_wrap\n\ngrad %&gt;% ggplot(aes(x = grad_total)) +\n  geom_density(alpha = 0.2) +\n  facet_wrap(~major_category) #&lt;&lt;"
+    "text": "Possible alternative? facet_wrap\n\npenguins %&gt;% \n  ggplot(aes(x = body_mass_g)) + \n  geom_density(alpha = 0.2) +\n  facet_wrap(~species)"
   },
   {
     "objectID": "slides/w3_ggplot2.html#even-better",
     "href": "slides/w3_ggplot2.html#even-better",
     "title": "Week 3: Data Visualization",
     "section": "Even better",
-    "text": "Even better\ndensity ridges {ggridges}\n\nlibrary(ggridges)\n\ngrad %&gt;% \n  ggplot(aes(x = grad_total, y = major_category)) +\n  geom_density_ridges()"
+    "text": "Even better\ndensity ridges {ggridges}\n\nlibrary(ggridges)\n\npenguins %&gt;% \n  ggplot(aes(x = bill_length_mm, y = species)) + \n  geom_density_ridges()"
   },
   {
     "objectID": "slides/w3_ggplot2.html#density-ridges",
@@ -1215,7 +1215,7 @@
     "href": "slides/w3_ggplot2.html#barcol-charts",
     "title": "Week 3: Data Visualization",
     "section": "Bar/Col Charts",
-    "text": "Bar/Col Charts\n\n\ngeom_bar()\n\nexpects x OR y\ncounts rows\nif you want to count the number of cases at each x or y position\nmakes the height of the bar proportional to the number of cases in each group\nuses stat_count() by default\n\n\ngeom_col()\n\nexpects x AND y\nexpects numbers in your data\nif you want the heights of the bars to represent values in the data\nleaves the data as is\nuses stat_identity() by default"
+    "text": "Bar/Col Charts\n\n\ngeom_bar()\n\nexpects x OR y\ncounts rows\nif you want to count the number of cases at each x or y position\nmakes the height of the bar proportional to the number of cases in each group\nuses stat_count() by default\n\n\ngeom_col()\n\nexpects x AND y\nexpects numbers in your data\nif you want the heights of the bars to represent values in the data\nleaves the data as is  \nuses stat_identity() by default"
   },
   {
     "objectID": "slides/w3_ggplot2.html#geom_bar",
@@ -1334,6 +1334,6 @@
     "href": "slides/w3_ggplot2.html#before-next-class",
     "title": "Week 3: Data Visualization",
     "section": "Before next class",
-    "text": "Before next class\n\nReading\n\nR4DS(2e) 4\n\nSupplemental Learning\n\nRStudio Primer: Working with Tibbles\nRbootcamp: Ch 3\nCodecademy: Aggregates in R\n\nHomework\n\nHomework 2\nHomework 3"
+    "text": "Before next class\n\nReading\n\nR4DS(2e) 4\n\nSupplemental Learning\n\nCodecademy: Modifying Data Frames\nCodecademy: Aggregates in R\n\nHomework\n\nHomework 2\nHomework 3"
   }
 ]
