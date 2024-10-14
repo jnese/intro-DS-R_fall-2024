@@ -39,6 +39,10 @@ library(kableExtra)
 * Homework 1 due today
 * Groups due today
   - I need emails from everyone by 5pm (if you have not already emailed)
+  
+# Homework 1
+
+Review
 
 # Data Visualization with {ggplot2} 
 
