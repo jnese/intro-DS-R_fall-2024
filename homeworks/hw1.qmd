@@ -14,7 +14,7 @@ execute:
 * Download the following two datasets into the project *data* folder.
   + *sesame13.sav*
   + *star.csv*
-* Save your lab_1.qmd file in your *scripts* folder
+* Save your hw1.qmd file in your *scripts* folder
 
 ### Loading Packages
 
