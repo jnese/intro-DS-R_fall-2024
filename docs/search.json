@@ -1335,5 +1335,12 @@
     "title": "Week 3: Data Visualization",
     "section": "Before next class",
     "text": "Before next class\n\nReading\n\nR4DS(2e) 4\n\nSupplemental Learning\n\nCodecademy: Modifying Data Frames\nCodecademy: Aggregates in R\n\nHomework\n\nHomework 2\nHomework 3"
+  },
+  {
+    "objectID": "homeworks/hw3.html",
+    "href": "homeworks/hw3.html",
+    "title": "Homework 3",
+    "section": "",
+    "text": "Load the {tidyverse}, {ggridges}, and {ISLR} packages in the first chunk. (Install any if needed.)\nRun the following lines of code to read about and view the data we’ll use for this lab.\n\n\nComment out lines 31 and 32 after you run it, but putting a # at the start of the line.\n\n\nstr(gss_cat)\nView(gss_cat)\n?gss_cat\n\n\nUse {ggplot2} to create a histogram of tvhours. The plot should:\n\n\nInclude a small amount of transparency so grid lines are visible under the histogram.\nBe a different color than the default\nInclude meaningful axis labels\nHave a title and a subtitle\n\n\nCreate a ridgeline density plot of age by partyid. Do you notice any strong differences by party affiliation?\n\n\nModify the plot from Question 4 to produce separate ridgeline densities by race within one plot. Do you see any patterns?\n\n\nReplicate the plots from Questions 4 and 5, but this time displaying the relations with boxplots (i.e., one boxplot from Question 4 and one boxplot for Question 5 in the chunk below). Try using coord_flip. Which do you think displays the relation more clearly? Why?\n\n\nRun the following lines of code to get a correlation table as a data frame.\n\n\ncor_tbl &lt;- Hitters %&gt;% \n  select_if(is.numeric) %&gt;% \n  cor(use = \"pairwise.complete.obs\") %&gt;% \n  as.data.frame() %&gt;% \n  mutate(row = row.names(.)) %&gt;% \n  gather(col, cor, -row) %&gt;% \n  as_tibble()\n\nUse the correlation table to create a heatmap using geom_tile. Change the colors to one of the four viridis palettes. What does the heatmap help you see?"
   }
 ]

@@ -1,0 +1,88 @@
+---
+title: "Homework 3"
+author: "Your Name Here"
+format: html
+execute: 
+  error: true
+  message: false
+  warning: false
+---
+
+```{r}
+#| label: packages
+#| include: false
+
+library(tidyverse)
+library(ggridges)
+library(ISLR)
+```
+
+1.  Load the `{tidyverse}`, `{ggridges}`, and `{ISLR}` packages in the first chunk. (Install any if needed.)
+
+2.  Run the following lines of code to read about and view the data we'll use for this lab.
+
+-   Comment out lines 31 and 32 after you run it, but putting a `#` at the start of the line.
+
+```{r}
+#| label: gsscat
+#| eval: false
+
+str(gss_cat)
+View(gss_cat)
+?gss_cat
+```
+
+3.  Use `{ggplot2}` to create a histogram of `tvhours`. The plot should:
+
+-   Include a small amount of transparency so grid lines are visible under the histogram.
+-   Be a different color than the default
+-   Include meaningful axis labels
+-   Have a title and a subtitle
+
+```{r}
+#| label: question-3
+
+```
+
+4.  Create a ridgeline density plot of `age` by `partyid`. Do you notice any strong differences by party affiliation?
+
+```{r}
+#| label: question-4
+
+```
+
+5.  Modify the plot from Question 4 to produce separate ridgeline densities by `race` within one plot. Do you see any patterns?
+
+```{r}
+#| label: question-5
+
+```
+
+6.  Replicate the plots from Questions 4 and 5, but this time displaying the relations with boxplots (i.e., one boxplot from Question 4 and one boxplot for Question 5 in the chunk below). Try using `coord_flip`. Which do you think displays the relation more clearly? Why?
+
+```{r}
+#| label: boxplots
+```
+
+7.  Run the following lines of code to get a correlation table as a data frame.
+
+```{r}
+#| label: corr-mat-df
+
+cor_tbl <- Hitters %>% 
+  select_if(is.numeric) %>% 
+  cor(use = "pairwise.complete.obs") %>% 
+  as.data.frame() %>% 
+  mutate(row = row.names(.)) %>% 
+  gather(col, cor, -row) %>% 
+  as_tibble()
+```
+
+Use the correlation table to create a heatmap using `geom_tile`. Change the colors to one of the four `viridis` palettes. What does the heatmap help you see?
+
+```{r}
+#| label: heatmap
+
+```
+
+

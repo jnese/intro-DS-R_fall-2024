@@ -1,0 +1,15 @@
+{
+  "hash": "303d18902520e03b89a85e5d6472f5ba",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Homework 3\"\nauthor: \"Your Name Here\"\nformat: html\nexecute: \n  error: true\n  message: false\n  warning: false\n---\n\n\n\n\n1.  Load the `{tidyverse}`, `{ggridges}`, and `{ISLR}` packages in the first chunk. (Install any if needed.)\n\n2.  Run the following lines of code to read about and view the data we'll use for this lab.\n\n-   Comment out lines 31 and 32 after you run it, but putting a `#` at the start of the line.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nstr(gss_cat)\nView(gss_cat)\n?gss_cat\n```\n:::\n\n\n3.  Use `{ggplot2}` to create a histogram of `tvhours`. The plot should:\n\n-   Include a small amount of transparency so grid lines are visible under the histogram.\n-   Be a different color than the default\n-   Include meaningful axis labels\n-   Have a title and a subtitle\n\n\n::: {.cell}\n\n:::\n\n\n4.  Create a ridgeline density plot of `age` by `partyid`. Do you notice any strong differences by party affiliation?\n\n\n::: {.cell}\n\n:::\n\n\n5.  Modify the plot from Question 4 to produce separate ridgeline densities by `race` within one plot. Do you see any patterns?\n\n\n::: {.cell}\n\n:::\n\n\n6.  Replicate the plots from Questions 4 and 5, but this time displaying the relations with boxplots (i.e., one boxplot from Question 4 and one boxplot for Question 5 in the chunk below). Try using `coord_flip`. Which do you think displays the relation more clearly? Why?\n\n\n::: {.cell}\n\n:::\n\n\n7.  Run the following lines of code to get a correlation table as a data frame.\n\n\n::: {.cell}\n\n```{.r .cell-code}\ncor_tbl <- Hitters %>% \n  select_if(is.numeric) %>% \n  cor(use = \"pairwise.complete.obs\") %>% \n  as.data.frame() %>% \n  mutate(row = row.names(.)) %>% \n  gather(col, cor, -row) %>% \n  as_tibble()\n```\n:::\n\n\nUse the correlation table to create a heatmap using `geom_tile`. Change the colors to one of the four `viridis` palettes. What does the heatmap help you see?\n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
