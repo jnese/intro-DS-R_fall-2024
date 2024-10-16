@@ -42,8 +42,6 @@ library(kableExtra)
   
 # Homework 1
 
-Review
-
 # Data Visualization with {ggplot2} 
 
 Week 3
