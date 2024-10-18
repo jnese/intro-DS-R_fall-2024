@@ -1,0 +1,1106 @@
+---
+title: "Week 4: Data Wrangling"
+subtitle: "`{dplyr}`"
+author: "Joe Nese"
+institute: "University of Oregon<br>Fall 2024"
+format:
+  revealjs: 
+    theme: default
+    highlight-style: github
+    incremental: false
+    fig-width: 9
+    fig-height: 3.5
+    scrollable: true
+    multiplex: true
+    embed-resources: true
+execute: 
+  echo: true
+  warning: false
+  error: true
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(here)
+library(janitor)
+library(kableExtra)
+library(palmerpenguins)
+library(countdown)
+
+```
+
+## Housekeeping {.smaller}
+
+- Midway Student Experience Survey
+    + now open
+    + Canvas: UO Course Surveys (left sidebar)
+- [Final Project Outline]{style='color:#FF0000'}
+    + Due next week (10/23)
+  
+> The outline should include a description of the data to be used, a discussion of what preparatory work will need to be done, and how the requirements of the final project will be met. The outline is intended to be low-stakes and is primarily designed to be a means for you to obtain feedback on the feasibility of the project and areas to consider.
+
+# Data Wrangling with `{dplyr}`
+
+Week 4
+
+##
+
+![](https://www.ltd.org/files/library/bus-with-rainbow_lb.jpg)
+
+##
+
+
+![](https://images.unsplash.com/photo-1572013343866-dfdb9b416810?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dGF4aXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60)
+
+## Agenda {.smaller}
+
+- Introduce common `{dplyr}` functions
+    + piping `{dplyr}` functions
+  + helper functions
+- Introduce complimentary functions
+    + `ifelse()`
+    + `case_when()`
+  
+![](https://www.tidyverse.org/blog/2023/08/teach-tidyverse-23/#quality-of-life-improvements-to-case_when-and-if_else)
+
+**Learning Objectives**
+
+- Understand basic data wrangling and transformations
+    + `select()`
+    + `filter()`
+    + `arrange()`
+    + `group_by()`
+    + `summarize()`
+    + `recode()` & `rename()`
+- Be able to pipe these functions to efficiently wrangle data
+
+## 
+
+![](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/b467ee99-87e3-4663-ae27-aaf027f940ce_rw_1920.png?h=0573cb8b960ba2f2c8486188761f03e0){width="70%"}
+
+::: aside
+Credit [Allison Horst](https://allisonhorst.com/data-science-art)
+:::
+
+## Providing grammar for:
+
+* Graphics 
+  + `{ggplot2}`
+* Data manipulations 
+  + `{dplyr}`
+  + `{tidyr}`
+* Expanding area of specialized topics
+  + `{lubridate}`
+  + `{glue}`
+  + `{tidymodels}`
+* Many more...
+
+## Providing grammar for:
+
+* Graphics 
+  + `{ggplot2}`
+* Data manipulations
+  + <mark>`{dplyr}`</mark>
+  + `{tidyr}`
+* Expanding area of specialized topics
+  + `{lubridate}`
+  + `{glue}`
+  + `{tidymodels}`
+* Many more...
+
+
+# {dplyr}
+
+## `{dplyr}` ![](https://d33wubrfki0l68.cloudfront.net/621a9c8c5d7b47c4b6d72e8f01f28d14310e8370/193fc/css/images/hex/dplyr.png){fig-align="right" width="10%"} {.smaller}
+
+A grammar for data wrangling (verbs!)
+
+Take a couple minutes with your neighbor to guess what the following functions do:
+
+* `select()`
+* `filter()`
+* `mutate()`
+* `arrange()`
+* `summarize()`
+* `group_by()`
+
+```{r, echo = FALSE}
+countdown(minutes = 2, seconds = 00)
+```
+
+## `{dplyr}` {.smaller}
+
+A grammar for data wrangling (verbs!)
+
+`select()`
+
+::: {.fragment}
+a subset of **columns**
+:::
+
+`filter()`
+
+::: {.fragment}
+a subset of **rows**
+:::
+
+`mutate()`
+
+::: {.fragment}
+**add** a new column or **modify** an existing column
+:::
+
+`arrange()`
+
+::: {.fragment}
+**sort** rows in ascending/descending order
+:::
+
+`summarize()`
+
+::: {.fragment}
+a new column created according to other columns
+for example: `mean()` or `sd()`
+    + often used with...
+:::
+
+`group_by()`
+
+::: {.fragment}
+**grouping** column(s)
+:::
+
+## Arguments
+
+* **`{dplyr}` always takes a data frame (tibble) as the first argument**
+    + just like `{ggplot}`
+
+* subsequent functions tell `{dplyr}` what to do with the data frame
+
+* each function applied returns the modified data frame
+
+
+# `select()`
+
+## `select()`
+
+choose columns
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r, eval=FALSE}
+data.frame %>% 
+  select(a, c)
+```
+:::
+
+::: {.column width="50%"}
+![](https://swcarpentry.github.io/r-novice-gapminder/fig/13-dplyr-fig1.png)
+:::
+
+::::
+
+::: aside
+Image from [Software Carpentry](https://swcarpentry.github.io/r-novice-gapminder/fig/13-dplyr-fig1.png)
+:::
+
+## Examples
+
+Let’s start with the presidential dataset from the `{mdsr}` package
+
+```{r}
+#| output-location: fragment
+
+library(tidyverse)
+#install.packages("mdsr")
+library(mdsr)
+
+presidential
+```
+
+## `select` president *name* and *party*
+
+```{r, eval=FALSE}
+select(presidential, name, party)
+```
+
+. . .
+
+**OR** more typically
+
+```{r}
+presidential %>%
+	select(name, party)
+```
+
+## Negation `-`
+
+Don't select variable(s)
+
+```{r}
+presidential %>%
+	select(-start)
+```
+
+## Negation `-`
+
+Don't select variable(s)
+
+```{r, eval=FALSE}
+presidential %>%
+	select(-start, -end)
+```
+
+**OR**
+
+```{r}
+presidential %>%
+	select(-c(start, end))
+```
+
+## Indexing
+
+Less preferable because variable orders change
+
+```{r, eval=FALSE}
+select(presidential, 1:3)
+```
+
+**OR** more typically
+
+```{r}
+presidential %>%
+	select(1:3)
+```
+
+## Use multiple methods
+
+```{r}
+presidential %>%
+	select(name, 2, 4)
+```
+
+## Use `select` to order columns
+
+```{r}
+#| output-location: fragment
+library(fivethirtyeight)
+college_grad_students
+```
+
+## `select()` [helper](https://tidyselect.r-lib.org/reference/select_helpers.html) functions
+
+* `everything()`
+* `starts_with()`
+* `ends_with()`
+* `contains()`
+* `all_of()`
+* `any_of()`
+
+## Helper functions
+
+First: this code may not work for you - why?
+
+```{r}
+#| output-location: fragment
+
+reads <- read_csv(here("data", "Project_Reads_Scores.csv")) %>% 
+  clean_names()
+reads
+```
+
+## Use `select` to order columns
+
+```{r}
+#| output-location: fragment
+college_grad_students %>%
+	select(major_code, grad_total, grad_sample_size, everything())
+```
+
+. . .
+
+`everything()` is a helper verb that includes **all** column names
+
+## `starts_with()`
+
+```{r}
+reads %>% 
+    select(starts_with("test"))
+```
+
+## `ends_with()`
+
+```{r}
+reads %>% 
+    select(ends_with("score"))
+```
+
+## `contains()`
+
+```{r}
+reads %>% 
+    select(contains("test"))
+```
+
+## `all_of()`
+
+```{r}
+vars <- c("pre_test_score", "pre_test_percent", "post_test_score", "post_test_percent")
+
+reads %>% 
+    select(all_of(vars))
+```
+
+## `all_of()`
+
+```{r}
+#| code-line-numbers: "|4"
+#| output-location: fragment
+vars <- c("pre_test_score", "pre_test_percent", "post_test_score", "post_test_percent")
+
+mpg %>% 
+    select(all_of(vars))
+```
+
+## `any_of()`
+
+```{r}
+#| code-line-numbers: "|4"
+#| output-location: fragment
+
+vars <- c("pre_test_score", "pre_test_percent", "post_test_score", "post_test_percent")
+
+reads %>% 
+    select(any_of(vars))
+```
+
+## `any_of()`
+
+```{r}
+#| code-line-numbers: "|4"
+#| output-location: fragment
+
+vars <- c("pre_test_score", "pre_test_percent", "post_test_score", "post_test_percent")
+
+mpg %>% 
+    select(any_of(vars))
+```
+
+## Mix `select` methods and helpers
+
+You can mix types and helper functions
+
+```{r}
+reads %>% 
+    select(student_id, 1, starts_with("total"))
+```
+
+## Mix `select` methods and helpers
+
+You can also use select to rearrange your columns
+
+```{r}
+reads %>% 
+    select(student_id, 1, starts_with("total"), everything())
+```
+
+## `relocate()`
+
+[relocate(]{style="color:#D55E00"}[.data]{style="color:#56B4E9"}, ... [.before = NULL]{style="color:#009E73"}, [.after = NULL]{style="color:#E69f00"}[)]{style="color:#D55E00"}
+
+. . .
+
+[.data]{style="color:#56B4E9"} = dataframe/tibble
+
+... = columns to move
+
+[.before]{style="color:#009E73"} = variable to move *before*
+
+[.after]{style="color:#E69f00"} = variable to move *after*
+
+- supplying neither [.before]{style="color:#009E73"} nor [.after]{style="color:#E69f00"} move columns to the left-hand side
+- specifying both is an error
+
+## `relocate()`
+
+```{r}
+presidential %>% 
+  relocate(party)
+```
+
+::: aside
+moves "party" to far left (default)
+:::
+
+## `relocate()`
+
+```{r}
+presidential %>% 
+  relocate(party, .after = start)
+```
+
+::: aside 
+moves "party" after "start"
+:::
+
+## `relocate()`
+
+```{r}
+presidential %>% 
+  relocate(end, .before = party)
+```
+
+::: aside
+moves "end" before "party"
+:::
+
+# `filter()`
+
+## `filter()`
+
+[**choose rows**]{style="color:#56B4E9"} that satisfy your condition (`== TRUE`)
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r, eval=FALSE}
+filter(df,
+       type == "otter",
+       site == "bay")
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo=FALSE, fig.align='center'}
+knitr::include_graphics("https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/dplyr_filter.jpg")
+```
+:::
+
+::::
+
+::: aside
+Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations/)
+:::
+
+## `filter()` {.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Complete set of boolean operations
+
+- *x* is the left-hand circle
+- *y* is the right-hand circle
+- the shaded region show which parts each operator selects
+    + *xor* == *x* or *y* except where they overlap
+
+**==**
+: equal
+
+**!**
+: negates
+
+**!=**
+: NOT equal
+
+**&**
+: and
+
+**|**
+: or
+:::
+
+::: {.column width="50%"}
+```{r, echo=FALSE}
+knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/01f4b6d39d2be8269740a3ad7946faa79f7243cf/8369a/diagrams/transform-logical.png")
+```
+
+:::
+
+::::
+
+
+
+## `filter()` numeric
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+mpg %>% 
+  filter(cyl == 4)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+mpg %>% 
+  filter(hwy >= 22)
+```
+:::
+
+::::
+
+## `filter` for Democrats
+
+note the use of `==` NOT `=`
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+presidential %>%
+	filter(party == "Democratic")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+presidential %>%
+	filter(party = "Democratic")
+```
+:::
+
+::::
+
+## `filter` character
+
+note the use of `==` NOT `=`
+
+```{r echo=FALSE}
+mpg_ <- select(mpg, 1:5)
+```
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+mpg_ %>% 
+  filter(manufacturer == "pontiac")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+presidential %>% 
+  filter(party == "Democratic")
+```
+:::
+
+::::
+
+## Democrats starting after 2000
+
+`,` is equivalent to `&`
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+presidential %>% 
+  filter(party == "Democratic" & 
+  start > "2000-01-01")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+presidential %>% 
+  filter(party == "Democratic", 
+  start > "2000-01-01")
+```
+:::
+
+::::
+
+## `filter()` note {.smaller}
+
+* The order of operations doesn’t work like English
+* Can’t write: 
+    + `filter(presidential, name == "Kennedy" | "Johnson")`
+* Must be:
+    + `filter(presidential, name == "Kennedy" | name == "Johnson")`
+
+## more `filter()`
+
+```{r}
+reads
+```
+
+## more `filter()`
+
+Anomaly in the data
+
+```{r}
+reads %>%
+ count(student_id)
+```
+
+## Let's remove these aggregate rows
+
+```{r}
+#| code-line-numbers: "|1|2|4|5"
+students_only <- reads %>%
+  filter(student_id != "All Students (Average)") 
+
+students_only %>% 
+  count(student_id)
+```
+
+## Not equal 
+
+`!` means **NOT**
+
+`!=` means **NOT equal**
+
+Note:
+
+- If you want values that are NOT `NA`:
+    + `!is.na(variable)`
+    + ~~`variable != NA`~~
+
+## Chaining `{dplyr}` functions
+
+What if we wanted to `select` and `filter` a data set?
+
+Select "*name*" and "*party*" of presidents who began their term after 2000
+
+. . .
+
+(1) Two step method 😐
+
+```{r}
+#| code-line-numbers: "|1|3"
+after_2000 <- filter(presidential, start > as.Date("2000-01-01"))
+
+select(after_2000, name, party)
+```
+
+## Chaining `{dplyr}` functions
+
+(2) Alternatively, we could wrap `select` around `filter` ☹️
+
+```{r}
+select(filter(presidential, start > as.Date("2000-01-01")), name, party)
+```
+
+## Chaining `{dplyr}` functions
+
+(3) Piping functions 🎉
+
+We could use the pipe function to help increase the readability of our code: 
+<br>
+`%>%`
+<br>
+
+Called the "pipe" operator and "piping functions"
+
+```{r}
+filter(presidential, start > as.Date("2000-01-01")) %>% 
+  select(name, party)
+```
+
+## Piping functions {.smaller}
+
+Even better:
+
+* Generally when using the pipe, the first argument is the data set, which gets piped through the corresponding functions
+* So the code on the prior slide would be:
+
+```{r}
+presidential %>% 
+  filter(start > as.Date("2000-01-01")) %>% 
+  select(name, party)
+```
+
+::: aside
+Note the lovely indentations and line breaks to help keep things straight
+:::
+
+# `mutate()`
+
+## Some new data
+
+```{r}
+#| output-location: fragment
+(prepost <- reads %>% 
+  select(student_id, test_site, pre_test_score, post_test_score))
+```
+
+## `mutate()`
+
+**Add** a variable
+
+```{r}
+#| code-line-numbers: "|2"
+
+prepost %>% 
+  mutate(gain = post_test_score - pre_test_score)
+```
+
+## 
+
+```{r}
+names(prepost)
+```
+
+. . .
+
+Why do we not see the new *gain* column?
+
+## `mutate()`
+
+**Add** *multiple* variables
+
+```{r}
+#| output-location: fragment
+prepost <- prepost %>%
+  mutate(
+    gain = post_test_score - pre_test_score,
+	  sum_tests = post_test_score + pre_test_score
+  )
+
+prepost
+```
+
+## `mutate()`
+
+**Change** a variable
+
+```{r}
+#| output-location: fragment
+prepost <- prepost %>% 
+  mutate(sum_tests = (sum_tests/180) * 100)
+
+prepost
+```
+
+# `arrange()`
+
+## `arrange()`
+
+Order the data
+
+- Order by *gain*, ascending [default]
+
+```{r}
+prepost %>% 
+  arrange(gain)
+```
+
+## `arrange()`
+
+Order the data
+
+- Order by *pre_test_score* and *gain*, ascending
+
+```{r}
+prepost %>% 
+  arrange(pre_test_score, gain)
+```
+
+## `arrange()`
+
+Order the data
+
+- Order by *gain*, `desc`ending
+
+```{r}
+prepost %>% 
+  arrange(desc(gain))
+```
+
+## `summarize()` {.smaller}
+
+`summarize()` or `summarise()`
+
+* Here: compute the `mean` and `standard deviation` of the gain scores
+* What are we looking at?
+
+```{r}
+prepost %>% 
+  summarize(mean_gain = mean(gain, na.rm = TRUE),
+            sd_gain = sd(gain, na.rm = TRUE))
+```
+
+. . .
+
+::: aside
+This is a good start for a descriptive table!
+:::
+
+# `group_by()`
+
+## 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r, echo=FALSE}
+knitr::include_graphics("https://swcarpentry.github.io/r-novice-gapminder/fig/13-dplyr-fig2.png")
+```
+:::
+
+::: {.column width="50%" .fragment}
+```{r, echo=FALSE}
+knitr::include_graphics("https://swcarpentry.github.io/r-novice-gapminder/fig/13-dplyr-fig3.png") 
+```
+:::
+
+::::
+
+::: aside
+Image from [Software Carpentry](https://swcarpentry.github.io/r-novice-gapminder/13-dplyr/)
+:::
+
+## `group_by()`
+
+<b>Conduct an operation for each level of a grouping factor</b>
+
+Here, compute the mean gain for each *test site*
+
+```{r}
+#| code-line-numbers: "|1|2|3"
+#| output-location: fragment
+prepost %>% 
+  group_by(test_site) %>% 
+  summarize(mean_gain = mean(gain))
+```
+
+## `group_by()` {.smaller}
+
+When you use `group_by()` and `summarize()`
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+You will get a row for each unique group
+
+```{r}
+mpg %>% 
+  group_by(cyl) %>% 
+  summarize(max_hwy = max(hwy))
+```
+:::
+
+::: {.column width="50%" .fragment}
+
+If you have multiple grouping variables, you will get a row for each unique combination of groups
+
+```{r}
+mpg %>% 
+  group_by(cyl, drv) %>% 
+  summarize(max_hwy = max(hwy))
+```
+:::
+
+::::
+
+## Add summarized column to full data
+
+Use `mutate()`!
+
+```{r}
+prepost %>% 
+  group_by(test_site) %>% 
+  mutate(mean_gain = mean(gain))
+```
+
+## Retain only summarized columns
+
+Use `summarize()`!
+
+```{r}
+prepost %>% 
+  group_by(test_site) %>% 
+  summarize(mean_gain = mean(gain))
+```
+
+## Pipe to `{ggplot}`!
+
+```{r}
+#| code-line-numbers: "|1,2,3|4|5|6"
+#| output-location: fragment
+
+prepost %>% 
+  group_by(test_site) %>% 
+  summarize(mean_gain = mean(gain)) %>% 
+  ggplot(aes(test_site, mean_gain)) + 
+  geom_col(fill = "cornflowerblue", alpha = .7) +
+  theme_minimal()
+```
+
+## 
+
+![](./images/kd.gif)
+
+## Summarizing and Plotting
+
+- Calculate mean *post_test_score* by test site
+
+```{r}
+#| code-line-numbers: "|1|2|3"
+students_only %>%
+    group_by(test_site) %>%
+    summarize(mean = mean(post_test_score))
+```
+
+## Plot it
+
+```{r}
+#| code-line-numbers: "|1|3|4|5|6|7"
+#| fig-height: 2.5
+
+theme_set(theme_minimal(base_size = 18))
+
+students_only %>%
+  group_by(test_site) %>%
+  summarize(mean = mean(post_test_score)) %>%
+  ggplot(aes(test_site, mean)) +
+  geom_col(alpha = 0.8)
+```
+
+# A couple more
+
+`recode()` and `rename()`
+
+## Recode with `ifelse()`
+
+Recoding into dichotomous variable with `ifelse()`
+
+`ifelse(`test, yes, no`)`
+
+*or*
+
+`ifelse(`logical statement, do this `if` TRUE, `else` do this`)`
+
+## Recode with `ifelse()`
+
+Recoding into dichotomous variable with `ifelse()`
+
+**Remember to pair with `mutate()`!**
+
+```{r}
+#| code-line-numbers: "|2"
+#| output-location: fragment
+students_only %>% 
+  mutate(New_test_site = ifelse(test_site == "JONES", "district 1", "district 2"))
+```
+
+## Recode with `recode()`
+
+Recoding into multinomial variable
+
+```{r, eval=FALSE}
+recode(variable,
+       old_category_1 = "new_category_1",
+	     old_category_2 = "new_category_2",
+	     old_category_3 = "new_category_3",
+       ...
+)
+```
+
+## Recode with `recode()`
+
+Recoding into multinomial variable
+
+**Remember to pair with `mutate()`**
+
+```{r}
+#| output-location: fragment
+students_only %>% 
+  mutate(test_site = recode(test_site,
+                            JONES = "Jones Middle",
+                            VIRDEN = "Virden Elementary",
+                            WESTSIDE = "Westside High")
+         )
+```
+
+## Recode with `recode()`
+
+Remember to use backticks for special characters
+
+```{r, eval=FALSE}
+mtcars %>% 
+  mutate(cyl_str = recode(cyl,
+                      `4` = "cylinders4",
+                      `6` = "cylinders6",
+                      `8` = "cylinders8"))
+```
+
+## Recode with `case_when()` {.smaller}
+
+Recoding across several variables, or if you find yourself using nested `ifelse()` statements
+
+**Remember to pair with `mutate()`**
+
+```{r, echo=TRUE, eval=FALSE}
+#| code-line-numbers: "|6|7|8|9"
+
+library(palmerpenguins)
+
+penguins %>% 
+  mutate(species_big = 
+           case_when(
+             body_mass_g > 4500 & species == "Adelie" ~ "adelie_big",
+             body_mass_g > 4600 & species == "Chinstrap" ~ "chinstrap_big",
+             body_mass_g > 6000 & species == "Gentoo" ~ "gentoo_big",
+             .default = "other"
+           ))
+```
+
+. . .
+
+`.default` equivalent to `all else`
+
+## `rename()` {.smaller}
+
+`rename(new_name = old_name)`
+
+**NOT paired with `mutate()`**
+
+```{r}
+penguins %>%
+  rename(
+    home = island,
+    bill_length = bill_length_mm
+  )
+```
+
+## rename with `select()`
+
+```{r}
+penguins %>% 
+  select(species, home = island, bill_length = bill_length_mm, year) #<<
+```
+
+## Final notes on `{dplyr}`
+
+* We could spend weeks on this
+* We'll be using it all term long
+* Verbs can help you gain fluency
+* There are also conditional and all-inclusive versions of `mutate`, `select`, and `summarize`
+    + [`across()`](https://dplyr.tidyverse.org/reference/across.html)
+
+
+# Next time
+
+## Before next class {.smaller}
+
+- Final Project
+    + [Final Project: Outline]{style="color:#FF0000"}
+- Reading
+    + [Bryan (2017)](https://peerj.com/preprints/3159v2/)
+- Activities
+    + Download [GitKraken](https://www.gitkraken.com/)
+    + Watch [What is a Git repository?](https://www.youtube.com/watch?v=A-4WltCTVms&list=PLe6EXFvnTV7-_41SpakZoTIYCgX4aMTdU&index=3)
+    + Watch [What is a remote repository?](https://www.youtube.com/watch?v=Lb4yvfrX_7I&list=PLe6EXFvnTV7-_41SpakZoTIYCgX4aMTdU&index=3)
+- Homework
+    + Homework 4
+
+
+

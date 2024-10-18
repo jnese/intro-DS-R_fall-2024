@@ -1349,5 +1349,523 @@
     "title": "Week 3: Data Visualization",
     "section": "",
     "text": "Homework 1 due today\nGroups due today\n\nI need emails from everyone by 5pm (if you have not already emailed)"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#housekeeping",
+    "href": "slides/w4_dplyr.html#housekeeping",
+    "title": "Week 4: Data Wrangling",
+    "section": "Housekeeping",
+    "text": "Housekeeping\n\nMidway Student Experience Survey\n\nnow open\nCanvas: UO Course Surveys (left sidebar)\n\nFinal Project Outline\n\nDue next week (10/23)\n\n\n\nThe outline should include a description of the data to be used, a discussion of what preparatory work will need to be done, and how the requirements of the final project will be met. The outline is intended to be low-stakes and is primarily designed to be a means for you to obtain feedback on the feasibility of the project and areas to consider."
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#agenda",
+    "href": "slides/w4_dplyr.html#agenda",
+    "title": "Week 4: Data Wrangling",
+    "section": "Agenda",
+    "text": "Agenda\n\nIntroduce common {dplyr} functions\n\npiping {dplyr} functions\nhelper functions\n\nIntroduce complimentary functions\n\nifelse()\ncase_when()\n\n\n\nLearning Objectives\n\nUnderstand basic data wrangling and transformations\n\nselect()\nfilter()\narrange()\ngroup_by()\nsummarize()\nrecode() & rename()\n\nBe able to pipe these functions to efficiently wrangle data"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#section-2",
+    "href": "slides/w4_dplyr.html#section-2",
+    "title": "Week 4: Data Wrangling",
+    "section": "",
+    "text": "Credit Allison Horst"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#providing-grammar-for",
+    "href": "slides/w4_dplyr.html#providing-grammar-for",
+    "title": "Week 4: Data Wrangling",
+    "section": "Providing grammar for:",
+    "text": "Providing grammar for:\n\nGraphics\n\n{ggplot2}\n\nData manipulations\n\n{dplyr}\n{tidyr}\n\nExpanding area of specialized topics\n\n{lubridate}\n{glue}\n{tidymodels}\n\nMany more…"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#providing-grammar-for-1",
+    "href": "slides/w4_dplyr.html#providing-grammar-for-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "Providing grammar for:",
+    "text": "Providing grammar for:\n\nGraphics\n\n{ggplot2}\n\nData manipulations\n\n{dplyr}\n{tidyr}\n\nExpanding area of specialized topics\n\n{lubridate}\n{glue}\n{tidymodels}\n\nMany more…"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#dplyr-1",
+    "href": "slides/w4_dplyr.html#dplyr-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "{dplyr} ",
+    "text": "{dplyr} \nA grammar for data wrangling (verbs!)\nTake a couple minutes with your neighbor to guess what the following functions do:\n\nselect()\nfilter()\nmutate()\narrange()\nsummarize()\ngroup_by()\n\n\n\n\n−+\n02:00"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#dplyr-2",
+    "href": "slides/w4_dplyr.html#dplyr-2",
+    "title": "Week 4: Data Wrangling",
+    "section": "{dplyr}",
+    "text": "{dplyr}\nA grammar for data wrangling (verbs!)\nselect()\n\na subset of columns\n\nfilter()\n\na subset of rows\n\nmutate()\n\nadd a new column or modify an existing column\n\narrange()\n\nsort rows in ascending/descending order\n\nsummarize()\n\na new column created according to other columns for example: mean() or sd() + often used with…\n\ngroup_by()\n\ngrouping column(s)"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#arguments",
+    "href": "slides/w4_dplyr.html#arguments",
+    "title": "Week 4: Data Wrangling",
+    "section": "Arguments",
+    "text": "Arguments\n\n{dplyr} always takes a data frame (tibble) as the first argument\n\njust like {ggplot}\n\nsubsequent functions tell {dplyr} what to do with the data frame\neach function applied returns the modified data frame"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#select-1",
+    "href": "slides/w4_dplyr.html#select-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "select()",
+    "text": "select()\nchoose columns\n\n\n\ndata.frame %&gt;% \n  select(a, c)\n\n\n\n\n\n\n\nImage from Software Carpentry"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#examples",
+    "href": "slides/w4_dplyr.html#examples",
+    "title": "Week 4: Data Wrangling",
+    "section": "Examples",
+    "text": "Examples\nLet’s start with the presidential dataset from the {mdsr} package\n\nlibrary(tidyverse)\n#install.packages(\"mdsr\")\nlibrary(mdsr)\n\npresidential\n\n\n\n# A tibble: 12 × 4\n   name       start      end        party     \n   &lt;chr&gt;      &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;     \n 1 Eisenhower 1953-01-20 1961-01-20 Republican\n 2 Kennedy    1961-01-20 1963-11-22 Democratic\n 3 Johnson    1963-11-22 1969-01-20 Democratic\n 4 Nixon      1969-01-20 1974-08-09 Republican\n 5 Ford       1974-08-09 1977-01-20 Republican\n 6 Carter     1977-01-20 1981-01-20 Democratic\n 7 Reagan     1981-01-20 1989-01-20 Republican\n 8 Bush       1989-01-20 1993-01-20 Republican\n 9 Clinton    1993-01-20 2001-01-20 Democratic\n10 Bush       2001-01-20 2009-01-20 Republican\n11 Obama      2009-01-20 2017-01-20 Democratic\n12 Trump      2017-01-20 2021-01-20 Republican"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#select-president-name-and-party",
+    "href": "slides/w4_dplyr.html#select-president-name-and-party",
+    "title": "Week 4: Data Wrangling",
+    "section": "select president name and party",
+    "text": "select president name and party\n\nselect(presidential, name, party)\n\n\nOR more typically\n\npresidential %&gt;%\n    select(name, party)\n\n# A tibble: 12 × 2\n   name       party     \n   &lt;chr&gt;      &lt;chr&gt;     \n 1 Eisenhower Republican\n 2 Kennedy    Democratic\n 3 Johnson    Democratic\n 4 Nixon      Republican\n 5 Ford       Republican\n 6 Carter     Democratic\n 7 Reagan     Republican\n 8 Bush       Republican\n 9 Clinton    Democratic\n10 Bush       Republican\n11 Obama      Democratic\n12 Trump      Republican"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#negation--",
+    "href": "slides/w4_dplyr.html#negation--",
+    "title": "Week 4: Data Wrangling",
+    "section": "Negation -",
+    "text": "Negation -\nDon’t select variable(s)\n\npresidential %&gt;%\n    select(-start)\n\n# A tibble: 12 × 3\n   name       end        party     \n   &lt;chr&gt;      &lt;date&gt;     &lt;chr&gt;     \n 1 Eisenhower 1961-01-20 Republican\n 2 Kennedy    1963-11-22 Democratic\n 3 Johnson    1969-01-20 Democratic\n 4 Nixon      1974-08-09 Republican\n 5 Ford       1977-01-20 Republican\n 6 Carter     1981-01-20 Democratic\n 7 Reagan     1989-01-20 Republican\n 8 Bush       1993-01-20 Republican\n 9 Clinton    2001-01-20 Democratic\n10 Bush       2009-01-20 Republican\n11 Obama      2017-01-20 Democratic\n12 Trump      2021-01-20 Republican"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#negation---1",
+    "href": "slides/w4_dplyr.html#negation---1",
+    "title": "Week 4: Data Wrangling",
+    "section": "Negation -",
+    "text": "Negation -\nDon’t select variable(s)\n\npresidential %&gt;%\n    select(-start, -end)\n\nOR\n\npresidential %&gt;%\n    select(-c(start, end))\n\n# A tibble: 12 × 2\n   name       party     \n   &lt;chr&gt;      &lt;chr&gt;     \n 1 Eisenhower Republican\n 2 Kennedy    Democratic\n 3 Johnson    Democratic\n 4 Nixon      Republican\n 5 Ford       Republican\n 6 Carter     Democratic\n 7 Reagan     Republican\n 8 Bush       Republican\n 9 Clinton    Democratic\n10 Bush       Republican\n11 Obama      Democratic\n12 Trump      Republican"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#indexing",
+    "href": "slides/w4_dplyr.html#indexing",
+    "title": "Week 4: Data Wrangling",
+    "section": "Indexing",
+    "text": "Indexing\nLess preferable because variable orders change\n\nselect(presidential, 1:3)\n\nOR more typically\n\npresidential %&gt;%\n    select(1:3)\n\n# A tibble: 12 × 3\n   name       start      end       \n   &lt;chr&gt;      &lt;date&gt;     &lt;date&gt;    \n 1 Eisenhower 1953-01-20 1961-01-20\n 2 Kennedy    1961-01-20 1963-11-22\n 3 Johnson    1963-11-22 1969-01-20\n 4 Nixon      1969-01-20 1974-08-09\n 5 Ford       1974-08-09 1977-01-20\n 6 Carter     1977-01-20 1981-01-20\n 7 Reagan     1981-01-20 1989-01-20\n 8 Bush       1989-01-20 1993-01-20\n 9 Clinton    1993-01-20 2001-01-20\n10 Bush       2001-01-20 2009-01-20\n11 Obama      2009-01-20 2017-01-20\n12 Trump      2017-01-20 2021-01-20"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#use-multiple-methods",
+    "href": "slides/w4_dplyr.html#use-multiple-methods",
+    "title": "Week 4: Data Wrangling",
+    "section": "Use multiple methods",
+    "text": "Use multiple methods\n\npresidential %&gt;%\n    select(name, 2, 4)\n\n# A tibble: 12 × 3\n   name       start      party     \n   &lt;chr&gt;      &lt;date&gt;     &lt;chr&gt;     \n 1 Eisenhower 1953-01-20 Republican\n 2 Kennedy    1961-01-20 Democratic\n 3 Johnson    1963-11-22 Democratic\n 4 Nixon      1969-01-20 Republican\n 5 Ford       1974-08-09 Republican\n 6 Carter     1977-01-20 Democratic\n 7 Reagan     1981-01-20 Republican\n 8 Bush       1989-01-20 Republican\n 9 Clinton    1993-01-20 Democratic\n10 Bush       2001-01-20 Republican\n11 Obama      2009-01-20 Democratic\n12 Trump      2017-01-20 Republican"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#use-select-to-order-columns",
+    "href": "slides/w4_dplyr.html#use-select-to-order-columns",
+    "title": "Week 4: Data Wrangling",
+    "section": "Use select to order columns",
+    "text": "Use select to order columns\n\nlibrary(fivethirtyeight)\ncollege_grad_students\n\n\n\n# A tibble: 173 × 22\n   major_code major     major_category grad_total grad_sample_size grad_employed\n        &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;               &lt;int&gt;            &lt;int&gt;         &lt;int&gt;\n 1       5601 Construc… Industrial Ar…       9173              200          7098\n 2       6004 Commerci… Arts                53864              882         40492\n 3       6211 Hospital… Business            24417              437         18368\n 4       2201 Cosmetol… Industrial Ar…       5411               72          3590\n 5       2001 Communic… Computers & M…       9109              171          7512\n 6       3201 Court Re… Law & Public …       1542               22          1008\n 7       6206 Marketin… Business           190996             3738        151570\n 8       1101 Agricult… Agriculture &…      17488              386         13104\n 9       2101 Computer… Computers & M…       5611               98          4716\n10       1904 Advertis… Communication…      33928              688         28517\n# ℹ 163 more rows\n# ℹ 16 more variables: grad_employed_fulltime_yearround &lt;int&gt;,\n#   grad_unemployed &lt;int&gt;, grad_unemployment_rate &lt;dbl&gt;, grad_p25th &lt;dbl&gt;,\n#   grad_median &lt;dbl&gt;, grad_p75th &lt;int&gt;, nongrad_total &lt;int&gt;,\n#   nongrad_employed &lt;int&gt;, nongrad_employed_fulltime_yearround &lt;int&gt;,\n#   nongrad_unemployed &lt;int&gt;, nongrad_unemployment_rate &lt;dbl&gt;,\n#   nongrad_p25th &lt;dbl&gt;, nongrad_median &lt;dbl&gt;, nongrad_p75th &lt;dbl&gt;, …"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#select-helper-functions",
+    "href": "slides/w4_dplyr.html#select-helper-functions",
+    "title": "Week 4: Data Wrangling",
+    "section": "select() helper functions",
+    "text": "select() helper functions\n\neverything()\nstarts_with()\nends_with()\ncontains()\nall_of()\nany_of()"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#helper-functions",
+    "href": "slides/w4_dplyr.html#helper-functions",
+    "title": "Week 4: Data Wrangling",
+    "section": "Helper functions",
+    "text": "Helper functions\nFirst: this code may not work for you - why?\n\nreads &lt;- read_csv(here(\"data\", \"Project_Reads_Scores.csv\")) %&gt;% \n  clean_names()\nreads\n\n\n\n# A tibble: 48 × 25\n   test_year      test_type test_site student_id pre_test_score pre_test_percent\n   &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;           \n 1 06/01/2016 12… YEAR END  VIRDEN    Virden 1               43 29%             \n 2 06/01/2016 12… YEAR END  VIRDEN    Virden 2               46 31%             \n 3 06/01/2016 12… YEAR END  VIRDEN    Virden 3               39 26%             \n 4 06/01/2016 12… YEAR END  VIRDEN    Virden 4               35 23%             \n 5 06/01/2016 12… YEAR END  VIRDEN    Virden 5               46 31%             \n 6 06/01/2016 12… YEAR END  VIRDEN    Virden 6               35 23%             \n 7 06/01/2016 12… YEAR END  VIRDEN    Virden 7               40 27%             \n 8 06/01/2016 12… YEAR END  VIRDEN    Virden 8               39 26%             \n 9 06/01/2016 12… YEAR END  VIRDEN    Virden 9               40 27%             \n10 06/01/2016 12… YEAR END  VIRDEN    Virden 10              45 30%             \n# ℹ 38 more rows\n# ℹ 19 more variables: post_test_score &lt;dbl&gt;, post_test_percent &lt;chr&gt;,\n#   percentage_change &lt;chr&gt;, unit_1_score &lt;dbl&gt;, unit_1_percent &lt;chr&gt;,\n#   unit_2_score &lt;dbl&gt;, unit_2_percent &lt;chr&gt;, unit_3_score &lt;dbl&gt;,\n#   unit_3_percent &lt;chr&gt;, unit_4_score &lt;dbl&gt;, unit_4_percent &lt;chr&gt;,\n#   unit_5_6_score &lt;dbl&gt;, unit_5_6_percent &lt;chr&gt;, unit_7_score &lt;dbl&gt;,\n#   unit_7_percent &lt;chr&gt;, unit_8_score &lt;dbl&gt;, unit_8_percent &lt;chr&gt;, …"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#use-select-to-order-columns-1",
+    "href": "slides/w4_dplyr.html#use-select-to-order-columns-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "Use select to order columns",
+    "text": "Use select to order columns\n\ncollege_grad_students %&gt;%\n    select(major_code, grad_total, grad_sample_size, everything())\n\n\n\n# A tibble: 173 × 22\n   major_code grad_total grad_sample_size major     major_category grad_employed\n        &lt;int&gt;      &lt;int&gt;            &lt;int&gt; &lt;chr&gt;     &lt;chr&gt;                  &lt;int&gt;\n 1       5601       9173              200 Construc… Industrial Ar…          7098\n 2       6004      53864              882 Commerci… Arts                   40492\n 3       6211      24417              437 Hospital… Business               18368\n 4       2201       5411               72 Cosmetol… Industrial Ar…          3590\n 5       2001       9109              171 Communic… Computers & M…          7512\n 6       3201       1542               22 Court Re… Law & Public …          1008\n 7       6206     190996             3738 Marketin… Business              151570\n 8       1101      17488              386 Agricult… Agriculture &…         13104\n 9       2101       5611               98 Computer… Computers & M…          4716\n10       1904      33928              688 Advertis… Communication…         28517\n# ℹ 163 more rows\n# ℹ 16 more variables: grad_employed_fulltime_yearround &lt;int&gt;,\n#   grad_unemployed &lt;int&gt;, grad_unemployment_rate &lt;dbl&gt;, grad_p25th &lt;dbl&gt;,\n#   grad_median &lt;dbl&gt;, grad_p75th &lt;int&gt;, nongrad_total &lt;int&gt;,\n#   nongrad_employed &lt;int&gt;, nongrad_employed_fulltime_yearround &lt;int&gt;,\n#   nongrad_unemployed &lt;int&gt;, nongrad_unemployment_rate &lt;dbl&gt;,\n#   nongrad_p25th &lt;dbl&gt;, nongrad_median &lt;dbl&gt;, nongrad_p75th &lt;dbl&gt;, …\n\n\n\neverything() is a helper verb that includes all column names"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#starts_with",
+    "href": "slides/w4_dplyr.html#starts_with",
+    "title": "Week 4: Data Wrangling",
+    "section": "starts_with()",
+    "text": "starts_with()\n\nreads %&gt;% \n    select(starts_with(\"test\"))\n\n# A tibble: 48 × 3\n   test_year              test_type test_site\n   &lt;chr&gt;                  &lt;chr&gt;     &lt;chr&gt;    \n 1 06/01/2016 12:00:00 AM YEAR END  VIRDEN   \n 2 06/01/2016 12:00:00 AM YEAR END  VIRDEN   \n 3 06/01/2016 12:00:00 AM YEAR END  VIRDEN   \n 4 06/01/2016 12:00:00 AM YEAR END  VIRDEN   \n 5 06/01/2016 12:00:00 AM YEAR END  VIRDEN   \n 6 06/01/2016 12:00:00 AM YEAR END  VIRDEN   \n 7 06/01/2016 12:00:00 AM YEAR END  VIRDEN   \n 8 06/01/2016 12:00:00 AM YEAR END  VIRDEN   \n 9 06/01/2016 12:00:00 AM YEAR END  VIRDEN   \n10 06/01/2016 12:00:00 AM YEAR END  VIRDEN   \n# ℹ 38 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#ends_with",
+    "href": "slides/w4_dplyr.html#ends_with",
+    "title": "Week 4: Data Wrangling",
+    "section": "ends_with()",
+    "text": "ends_with()\n\nreads %&gt;% \n    select(ends_with(\"score\"))\n\n# A tibble: 48 × 10\n   pre_test_score post_test_score unit_1_score unit_2_score unit_3_score\n            &lt;dbl&gt;           &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;\n 1             43              92            3            4            6\n 2             46             104            5            5            6\n 3             39              75            4            4            6\n 4             35             115            4            4            6\n 5             46              85            2            5            6\n 6             35              91            5            5            7\n 7             40              96            5            5            6\n 8             39              74            4            5            5\n 9             40              90            6            4            5\n10             45              86            4            5            5\n# ℹ 38 more rows\n# ℹ 5 more variables: unit_4_score &lt;dbl&gt;, unit_5_6_score &lt;dbl&gt;,\n#   unit_7_score &lt;dbl&gt;, unit_8_score &lt;dbl&gt;, total_score &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#contains",
+    "href": "slides/w4_dplyr.html#contains",
+    "title": "Week 4: Data Wrangling",
+    "section": "contains()",
+    "text": "contains()\n\nreads %&gt;% \n    select(contains(\"test\"))\n\n# A tibble: 48 × 7\n   test_year test_type test_site pre_test_score pre_test_percent post_test_score\n   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt;                      &lt;dbl&gt;\n 1 06/01/20… YEAR END  VIRDEN                43 29%                           92\n 2 06/01/20… YEAR END  VIRDEN                46 31%                          104\n 3 06/01/20… YEAR END  VIRDEN                39 26%                           75\n 4 06/01/20… YEAR END  VIRDEN                35 23%                          115\n 5 06/01/20… YEAR END  VIRDEN                46 31%                           85\n 6 06/01/20… YEAR END  VIRDEN                35 23%                           91\n 7 06/01/20… YEAR END  VIRDEN                40 27%                           96\n 8 06/01/20… YEAR END  VIRDEN                39 26%                           74\n 9 06/01/20… YEAR END  VIRDEN                40 27%                           90\n10 06/01/20… YEAR END  VIRDEN                45 30%                           86\n# ℹ 38 more rows\n# ℹ 1 more variable: post_test_percent &lt;chr&gt;"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#all_of",
+    "href": "slides/w4_dplyr.html#all_of",
+    "title": "Week 4: Data Wrangling",
+    "section": "all_of()",
+    "text": "all_of()\n\nvars &lt;- c(\"pre_test_score\", \"pre_test_percent\", \"post_test_score\", \"post_test_percent\")\n\nreads %&gt;% \n    select(all_of(vars))\n\n# A tibble: 48 × 4\n   pre_test_score pre_test_percent post_test_score post_test_percent\n            &lt;dbl&gt; &lt;chr&gt;                      &lt;dbl&gt; &lt;chr&gt;            \n 1             43 29%                           92 61%              \n 2             46 31%                          104 69%              \n 3             39 26%                           75 50%              \n 4             35 23%                          115 77%              \n 5             46 31%                           85 57%              \n 6             35 23%                           91 61%              \n 7             40 27%                           96 64%              \n 8             39 26%                           74 49%              \n 9             40 27%                           90 60%              \n10             45 30%                           86 57%              \n# ℹ 38 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#all_of-1",
+    "href": "slides/w4_dplyr.html#all_of-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "all_of()",
+    "text": "all_of()\n\nvars &lt;- c(\"pre_test_score\", \"pre_test_percent\", \"post_test_score\", \"post_test_percent\")\n\nmpg %&gt;% \n    select(all_of(vars))\n\n\n\nError in `select()`:\nℹ In argument: `all_of(vars)`.\nCaused by error in `all_of()`:\n! Can't subset elements that don't exist.\n✖ Elements `pre_test_score`, `pre_test_percent`, `post_test_score`, and `post_test_percent` don't exist."
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#any_of",
+    "href": "slides/w4_dplyr.html#any_of",
+    "title": "Week 4: Data Wrangling",
+    "section": "any_of()",
+    "text": "any_of()\n\nvars &lt;- c(\"pre_test_score\", \"pre_test_percent\", \"post_test_score\", \"post_test_percent\")\n\nreads %&gt;% \n    select(any_of(vars))\n\n\n\n# A tibble: 48 × 4\n   pre_test_score pre_test_percent post_test_score post_test_percent\n            &lt;dbl&gt; &lt;chr&gt;                      &lt;dbl&gt; &lt;chr&gt;            \n 1             43 29%                           92 61%              \n 2             46 31%                          104 69%              \n 3             39 26%                           75 50%              \n 4             35 23%                          115 77%              \n 5             46 31%                           85 57%              \n 6             35 23%                           91 61%              \n 7             40 27%                           96 64%              \n 8             39 26%                           74 49%              \n 9             40 27%                           90 60%              \n10             45 30%                           86 57%              \n# ℹ 38 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#any_of-1",
+    "href": "slides/w4_dplyr.html#any_of-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "any_of()",
+    "text": "any_of()\n\nvars &lt;- c(\"pre_test_score\", \"pre_test_percent\", \"post_test_score\", \"post_test_percent\")\n\nmpg %&gt;% \n    select(any_of(vars))\n\n\n\n# A tibble: 234 × 0"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#mix-select-methods-and-helpers",
+    "href": "slides/w4_dplyr.html#mix-select-methods-and-helpers",
+    "title": "Week 4: Data Wrangling",
+    "section": "Mix select methods and helpers",
+    "text": "Mix select methods and helpers\nYou can mix types and helper functions\n\nreads %&gt;% \n    select(student_id, 1, starts_with(\"total\"))\n\n# A tibble: 48 × 4\n   student_id test_year              total_score total_percent_correct\n   &lt;chr&gt;      &lt;chr&gt;                        &lt;dbl&gt; &lt;chr&gt;                \n 1 Virden 1   06/01/2016 12:00:00 AM         207 41%                  \n 2 Virden 2   06/01/2016 12:00:00 AM         224 45%                  \n 3 Virden 3   06/01/2016 12:00:00 AM         193 39%                  \n 4 Virden 4   06/01/2016 12:00:00 AM         223 45%                  \n 5 Virden 5   06/01/2016 12:00:00 AM         198 40%                  \n 6 Virden 6   06/01/2016 12:00:00 AM         210 42%                  \n 7 Virden 7   06/01/2016 12:00:00 AM         211 42%                  \n 8 Virden 8   06/01/2016 12:00:00 AM         180 36%                  \n 9 Virden 9   06/01/2016 12:00:00 AM         206 41%                  \n10 Virden 10  06/01/2016 12:00:00 AM         206 41%                  \n# ℹ 38 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#mix-select-methods-and-helpers-1",
+    "href": "slides/w4_dplyr.html#mix-select-methods-and-helpers-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "Mix select methods and helpers",
+    "text": "Mix select methods and helpers\nYou can also use select to rearrange your columns\n\nreads %&gt;% \n    select(student_id, 1, starts_with(\"total\"), everything())\n\n# A tibble: 48 × 25\n   student_id test_year    total_score total_percent_correct test_type test_site\n   &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt;                 &lt;chr&gt;     &lt;chr&gt;    \n 1 Virden 1   06/01/2016 …         207 41%                   YEAR END  VIRDEN   \n 2 Virden 2   06/01/2016 …         224 45%                   YEAR END  VIRDEN   \n 3 Virden 3   06/01/2016 …         193 39%                   YEAR END  VIRDEN   \n 4 Virden 4   06/01/2016 …         223 45%                   YEAR END  VIRDEN   \n 5 Virden 5   06/01/2016 …         198 40%                   YEAR END  VIRDEN   \n 6 Virden 6   06/01/2016 …         210 42%                   YEAR END  VIRDEN   \n 7 Virden 7   06/01/2016 …         211 42%                   YEAR END  VIRDEN   \n 8 Virden 8   06/01/2016 …         180 36%                   YEAR END  VIRDEN   \n 9 Virden 9   06/01/2016 …         206 41%                   YEAR END  VIRDEN   \n10 Virden 10  06/01/2016 …         206 41%                   YEAR END  VIRDEN   \n# ℹ 38 more rows\n# ℹ 19 more variables: pre_test_score &lt;dbl&gt;, pre_test_percent &lt;chr&gt;,\n#   post_test_score &lt;dbl&gt;, post_test_percent &lt;chr&gt;, percentage_change &lt;chr&gt;,\n#   unit_1_score &lt;dbl&gt;, unit_1_percent &lt;chr&gt;, unit_2_score &lt;dbl&gt;,\n#   unit_2_percent &lt;chr&gt;, unit_3_score &lt;dbl&gt;, unit_3_percent &lt;chr&gt;,\n#   unit_4_score &lt;dbl&gt;, unit_4_percent &lt;chr&gt;, unit_5_6_score &lt;dbl&gt;,\n#   unit_5_6_percent &lt;chr&gt;, unit_7_score &lt;dbl&gt;, unit_7_percent &lt;chr&gt;, …"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#relocate",
+    "href": "slides/w4_dplyr.html#relocate",
+    "title": "Week 4: Data Wrangling",
+    "section": "relocate()",
+    "text": "relocate()\nrelocate(.data, … .before = NULL, .after = NULL)\n\n.data = dataframe/tibble\n… = columns to move\n.before = variable to move before\n.after = variable to move after\n\nsupplying neither .before nor .after move columns to the left-hand side\nspecifying both is an error"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#relocate-1",
+    "href": "slides/w4_dplyr.html#relocate-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "relocate()",
+    "text": "relocate()\n\npresidential %&gt;% \n  relocate(party)\n\n# A tibble: 12 × 4\n   party      name       start      end       \n   &lt;chr&gt;      &lt;chr&gt;      &lt;date&gt;     &lt;date&gt;    \n 1 Republican Eisenhower 1953-01-20 1961-01-20\n 2 Democratic Kennedy    1961-01-20 1963-11-22\n 3 Democratic Johnson    1963-11-22 1969-01-20\n 4 Republican Nixon      1969-01-20 1974-08-09\n 5 Republican Ford       1974-08-09 1977-01-20\n 6 Democratic Carter     1977-01-20 1981-01-20\n 7 Republican Reagan     1981-01-20 1989-01-20\n 8 Republican Bush       1989-01-20 1993-01-20\n 9 Democratic Clinton    1993-01-20 2001-01-20\n10 Republican Bush       2001-01-20 2009-01-20\n11 Democratic Obama      2009-01-20 2017-01-20\n12 Republican Trump      2017-01-20 2021-01-20\n\n\n\n\nmoves “party” to far left (default)"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#relocate-2",
+    "href": "slides/w4_dplyr.html#relocate-2",
+    "title": "Week 4: Data Wrangling",
+    "section": "relocate()",
+    "text": "relocate()\n\npresidential %&gt;% \n  relocate(party, .after = start)\n\n# A tibble: 12 × 4\n   name       start      party      end       \n   &lt;chr&gt;      &lt;date&gt;     &lt;chr&gt;      &lt;date&gt;    \n 1 Eisenhower 1953-01-20 Republican 1961-01-20\n 2 Kennedy    1961-01-20 Democratic 1963-11-22\n 3 Johnson    1963-11-22 Democratic 1969-01-20\n 4 Nixon      1969-01-20 Republican 1974-08-09\n 5 Ford       1974-08-09 Republican 1977-01-20\n 6 Carter     1977-01-20 Democratic 1981-01-20\n 7 Reagan     1981-01-20 Republican 1989-01-20\n 8 Bush       1989-01-20 Republican 1993-01-20\n 9 Clinton    1993-01-20 Democratic 2001-01-20\n10 Bush       2001-01-20 Republican 2009-01-20\n11 Obama      2009-01-20 Democratic 2017-01-20\n12 Trump      2017-01-20 Republican 2021-01-20\n\n\n\n\nmoves “party” after “start”"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#relocate-3",
+    "href": "slides/w4_dplyr.html#relocate-3",
+    "title": "Week 4: Data Wrangling",
+    "section": "relocate()",
+    "text": "relocate()\n\npresidential %&gt;% \n  relocate(end, .before = party)\n\n# A tibble: 12 × 4\n   name       start      end        party     \n   &lt;chr&gt;      &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;     \n 1 Eisenhower 1953-01-20 1961-01-20 Republican\n 2 Kennedy    1961-01-20 1963-11-22 Democratic\n 3 Johnson    1963-11-22 1969-01-20 Democratic\n 4 Nixon      1969-01-20 1974-08-09 Republican\n 5 Ford       1974-08-09 1977-01-20 Republican\n 6 Carter     1977-01-20 1981-01-20 Democratic\n 7 Reagan     1981-01-20 1989-01-20 Republican\n 8 Bush       1989-01-20 1993-01-20 Republican\n 9 Clinton    1993-01-20 2001-01-20 Democratic\n10 Bush       2001-01-20 2009-01-20 Republican\n11 Obama      2009-01-20 2017-01-20 Democratic\n12 Trump      2017-01-20 2021-01-20 Republican\n\n\n\n\nmoves “end” before “party”"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#filter-1",
+    "href": "slides/w4_dplyr.html#filter-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "filter()",
+    "text": "filter()\nchoose rows that satisfy your condition (== TRUE)\n\n\n\nfilter(df,\n       type == \"otter\",\n       site == \"bay\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIllustration by Allison Horst"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#filter-2",
+    "href": "slides/w4_dplyr.html#filter-2",
+    "title": "Week 4: Data Wrangling",
+    "section": "filter()",
+    "text": "filter()\n\n\nComplete set of boolean operations\n\nx is the left-hand circle\ny is the right-hand circle\nthe shaded region show which parts each operator selects\n\nxor == x or y except where they overlap\n\n\n\n==\n\nequal\n\n!\n\nnegates\n\n!=\n\nNOT equal\n\n&\n\nand\n\n|\n\nor"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#filter-numeric",
+    "href": "slides/w4_dplyr.html#filter-numeric",
+    "title": "Week 4: Data Wrangling",
+    "section": "filter() numeric",
+    "text": "filter() numeric\n\n\n\nmpg %&gt;% \n  filter(cyl == 4)\n\n# A tibble: 81 × 11\n   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class\n   &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;\n 1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…\n 2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…\n 3 audi         a4           2    2008     4 manu… f        20    31 p     comp…\n 4 audi         a4           2    2008     4 auto… f        21    30 p     comp…\n 5 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…\n 6 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…\n 7 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…\n 8 audi         a4 quattro   2    2008     4 auto… 4        19    27 p     comp…\n 9 chevrolet    malibu       2.4  1999     4 auto… f        19    27 r     mids…\n10 chevrolet    malibu       2.4  2008     4 auto… f        22    30 r     mids…\n# ℹ 71 more rows\n\n\n\n\nmpg %&gt;% \n  filter(hwy &gt;= 22)\n\n# A tibble: 143 × 11\n   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class\n   &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;\n 1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…\n 2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…\n 3 audi         a4           2    2008     4 manu… f        20    31 p     comp…\n 4 audi         a4           2    2008     4 auto… f        21    30 p     comp…\n 5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…\n 6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…\n 7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…\n 8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…\n 9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…\n10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…\n# ℹ 133 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#filter-for-democrats",
+    "href": "slides/w4_dplyr.html#filter-for-democrats",
+    "title": "Week 4: Data Wrangling",
+    "section": "filter for Democrats",
+    "text": "filter for Democrats\nnote the use of == NOT =\n\n\n\npresidential %&gt;%\n    filter(party == \"Democratic\")\n\n# A tibble: 5 × 4\n  name    start      end        party     \n  &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;     \n1 Kennedy 1961-01-20 1963-11-22 Democratic\n2 Johnson 1963-11-22 1969-01-20 Democratic\n3 Carter  1977-01-20 1981-01-20 Democratic\n4 Clinton 1993-01-20 2001-01-20 Democratic\n5 Obama   2009-01-20 2017-01-20 Democratic\n\n\n\n\npresidential %&gt;%\n    filter(party = \"Democratic\")\n\nError in `filter()`:\n! We detected a named input.\nℹ This usually means that you've used `=` instead of `==`.\nℹ Did you mean `party == \"Democratic\"`?"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#filter-character",
+    "href": "slides/w4_dplyr.html#filter-character",
+    "title": "Week 4: Data Wrangling",
+    "section": "filter character",
+    "text": "filter character\nnote the use of == NOT =\n\n\n\nmpg_ %&gt;% \n  filter(manufacturer == \"pontiac\")\n\n# A tibble: 5 × 5\n  manufacturer model      displ  year   cyl\n  &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt;\n1 pontiac      grand prix   3.1  1999     6\n2 pontiac      grand prix   3.8  1999     6\n3 pontiac      grand prix   3.8  1999     6\n4 pontiac      grand prix   3.8  2008     6\n5 pontiac      grand prix   5.3  2008     8\n\n\n\n\npresidential %&gt;% \n  filter(party == \"Democratic\")\n\n# A tibble: 5 × 4\n  name    start      end        party     \n  &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;     \n1 Kennedy 1961-01-20 1963-11-22 Democratic\n2 Johnson 1963-11-22 1969-01-20 Democratic\n3 Carter  1977-01-20 1981-01-20 Democratic\n4 Clinton 1993-01-20 2001-01-20 Democratic\n5 Obama   2009-01-20 2017-01-20 Democratic"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#democrats-starting-after-2000",
+    "href": "slides/w4_dplyr.html#democrats-starting-after-2000",
+    "title": "Week 4: Data Wrangling",
+    "section": "Democrats starting after 2000",
+    "text": "Democrats starting after 2000\n, is equivalent to &\n\n\n\npresidential %&gt;% \n  filter(party == \"Democratic\" & \n  start &gt; \"2000-01-01\")\n\n# A tibble: 1 × 4\n  name  start      end        party     \n  &lt;chr&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;     \n1 Obama 2009-01-20 2017-01-20 Democratic\n\n\n\n\npresidential %&gt;% \n  filter(party == \"Democratic\", \n  start &gt; \"2000-01-01\")\n\n# A tibble: 1 × 4\n  name  start      end        party     \n  &lt;chr&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;     \n1 Obama 2009-01-20 2017-01-20 Democratic"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#filter-note",
+    "href": "slides/w4_dplyr.html#filter-note",
+    "title": "Week 4: Data Wrangling",
+    "section": "filter() note",
+    "text": "filter() note\n\nThe order of operations doesn’t work like English\nCan’t write:\n\nfilter(presidential, name == \"Kennedy\" | \"Johnson\")\n\nMust be:\n\nfilter(presidential, name == \"Kennedy\" | name == \"Johnson\")"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#more-filter",
+    "href": "slides/w4_dplyr.html#more-filter",
+    "title": "Week 4: Data Wrangling",
+    "section": "more filter()",
+    "text": "more filter()\n\nreads\n\n# A tibble: 48 × 25\n   test_year      test_type test_site student_id pre_test_score pre_test_percent\n   &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;           \n 1 06/01/2016 12… YEAR END  VIRDEN    Virden 1               43 29%             \n 2 06/01/2016 12… YEAR END  VIRDEN    Virden 2               46 31%             \n 3 06/01/2016 12… YEAR END  VIRDEN    Virden 3               39 26%             \n 4 06/01/2016 12… YEAR END  VIRDEN    Virden 4               35 23%             \n 5 06/01/2016 12… YEAR END  VIRDEN    Virden 5               46 31%             \n 6 06/01/2016 12… YEAR END  VIRDEN    Virden 6               35 23%             \n 7 06/01/2016 12… YEAR END  VIRDEN    Virden 7               40 27%             \n 8 06/01/2016 12… YEAR END  VIRDEN    Virden 8               39 26%             \n 9 06/01/2016 12… YEAR END  VIRDEN    Virden 9               40 27%             \n10 06/01/2016 12… YEAR END  VIRDEN    Virden 10              45 30%             \n# ℹ 38 more rows\n# ℹ 19 more variables: post_test_score &lt;dbl&gt;, post_test_percent &lt;chr&gt;,\n#   percentage_change &lt;chr&gt;, unit_1_score &lt;dbl&gt;, unit_1_percent &lt;chr&gt;,\n#   unit_2_score &lt;dbl&gt;, unit_2_percent &lt;chr&gt;, unit_3_score &lt;dbl&gt;,\n#   unit_3_percent &lt;chr&gt;, unit_4_score &lt;dbl&gt;, unit_4_percent &lt;chr&gt;,\n#   unit_5_6_score &lt;dbl&gt;, unit_5_6_percent &lt;chr&gt;, unit_7_score &lt;dbl&gt;,\n#   unit_7_percent &lt;chr&gt;, unit_8_score &lt;dbl&gt;, unit_8_percent &lt;chr&gt;, …"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#more-filter-1",
+    "href": "slides/w4_dplyr.html#more-filter-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "more filter()",
+    "text": "more filter()\nAnomaly in the data\n\nreads %&gt;%\n count(student_id)\n\n# A tibble: 46 × 2\n   student_id                 n\n   &lt;chr&gt;                  &lt;int&gt;\n 1 All Students (Average)     3\n 2 Jones 1                    1\n 3 Jones 10                   1\n 4 Jones 11                   1\n 5 Jones 12                   1\n 6 Jones 13                   1\n 7 Jones 14                   1\n 8 Jones 15                   1\n 9 Jones 2                    1\n10 Jones 3                    1\n# ℹ 36 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#lets-remove-these-aggregate-rows",
+    "href": "slides/w4_dplyr.html#lets-remove-these-aggregate-rows",
+    "title": "Week 4: Data Wrangling",
+    "section": "Let’s remove these aggregate rows",
+    "text": "Let’s remove these aggregate rows\n\nstudents_only &lt;- reads %&gt;%\n  filter(student_id != \"All Students (Average)\") \n\nstudents_only %&gt;% \n  count(student_id)\n\n# A tibble: 45 × 2\n   student_id     n\n   &lt;chr&gt;      &lt;int&gt;\n 1 Jones 1        1\n 2 Jones 10       1\n 3 Jones 11       1\n 4 Jones 12       1\n 5 Jones 13       1\n 6 Jones 14       1\n 7 Jones 15       1\n 8 Jones 2        1\n 9 Jones 3        1\n10 Jones 4        1\n# ℹ 35 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#not-equal",
+    "href": "slides/w4_dplyr.html#not-equal",
+    "title": "Week 4: Data Wrangling",
+    "section": "Not equal",
+    "text": "Not equal\n! means NOT\n!= means NOT equal\nNote:\n\nIf you want values that are NOT NA:\n\n!is.na(variable)\nvariable != NA"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#chaining-dplyr-functions",
+    "href": "slides/w4_dplyr.html#chaining-dplyr-functions",
+    "title": "Week 4: Data Wrangling",
+    "section": "Chaining {dplyr} functions",
+    "text": "Chaining {dplyr} functions\nWhat if we wanted to select and filter a data set?\nSelect “name” and “party” of presidents who began their term after 2000\n\n\nTwo step method 😐\n\n\nafter_2000 &lt;- filter(presidential, start &gt; as.Date(\"2000-01-01\"))\n\nselect(after_2000, name, party)\n\n# A tibble: 3 × 2\n  name  party     \n  &lt;chr&gt; &lt;chr&gt;     \n1 Bush  Republican\n2 Obama Democratic\n3 Trump Republican"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#chaining-dplyr-functions-1",
+    "href": "slides/w4_dplyr.html#chaining-dplyr-functions-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "Chaining {dplyr} functions",
+    "text": "Chaining {dplyr} functions\n\nAlternatively, we could wrap select around filter ☹️\n\n\nselect(filter(presidential, start &gt; as.Date(\"2000-01-01\")), name, party)\n\n# A tibble: 3 × 2\n  name  party     \n  &lt;chr&gt; &lt;chr&gt;     \n1 Bush  Republican\n2 Obama Democratic\n3 Trump Republican"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#chaining-dplyr-functions-2",
+    "href": "slides/w4_dplyr.html#chaining-dplyr-functions-2",
+    "title": "Week 4: Data Wrangling",
+    "section": "Chaining {dplyr} functions",
+    "text": "Chaining {dplyr} functions\n\nPiping functions 🎉\n\nWe could use the pipe function to help increase the readability of our code:  %&gt;% \nCalled the “pipe” operator and “piping functions”\n\nfilter(presidential, start &gt; as.Date(\"2000-01-01\")) %&gt;% \n  select(name, party)\n\n# A tibble: 3 × 2\n  name  party     \n  &lt;chr&gt; &lt;chr&gt;     \n1 Bush  Republican\n2 Obama Democratic\n3 Trump Republican"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#piping-functions",
+    "href": "slides/w4_dplyr.html#piping-functions",
+    "title": "Week 4: Data Wrangling",
+    "section": "Piping functions",
+    "text": "Piping functions\nEven better:\n\nGenerally when using the pipe, the first argument is the data set, which gets piped through the corresponding functions\nSo the code on the prior slide would be:\n\n\npresidential %&gt;% \n  filter(start &gt; as.Date(\"2000-01-01\")) %&gt;% \n  select(name, party)\n\n# A tibble: 3 × 2\n  name  party     \n  &lt;chr&gt; &lt;chr&gt;     \n1 Bush  Republican\n2 Obama Democratic\n3 Trump Republican\n\n\n\n\nNote the lovely indentations and line breaks to help keep things straight"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#some-new-data",
+    "href": "slides/w4_dplyr.html#some-new-data",
+    "title": "Week 4: Data Wrangling",
+    "section": "Some new data",
+    "text": "Some new data\n\n(prepost &lt;- reads %&gt;% \n  select(student_id, test_site, pre_test_score, post_test_score))\n\n\n\n# A tibble: 48 × 4\n   student_id test_site pre_test_score post_test_score\n   &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt;           &lt;dbl&gt;\n 1 Virden 1   VIRDEN                43              92\n 2 Virden 2   VIRDEN                46             104\n 3 Virden 3   VIRDEN                39              75\n 4 Virden 4   VIRDEN                35             115\n 5 Virden 5   VIRDEN                46              85\n 6 Virden 6   VIRDEN                35              91\n 7 Virden 7   VIRDEN                40              96\n 8 Virden 8   VIRDEN                39              74\n 9 Virden 9   VIRDEN                40              90\n10 Virden 10  VIRDEN                45              86\n# ℹ 38 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#mutate-1",
+    "href": "slides/w4_dplyr.html#mutate-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "mutate()",
+    "text": "mutate()\nAdd a variable\n\nprepost %&gt;% \n  mutate(gain = post_test_score - pre_test_score)\n\n# A tibble: 48 × 5\n   student_id test_site pre_test_score post_test_score  gain\n   &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt;           &lt;dbl&gt; &lt;dbl&gt;\n 1 Virden 1   VIRDEN                43              92    49\n 2 Virden 2   VIRDEN                46             104    58\n 3 Virden 3   VIRDEN                39              75    36\n 4 Virden 4   VIRDEN                35             115    80\n 5 Virden 5   VIRDEN                46              85    39\n 6 Virden 6   VIRDEN                35              91    56\n 7 Virden 7   VIRDEN                40              96    56\n 8 Virden 8   VIRDEN                39              74    35\n 9 Virden 9   VIRDEN                40              90    50\n10 Virden 10  VIRDEN                45              86    41\n# ℹ 38 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#section-3",
+    "href": "slides/w4_dplyr.html#section-3",
+    "title": "Week 4: Data Wrangling",
+    "section": "",
+    "text": "names(prepost)\n\n[1] \"student_id\"      \"test_site\"       \"pre_test_score\"  \"post_test_score\"\n\n\n\nWhy do we not see the new gain column?"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#mutate-2",
+    "href": "slides/w4_dplyr.html#mutate-2",
+    "title": "Week 4: Data Wrangling",
+    "section": "mutate()",
+    "text": "mutate()\nAdd multiple variables\n\nprepost &lt;- prepost %&gt;%\n  mutate(\n    gain = post_test_score - pre_test_score,\n      sum_tests = post_test_score + pre_test_score\n  )\n\nprepost\n\n\n\n# A tibble: 48 × 6\n   student_id test_site pre_test_score post_test_score  gain sum_tests\n   &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt;           &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;\n 1 Virden 1   VIRDEN                43              92    49       135\n 2 Virden 2   VIRDEN                46             104    58       150\n 3 Virden 3   VIRDEN                39              75    36       114\n 4 Virden 4   VIRDEN                35             115    80       150\n 5 Virden 5   VIRDEN                46              85    39       131\n 6 Virden 6   VIRDEN                35              91    56       126\n 7 Virden 7   VIRDEN                40              96    56       136\n 8 Virden 8   VIRDEN                39              74    35       113\n 9 Virden 9   VIRDEN                40              90    50       130\n10 Virden 10  VIRDEN                45              86    41       131\n# ℹ 38 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#mutate-3",
+    "href": "slides/w4_dplyr.html#mutate-3",
+    "title": "Week 4: Data Wrangling",
+    "section": "mutate()",
+    "text": "mutate()\nChange a variable\n\nprepost &lt;- prepost %&gt;% \n  mutate(sum_tests = (sum_tests/180) * 100)\n\nprepost\n\n\n\n# A tibble: 48 × 6\n   student_id test_site pre_test_score post_test_score  gain sum_tests\n   &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt;           &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;\n 1 Virden 1   VIRDEN                43              92    49      75  \n 2 Virden 2   VIRDEN                46             104    58      83.3\n 3 Virden 3   VIRDEN                39              75    36      63.3\n 4 Virden 4   VIRDEN                35             115    80      83.3\n 5 Virden 5   VIRDEN                46              85    39      72.8\n 6 Virden 6   VIRDEN                35              91    56      70  \n 7 Virden 7   VIRDEN                40              96    56      75.6\n 8 Virden 8   VIRDEN                39              74    35      62.8\n 9 Virden 9   VIRDEN                40              90    50      72.2\n10 Virden 10  VIRDEN                45              86    41      72.8\n# ℹ 38 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#arrange-1",
+    "href": "slides/w4_dplyr.html#arrange-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "arrange()",
+    "text": "arrange()\nOrder the data\n\nOrder by gain, ascending [default]\n\n\nprepost %&gt;% \n  arrange(gain)\n\n# A tibble: 48 × 6\n   student_id  test_site pre_test_score post_test_score  gain sum_tests\n   &lt;chr&gt;       &lt;chr&gt;              &lt;dbl&gt;           &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;\n 1 Jones 12    JONES                 27              32     5      32.8\n 2 Westside 6  WESTSIDE              57              82    25      77.2\n 3 Virden 8    VIRDEN                39              74    35      62.8\n 4 Virden 3    VIRDEN                39              75    36      63.3\n 5 Virden 5    VIRDEN                46              85    39      72.8\n 6 Virden 10   VIRDEN                45              86    41      72.8\n 7 Jones 3     JONES                 54              95    41      82.8\n 8 Virden 1    VIRDEN                43              92    49      75  \n 9 Jones 13    JONES                 49              98    49      81.7\n10 Westside 13 WESTSIDE              45              94    49      77.2\n# ℹ 38 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#arrange-2",
+    "href": "slides/w4_dplyr.html#arrange-2",
+    "title": "Week 4: Data Wrangling",
+    "section": "arrange()",
+    "text": "arrange()\nOrder the data\n\nOrder by pre_test_score and gain, ascending\n\n\nprepost %&gt;% \n  arrange(pre_test_score, gain)\n\n# A tibble: 48 × 6\n   student_id test_site pre_test_score post_test_score  gain sum_tests\n   &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt;           &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;\n 1 Jones 11   JONES                 24             108    84      73.3\n 2 Jones 4    JONES                 25              99    74      68.9\n 3 Jones 12   JONES                 27              32     5      32.8\n 4 Virden 12  VIRDEN                31             102    71      73.9\n 5 Virden 11  VIRDEN                32              91    59      68.3\n 6 Virden 13  VIRDEN                33              86    53      66.1\n 7 Virden 6   VIRDEN                35              91    56      70  \n 8 Virden 15  VIRDEN                35             101    66      75.6\n 9 Jones 9    JONES                 35             109    74      80  \n10 Virden 4   VIRDEN                35             115    80      83.3\n# ℹ 38 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#arrange-3",
+    "href": "slides/w4_dplyr.html#arrange-3",
+    "title": "Week 4: Data Wrangling",
+    "section": "arrange()",
+    "text": "arrange()\nOrder the data\n\nOrder by gain, descending\n\n\nprepost %&gt;% \n  arrange(desc(gain))\n\n# A tibble: 48 × 6\n   student_id test_site pre_test_score post_test_score  gain sum_tests\n   &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt;           &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;\n 1 Jones 11   JONES                 24             108    84      73.3\n 2 Virden 4   VIRDEN                35             115    80      83.3\n 3 Jones 4    JONES                 25              99    74      68.9\n 4 Jones 5    JONES                 36             110    74      81.1\n 5 Jones 9    JONES                 35             109    74      80  \n 6 Virden 12  VIRDEN                31             102    71      73.9\n 7 Jones 1    JONES                 36             103    67      77.2\n 8 Virden 15  VIRDEN                35             101    66      75.6\n 9 Jones 6    JONES                 40             106    66      81.1\n10 Westside 8 WESTSIDE              43             109    66      84.4\n# ℹ 38 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#summarize",
+    "href": "slides/w4_dplyr.html#summarize",
+    "title": "Week 4: Data Wrangling",
+    "section": "summarize()",
+    "text": "summarize()\nsummarize() or summarise()\n\nHere: compute the mean and standard deviation of the gain scores\nWhat are we looking at?\n\n\nprepost %&gt;% \n  summarize(mean_gain = mean(gain, na.rm = TRUE),\n            sd_gain = sd(gain, na.rm = TRUE))\n\n# A tibble: 1 × 2\n  mean_gain sd_gain\n      &lt;dbl&gt;   &lt;dbl&gt;\n1      56.3    13.6\n\n\n\n\n\n\nThis is a good start for a descriptive table!"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#section-4",
+    "href": "slides/w4_dplyr.html#section-4",
+    "title": "Week 4: Data Wrangling",
+    "section": "",
+    "text": "Image from Software Carpentry"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#group_by-1",
+    "href": "slides/w4_dplyr.html#group_by-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "group_by()",
+    "text": "group_by()\nConduct an operation for each level of a grouping factor\nHere, compute the mean gain for each test site\n\nprepost %&gt;% \n  group_by(test_site) %&gt;% \n  summarize(mean_gain = mean(gain))\n\n\n\n# A tibble: 6 × 2\n  test_site    mean_gain\n  &lt;chr&gt;            &lt;dbl&gt;\n1 JONES             59  \n2 JONES ALL         59  \n3 VIRDEN            53.8\n4 VIRDEN ALL        53  \n5 WESTSIDE          56.3\n6 WESTSIDE ALL      56"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#group_by-2",
+    "href": "slides/w4_dplyr.html#group_by-2",
+    "title": "Week 4: Data Wrangling",
+    "section": "group_by()",
+    "text": "group_by()\nWhen you use group_by() and summarize()\n\n\nYou will get a row for each unique group\n\nmpg %&gt;% \n  group_by(cyl) %&gt;% \n  summarize(max_hwy = max(hwy))\n\n# A tibble: 4 × 2\n    cyl max_hwy\n  &lt;int&gt;   &lt;int&gt;\n1     4      44\n2     5      29\n3     6      29\n4     8      26\n\n\n\nIf you have multiple grouping variables, you will get a row for each unique combination of groups\n\nmpg %&gt;% \n  group_by(cyl, drv) %&gt;% \n  summarize(max_hwy = max(hwy))\n\n# A tibble: 9 × 3\n# Groups:   cyl [4]\n    cyl drv   max_hwy\n  &lt;int&gt; &lt;chr&gt;   &lt;int&gt;\n1     4 4          28\n2     4 f          44\n3     5 f          29\n4     6 4          25\n5     6 f          29\n6     6 r          26\n7     8 4          23\n8     8 f          25\n9     8 r          26"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#add-summarized-column-to-full-data",
+    "href": "slides/w4_dplyr.html#add-summarized-column-to-full-data",
+    "title": "Week 4: Data Wrangling",
+    "section": "Add summarized column to full data",
+    "text": "Add summarized column to full data\nUse mutate()!\n\nprepost %&gt;% \n  group_by(test_site) %&gt;% \n  mutate(mean_gain = mean(gain))\n\n# A tibble: 48 × 7\n# Groups:   test_site [6]\n   student_id test_site pre_test_score post_test_score  gain sum_tests mean_gain\n   &lt;chr&gt;      &lt;chr&gt;              &lt;dbl&gt;           &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n 1 Virden 1   VIRDEN                43              92    49      75        53.8\n 2 Virden 2   VIRDEN                46             104    58      83.3      53.8\n 3 Virden 3   VIRDEN                39              75    36      63.3      53.8\n 4 Virden 4   VIRDEN                35             115    80      83.3      53.8\n 5 Virden 5   VIRDEN                46              85    39      72.8      53.8\n 6 Virden 6   VIRDEN                35              91    56      70        53.8\n 7 Virden 7   VIRDEN                40              96    56      75.6      53.8\n 8 Virden 8   VIRDEN                39              74    35      62.8      53.8\n 9 Virden 9   VIRDEN                40              90    50      72.2      53.8\n10 Virden 10  VIRDEN                45              86    41      72.8      53.8\n# ℹ 38 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#retain-only-summarized-columns",
+    "href": "slides/w4_dplyr.html#retain-only-summarized-columns",
+    "title": "Week 4: Data Wrangling",
+    "section": "Retain only summarized columns",
+    "text": "Retain only summarized columns\nUse summarize()!\n\nprepost %&gt;% \n  group_by(test_site) %&gt;% \n  summarize(mean_gain = mean(gain))\n\n# A tibble: 6 × 2\n  test_site    mean_gain\n  &lt;chr&gt;            &lt;dbl&gt;\n1 JONES             59  \n2 JONES ALL         59  \n3 VIRDEN            53.8\n4 VIRDEN ALL        53  \n5 WESTSIDE          56.3\n6 WESTSIDE ALL      56"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#pipe-to-ggplot",
+    "href": "slides/w4_dplyr.html#pipe-to-ggplot",
+    "title": "Week 4: Data Wrangling",
+    "section": "Pipe to {ggplot}!",
+    "text": "Pipe to {ggplot}!\n\nprepost %&gt;% \n  group_by(test_site) %&gt;% \n  summarize(mean_gain = mean(gain)) %&gt;% \n  ggplot(aes(test_site, mean_gain)) + \n  geom_col(fill = \"cornflowerblue\", alpha = .7) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#summarizing-and-plotting",
+    "href": "slides/w4_dplyr.html#summarizing-and-plotting",
+    "title": "Week 4: Data Wrangling",
+    "section": "Summarizing and Plotting",
+    "text": "Summarizing and Plotting\n\nCalculate mean post_test_score by test site\n\n\nstudents_only %&gt;%\n    group_by(test_site) %&gt;%\n    summarize(mean = mean(post_test_score))\n\n# A tibble: 3 × 2\n  test_site  mean\n  &lt;chr&gt;     &lt;dbl&gt;\n1 JONES      97.8\n2 VIRDEN     92.5\n3 WESTSIDE  103."
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#plot-it",
+    "href": "slides/w4_dplyr.html#plot-it",
+    "title": "Week 4: Data Wrangling",
+    "section": "Plot it",
+    "text": "Plot it\n\ntheme_set(theme_minimal(base_size = 18))\n\nstudents_only %&gt;%\n  group_by(test_site) %&gt;%\n  summarize(mean = mean(post_test_score)) %&gt;%\n  ggplot(aes(test_site, mean)) +\n  geom_col(alpha = 0.8)"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#recode-with-ifelse",
+    "href": "slides/w4_dplyr.html#recode-with-ifelse",
+    "title": "Week 4: Data Wrangling",
+    "section": "Recode with ifelse()",
+    "text": "Recode with ifelse()\nRecoding into dichotomous variable with ifelse()\nifelse(test, yes, no)\nor\nifelse(logical statement, do this if TRUE, else do this)"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#recode-with-ifelse-1",
+    "href": "slides/w4_dplyr.html#recode-with-ifelse-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "Recode with ifelse()",
+    "text": "Recode with ifelse()\nRecoding into dichotomous variable with ifelse()\nRemember to pair with mutate()!\n\nstudents_only %&gt;% \n  mutate(New_test_site = ifelse(test_site == \"JONES\", \"district 1\", \"district 2\"))\n\n\n\n# A tibble: 45 × 26\n   test_year      test_type test_site student_id pre_test_score pre_test_percent\n   &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;           \n 1 06/01/2016 12… YEAR END  VIRDEN    Virden 1               43 29%             \n 2 06/01/2016 12… YEAR END  VIRDEN    Virden 2               46 31%             \n 3 06/01/2016 12… YEAR END  VIRDEN    Virden 3               39 26%             \n 4 06/01/2016 12… YEAR END  VIRDEN    Virden 4               35 23%             \n 5 06/01/2016 12… YEAR END  VIRDEN    Virden 5               46 31%             \n 6 06/01/2016 12… YEAR END  VIRDEN    Virden 6               35 23%             \n 7 06/01/2016 12… YEAR END  VIRDEN    Virden 7               40 27%             \n 8 06/01/2016 12… YEAR END  VIRDEN    Virden 8               39 26%             \n 9 06/01/2016 12… YEAR END  VIRDEN    Virden 9               40 27%             \n10 06/01/2016 12… YEAR END  VIRDEN    Virden 10              45 30%             \n# ℹ 35 more rows\n# ℹ 20 more variables: post_test_score &lt;dbl&gt;, post_test_percent &lt;chr&gt;,\n#   percentage_change &lt;chr&gt;, unit_1_score &lt;dbl&gt;, unit_1_percent &lt;chr&gt;,\n#   unit_2_score &lt;dbl&gt;, unit_2_percent &lt;chr&gt;, unit_3_score &lt;dbl&gt;,\n#   unit_3_percent &lt;chr&gt;, unit_4_score &lt;dbl&gt;, unit_4_percent &lt;chr&gt;,\n#   unit_5_6_score &lt;dbl&gt;, unit_5_6_percent &lt;chr&gt;, unit_7_score &lt;dbl&gt;,\n#   unit_7_percent &lt;chr&gt;, unit_8_score &lt;dbl&gt;, unit_8_percent &lt;chr&gt;, …"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#recode-with-recode",
+    "href": "slides/w4_dplyr.html#recode-with-recode",
+    "title": "Week 4: Data Wrangling",
+    "section": "Recode with recode()",
+    "text": "Recode with recode()\nRecoding into multinomial variable\n\nrecode(variable,\n       old_category_1 = \"new_category_1\",\n         old_category_2 = \"new_category_2\",\n         old_category_3 = \"new_category_3\",\n       ...\n)"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#recode-with-recode-1",
+    "href": "slides/w4_dplyr.html#recode-with-recode-1",
+    "title": "Week 4: Data Wrangling",
+    "section": "Recode with recode()",
+    "text": "Recode with recode()\nRecoding into multinomial variable\nRemember to pair with mutate()\n\nstudents_only %&gt;% \n  mutate(test_site = recode(test_site,\n                            JONES = \"Jones Middle\",\n                            VIRDEN = \"Virden Elementary\",\n                            WESTSIDE = \"Westside High\")\n         )\n\n\n\n# A tibble: 45 × 25\n   test_year      test_type test_site student_id pre_test_score pre_test_percent\n   &lt;chr&gt;          &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;           \n 1 06/01/2016 12… YEAR END  Virden E… Virden 1               43 29%             \n 2 06/01/2016 12… YEAR END  Virden E… Virden 2               46 31%             \n 3 06/01/2016 12… YEAR END  Virden E… Virden 3               39 26%             \n 4 06/01/2016 12… YEAR END  Virden E… Virden 4               35 23%             \n 5 06/01/2016 12… YEAR END  Virden E… Virden 5               46 31%             \n 6 06/01/2016 12… YEAR END  Virden E… Virden 6               35 23%             \n 7 06/01/2016 12… YEAR END  Virden E… Virden 7               40 27%             \n 8 06/01/2016 12… YEAR END  Virden E… Virden 8               39 26%             \n 9 06/01/2016 12… YEAR END  Virden E… Virden 9               40 27%             \n10 06/01/2016 12… YEAR END  Virden E… Virden 10              45 30%             \n# ℹ 35 more rows\n# ℹ 19 more variables: post_test_score &lt;dbl&gt;, post_test_percent &lt;chr&gt;,\n#   percentage_change &lt;chr&gt;, unit_1_score &lt;dbl&gt;, unit_1_percent &lt;chr&gt;,\n#   unit_2_score &lt;dbl&gt;, unit_2_percent &lt;chr&gt;, unit_3_score &lt;dbl&gt;,\n#   unit_3_percent &lt;chr&gt;, unit_4_score &lt;dbl&gt;, unit_4_percent &lt;chr&gt;,\n#   unit_5_6_score &lt;dbl&gt;, unit_5_6_percent &lt;chr&gt;, unit_7_score &lt;dbl&gt;,\n#   unit_7_percent &lt;chr&gt;, unit_8_score &lt;dbl&gt;, unit_8_percent &lt;chr&gt;, …"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#recode-with-recode-2",
+    "href": "slides/w4_dplyr.html#recode-with-recode-2",
+    "title": "Week 4: Data Wrangling",
+    "section": "Recode with recode()",
+    "text": "Recode with recode()\nRemember to use backticks for special characters\n\nmtcars %&gt;% \n  mutate(cyl_str = recode(cyl,\n                      `4` = \"cylinders4\",\n                      `6` = \"cylinders6\",\n                      `8` = \"cylinders8\"))"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#recode-with-case_when",
+    "href": "slides/w4_dplyr.html#recode-with-case_when",
+    "title": "Week 4: Data Wrangling",
+    "section": "Recode with case_when()",
+    "text": "Recode with case_when()\nRecoding across several variables, or if you find yourself using nested ifelse() statements\nRemember to pair with mutate()\n\nlibrary(palmerpenguins)\n\npenguins %&gt;% \n  mutate(species_big = \n           case_when(\n             body_mass_g &gt; 4500 & species == \"Adelie\" ~ \"adelie_big\",\n             body_mass_g &gt; 4600 & species == \"Chinstrap\" ~ \"chinstrap_big\",\n             body_mass_g &gt; 6000 & species == \"Gentoo\" ~ \"gentoo_big\",\n             .default = \"other\"\n           ))\n\n\n.default equivalent to all else"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#rename",
+    "href": "slides/w4_dplyr.html#rename",
+    "title": "Week 4: Data Wrangling",
+    "section": "rename()",
+    "text": "rename()\nrename(new_name = old_name)\nNOT paired with mutate()\n\npenguins %&gt;%\n  rename(\n    home = island,\n    bill_length = bill_length_mm\n  )\n\n# A tibble: 344 × 8\n   species home    bill_length bill_depth_mm flipper_length_mm body_mass_g sex  \n   &lt;fct&gt;   &lt;fct&gt;         &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt; &lt;fct&gt;\n 1 Adelie  Torger…        39.1          18.7               181        3750 male \n 2 Adelie  Torger…        39.5          17.4               186        3800 fema…\n 3 Adelie  Torger…        40.3          18                 195        3250 fema…\n 4 Adelie  Torger…        NA            NA                  NA          NA &lt;NA&gt; \n 5 Adelie  Torger…        36.7          19.3               193        3450 fema…\n 6 Adelie  Torger…        39.3          20.6               190        3650 male \n 7 Adelie  Torger…        38.9          17.8               181        3625 fema…\n 8 Adelie  Torger…        39.2          19.6               195        4675 male \n 9 Adelie  Torger…        34.1          18.1               193        3475 &lt;NA&gt; \n10 Adelie  Torger…        42            20.2               190        4250 &lt;NA&gt; \n# ℹ 334 more rows\n# ℹ 1 more variable: year &lt;int&gt;"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#rename-with-select",
+    "href": "slides/w4_dplyr.html#rename-with-select",
+    "title": "Week 4: Data Wrangling",
+    "section": "rename with select()",
+    "text": "rename with select()\n\npenguins %&gt;% \n  select(species, home = island, bill_length = bill_length_mm, year) #&lt;&lt;\n\n# A tibble: 344 × 4\n   species home      bill_length  year\n   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt; &lt;int&gt;\n 1 Adelie  Torgersen        39.1  2007\n 2 Adelie  Torgersen        39.5  2007\n 3 Adelie  Torgersen        40.3  2007\n 4 Adelie  Torgersen        NA    2007\n 5 Adelie  Torgersen        36.7  2007\n 6 Adelie  Torgersen        39.3  2007\n 7 Adelie  Torgersen        38.9  2007\n 8 Adelie  Torgersen        39.2  2007\n 9 Adelie  Torgersen        34.1  2007\n10 Adelie  Torgersen        42    2007\n# ℹ 334 more rows"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#final-notes-on-dplyr",
+    "href": "slides/w4_dplyr.html#final-notes-on-dplyr",
+    "title": "Week 4: Data Wrangling",
+    "section": "Final notes on {dplyr}",
+    "text": "Final notes on {dplyr}\n\nWe could spend weeks on this\nWe’ll be using it all term long\nVerbs can help you gain fluency\nThere are also conditional and all-inclusive versions of mutate, select, and summarize\n\nacross()"
+  },
+  {
+    "objectID": "slides/w4_dplyr.html#before-next-class",
+    "href": "slides/w4_dplyr.html#before-next-class",
+    "title": "Week 4: Data Wrangling",
+    "section": "Before next class",
+    "text": "Before next class\n\nFinal Project\n\nFinal Project: Outline\n\nReading\n\nBryan (2017)\n\nActivities\n\nDownload GitKraken\nWatch What is a Git repository?\nWatch What is a remote repository?\n\nHomework\n\nHomework 4"
   }
 ]
