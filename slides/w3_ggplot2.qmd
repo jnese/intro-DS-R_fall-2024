@@ -931,7 +931,7 @@ grad %>%
 
 ## Color by variable
 
-What if we wanted different colors by a variable -- *major_category*
+What if we wanted different colors by a variable -- *species*
 
 ```{r,fig.height=4, fig.width=8}
 penguins %>% 
