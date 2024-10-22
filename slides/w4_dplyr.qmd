@@ -36,9 +36,13 @@ library(countdown)
     + now open
     + Canvas: UO Course Surveys (left sidebar)
 - [Final Project Outline]{style='color:#FF0000'}
-    + Due next week (10/23)
+    + Due next week (10/30)
   
 > The outline should include a description of the data to be used, a discussion of what preparatory work will need to be done, and how the requirements of the final project will be met. The outline is intended to be low-stakes and is primarily designed to be a means for you to obtain feedback on the feasibility of the project and areas to consider.
+
+# Homework Review
+
+Homeworks 2 & 3
 
 # Data Wrangling with `{dplyr}`
 
