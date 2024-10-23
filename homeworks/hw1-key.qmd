@@ -1,0 +1,140 @@
+---
+title: "Homework 1"
+author: "Your Name Here"
+format:
+  html:
+    embed-resources: true
+execute:
+  error: false
+  message: false
+  warning: false
+---
+
+### Create a RStudio Project on your machine.
+
+-   Within the Project create a folder for *data* and *scripts*.
+-   Download the following two datasets into the project *data* folder.
+    -   *sesame13.sav*
+    -   *star.csv*
+-   Save your hw1.Rmd file in your *scripts* folder
+
+### Loading Packages
+
+The code chunk below loads the `{tidyverse}` package. Please also load `{here}`, `{rio}`, and `{janitor}`. If you get errors, you probably don't have one of the packages installed yet, so run `install.packages("package_name")` in the console first.
+
+```{r}
+#| label: load-packages
+
+library(tidyverse)
+library(here)
+library(rio)
+library(janitor)
+```
+
+Note that you should get some messages printed out below that state all the packages that have been loaded. This is important to pay attention to. It says that both `{ggplot2}` and `{dplyr}` have been loaded, so you don't need explicit calls to those packages.
+
+### Read in the data
+
+Use the code chunk below to:
+
+-   Read in *sesame13.sav* using `{here}` and `{rio}`
+-   Read in *star.csv* using `{here}` and `{readr}`
+-   Apply the `clean_names()` function to both
+-   Save each dataset as a separate object
+
+```{r}
+#| label: read-data
+
+sesame <- import(here("data", "sesame13.sav"))
+
+star <- read_csv(here("data", "star.csv"))
+```
+
+### `{ggplot2}` Peek
+
+Many packages also include data. We'll focus here on the **mpg** dataset, which comes from `{ggplot2}`. Run the following code to produce a scatterplot
+
+```{r}
+#| label: first-plot
+
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point()
+```
+
+### Help documentation
+
+Look at the help documentation for `geom_point()`. Use the help documentation to change the color of the points to "gray70". Start getting in the habit of running code within a code chunk rather than in the text/prose areas.
+
+In the code chunk below create a second scatterplot with the *mpg* dataset, this time with the number of cylinders displayed on the *x*-axis and the city miles per gallon on the *y*-axis. Also change the color of the points to "gray70".
+
+```{r}
+#| label: second-plot
+
+#?geom_point
+
+ggplot(mpg, aes(x = cyl, y = cty)) +
+  geom_point(color = "gray70")
+```
+
+### Inspecting Data
+
+The *diamonds* dataset is also included with *ggplot2*. The code below will show the first six rows of the dataset.
+
+```{r}
+#| label: head-diamonds
+
+head(diamonds)
+```
+
+Look at the help documentation and then use the code below to change the number of rows shown to 15.
+
+```{r}
+#| label: head-diamonds15
+ 
+head(diamonds, 15)
+```
+
+Call a similar function that shows the last six rows of the dataset. (Note you may need to look at the same help documentation.)
+
+```{r}
+#| label: last-rows
+
+tail(diamonds)
+```
+
+Use any function you want to determine the dimensions of the dataset - i.e., the number of rows and columns.
+
+```{r diamonds-dimensions}
+#| label: diamonds-dimensions
+
+str(diamonds)
+
+diamonds
+
+nrow(diamonds)
+
+ncol(diamonds)
+
+dim(diamonds)
+```
+
+Use the pipe operator, `%>%`, along with the `count()` function, to count the rows of each diamond color.
+
+```{r diamond-colors1}
+#| label: diamond-colors1
+
+diamonds %>%
+  count(color) 
+```
+
+Write the same code as above, but this time use `count()` without the pipe operator
+
+```{r diamond-colors2}
+#| label: diamond-colors2
+
+count(diamonds, color) 
+```
+
+Be sure to add your name to the top of the document (line 2, in the YAML).
+
+Click the Render button near the top, and turn in both the quarto document and the output (.html file) to Canvas.
