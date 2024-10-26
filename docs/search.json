@@ -473,7 +473,7 @@
     "href": "syllabus.html#final-project-200-points-50",
     "title": "Syllabus",
     "section": "Final Project (200 points; 50%)",
-    "text": "Final Project (200 points; 50%)\nThe final project in this class is a group project, requiring students use a “real world” dataset to write, essentially, a miniature manuscript, including an introduction (paragraph or two), methods, results, and discussion (again, maybe 2-3 paragraphs). Ideally, students would work with a dataset that includes variables they are interested in using beyond just this class; however, if students do not have access to a dataset, the instructor will provide one. Students who do not have access to data should plan to meet with the instructor as soon as possible so a dataset can be provided. Additionally, the dataset must be able to be shared publicly, as the full project will be required to be housed on GitHub and be fully reproducible. If making your data publicly available is a problem for you, please contact the instructor as soon as possible. We can work together to either find a dataset that will work for you, or simulate a dataset that is similar to the data you’d like to work with in reality (and then all your code should work for the real dataset, but you can share the simulated data with your classmates). Students are required to work in groups of 2-4 people. The final assignment is assigned during the first class, and groups must be finalized by the end of Week 2 (at which point students who have not self-selected into groups will be randomly assigned).\n\nOutline (15 points)\nA basic outline of the final project is due at the end of Week 5. The outline should include a description of the data to be used, a discussion of what preparatory work will need to be done, and how the requirements of the final project will be met. The outline is intended to be low-stakes and is primarily designed to be a means for you to obtain feedback on the feasibility of the project and areas to consider.\n\n\nDraft Data Preparation Script (25 points)\nAt the end of Week 8, you must have a draft of the data preparation complete, including moving the data from its raw to tidy form and a variety of exploratory data visualizations. Final project must use the following functions: pivot_longer(), select(), filter(), mutate(), pivot_wider(), group_by(), and summarize().\n\n\nPeer Review of Data Preparation Script (25 points)\nFollowing the submission of the data preparation scripts, you will be assigned to review your peers’ code. The purpose of this exercise is to learn from each other. Programming is an immensely open-ended enterprise and there are lots of winding paths that all ultimately end up at the same destination. During your peer review, you must note (a) at least three areas of strength, (b) at least one thing you learned from reviewing their script, and (c) at least one and no more than three areas for improvement. Making your code publicly available can feel daunting. The purpose of this portion of the final project is to help us all learn from each other, not to denigrate. Under no circumstances will negative comments be tolerated. Any comments that could be perceived as negative, and outside the scope of the code, will result in an immediate score of zero. Be constructive in your feedback. Be kind. We are all learning.\n\n\nFinal Project Presentation (25 points)\nEach group will present on their final project during Week 10, which is expected to still be in progress. These presentations are expected to be informal, and emphasize what learning occurred during the project. Specifically, the presentations are to commiserate with each other about the failures and challenges experienced along the way, while also celebrating the successes. Learning R is a difficult task, and we should all take solace knowing that others are struggling along with us. The final presentation should be equal parts “journey” and substantive findings/conclusions/results. Students are expected to present for approximately 10 minutes each (20-40 minutes per group), although the time may change depending on the enrollment of the class.\n\n\nFinal Paper (110)\nThe purpose of the final project is to allow students an opportunity to demonstrate all the skills they have learned throughout the course. The final project must (a) be a reproducible and dynamic R Markdown document with references to the extant literature; (b) be housed on GitHub, with contributions from all authors obvious; (c) demonstrate moving data from its raw “messy” format to a tidy data format through the R Markdown file, but not in the final document; (d) include at least two exploratory data visualizations, and (e) include at least summary statistics of the data in tables, although fitted models of any sort are an added bonus (not literally, there are not extra points for fitting a model). The points for the final project are broken down as follows.\n\n\n\n\n\n\n\n\n\n\n\n\nFinal Paper Rubric\n\n\nCriteria\nPoints Possible\n\n\n\n\nWriting\n\n\n\nAbstract\n5\n\n\nIntroduction\n5\n\n\nMethods\n5\n\n\nResults\n5\n\n\nDiscussion\n5\n\n\nReferences\n5\n\n\nCode\n\n\n\nDocument is fully reproducible\n25\n\n\nDemonstrate use of inline code\n5\n\n\nAt least two data visualizations\n10 (5 pts each)\n\n\nDemonstrate tidying messy data using:\n\n\n\npivot_longer()\n5\n\n\nmutate()\n5\n\n\nselect()`` and ``filter()\n5\n\n\npivot_wider()\n5\n\n\nAt least one table of descriptive statistics\n10\n\n\ngroup_by()\n5\n\n\nsummarize()\n5\n\n\nTotal\n110\n\n\n\n\n\n\n\nI will investigate the commits made by different authors when evaluating the final project. If it is obvious that one person did not utilize GitHub, and instead added all of their contributions through a single or only a few commits, I will dock points from that individual. There should be numerous commits by each author, and they should be roughly even in terms of contribution activity (which GitHub has metrics to track, both in terms of the number of commits as well as the number of lines modified)."
+    "text": "Final Project (200 points; 50%)\nThe final project in this class is a group project, requiring students use a “real world” dataset to write, essentially, a miniature manuscript, including an introduction (paragraph or two), methods, results, and discussion (again, maybe 2-3 paragraphs). Ideally, students would work with a dataset that includes variables they are interested in using beyond just this class; however, if students do not have access to a dataset, the instructor will provide one. Students who do not have access to data should plan to meet with the instructor as soon as possible so a dataset can be provided. Additionally, the dataset must be able to be shared publicly, as the full project will be required to be housed on GitHub and be fully reproducible. If making your data publicly available is a problem for you, please contact the instructor as soon as possible. We can work together to either find a dataset that will work for you, or simulate a dataset that is similar to the data you’d like to work with in reality (and then all your code should work for the real dataset, but you can share the simulated data with your classmates). Students are required to work in groups of 2-4 people. The final assignment is assigned during the first class, and groups must be finalized by the end of Week 2 (at which point students who have not self-selected into groups will be randomly assigned).\n\nOutline (15 points)\nA basic outline of the final project is due at the end of Week 5. The outline should include a description of the data to be used, a discussion of what preparatory work will need to be done, and how the requirements of the final project will be met. The outline is intended to be low-stakes and is primarily designed to be a means for you to obtain feedback on the feasibility of the project and areas to consider.\n\n\nDraft Data Preparation Script (25 points)\nAt the end of Week 8, you must have a draft of the data preparation complete, including moving the data from its raw to tidy form and a variety of exploratory data visualizations. Final project must use the following functions: pivot_longer(), select(), filter(), mutate(), pivot_wider(), group_by(), and summarize().\n\n\nPeer Review of Data Preparation Script (25 points)\nFollowing the submission of the data preparation scripts, you will be assigned to review your peers’ code. The purpose of this exercise is to learn from each other. Programming is an immensely open-ended enterprise and there are lots of winding paths that all ultimately end up at the same destination. During your peer review, you must note (a) at least three areas of strength, (b) at least one thing you learned from reviewing their script, and (c) at least one and no more than three areas for improvement. Making your code publicly available can feel daunting. The purpose of this portion of the final project is to help us all learn from each other, not to denigrate. Under no circumstances will negative comments be tolerated. Any comments that could be perceived as negative, and outside the scope of the code, will result in an immediate score of zero. Be constructive in your feedback. Be kind. We are all learning.\n\n\nFinal Project Presentation (25 points)\nEach group will present on their final project during Week 10, which is expected to still be in progress. These presentations are expected to be informal, and emphasize what learning occurred during the project. Specifically, the presentations are to commiserate with each other about the failures and challenges experienced along the way, while also celebrating the successes. Learning R is a difficult task, and we should all take solace knowing that others are struggling along with us. The final presentation should be equal parts “journey” and substantive findings/conclusions/results. Students are expected to present for approximately 10 minutes each (20-40 minutes per group), although the time may change depending on the enrollment of the class.\n\n\nFinal Paper (110)\nThe purpose of the final project is to allow students an opportunity to demonstrate all the skills they have learned throughout the course. The final project must (a) be a reproducible and dynamic R Markdown document with references to the extant literature; (b) be housed on GitHub, with contributions from all authors obvious; (c) demonstrate moving data from its raw “messy” format to a tidy data format through the R Markdown file, but not in the final document; (d) include at least two exploratory data visualizations, and (e) include at least summary statistics of the data in tables, although fitted models of any sort are an added bonus (not literally, there are not extra points for fitting a model). The points for the final project are broken down as follows.\n\n\n\n\n\n\n\n\nFinal Paper Rubric\n\n\nCriteria\nPoints Possible\n\n\n\n\nWriting\n\n\n\nAbstract\n5\n\n\nIntroduction\n5\n\n\nMethods\n5\n\n\nResults\n5\n\n\nDiscussion\n5\n\n\nReferences\n5\n\n\nCode\n\n\n\nDocument is fully reproducible\n25\n\n\nDemonstrate use of inline code\n5\n\n\nAt least two data visualizations\n10 (5 pts each)\n\n\nDemonstrate tidying messy data using:\n\n\n\npivot_longer()\n5\n\n\nmutate()\n5\n\n\nselect()andfilter()\n5\n\n\npivot_wider()\n5\n\n\nAt least one table of descriptive statistics\n10\n\n\ngroup_by()\n5\n\n\nsummarize()\n5\n\n\nTotal\n110\n\n\n\n\n\n\n\nI will investigate the commits made by different authors when evaluating the final project. If it is obvious that one person did not utilize GitHub, and instead added all of their contributions through a single or only a few commits, I will dock points from that individual. There should be numerous commits by each author, and they should be roughly even in terms of contribution activity (which GitHub has metrics to track, both in terms of the number of commits as well as the number of lines modified)."
   },
   {
     "objectID": "syllabus.html#grading-components",
@@ -1894,14 +1894,14 @@
     "href": "slides/w5_git.html#git-github-1",
     "title": "Week 6: git & GitHub",
     "section": "git & GitHub",
-    "text": "git & GitHub\nWhat are they?\n\n\ngit\n\n\n\n\n\n\n\n\n\n\na version control system\nlives on your computer and keeps track of files and all changes made to them that you register with commits\n\n\nGitHub\n\n\n\n\n\n\n\n\n\n\nan online host for commits of code and data\nlives on the internet"
+    "text": "git & GitHub\n\nWhat are they?\n\n\ngit\n\n\n\n\n\n\n\n\n\n\na version control system\nlives on your computer and keeps track of files and all changes made to them that you register with commits\n\n\nGitHub\n\n\n\n\n\n\n\n\n\n\nan online host for commits of code and data\nlives on the internet"
   },
   {
     "objectID": "slides/w5_git.html#git-github-.scrollable",
     "href": "slides/w5_git.html#git-github-.scrollable",
     "title": "Week 6: git & GitHub",
     "section": "git & GitHub {.scrollable}",
-    "text": "git & GitHub {.scrollable}\nWhy are they important?\nBackup: Easy way to upload files and add notes about changes. Excellent way to keep all your R work backed-up on the cloud\n\nVersion Control: Complete history of all changes and why they were made, and multiple branches of history\n\n\nOpen Access: Open, transparent, and public science. Some journals allow GitHub sites to be used to host data and code to meet their open-access requirements\n\n\nVisibility: GitHub makes it easy to make your open-access work visible to people who might be interested (collaborators, employers)\n\n\nCollaborative tool: Git and GitHub are designed for collaboration (even if you’re the only one coding). Easy to share files between collaborators, allows for merging work and reconciling conflicts.\n\n\nJob Skill: This is an important data science skill"
+    "text": "git & GitHub {.scrollable}\nWhy are they important?\nBackup: Easy way to upload files and add notes about changes. Excellent way to keep all your R work backed-up on the cloud\n. . .\nVersion Control: Complete history of all changes and why they were made, and multiple branches of history\n. . .\nOpen Access: Open, transparent, and public science. Some journals allow GitHub sites to be used to host data and code to meet their open-access requirements\n. . .\nVisibility: GitHub makes it easy to make your open-access work visible to people who might be interested (collaborators, employers)\n. . .\nCollaborative tool: Git and GitHub are designed for collaboration (even if you’re the only one coding). Easy to share files between collaborators, allows for merging work and reconciling conflicts.\n. . .\nJob Skill: This is an important data science skill"
   },
   {
     "objectID": "slides/w5_git.html#git-github-2",
@@ -1936,21 +1936,21 @@
     "href": "slides/w5_git.html#version-control",
     "title": "Week 6: git & GitHub",
     "section": "Version Control",
-    "text": "Version Control\nWe can think of the changes as separate from the document\nYou can then think about “playing back” different sets of changes on the base document, ultimately resulting in different versions of that document\n\n\n\n\n\n\n\n\t\n\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\n\t\t\t\n\t\t\n\t\n\n\n\n\n\n\n\n\nswcarpentry"
+    "text": "Version Control\nWe can think of the changes as separate from the document\nYou can then think about “playing back” different sets of changes on the base document, ultimately resulting in different versions of that document\n\n\n\n\n\n\n\n\n\n\n\nswcarpentry"
   },
   {
     "objectID": "slides/w5_git.html#version-control-1",
     "href": "slides/w5_git.html#version-control-1",
     "title": "Week 6: git & GitHub",
     "section": "Version Control",
-    "text": "Version Control\nThis means there are many possible versions of the same document\n\n\n\n\n\n\n\n\t\n\n\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\n\n\n\n\n\n\n\nswcarpentry"
+    "text": "Version Control\nThis means there are many possible versions of the same document\n\n\n\n\n\n\n\n\n\n\n\nswcarpentry"
   },
   {
     "objectID": "slides/w5_git.html#version-control-2",
     "href": "slides/w5_git.html#version-control-2",
     "title": "Week 6: git & GitHub",
     "section": "Version Control",
-    "text": "Version Control\nUnless there are merge conflicts , two changes from the same document can be merged together\n\n\n\n\n\n\n\n\t\n\n\n\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\n\n\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\n\n\t\n\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\n\n\n\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\n\n\n\n\n\nswcarpentry"
+    "text": "Version Control\nUnless there are merge conflicts , two changes from the same document can be merged together\n\n\n\n\n\n\n\n\n\n\n\nswcarpentry"
   },
   {
     "objectID": "slides/w5_git.html#lets-talk-about-how",
@@ -1964,7 +1964,7 @@
     "href": "slides/w5_git.html#terminology",
     "title": "Week 6: git & GitHub",
     "section": "Terminology",
-    "text": "Terminology\n\n\nversion control system\n\nA tool to help us track changes. git is one such system (but there are others)\n\n\n\n\n\nrepository (repo)\n\nThe files, full commit history, and associated metadata for a project\n\n\n\n\n\nremote\n\nThe cloud-based server hosting the repo (that’s GitHub)"
+    "text": "Terminology\n. . .\n\nversion control system\n\nA tool to help us track changes. git is one such system (but there are others)\n\n\n. . .\n\nrepository (repo)\n\nThe files, full commit history, and associated metadata for a project\n\n\n. . .\n\nremote\n\nThe cloud-based server hosting the repo (that’s GitHub)"
   },
   {
     "objectID": "slides/w5_git.html#connect-github-gitkraken",
@@ -2062,7 +2062,7 @@
     "href": "slides/w5_git.html#lets-go-to-github",
     "title": "Week 6: git & GitHub",
     "section": "Let’s go to GitHub",
-    "text": "Let’s go to GitHub\nWhere is our Rproj\n\nWe haven’t pushed it yet"
+    "text": "Let’s go to GitHub\nWhere is our Rproj\n. . .\nWe haven’t pushed it yet"
   },
   {
     "objectID": "slides/w5_git.html#go-to-gitkraken-to-manage",
@@ -2097,7 +2097,7 @@
     "href": "slides/w5_git.html#create-new-repo-1",
     "title": "Week 6: git & GitHub",
     "section": "2. Create new repo",
-    "text": "2. Create new repo\n\n\n\nGive it a Repository name\nMake it Public (this time)\n Add a README file\nAdd .gitignore\n\n.gitignore template: R\n\nCreate repository\n\n\n\n\n\n\n\nLicense - optional; I usually go with MIT"
+    "text": "2. Create new repo\n\n\n\nGive it a Repository name\nMake it Public (this time)\n Add a README file\nAdd .gitignore\n\n.gitignore template: R\n\nCreate repository\n\n\n\nLicense - optional; I usually go with MIT"
   },
   {
     "objectID": "slides/w5_git.html#welcome-to-gitkraken-1",
@@ -2111,7 +2111,7 @@
     "href": "slides/w5_git.html#terminology-1",
     "title": "Week 6: git & GitHub",
     "section": "Terminology",
-    "text": "Terminology\n\n\nstage\n\nA file that is being prepared for a commit\n\n\n\n\n\ncommit\n\nChanges that have been made to the file(s)\n\n\n\n\n\npush\n\nAfter you commit the changes you want, push them from the local to the remote\n\n\n\n\nHalf the battle is learning these terms"
+    "text": "Terminology\n. . .\n\nstage\n\nA file that is being prepared for a commit\n\n\n. . .\n\ncommit\n\nChanges that have been made to the file(s)\n\n\n. . .\n\npush\n\nAfter you commit the changes you want, push them from the local to the remote\n\n\n. . .\nHalf the battle is learning these terms"
   },
   {
     "objectID": "slides/w5_git.html#stage",
@@ -2139,7 +2139,7 @@
     "href": "slides/w5_git.html#commit-1",
     "title": "Week 6: git & GitHub",
     "section": "Commit",
-    "text": "Commit\n\nNo //WIP\nLet’s check GitHub\n\n\nNo change"
+    "text": "Commit\n\nNo //WIP\nLet’s check GitHub\n\n. . .\nNo change"
   },
   {
     "objectID": "slides/w5_git.html#push",
@@ -2188,7 +2188,7 @@
     "href": "slides/w5_git.html#pull",
     "title": "Week 6: git & GitHub",
     "section": "Pull",
-    "text": "Pull\n\npull before you start any collaborative work!!\npull any accepted changes from the remote to your local\n\n\n\npull before you start any collaborative work!!**"
+    "text": "Pull\n\npull before you start any collaborative work!!\npull any accepted changes from the remote to your local\n\n. . .\n\npull before you start any collaborative work!!**"
   },
   {
     "objectID": "slides/w5_git.html#collaborating",
@@ -2244,7 +2244,7 @@
     "href": "slides/w5_git.html#clone-a-repo-1",
     "title": "Week 6: git & GitHub",
     "section": "Clone a repo",
-    "text": "Clone a repo\n\n\n\nGo to GitKraken\nClick the  folder icon in the upper left\nClick the  Clone button\n Clone with URL\nWhere to clone to: Specify where it will live on your machine\n\nhere it is on my desktop\n\nURL: Paste in the URL copied from GitHub (//(10) “Clone the repo!”"
+    "text": "Clone a repo\n\n\n\nGo to GitKraken\nClick the  folder icon in the upper left\nClick the  Clone button\n Clone with URL\nWhere to clone to: Specify where it will live on your machine\n\nhere it is on my desktop\n\nURL: Paste in the URL copied from GitHub\n“Clone the repo!”"
   },
   {
     "objectID": "slides/w5_git.html#lets-make-another-change",
@@ -2259,5 +2259,33 @@
     "title": "Week 6: git & GitHub",
     "section": "Foo",
     "text": "Foo\npull"
+  },
+  {
+    "objectID": "slides/w5_git.html",
+    "href": "slides/w5_git.html",
+    "title": "Week 6: git & GitHub",
+    "section": "",
+    "text": "Homework 4"
+  },
+  {
+    "objectID": "slides/w5_git.html#merge-conflict",
+    "href": "slides/w5_git.html#merge-conflict",
+    "title": "Week 6: git & GitHub",
+    "section": "Merge Conflict",
+    "text": "Merge Conflict\n # Merge Conflicts\n\nAlways pull before you start working!!\nTry to stay in communication with your collaborators and don’t work on the exact same thing at the same time\nUse GitKraken to help manage merge conflicts that do come up"
+  },
+  {
+    "objectID": "slides/w5_git.html#merge-conflicts",
+    "href": "slides/w5_git.html#merge-conflicts",
+    "title": "Week 6: git & GitHub",
+    "section": "Merge Conflicts",
+    "text": "Merge Conflicts\n\nRemember to always pull first!!\nGitKraken has a really nice GUI to resolve merge conflicts\n\n\n\nlink"
+  },
+  {
+    "objectID": "slides/w5_git.html#merge-conflict-activity-15-mins",
+    "href": "slides/w5_git.html#merge-conflict-activity-15-mins",
+    "title": "Week 6: git & GitHub",
+    "section": "Merge Conflict Activity (15 mins)",
+    "text": "Merge Conflict Activity (15 mins)\n\nGet a partner\nPartner1 add Partner2 as a collaborator\nPartner2 clone the repo you made in class\nPartner1 make changes to the .qmd file in the repo, stage, commit, and push\nPartner2 make different changes to the same parts of the .qmd file. Commit the changes. Try to push What happens? Why?\nOpen up the files - do you see some weird stuff that’s been added?\nUse GitKraken to deal with the merge conflicts\n\n\n\n\n−+\n15:00\n\n\n\npull"
   }
 ]
