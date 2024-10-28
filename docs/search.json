@@ -1894,14 +1894,14 @@
     "href": "slides/w5_git.html#git-github-1",
     "title": "Week 6: git & GitHub",
     "section": "git & GitHub",
-    "text": "git & GitHub\n\nWhat are they?\n\n\ngit\n\n\n\n\n\n\n\n\n\n\na version control system\nlives on your computer and keeps track of files and all changes made to them that you register with commits\n\n\nGitHub\n\n\n\n\n\n\n\n\n\n\nan online host for commits of code and data\nlives on the internet"
+    "text": "git & GitHub\nWhat are they?\n\n\ngit\n\n\n\n\n\n\n\n\n\n\na version control system\nlives on your computer and keeps track of files and all changes made to them that you register with commits\n\n\nGitHub\n\n\n\n\n\n\n\n\n\n\nan online host for commits of code and data\nlives on the internet"
   },
   {
     "objectID": "slides/w5_git.html#git-github-.scrollable",
     "href": "slides/w5_git.html#git-github-.scrollable",
     "title": "Week 6: git & GitHub",
     "section": "git & GitHub {.scrollable}",
-    "text": "git & GitHub {.scrollable}\nWhy are they important?\nBackup: Easy way to upload files and add notes about changes. Excellent way to keep all your R work backed-up on the cloud\n. . .\nVersion Control: Complete history of all changes and why they were made, and multiple branches of history\n. . .\nOpen Access: Open, transparent, and public science. Some journals allow GitHub sites to be used to host data and code to meet their open-access requirements\n. . .\nVisibility: GitHub makes it easy to make your open-access work visible to people who might be interested (collaborators, employers)\n. . .\nCollaborative tool: Git and GitHub are designed for collaboration (even if you’re the only one coding). Easy to share files between collaborators, allows for merging work and reconciling conflicts.\n. . .\nJob Skill: This is an important data science skill"
+    "text": "git & GitHub {.scrollable}\nWhy are they important?\nBackup: Easy way to upload files and add notes about changes. Excellent way to keep all your R work backed-up on the cloud\n\nVersion Control: Complete history of all changes and why they were made, and multiple branches of history\n\n\nOpen Access: Open, transparent, and public science. Some journals allow GitHub sites to be used to host data and code to meet their open-access requirements\n\n\nVisibility: GitHub makes it easy to make your open-access work visible to people who might be interested (collaborators, employers)\n\n\nCollaborative tool: Git and GitHub are designed for collaboration (even if you’re the only one coding). Easy to share files between collaborators, allows for merging work and reconciling conflicts.\n\n\nJob Skill: This is an important data science skill"
   },
   {
     "objectID": "slides/w5_git.html#git-github-2",
@@ -1936,21 +1936,21 @@
     "href": "slides/w5_git.html#version-control",
     "title": "Week 6: git & GitHub",
     "section": "Version Control",
-    "text": "Version Control\nWe can think of the changes as separate from the document\nYou can then think about “playing back” different sets of changes on the base document, ultimately resulting in different versions of that document\n\n\n\n\n\n\n\n\n\n\n\nswcarpentry"
+    "text": "Version Control\nWe can think of the changes as separate from the document\nYou can then think about “playing back” different sets of changes on the base document, ultimately resulting in different versions of that document\n\n\n\n\n\n\n\n\t\n\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\n\t\t\t\n\t\t\n\t\n\n\n\n\n\n\n\n\nswcarpentry"
   },
   {
     "objectID": "slides/w5_git.html#version-control-1",
     "href": "slides/w5_git.html#version-control-1",
     "title": "Week 6: git & GitHub",
     "section": "Version Control",
-    "text": "Version Control\nThis means there are many possible versions of the same document\n\n\n\n\n\n\n\n\n\n\n\nswcarpentry"
+    "text": "Version Control\nThis means there are many possible versions of the same document\n\n\n\n\n\n\n\n\t\n\n\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\n\n\n\n\n\n\n\n\nswcarpentry"
   },
   {
     "objectID": "slides/w5_git.html#version-control-2",
     "href": "slides/w5_git.html#version-control-2",
     "title": "Week 6: git & GitHub",
     "section": "Version Control",
-    "text": "Version Control\nUnless there are merge conflicts , two changes from the same document can be merged together\n\n\n\n\n\n\n\n\n\n\n\nswcarpentry"
+    "text": "Version Control\nUnless there are merge conflicts , two changes from the same document can be merged together\n\n\n\n\n\n\n\n\t\n\n\n\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\n\n\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\n\n\t\n\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\n\n\n\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\t\n\t\t\n\t\t\n\t\t\n\t\n\n\n\n\n\n\n\n\nswcarpentry"
   },
   {
     "objectID": "slides/w5_git.html#lets-talk-about-how",
@@ -1964,7 +1964,7 @@
     "href": "slides/w5_git.html#terminology",
     "title": "Week 6: git & GitHub",
     "section": "Terminology",
-    "text": "Terminology\n. . .\n\nversion control system\n\nA tool to help us track changes. git is one such system (but there are others)\n\n\n. . .\n\nrepository (repo)\n\nThe files, full commit history, and associated metadata for a project\n\n\n. . .\n\nremote\n\nThe cloud-based server hosting the repo (that’s GitHub)"
+    "text": "Terminology\n\n\nversion control system\n\nA tool to help us track changes. git is one such system (but there are others)\n\n\n\n\n\nrepository (repo)\n\nThe files, full commit history, and associated metadata for a project\n\n\n\n\n\nremote\n\nThe cloud-based server hosting the repo (that’s GitHub)"
   },
   {
     "objectID": "slides/w5_git.html#connect-github-gitkraken",
@@ -2062,7 +2062,7 @@
     "href": "slides/w5_git.html#lets-go-to-github",
     "title": "Week 6: git & GitHub",
     "section": "Let’s go to GitHub",
-    "text": "Let’s go to GitHub\nWhere is our Rproj\n. . .\nWe haven’t pushed it yet"
+    "text": "Let’s go to GitHub\nWhere is our Rproj\n\nWe haven’t pushed it yet"
   },
   {
     "objectID": "slides/w5_git.html#go-to-gitkraken-to-manage",
@@ -2097,7 +2097,7 @@
     "href": "slides/w5_git.html#create-new-repo-1",
     "title": "Week 6: git & GitHub",
     "section": "2. Create new repo",
-    "text": "2. Create new repo\n\n\n\nGive it a Repository name\nMake it Public (this time)\n Add a README file\nAdd .gitignore\n\n.gitignore template: R\n\nCreate repository\n\n\n\nLicense - optional; I usually go with MIT"
+    "text": "2. Create new repo\n\n\n\nGive it a Repository name\nMake it Public (this time)\n Add a README file\nAdd .gitignore\n\n.gitignore template: R\n\nCreate repository\n\n\n\n\n\n\n\nLicense - optional; I usually go with MIT"
   },
   {
     "objectID": "slides/w5_git.html#welcome-to-gitkraken-1",
@@ -2111,7 +2111,7 @@
     "href": "slides/w5_git.html#terminology-1",
     "title": "Week 6: git & GitHub",
     "section": "Terminology",
-    "text": "Terminology\n. . .\n\nstage\n\nA file that is being prepared for a commit\n\n\n. . .\n\ncommit\n\nChanges that have been made to the file(s)\n\n\n. . .\n\npush\n\nAfter you commit the changes you want, push them from the local to the remote\n\n\n. . .\nHalf the battle is learning these terms"
+    "text": "Terminology\n\n\nstage\n\nA file that is being prepared for a commit\n\n\n\n\n\ncommit\n\nChanges that have been made to the file(s)\n\n\n\n\n\npush\n\nAfter you commit the changes you want, push them from the local to the remote\n\n\n\n\nHalf the battle is learning these terms"
   },
   {
     "objectID": "slides/w5_git.html#stage",
@@ -2139,7 +2139,7 @@
     "href": "slides/w5_git.html#commit-1",
     "title": "Week 6: git & GitHub",
     "section": "Commit",
-    "text": "Commit\n\nNo //WIP\nLet’s check GitHub\n\n. . .\nNo change"
+    "text": "Commit\n\nNo //WIP\nLet’s check GitHub\n\n\nNo change"
   },
   {
     "objectID": "slides/w5_git.html#push",
@@ -2188,7 +2188,7 @@
     "href": "slides/w5_git.html#pull",
     "title": "Week 6: git & GitHub",
     "section": "Pull",
-    "text": "Pull\n\npull before you start any collaborative work!!\npull any accepted changes from the remote to your local\n\n. . .\n\npull before you start any collaborative work!!**"
+    "text": "Pull\n\npull before you start any collaborative work!!\npull any accepted changes from the remote to your local\n\n\n\npull before you start any collaborative work!!"
   },
   {
     "objectID": "slides/w5_git.html#collaborating",
@@ -2272,20 +2272,118 @@
     "href": "slides/w5_git.html#merge-conflict",
     "title": "Week 6: git & GitHub",
     "section": "Merge Conflict",
-    "text": "Merge Conflict\n # Merge Conflicts\n\nAlways pull before you start working!!\nTry to stay in communication with your collaborators and don’t work on the exact same thing at the same time\nUse GitKraken to help manage merge conflicts that do come up"
+    "text": "Merge Conflict"
   },
   {
     "objectID": "slides/w5_git.html#merge-conflicts",
     "href": "slides/w5_git.html#merge-conflicts",
     "title": "Week 6: git & GitHub",
     "section": "Merge Conflicts",
-    "text": "Merge Conflicts\n\nRemember to always pull first!!\nGitKraken has a really nice GUI to resolve merge conflicts\n\n\n\nlink"
+    "text": "Merge Conflicts\n\nRemember to always pull first!!\nGitKraken has a really nice GUI to resolve merge conflicts\n\n\n\n\nlink"
   },
   {
     "objectID": "slides/w5_git.html#merge-conflict-activity-15-mins",
     "href": "slides/w5_git.html#merge-conflict-activity-15-mins",
     "title": "Week 6: git & GitHub",
     "section": "Merge Conflict Activity (15 mins)",
-    "text": "Merge Conflict Activity (15 mins)\n\nGet a partner\nPartner1 add Partner2 as a collaborator\nPartner2 clone the repo you made in class\nPartner1 make changes to the .qmd file in the repo, stage, commit, and push\nPartner2 make different changes to the same parts of the .qmd file. Commit the changes. Try to push What happens? Why?\nOpen up the files - do you see some weird stuff that’s been added?\nUse GitKraken to deal with the merge conflicts\n\n\n\n\n−+\n15:00\n\n\n\npull"
+    "text": "Merge Conflict Activity (15 mins)\n\nGet a partner\nPartner1 add Partner2 as a collaborator\nPartner2 clone the repo you made in class\nPartner1 make changes to the .qmd file in the repo, stage, commit, and push\nPartner2 make different changes to the same parts of the .qmd file. Commit the changes. Try to push What happens? Why?\nOpen up the files - do you see some weird stuff that’s been added?\nUse GitKraken to deal with the merge conflicts\n\n\n\n\n−+\n15:00"
+  },
+  {
+    "objectID": "slides/w5_git.html#tracking-1",
+    "href": "slides/w5_git.html#tracking-1",
+    "title": "Week 6: git & GitHub",
+    "section": "Tracking",
+    "text": "Tracking\nShow hidden files\n\nPC\n\nOpen File Explorer\nSelect View at the top\nShow  Hidden Items\n\nMac\n\ncmd + shift + ."
+  },
+  {
+    "objectID": "slides/w5_git.html#section-2",
+    "href": "slides/w5_git.html#section-2",
+    "title": "Week 6: git & GitHub",
+    "section": "",
+    "text": "Image from Bryan (2017)"
+  },
+  {
+    "objectID": "slides/w5_git.html#quick-recap",
+    "href": "slides/w5_git.html#quick-recap",
+    "title": "Week 6: git & GitHub",
+    "section": "Quick Recap",
+    "text": "Quick Recap\nBasic workflow\n\nGitHub - Create new repo\nCopy path\nCreate a new RStudio Project  Version Control  Git\nUse GitKraken to manage\n\n\n\nadd collaborators\npull\nstage and commit changes\npush changes to repo"
+  },
+  {
+    "objectID": "slides/w5_git.html#revisiting-git-terminology",
+    "href": "slides/w5_git.html#revisiting-git-terminology",
+    "title": "Week 6: git & GitHub",
+    "section": "Revisiting git terminology",
+    "text": "Revisiting git terminology\nTalk with a neighbor about what each of these terms mean\n\nclone\npull\nstage\ncommit\npush\nrepo\nremote"
+  },
+  {
+    "objectID": "slides/w5_git.html#before-next-class",
+    "href": "slides/w5_git.html#before-next-class",
+    "title": "Week 6: git & GitHub",
+    "section": "Before next class",
+    "text": "Before next class\n\nReading\n\nR4DS(2e) Chapter 29 Quarto Formats\nMarkdown Tutorial\n\nHomework\n\nHomework 5 (hopefully completed in class today)"
+  },
+  {
+    "objectID": "slides/w5_git.html#if-you-already-have-an-existing-project",
+    "href": "slides/w5_git.html#if-you-already-have-an-existing-project",
+    "title": "Week 6: git & GitHub",
+    "section": "If you already have an existing project",
+    "text": "If you already have an existing project\n\nRStudio: Create your RStudio Project (as usual)\nGitKraken: Open a repo on GitKraken\nGitHub: Create new repo on GitHub\nGitKraken: Add remote on GitKraken"
+  },
+  {
+    "objectID": "slides/w5_git.html#create-your-rstudio-project-as-usual",
+    "href": "slides/w5_git.html#create-your-rstudio-project-as-usual",
+    "title": "Week 6: git & GitHub",
+    "section": "1. Create your RStudio Project (as usual)",
+    "text": "1. Create your RStudio Project (as usual)\n\nMake a new RStudio Project (cal it “demo”)\n\nOpen a new R Markdown document and name it “foo”\n\nNote the name you gave the project (folder)\n “Create a git repository”\n\nDon’t add .gitignore in GiKraken or GitHub\n\n\nIf you did not  “Create a git repository”: Add .gitignore file in GitKraken or GitHub"
+  },
+  {
+    "objectID": "slides/w5_git.html#open-a-repo-on-gitkraken",
+    "href": "slides/w5_git.html#open-a-repo-on-gitkraken",
+    "title": "Week 6: git & GitHub",
+    "section": "2. Open a repo on GitKraken",
+    "text": "2. Open a repo on GitKraken\n\nIn New Tab\nSelect Browse for a Repo\nSelect project folder"
+  },
+  {
+    "objectID": "slides/w5_git.html#open-a-repo-on-gitkraken-1",
+    "href": "slides/w5_git.html#open-a-repo-on-gitkraken-1",
+    "title": "Week 6: git & GitHub",
+    "section": "2. Open a repo on GitKraken",
+    "text": "2. Open a repo on GitKraken\nClick Initialize"
+  },
+  {
+    "objectID": "slides/w5_git.html#create-new-repo-on-github",
+    "href": "slides/w5_git.html#create-new-repo-on-github",
+    "title": "Week 6: git & GitHub",
+    "section": "3. Create new repo on GitHub",
+    "text": "3. Create new repo on GitHub\n\n\n\nRepository name – same as your Project name\n\nDescription – keep it brief, informative\nPublic\nDo not initialize\n“None”\ndo NOT add .gitignore\ndo NOT add a license"
+  },
+  {
+    "objectID": "slides/w5_git.html#create-new-repo-on-github-1",
+    "href": "slides/w5_git.html#create-new-repo-on-github-1",
+    "title": "Week 6: git & GitHub",
+    "section": "3. Create new repo on GitHub",
+    "text": "3. Create new repo on GitHub\nCopy path"
+  },
+  {
+    "objectID": "slides/w5_git.html#back-to-gitkraken-to-add-remote",
+    "href": "slides/w5_git.html#back-to-gitkraken-to-add-remote",
+    "title": "Week 6: git & GitHub",
+    "section": "4. Back to GitKraken to Add Remote",
+    "text": "4. Back to GitKraken to Add Remote\nAdd remote\n\nClick  URL\nName: Name of RProject\nPull URL: Paste URL copied from GitHub\nPush URL: Populates automatically"
+  },
+  {
+    "objectID": "slides/w5_git.html#quick-recap-1",
+    "href": "slides/w5_git.html#quick-recap-1",
+    "title": "Week 6: git & GitHub",
+    "section": "Quick Recap",
+    "text": "Quick Recap\nBasic workflow if you already have an existing project\n\ncreate an RStudio project\ncreate a repo\nadd collaborators\npull\nstage and commit changes\npush changes to remote"
+  },
+  {
+    "objectID": "slides/w5_git.html#merge-conflicts-1",
+    "href": "slides/w5_git.html#merge-conflicts-1",
+    "title": "Week 6: git & GitHub",
+    "section": "Merge Conflicts",
+    "text": "Merge Conflicts\n\nRemember to always pull first!!\nGitKraken has a really nice GUI to resolve merge conflicts\n\n\n\n\nlink"
   }
 ]

@@ -174,6 +174,11 @@ Excellent for reproducibility (a tenet of the data science pipeline)
 * **GitHub** – repo host that lives online, works with git
 * **GitKraken** – a GUI that lives on your machine and communicates with GitHub and git
 
+##
+
+![](./images/phdcomics_final.gif)
+
+
 ## Version Control
 
 We can think of the changes as separate from the document
@@ -211,6 +216,7 @@ knitr::include_graphics("https://swcarpentry.github.io/git-novice/fig/merge.svg"
 :::aside
 [swcarpentry](https://swcarpentry.github.io/git-novice/01-basics/index.html)
 :::
+
 
 ## Let's talk about "how"
 
@@ -489,6 +495,18 @@ It is ok if you leave today a ~~little~~ lot confused!
 * **Do not** create [repos]{style="color:#009E73"} inside of [repos]{style="color:#009E73"}
 * If you want a folder to show up, there needs to be something in it (e.g., a README.md)
 
+## Tracking
+
+Show hidden files
+
+* PC
+  + Open *File Explorer*
+   + Select *View* at the top
+   + *Show* {{< fa arrow-right >}} *Hidden Items*
+
+* Mac
+  + `cmd + shift + .`
+
 ## Ignoring files {.smaller}
 
 * When we created the .Rproj the [repo]{style="color:#009E73"}, we started it with a `.gitignore` file
@@ -513,7 +531,7 @@ Image from Bryan (2017)
 
 . . .
 
-* [pull]{style="color:#009E73"} before you start any collaborative work!!**
+* **[pull]{style="color:#009E73"} before you start any collaborative work!!**
 
 
 ![](./images/pull.png)
@@ -611,6 +629,7 @@ Add users to a [repo]{style="color:#009E73"}
 ## Merge Conflict
 
 ![](https://www.meme-arsenal.com/memes/cce345428b0f8c83b92d4a0d958467f3.jpg)
+
 # Merge Conflicts
 
 * Always [pull]{style="color:#009E73"} before you start working!!
@@ -623,15 +642,17 @@ Add users to a [repo]{style="color:#009E73"}
 
 * GitKraken has a really nice GUI to resolve [merge conflicts]{style="color:#ff0000"}
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=R1iWJNyRpQE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{< video https://www.youtube.com/watch?v=R1iWJNyRpQE >}}
 
+::: aside
 [link](https://www.youtube.com/watch?v=R1iWJNyRpQE)
+:::
 
 # Merge Conflicts
 
 Let's give this a shot
 
-## Merge Conflict Activity (15 mins)
+## Merge Conflict Activity (15 mins) {.smaller}
 
 (@) Get a partner
 (@) [Partner1]{style="color:#CC79A7"} add [Partner2]{style="color:#E69f00"} as a collaborator
@@ -645,9 +666,126 @@ Let's give this a shot
 countdown(minutes = 15, seconds = 0, bottom = 0, warn_when = 120)
 ```
 
+## Quick Recap
+
+Basic workflow
+
+* GitHub - Create new [repo]{style="color:#009E73"}
+* Copy path
+* Create a new RStudio Project {{< fa arrow-right >}} *Version Control* {{< fa arrow-right >}} *Git*
+* Use GitKraken to manage
+
+. . .
+
+* add collaborators
+* [pull]{style="color:#009E73"}
+* [stage]{style="color:#009E73"} and [commit]{style="color:#009E73"} changes
+* [push]{style="color:#009E73"} changes to [repo]{style="color:#009E73"}
+
+## Revisiting git terminology
+
+Talk with a neighbor about what each of these terms mean
+
+* [clone]{style="color:#009E73"}
+* [pull]{style="color:#009E73"}
+* [stage]{style="color:#009E73"}
+* [commit]{style="color:#009E73"}
+* [push]{style="color:#009E73"}
+* [repo]{style="color:#009E73"}
+* [remote]{style="color:#009E73"}
+
+# Next time
+
+## Before next class
+
+* Reading
+  + [R4DS(2e) Chapter 29 Quarto Formats](https://r4ds.hadley.nz/quarto-formats)
+  + [Markdown Tutorial](https://www.markdowntutorial.com/)
+* Homework
+  + **Homework 5** (hopefully completed in class today)
+
+# Project first
+
+## If you already have an existing project
+
+1. **RStudio**: Create your RStudio Project (as usual)
+
+2. **GitKraken**: Open a [repo]{style="color:#009E73"} on GitKraken
+
+3. **GitHub**: Create new [repo]{style="color:#009E73"} on GitHub
+
+4. **GitKraken**: Add [remote]{style="color:#009E73"} on GitKraken
+
+## 1. Create your RStudio Project (as usual)
+
+* Make a new RStudio Project (cal it "*demo*")
+  + Open a new R Markdown document and name it "*foo*"
+* Note the name you gave the project (folder)
+* {{< fa check >}} *"Create a git repository"*
+  + Don't add `.gitignore` in GiKraken or GitHub  
+* If you did not {{< fa check >}} *"Create a git repository"*: Add `.gitignore` file in GitKraken **or** GitHub
+
+## 2. Open a [repo]{style="color:#009E73"} on GitKraken
+
+- In New Tab
+- Select *Browse for a Repo*
+- Select project folder
+
+![](./images/gk_2.png)
+
+## 2. Open a [repo]{style="color:#009E73"} on GitKraken
+
+Click **Initialize**
+
+![](./images/gk_initialize.png)
+
+## 3. Create new repo on GitHub
+
+:::: {.columns}
+
+::: {.column style="width: 40%; font-size: 75%;"}
++ *Repository name* – same as your Project name
+    + *Description* – keep it brief, informative
+    + *Public*
+    + *Do not initialize*
+    + *"None"*
+    + do **NOT** add `.gitignore` 
+    + do **NOT** add a license
+
+:::
+
+::: {.column width="60%"}
+![](./images/gh_new_fill.png)
+
+:::
+
+::::
+
+## 3. Create new repo on GitHub
+
+Copy path
+
+![](./images/gh_copypath2.png)    
 
 
+## 4. Back to GitKraken to Add Remote
+
+Add [remote]{style="color:#009E73"}
+
+* Click {{< fa globe >}} *URL*
+* *Name*: Name of RProject
+* *Pull URL*: Paste URL copied from GitHub
+* *Push URL*: Populates automatically
+
+## Quick Recap
+
+Basic workflow if you already have an existing project
+
+* create an RStudio project
+* create a [repo]{style="color:#009E73"}
+* add collaborators
+* [pull]{style="color:#009E73"}
+* [stage]{style="color:#009E73"} and [commit]{style="color:#009E73"} changes
+* [push]{style="color:#009E73"} changes to [remote]{style="color:#009E73"}
 
 
-
-[pull]{style="color:#009E73"}
