@@ -78,7 +78,7 @@ knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/c/
 
 ::::
 
-## git & GitHub {.scrollable} {.smaller}
+## git & GitHub {.smaller}
 
 Why are they important?
 
