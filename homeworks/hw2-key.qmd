@@ -1,0 +1,118 @@
+---
+title: "Homework 2"
+author: "Key"
+format: pdf
+execute:
+  error: false
+  message: false
+  warning: false
+---
+
+```{r setup}
+#| label: setup
+#| include: false
+
+library(nlme)
+library(janitor)
+library(tidyverse)
+```
+
+1.  Install the `{nlme}` package
+
+2.  Load `{nlme}`, `{janitor}`, and the `{tidyverse}` packages in the "setup" chunk
+
+3.  Run the chunk below to prep some data from the `{nmle}` package for plotting
+
+```{r}
+#| label: data
+#| echo: true
+
+pd <- Oxboys %>% 
+  clean_names() %>% 
+  mutate(subject = factor(subject),
+         occasion = factor(occasion)) %>% 
+  filter(subject == "10" | subject == "4" | subject == "7") %>% 
+  as_tibble()
+```
+
+\newpage
+
+4.  Reproduce the following two plots, using the *pd* data. You can use whatever theme you want (I used `theme_minimal()`), but all else should be the same.
+
+```{r}
+#| label: plots1
+
+theme_set(theme_minimal())
+
+# Put code below for Plot 1. Note that Plot 1 is a line plot, not a "smooth."
+
+ggplot(pd, aes(age, height)) +
+  geom_line() +
+  facet_wrap(~subject) +
+  labs(title = "Plot 1")
+
+# Put code below for Plot 2. Note that Plot 2 is a line plot also.
+
+ggplot(pd, aes(age, height, color = subject)) +
+  geom_line() +
+  labs(title = "Plot 2")
+```
+
+\newpage
+
+5.  Use the *mtcars* dataset from base `R` to replicate the following plots. (Just type *mtcars* into the console to see the dataset).
+
+```{r}
+#| label: plots2
+
+# Put code below for Plot 3
+ggplot(mtcars, aes(drat, mpg)) +
+  geom_point() +
+  labs(title = "Plot 3")
+
+# Put code below for Plot 4
+ggplot(mtcars, aes(drat, mpg)) +
+  geom_point() +
+  geom_smooth() +
+  labs(title = "Plot 4")
+
+# Put code below for Plot 5
+ggplot(mtcars, aes(drat, mpg)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  facet_wrap(~vs) +
+  labs(title = "Plot 5")
+
+# Put code below for Plot 6. I have given you the first line of code to start.
+ggplot(mtcars, aes(drat, mpg, color = factor(cyl))) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Plot 6")
+
+```
+
+\newpage
+
+6.  Use the *Orange* dataset, also part of base `R`, to replicate the following plots.
+
+```{r}
+#| label: orange-plots
+
+# Put code below for Plot 7
+ggplot(Orange, aes(age, circumference, color = Tree)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Plot 7")
+
+
+# Put code below for the last plot. See slide xx from the w3 class for labels.
+ggplot(Orange, aes(age, circumference)) +
+  geom_smooth(method = "lm", se = FALSE, color = "gray40") +
+  geom_point(aes(color = Tree), size = 3) +
+  labs(x = "Age of the Tree (in days)",
+       y = "Circumference of the Trunk (in mm)",
+       title = "Orange Tree Growth",
+       subtitle = "Gray line displays a linear model fit to the data.")
+
+
+```
