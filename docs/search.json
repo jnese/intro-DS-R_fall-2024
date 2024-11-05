@@ -2483,5 +2483,621 @@
     "title": "Week 6: git & GitHub",
     "section": "git & GitHub",
     "text": "git & GitHub\nHow?\n\nInstall git\nCreate a GitHub account (hopefully you all have done this)\nGet a GUI and/or learn the command-line tools\n\nI’m okay with either or both, as long as you (sort of) know what you’re doing\nWe’re going to use GitKraken in this course\n\nDevelop a solid understanding of the underlying structure, so you know what you want to do even if you don’t know how\n\ncommits, push, pull, fork"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#housekeeping",
+    "href": "slides/w6_quarto.html#housekeeping",
+    "title": "Week 6: Quarto",
+    "section": "Housekeeping",
+    "text": "Housekeeping\nFinal projects"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#agenda",
+    "href": "slides/w6_quarto.html#agenda",
+    "title": "Week 6: Quarto",
+    "section": "Agenda",
+    "text": "Agenda\n\nQuarto basics\nYAML options\nChunk Options\nInline Code\n\nLearning Objectives\n\nUnderstand how to render Quarto documents and mix code with text\nUnderstand different chunk options\nUnderstand inline code evaluation"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#what-is-quarto",
+    "href": "slides/w6_quarto.html#what-is-quarto",
+    "title": "Week 6: Quarto",
+    "section": "What is Quarto?",
+    "text": "What is Quarto?\n\nan open-source scientific and technical publishing system\ncreate dynamic content with Python, R, Julia, and Observable.\npublish reproducible, production quality articles, presentations, websites, blogs, and books in HTML, PDF, MS Word, ePub, etc.\ninclude equations, citations, crossrefs, figure panels, callouts, advanced layout, etc.\na multi-language, next generation version of R Markdown (from Posit)\nincludes many built in output formats (and options for customizing each)\nhas native features for special project types like Websites, Books, and Blogs (rather than relying on external packages)\neverything"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#section",
+    "href": "slides/w6_quarto.html#section",
+    "title": "Week 6: Quarto",
+    "section": "",
+    "text": "Credit Allison Horst"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#formats",
+    "href": "slides/w6_quarto.html#formats",
+    "title": "Week 6: Quarto",
+    "section": "Formats",
+    "text": "Formats\n\nQuarto will render to HTML and PDF really well\nWord also supported\nYou can also create presentations (slides), websites, books, etc."
+  },
+  {
+    "objectID": "slides/w6_quarto.html#pdf-engines",
+    "href": "slides/w6_quarto.html#pdf-engines",
+    "title": "Week 6: Quarto",
+    "section": "PDF Engines",
+    "text": "PDF Engines\n\nYou need a tex (pronounced tek) distribution\nPandoc supports the use of a wide range of TeX distributions (pdflatex, xelatex, lualatex, tectonic, latexmk)\nI strongly recommend the use of TinyTeX, which is a distribution of TeX Live that provides a reasonably sized initial download (~100 MB) that includes the 200 or so most commonly used TeX packages for Pandoc documents."
+  },
+  {
+    "objectID": "slides/w6_quarto.html#pdf-engines-1",
+    "href": "slides/w6_quarto.html#pdf-engines-1",
+    "title": "Week 6: Quarto",
+    "section": "PDF Engines",
+    "text": "PDF Engines\nFor this class, and probably everything you’ll ever need: TinyTex\nTo install TinyTeX, use the following command in your Terminal:\nquarto install tinytex"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#managing-tex",
+    "href": "slides/w6_quarto.html#managing-tex",
+    "title": "Week 6: Quarto",
+    "section": "Managing TeX",
+    "text": "Managing TeX"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#note",
+    "href": "slides/w6_quarto.html#note",
+    "title": "Week 6: Quarto",
+    "section": "Note",
+    "text": "Note\nEach year in April, TeXlive updates their remote package repository to the new year’s version of TeX. When this happens, previous year installations of TeX will not be able to download and install packages from the remote repository. When this happens, you may see an error like:\n\nYour TexLive version is not updated enough to connect to the remote repository and download packages. Please update your installation of TexLive or TinyTex.\n\nWhen this happens, you can use quarto update tinytex to download and install an updated version of tinytex"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#r-markdown-aside",
+    "href": "slides/w6_quarto.html#r-markdown-aside",
+    "title": "Week 6: Quarto",
+    "section": "R Markdown aside",
+    "text": "R Markdown aside"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#quarto-1",
+    "href": "slides/w6_quarto.html#quarto-1",
+    "title": "Week 6: Quarto",
+    "section": "Quarto",
+    "text": "Quarto\nFrom within a RStudio Project, open a new Quarto file"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#quarto-2",
+    "href": "slides/w6_quarto.html#quarto-2",
+    "title": "Week 6: Quarto",
+    "section": "Quarto",
+    "text": "Quarto\nFrom within a RStudio Project, open a Quarto Document"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#lets-render",
+    "href": "slides/w6_quarto.html#lets-render",
+    "title": "Week 6: Quarto",
+    "section": "Let’s render!",
+    "text": "Let’s render!"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#yaml-front-matter",
+    "href": "slides/w6_quarto.html#yaml-front-matter",
+    "title": "Week 6: Quarto",
+    "section": "YAML Front Matter",
+    "text": "YAML Front Matter\n\n---\ntitle: \"World Changing Research\"\nformat: html\n---\n\n\nYet Another Markup Language?\nThree dashes --- before and after the YAML fields\n\nStart with the default YAML\n\nCase sensitive\nFormat sensitive (spaces & tab) - very sensitive\nMany other fields are possible\n\nFor example, you may want to include an argument for format: pdf, html, docx\nMust be specified as it is rendered, if not supplied\n\nFull list here (there’s a lot)"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#authoring",
+    "href": "slides/w6_quarto.html#authoring",
+    "title": "Week 6: Quarto",
+    "section": "Authoring",
+    "text": "Authoring\n\n---\ntitle: \"World Changing Research\"\nsubtitle: \"Seriously, it's really good research\"\nauthor: \"Joe Nese\"\ndate: \"2023-5-25\"\nabstract: \"Summary of document\"\nabstract-title: \"Lable abstract\"\ndoi: \"digitil object identifier\"\nformat: html\n---"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#code-execution",
+    "href": "slides/w6_quarto.html#code-execution",
+    "title": "Week 6: Quarto",
+    "section": "Code Execution",
+    "text": "Code Execution\nSet the default behavior for all code chunks in the script with execute\n\n---\ntitle: \"World Changing Research\"\nauthor: \"Joe Nese\"\nformat: html\nexecute:\n  eval: true\n  echo: false\n---"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#execute",
+    "href": "slides/w6_quarto.html#execute",
+    "title": "Week 6: Quarto",
+    "section": "execute",
+    "text": "execute\n\n\n\n\n\n\n\n\nOptions\nArguments\nDefault\nEffect\n\n\n\n\neval\ntrue, false, […]\ntrue\nEvaluate the code?\n\n\necho\ntrue, false, fence, […]\ntrue\nShow the code?\n\n\nwarning\nlogical\ntrue\nPrint warnings?\n\n\nerror\nlogical\ntrue\nInclude errors in the output?\n\n\ninclude\nlogical\ntrue\nPrevent any output (code or results)?\n\n\noutput\ntrue, false, asis\ntrue\nInclude code results?"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#eval",
+    "href": "slides/w6_quarto.html#eval",
+    "title": "Week 6: Quarto",
+    "section": "eval",
+    "text": "eval\n\n\n\n\n\n\n\n\nOptions\nArguments\nDefault\nEffect\n\n\n\n\neval\ntrue, false, […]\ntrue\nEvaluate the code?\n\n\necho\ntrue, false, fence, […]\ntrue\nShow the code?\n\n\nwarning\nlogical\ntrue\nPrint warnings?\n\n\nerror\nlogical\ntrue\nInclude errors in the output?\n\n\ninclude\nlogical\ntrue\nPrevent any output (code or results)?\n\n\noutput\ntrue, false, asis\ntrue\nInclude code results?\n\n\n\n\n\n\n\n\nevaluates code\nif false it just echos the code into output"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#echo",
+    "href": "slides/w6_quarto.html#echo",
+    "title": "Week 6: Quarto",
+    "section": "echo",
+    "text": "echo\n\n\n\n\n\n\n\n\nOptions\nArguments\nDefault\nEffect\n\n\n\n\neval\ntrue, false, […]\ntrue\nEvaluate the code?\n\n\necho\ntrue, false, fence, […]\ntrue\nShow the code?\n\n\nwarning\nlogical\ntrue\nPrint warnings?\n\n\nerror\nlogical\ntrue\nInclude errors in the output?\n\n\ninclude\nlogical\ntrue\nPrevent any output (code or results)?\n\n\noutput\ntrue, false, asis\ntrue\nInclude code results?\n\n\n\n\n\n\n\n\nshow (echo) source code in rendered output\necho: false is most useful when producing a report for somebody who doesn’t use R and has no use for, or knowledge of, the code"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#warning",
+    "href": "slides/w6_quarto.html#warning",
+    "title": "Week 6: Quarto",
+    "section": "warning",
+    "text": "warning\n\n\n\n\n\n\n\n\nOptions\nArguments\nDefault\nEffect\n\n\n\n\neval\ntrue, false, […]\ntrue\nEvaluate the code?\n\n\necho\ntrue, false, fence, […]\ntrue\nShow the code?\n\n\nwarning\nlogical\ntrue\nPrint warnings?\n\n\nerror\nlogical\ntrue\nInclude errors in the output?\n\n\ninclude\nlogical\ntrue\nPrevent any output (code or results)?\n\n\noutput\ntrue, false, asis\ntrue\nInclude code results?\n\n\n\n\n\n\n\n\ninclude warnings in rendered output"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#error",
+    "href": "slides/w6_quarto.html#error",
+    "title": "Week 6: Quarto",
+    "section": "error",
+    "text": "error\n\n\n\n\n\n\n\n\nOptions\nArguments\nDefault\nEffect\n\n\n\n\neval\ntrue, false, […]\ntrue\nEvaluate the code?\n\n\necho\ntrue, false, fence, […]\ntrue\nShow the code?\n\n\nwarning\nlogical\ntrue\nPrint warnings?\n\n\nerror\nlogical\ntrue\nInclude errors in the output?\n\n\ninclude\nlogical\ntrue\nPrevent any output (code or results)?\n\n\noutput\ntrue, false, asis\ntrue\nInclude code results?\n\n\n\n\n\n\n\n\nInclude errors in the output\nIf false, then errors executing code will halt processing of the document"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#include",
+    "href": "slides/w6_quarto.html#include",
+    "title": "Week 6: Quarto",
+    "section": "include",
+    "text": "include\n\n\n\n\n\n\n\n\nOptions\nArguments\nDefault\nEffect\n\n\n\n\neval\ntrue, false, […]\ntrue\nEvaluate the code?\n\n\necho\ntrue, false, fence, […]\ntrue\nShow the code?\n\n\nwarning\nlogical\ntrue\nPrint warnings?\n\n\nerror\nlogical\ntrue\nInclude errors in the output?\n\n\ninclude\nlogical\ntrue\nPrevent any output (code or results)?\n\n\noutput\ntrue, false, asis\ntrue\nInclude code results?\n\n\n\n\n\n\n\n\nCode will execute, but neither code or results will show in the output"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#output",
+    "href": "slides/w6_quarto.html#output",
+    "title": "Week 6: Quarto",
+    "section": "output",
+    "text": "output\n\n\n\n\n\n\n\n\nOptions\nArguments\nDefault\nEffect\n\n\n\n\neval\ntrue, false, […]\ntrue\nEvaluate the code?\n\n\necho\ntrue, false, fence, […]\ntrue\nShow the code?\n\n\nwarning\nlogical\ntrue\nPrint warnings?\n\n\nerror\nlogical\ntrue\nInclude errors in the output?\n\n\ninclude\nlogical\ntrue\nPrevent any output (code or results)?\n\n\noutput\ntrue, false, asis\ntrue\nInclude code results?\n\n\n\n\n\n\n\n\nInclude the results of executing the code in the output. Possible values:\n\ntrue: show results\nfalse: do not show results\nasis: output as raw markdown; use for rendering tables!"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#figures",
+    "href": "slides/w6_quarto.html#figures",
+    "title": "Week 6: Quarto",
+    "section": "figures",
+    "text": "figures\nSo many options for figures.\nOne is to set figure width/height\n\n---\ntitle: \"World Changing Research\"\nformat: html\nexecute:\n  eval: true\n  echo: false\nfig-width: 6.5\nfig-height: 8\n---"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#syntax-highlighting",
+    "href": "slides/w6_quarto.html#syntax-highlighting",
+    "title": "Week 6: Quarto",
+    "section": "Syntax Highlighting",
+    "text": "Syntax Highlighting\n\nThe YAML will control a lot of how a document looks\nFor example, if you wanted to render with a different syntax highlighter\n\n\n\nstandard \n\n---\ntitle: \"Doc Title\"\nformat: pdf\n---\n\n \n\nkate \n\n---\ntitle: \"Doc Title\"\nformat: \n  pdf:\n    highlight-style: kate\n---"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#table-of-contents",
+    "href": "slides/w6_quarto.html#table-of-contents",
+    "title": "Week 6: Quarto",
+    "section": "Table of Contents",
+    "text": "Table of Contents\n\nSpecify a table of contents in the YAML\nA table of contents will be automatically generated for you based on your headers\n\n# Header 1  ## Header 2\n\n---\nformat: \n  html:\n    toc: true\n---"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#toc---change-depth",
+    "href": "slides/w6_quarto.html#toc---change-depth",
+    "title": "Week 6: Quarto",
+    "section": "TOC - change depth",
+    "text": "TOC - change depth\n\nBy default, the TOC will only go down to 3 levels\nChange that with toc-depth:\n\n\n---\nformat: \n  html:\n    toc: true\n    toc-depth: 5\n---"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#toc---location",
+    "href": "slides/w6_quarto.html#toc---location",
+    "title": "Week 6: Quarto",
+    "section": "TOC - location",
+    "text": "TOC - location\n\nFor HTML format by default floats the table of contents to the right\nThe floating TOC can be used to navigate to sections of the document and also will automatically highlight the appropriate section as the user scrolls\nThe table of contents is responsive and will become hidden once the viewport becomes too narrow\nYou can alternatively position it at the left or in the body\n\n\n---\nformat: \n  html:\n    toc: true\n    toc-location: left\n---"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#toc---title",
+    "href": "slides/w6_quarto.html#toc---title",
+    "title": "Week 6: Quarto",
+    "section": "TOC - title",
+    "text": "TOC - title\nYou can customize the title used for the table of contents using the toc-title option\n\n---\nformat: \n  html:\n    toc: true\n    toc-title: Contents\n---"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#code-folding",
+    "href": "slides/w6_quarto.html#code-folding",
+    "title": "Week 6: Quarto",
+    "section": "Code Folding",
+    "text": "Code Folding\n\nUse the code-fold option to include code but have it hidden by default\nUse custom text for the code display button (the default is just “Code”)\n\n\n---\nformat:\n  html:\n    code-fold: true\n    code-summary: \"Show the code\"\n---\n\nPopcorn Experiment"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#code-chunks-vs.-text",
+    "href": "slides/w6_quarto.html#code-chunks-vs.-text",
+    "title": "Week 6: Quarto",
+    "section": "Code Chunks vs. Text",
+    "text": "Code Chunks vs. Text"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#code-chunks",
+    "href": "slides/w6_quarto.html#code-chunks",
+    "title": "Week 6: Quarto",
+    "section": "Code Chunks",
+    "text": "Code Chunks\nStart a code chunk with ```{r}\nThen produce some R code\nthen close the chunk with three additional back ticks ```\n OR \nDropdown: Code ⬇️ Insert Chunk\nShortcut: Ctrl/Command + Alt + I\n\n```{r}\na &lt;- 22\nb &lt;- 7\n\na / b\n```\n\n[1] 3.142857"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#chunk-names",
+    "href": "slides/w6_quarto.html#chunk-names",
+    "title": "Week 6: Quarto",
+    "section": "Chunk Names",
+    "text": "Chunk Names\n\nUse single word: chunk1\nOr use hyphen (-) to separate words: chunk-1\nDo not use spaces: chunk 1\nDo not use underscore chunk_1\nChunk names can only be used once\n\n\nThink kebabs, not snakes\n\nbar-plot-1\nbar-plot-2\nhist-plot-1\nmodel-1\n\n\n\n\nAllison Hill"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#headers",
+    "href": "slides/w6_quarto.html#headers",
+    "title": "Week 6: Quarto",
+    "section": "Headers",
+    "text": "Headers\nGreat for organizing text and code\n# Level 1  ## Level 2  ### Level 3"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#lists",
+    "href": "slides/w6_quarto.html#lists",
+    "title": "Week 6: Quarto",
+    "section": "Lists^",
+    "text": "Lists^\nNote that lists require an entire blank line above the list, otherwise it will appear as normal text along a single line and not rendered in list form\n^ not an R vector list"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#more-advanced-options",
+    "href": "slides/w6_quarto.html#more-advanced-options",
+    "title": "Week 6: Quarto",
+    "section": "More Advanced Options",
+    "text": "More Advanced Options\n\nchunk options\nsetting global options\ninline code evaluation"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#chunk-options-1",
+    "href": "slides/w6_quarto.html#chunk-options-1",
+    "title": "Week 6: Quarto",
+    "section": "Chunk Options",
+    "text": "Chunk Options\nChunk options are typically included in special comments at the top of code chunks\n#| (think hash pipe?)\nThis is how you override the global options within a particular chunk\n\n```{r}\n#| eval: false\n\n# comment\na &lt;- 22\na / 7\n```"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#revisit",
+    "href": "slides/w6_quarto.html#revisit",
+    "title": "Week 6: Quarto",
+    "section": "Revisit",
+    "text": "Revisit\n\n\n\n\n\n\n\n\nOptions\nArguments\nDefault\nEffect\n\n\n\n\neval\ntrue, false, […]\ntrue\nEvaluate the code?\n\n\necho\ntrue, false, fence, […]\ntrue\nShow the code?\n\n\nwarning\nlogical\ntrue\nPrint warnings?\n\n\nerror\nlogical\ntrue\nInclude errors in the output?\n\n\ninclude\nlogical\ntrue\nPrevent any output (code or results)?\n\n\noutput\ntrue, false, asis\ntrue\nInclude code results?"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#a-few-more-chunk-options",
+    "href": "slides/w6_quarto.html#a-few-more-chunk-options",
+    "title": "Week 6: Quarto",
+    "section": "A Few More Chunk Options",
+    "text": "A Few More Chunk Options\n\nlabel\n\nchunk name (or label)\n\nmessage\n\ninclude messages in rendered output?"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#echo-and-eval",
+    "href": "slides/w6_quarto.html#echo-and-eval",
+    "title": "Week 6: Quarto",
+    "section": "echo and eval",
+    "text": "echo and eval\n\n\necho: false\nevaluate code without showing it \nText here…\n\n\n[1] 3.142857\n\n\nmore text here\n\neval: false\nshow code without evaluating it \nText here…\n\n```{r}\n#| eval: false\na &lt;- 22\na / 7\n```\n\n more text here"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#warning-false",
+    "href": "slides/w6_quarto.html#warning-false",
+    "title": "Week 6: Quarto",
+    "section": "warning: false",
+    "text": "warning: false\nWarning is not printed to the console when rendering\n\n```{r}\n#| warning: false\nggplot(msleep, aes(sleep_rem, sleep_total)) + \n  geom_point()\n```"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#warning-true",
+    "href": "slides/w6_quarto.html#warning-true",
+    "title": "Week 6: Quarto",
+    "section": "warning: true",
+    "text": "warning: true\nWarning is printed to the console when rendering\n\n```{r}\n#| warning: true\nggplot(msleep, aes(sleep_rem, sleep_total)) + \n  geom_point()\n```\n\nWarning: Removed 22 rows containing missing values or values outside the scale range\n(`geom_point()`)."
+  },
+  {
+    "objectID": "slides/w6_quarto.html#error-true",
+    "href": "slides/w6_quarto.html#error-true",
+    "title": "Week 6: Quarto",
+    "section": "error: true",
+    "text": "error: true\nThis will show errors in the rendered document\n\n```{r}\n#| error: true\n\nggplot(msleep, aes(sleep_rem, sleep_total)) + \n  geom_point())\n```\n\nError in parse(text = input): &lt;text&gt;:2:15: unexpected ')'\n1: ggplot(msleep, aes(sleep_rem, sleep_total)) + \n2:   geom_point())\n                 ^"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#error-false",
+    "href": "slides/w6_quarto.html#error-false",
+    "title": "Week 6: Quarto",
+    "section": "error: false",
+    "text": "error: false\nThe document won’t render if it encounters an error"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#message-true",
+    "href": "slides/w6_quarto.html#message-true",
+    "title": "Week 6: Quarto",
+    "section": "message: true",
+    "text": "message: true\n\n```{r}\n#| message: true\n\nggplot(msleep, aes(sleep_total)) + \n  geom_histogram()\n```\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`."
+  },
+  {
+    "objectID": "slides/w6_quarto.html#message-false",
+    "href": "slides/w6_quarto.html#message-false",
+    "title": "Week 6: Quarto",
+    "section": "message: false",
+    "text": "message: false\n\n```{r}\n#| message: false\n\nggplot(msleep, aes(sleep_total)) + \n  geom_histogram()\n```"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#include-1",
+    "href": "slides/w6_quarto.html#include-1",
+    "title": "Week 6: Quarto",
+    "section": "include",
+    "text": "include\ninclude: false won’t show code or results\nGood use of this is for a code chunk where you load packages"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#inline-r-code",
+    "href": "slides/w6_quarto.html#inline-r-code",
+    "title": "Week 6: Quarto",
+    "section": "Inline R Code",
+    "text": "Inline R Code\nInline code is code that runs in your prose (i.e., not code chunks)\nTwo back ticks that enclose the letter ‘r’ produce inline code to be evaluated ` r code `\nThis is extremely useful in writing reports. Never have to update any numbers in text, regardless of changes to your models or data (if you are careful about it).\n\n\n```{r}\na &lt;- 22\nb &lt;- 7\n```\n\nscript:\nThis is an example of inline code where I want to refer to the sum of a and b, which is `r a + b`\noutput:\nThis is an example of inline code where I want to refer to the sum of a and b, which is 29"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#example",
+    "href": "slides/w6_quarto.html#example",
+    "title": "Week 6: Quarto",
+    "section": "Example",
+    "text": "Example\npopcorm-experiment.qmd"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#inline-formatting",
+    "href": "slides/w6_quarto.html#inline-formatting",
+    "title": "Week 6: Quarto",
+    "section": "Inline Formatting",
+    "text": "Inline Formatting\n\nItalics\n\nsingle asterisk *italicized text*\nsingle underscore _ italicized text_\n\nBold\n\ndouble asterisks **bold**\ndouble underscores __ bold__\n\nInline code\n\nexecute code: back ticks + r `r code`\nshow code: back ticks no r `code`"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#escaping",
+    "href": "slides/w6_quarto.html#escaping",
+    "title": "Week 6: Quarto",
+    "section": "Escaping",
+    "text": "Escaping\nSometimes you may not want the formatting to occur, and instead just show what you’ve typed\n\nFor example, you want to type a hashtag, and not have it be a Header  Escape with \\\n\n\\# I escape the pound symbol with \\\n# I escaped the pound symbol to print this"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#tabsets",
+    "href": "slides/w6_quarto.html#tabsets",
+    "title": "Week 6: Quarto",
+    "section": "Tabsets",
+    "text": "Tabsets\n\nOrganize content by adding a div ::: {.panel-tabset}\ncreate a new tab using top-level headings within the div\n\n## New tab\n\nClose the div :::\n.tabset-pills will make the tabs appear as pills"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#tabset",
+    "href": "slides/w6_quarto.html#tabset",
+    "title": "Week 6: Quarto",
+    "section": "Tabset",
+    "text": "Tabset\n\nResearch Results\n\n::: {.panel-tabset}\n\n## Grade 1\nGrade 1 results here!\n\n## Grade 2\nHere are the Grade 2 figures and tables!\n\n## Grade 3\nNow you are seeing Grade 3 stuff!\n\n:::"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#section-1",
+    "href": "slides/w6_quarto.html#section-1",
+    "title": "Week 6: Quarto",
+    "section": "",
+    "text": "Research Results\n\nGrade 1Grade 2Grade 3\n\n\nGrade 1 results here!\n\n\nHere are the Grade 2 figures and tables!\n\n\nNow you are seeing Grade 3 stuff!"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#visual-editing",
+    "href": "slides/w6_quarto.html#visual-editing",
+    "title": "Week 6: Quarto",
+    "section": "Visual Editing",
+    "text": "Visual Editing\nAvailable as a feature of the RStudio IDE (eventually also be made available in standalone form)\nThe Quarto visual editor provides WYSIWYM editing\n\ntables\ncitations\ncross-references\nfootnotes\ndivs/spans\ndefinition lists\nattributes\nraw HTML/TeX\nmore"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#shortcuts",
+    "href": "slides/w6_quarto.html#shortcuts",
+    "title": "Week 6: Quarto",
+    "section": "Shortcuts",
+    "text": "Shortcuts"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#even-better",
+    "href": "slides/w6_quarto.html#even-better",
+    "title": "Week 6: Quarto",
+    "section": "Even better",
+    "text": "Even better\nInsert anything!\nYou can also use / to insert just about anything\nJust execute the shortcut then type what you want to insert\ndemo"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#editor-toolbar",
+    "href": "slides/w6_quarto.html#editor-toolbar",
+    "title": "Week 6: Quarto",
+    "section": "Editor Toolbar",
+    "text": "Editor Toolbar\nThe editor toolbar includes buttons for the most commonly used formatting commands:\n\nAdditional commands are available on the Format, Insert, and Table menus"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#learn-more",
+    "href": "slides/w6_quarto.html#learn-more",
+    "title": "Week 6: Quarto",
+    "section": "Learn more",
+    "text": "Learn more\n\nTechnical Writing covers features commonly used in scientific and technical writing, including citations, cross-references, footnotes, equations, embedded code, and LaTeX\nContent Editing provides more depth on visual editor support for tables, lists, pandoc attributes, CSS styles, comments, symbols/emojis, etc\nShortcuts & Options documents the two types of shortcuts you can use with the editor: standard keyboard shortcuts and markdown shortcuts and describes various options for configuring the editor\nMarkdown Output describes how the visual editor parses and writes markdown and describes various ways you can customize this"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#references-in-.qmd",
+    "href": "slides/w6_quarto.html#references-in-.qmd",
+    "title": "Week 6: Quarto",
+    "section": "References in .qmd",
+    "text": "References in .qmd\n\nsupports bibliographies in a wide variety of formats\nwe will use BibTeX\n\nAdd a bibliography to your document using the bibliography YAML metadata field\n\n---\ntitle: \"My Document\"\nbibliography: references.bib\nlink-citations: true\n---\n\n\n\nNote the link-citations: true option which will make your citations hyperlinks to the corresponding bibliography entries"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#references-1",
+    "href": "slides/w6_quarto.html#references-1",
+    "title": "Week 6: Quarto",
+    "section": "References",
+    "text": "References\nTo include references in your .qmd, you must:\n\nCreate an external .bib file using LaTeX formatting\n\nuse RStudio to open new Text File\n\nInclude bibliography: name_of_your_bib_file.bib in your YAML\n\nreferences.bib\n\nRefer to the citations in text using @\nFor parenthesis around the citation, used brackets - [@BibTex_citekey]\n\n\nWhat is BibTex?\n\n\nWhat is a BibTex citekey?\n\n\nWhy are you doing this to us, Joe, we just want to code"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#bibtex",
+    "href": "slides/w6_quarto.html#bibtex",
+    "title": "Week 6: Quarto",
+    "section": "BibTex",
+    "text": "BibTex\n\nBibTex is just a text-based file format for lists of bibliography items like articles, books, R packages, etc.\nBibTex is independent of any reference/citation style\n\n(I happen to use APA, you may use something else)"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#bibtex-and-citekey",
+    "href": "slides/w6_quarto.html#bibtex-and-citekey",
+    "title": "Week 6: Quarto",
+    "section": "BibTex and citekey",
+    "text": "BibTex and citekey\nThis is what BibTex looks like\nThe “citekey” is the key you will use to reference the entry in your prose"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#inserting-citations",
+    "href": "slides/w6_quarto.html#inserting-citations",
+    "title": "Week 6: Quarto",
+    "section": "Inserting citations",
+    "text": "Inserting citations\nInsert citations in your prose\n\nInsert -&gt; Citation command, or\nuse markdown syntax directly\n\n[@cite]\n@cite\n\n\nReferences are included automatically at the end of the document\n\nCitations go inside square brackets and are separated by semicolons\nEach citation must have a key, composed of @ plus the citekey from your .bib file\n\ncitekeys key must begin with a letter, digit, or _,\nmay contain alphanumerics, -, and internal punctuation characters (:.#$%&-+?&lt;&gt;~/)"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#citation-options",
+    "href": "slides/w6_quarto.html#citation-options",
+    "title": "Week 6: Quarto",
+    "section": "Citation options",
+    "text": "Citation options\n\n\n\n\n\n\n\n\nCitation Style (using the tag)\nOutput\n\n\n\n\n@Briggs11\nBriggs and Weeks (2011)\n\n\n[see @Baldwin2014; @Caruso2000]\n(see Baldwin et al. 2014; Caruso 2000)\n\n\n[@Linn02, p. 9]\n(Linn and Haug 2002, p. 9)\n\n\n[-@Goldhaber08]\n(2008)"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#remember",
+    "href": "slides/w6_quarto.html#remember",
+    "title": "Week 6: Quarto",
+    "section": "Remember…",
+    "text": "Remember…\nCite R!\n\ncitation()\n\nTo cite R in publications use:\n\n  R Core Team (2024). _R: A Language and Environment for Statistical\n  Computing_. R Foundation for Statistical Computing, Vienna, Austria.\n  &lt;https://www.R-project.org/&gt;.\n\nA BibTeX entry for LaTeX users is\n\n  @Manual{,\n    title = {R: A Language and Environment for Statistical Computing},\n    author = {{R Core Team}},\n    organization = {R Foundation for Statistical Computing},\n    address = {Vienna, Austria},\n    year = {2024},\n    url = {https://www.R-project.org/},\n  }\n\nWe have invested a lot of time and effort in creating R, please cite it\nwhen using it for data analysis. See also 'citation(\"pkgname\")' for\nciting R packages.\n\n\n\nAnd the packages you used!\n\ncitation(\"tidyverse\")\n\nTo cite package 'tidyverse' in publications use:\n\n  Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R,\n  Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller\n  E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V,\n  Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). \"Welcome to\n  the tidyverse.\" _Journal of Open Source Software_, *4*(43), 1686.\n  doi:10.21105/joss.01686 &lt;https://doi.org/10.21105/joss.01686&gt;.\n\nA BibTeX entry for LaTeX users is\n\n  @Article{,\n    title = {Welcome to the {tidyverse}},\n    author = {Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani},\n    year = {2019},\n    journal = {Journal of Open Source Software},\n    volume = {4},\n    number = {43},\n    pages = {1686},\n    doi = {10.21105/joss.01686},\n  }"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#citations-in-.qmd-demo",
+    "href": "slides/w6_quarto.html#citations-in-.qmd-demo",
+    "title": "Week 6: Quarto",
+    "section": "Citations in .qmd demo",
+    "text": "Citations in .qmd demo\n\nOpen a new qmd document\nIn your YAML, add a new line for bibliography: followed by the name of your bibliography file, which should be in the same directory, and should be the bare name (i.e., not quotes)\n\nbibliography: references.bib\n\nOpen a text file in RStudio, save it with a .bib extension\n\nname it references.bib\n\nGo to Google Scholar and find a reference to cite. Copy and paste the citation into your .bib file using Google’s cite option\nInclude a reference to the citation in your qmd file\nReference Section: references are included automatically at the end of the document (note: default is not APA format)\n\nhtml - if you are rendering to html, you will automatically get a “References” heading\npdf - if you are rendering to PDF\n\ninclude a page break in your prose so your References are on a separate page: \\newpage\ninclude # References as the last line of your document to give it a heading title\n\n\nRender"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#citations-in-.rmd-demo",
+    "href": "slides/w6_quarto.html#citations-in-.rmd-demo",
+    "title": "Week 6: Quarto",
+    "section": "Citations in .Rmd demo",
+    "text": "Citations in .Rmd demo\n\nOpen a new qmd document\nIn your YAML, add a new line for bibliography: followed by the name of your bibliography file, which should be in the same directory, and should be the bare name (i.e., not quotes)\n\n\nbibliography: references.bib\n\n\n---\ntitle: \"Bibliography example\"\nauthor: \"Joe Nese\"\nformat: pdf\nbibliography: references.bib\n---\n\n\nOpen a text file in RStudio, save it as references.bib"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#citations-in-.rmd-demo-1",
+    "href": "slides/w6_quarto.html#citations-in-.rmd-demo-1",
+    "title": "Week 6: Quarto",
+    "section": "Citations in .Rmd demo",
+    "text": "Citations in .Rmd demo\n\nFind references to cite\n\nYou can copy/paste the citation into your .bib file using Google’s  “Cite” option\nYou can (and should!) cite the R packages you use! citation(\"package-name\") and citation() to cite R\n\nInclude a reference to the citation in your .qmd file\nLet’s render to PDF\n\nInclude a page break so your citations are on a separate page (\\newpage)\nAdd the # References heading as the last line of your document to give the section a title\n\nRender as PDF"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#other-options",
+    "href": "slides/w6_quarto.html#other-options",
+    "title": "Week 6: Quarto",
+    "section": "Other options",
+    "text": "Other options\n\n{citr}\n\na GUI interface\n\nZotero\nDOI"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#tables-1",
+    "href": "slides/w6_quarto.html#tables-1",
+    "title": "Week 6: Quarto",
+    "section": "Tables",
+    "text": "Tables\nMany options\n\nknitr::kable() for basic tables of any sort\n\ntry booktabs = TRUE argument for APA-like table format\nUse {kableExtra} for extensions (example for html and pdf)\n\n{gt}\n\ntidy- and APA-friendly (with effort)\n\n{DT}\n\ngreat for displaying a lot of data in a manageable way\nmultiple pages, search and sort features, etc.\n\n{reactable}\n\ngreat for displaying a lot of data in a manageable way\nmultiple pages, search and sort features, etc.\n\n{gtsummary}\n\namazing for summary tables"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#table-chunk-options",
+    "href": "slides/w6_quarto.html#table-chunk-options",
+    "title": "Week 6: Quarto",
+    "section": "Table chunk options",
+    "text": "Table chunk options\nFor many tables, you may have to specify #| results: asis or you can end up with wacky display"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#kable",
+    "href": "slides/w6_quarto.html#kable",
+    "title": "Week 6: Quarto",
+    "section": "kable()",
+    "text": "kable()\n\npenguins %&gt;% \n  group_by(species, year) %&gt;% \n  summarize(across(c(bill_length_mm:body_mass_g), ~mean(., na.rm = TRUE))) %&gt;% \n  kable()\n\n\n\n\n\n\n\n\n\n\n\n\nspecies\nyear\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\n\n\n\n\nAdelie\n2007\n38.82449\n18.76735\n186.5918\n3696.429\n\n\nAdelie\n2008\n38.56000\n18.19200\n191.0400\n3742.000\n\n\nAdelie\n2009\n38.98269\n18.09808\n192.0769\n3664.904\n\n\nChinstrap\n2007\n48.72308\n18.48462\n192.4231\n3694.231\n\n\nChinstrap\n2008\n48.70000\n18.45000\n197.7222\n3800.000\n\n\nChinstrap\n2009\n49.05417\n18.32917\n198.0833\n3725.000\n\n\nGentoo\n2007\n47.01471\n14.68824\n215.1176\n5070.588\n\n\nGentoo\n2008\n46.93696\n14.92391\n217.5652\n5019.565\n\n\nGentoo\n2009\n48.50000\n15.27674\n218.4186\n5140.698"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#kable-1",
+    "href": "slides/w6_quarto.html#kable-1",
+    "title": "Week 6: Quarto",
+    "section": "kable()",
+    "text": "kable()\npenguins %&gt;% \n  group_by(species, year) %&gt;% \n  summarize(across(c(bill_length_mm:body_mass_g), ~mean(., na.rm = TRUE))) %&gt;% \n  kable(caption = \"kable() Table\",\n        col.names = c(\"Species\", \"Year\", \"Bill Length\", \"Bill Depth\", \"Flipper Length\", \"Body Mass\"),\n        digits = 1,\n        booktabs = TRUE)\n\nkable() Table\n\n\nSpecies\nYear\nBill Length\nBill Depth\nFlipper Length\nBody Mass\n\n\n\n\nAdelie\n2007\n38.8\n18.8\n186.6\n3696.4\n\n\nAdelie\n2008\n38.6\n18.2\n191.0\n3742.0\n\n\nAdelie\n2009\n39.0\n18.1\n192.1\n3664.9\n\n\nChinstrap\n2007\n48.7\n18.5\n192.4\n3694.2\n\n\nChinstrap\n2008\n48.7\n18.4\n197.7\n3800.0\n\n\nChinstrap\n2009\n49.1\n18.3\n198.1\n3725.0\n\n\nGentoo\n2007\n47.0\n14.7\n215.1\n5070.6\n\n\nGentoo\n2008\n46.9\n14.9\n217.6\n5019.6\n\n\nGentoo\n2009\n48.5\n15.3\n218.4\n5140.7"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#kable-and-kableextra",
+    "href": "slides/w6_quarto.html#kable-and-kableextra",
+    "title": "Week 6: Quarto",
+    "section": "kable() and {kableExtra}",
+    "text": "kable() and {kableExtra}\npenguins %&gt;% \n  group_by(species, year) %&gt;% \n  summarize(across(c(bill_length_mm:body_mass_g), ~mean(., na.rm = TRUE))) %&gt;% \n  kable(caption = \"kable() Table\", \n        col.names = c(\"Species\", \"Year\", \"Length (mm)\", \"Depth (mm)\", \"Length (mm)\", \"Body Mass (g)\"),\n        digits = 1, \n        booktabs = TRUE) %&gt;% \n  kableExtra::row_spec(0:9, background = \"white\") %&gt;% \n  add_header_above(c(\" \" = 2, \"Bill\" = 2, \"Flipper\" = 1, \" \" = 1)) \n\nkable() Table\n\n\n\n\n\n\n\n\n\n\n\n\nBill\n\n\nFlipper\n\n\n\n\nSpecies\nYear\nLength (mm)\nDepth (mm)\nLength (mm)\nBody Mass (g)\n\n\n\n\nAdelie\n2007\n38.8\n18.8\n186.6\n3696.4\n\n\nAdelie\n2008\n38.6\n18.2\n191.0\n3742.0\n\n\nAdelie\n2009\n39.0\n18.1\n192.1\n3664.9\n\n\nChinstrap\n2007\n48.7\n18.5\n192.4\n3694.2\n\n\nChinstrap\n2008\n48.7\n18.4\n197.7\n3800.0\n\n\nChinstrap\n2009\n49.1\n18.3\n198.1\n3725.0\n\n\nGentoo\n2007\n47.0\n14.7\n215.1\n5070.6\n\n\nGentoo\n2008\n46.9\n14.9\n217.6\n5019.6\n\n\nGentoo\n2009\n48.5\n15.3\n218.4\n5140.7"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#kable-and-kableextra-1",
+    "href": "slides/w6_quarto.html#kable-and-kableextra-1",
+    "title": "Week 6: Quarto",
+    "section": "kable() and {kableExtra}",
+    "text": "kable() and {kableExtra}\npenguins %&gt;% \n  group_by(species, year) %&gt;% \n  summarize(across(c(bill_length_mm:body_mass_g), ~mean(., na.rm = TRUE))) %&gt;% \n  ungroup() %&gt;% \n  select(-species) %&gt;% \n  kable(caption = \"kable() Table\", \n        col.names = c(\"Year\", \"Length (mm)\", \"Depth (mm)\", \"Length (mm)\", \"Body Mass (g)\"), \n        digits = 1, \n        booktabs = TRUE) %&gt;% \n  kableExtra::row_spec(0:9, background = \"white\") %&gt;% \n  add_header_above(c(\" \" = 1, \"Bill\" = 2, \"Flipper\" = 1, \" \" = 1)) %&gt;% \n  pack_rows(\"Adelie\", 1, 3) %&gt;% \n  pack_rows(\"Chinstrap\", 4, 6) %&gt;% \n  pack_rows(\"Gentoo\", 7, 9)\n\nkable() Table\n\n\n\n\n\n\n\n\n\n\n\nBill\n\n\nFlipper\n\n\n\n\nYear\nLength (mm)\nDepth (mm)\nLength (mm)\nBody Mass (g)\n\n\n\n\nAdelie\n\n\n2007\n38.8\n18.8\n186.6\n3696.4\n\n\n2008\n38.6\n18.2\n191.0\n3742.0\n\n\n2009\n39.0\n18.1\n192.1\n3664.9\n\n\nChinstrap\n\n\n2007\n48.7\n18.5\n192.4\n3694.2\n\n\n2008\n48.7\n18.4\n197.7\n3800.0\n\n\n2009\n49.1\n18.3\n198.1\n3725.0\n\n\nGentoo\n\n\n2007\n47.0\n14.7\n215.1\n5070.6\n\n\n2008\n46.9\n14.9\n217.6\n5019.6\n\n\n2009\n48.5\n15.3\n218.4\n5140.7"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#gtgt",
+    "href": "slides/w6_quarto.html#gtgt",
+    "title": "Week 6: Quarto",
+    "section": "gt::gt()",
+    "text": "gt::gt()\npenguins %&gt;% \n  group_by(species, year) %&gt;% \n  summarize(across(c(bill_length_mm:body_mass_g), ~mean(., na.rm = TRUE))) %&gt;% \n  gt()\n\n\n\n\n\n\nyear\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\n\n\n\n\nAdelie\n\n\n2007\n38.82449\n18.76735\n186.5918\n3696.429\n\n\n2008\n38.56000\n18.19200\n191.0400\n3742.000\n\n\n2009\n38.98269\n18.09808\n192.0769\n3664.904\n\n\nChinstrap\n\n\n2007\n48.72308\n18.48462\n192.4231\n3694.231\n\n\n2008\n48.70000\n18.45000\n197.7222\n3800.000\n\n\n2009\n49.05417\n18.32917\n198.0833\n3725.000\n\n\nGentoo\n\n\n2007\n47.01471\n14.68824\n215.1176\n5070.588\n\n\n2008\n46.93696\n14.92391\n217.5652\n5019.565\n\n\n2009\n48.50000\n15.27674\n218.4186\n5140.698"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#gtgt-1",
+    "href": "slides/w6_quarto.html#gtgt-1",
+    "title": "Week 6: Quarto",
+    "section": "gt::gt()",
+    "text": "gt::gt()\npenguins %&gt;% \n  group_by(species, year) %&gt;% \n  summarize(across(c(bill_length_mm:body_mass_g), ~mean(., na.rm = TRUE))) %&gt;% \n  gt() %&gt;%\n  fmt_number( \n    columns = 3:6, \n    decimals = 1 \n  ) %&gt;% \n  tab_header(\n    title = md(\"`{gt}` Table\"))\n\n\n\n\n\n\n{gt} Table\n\n\nyear\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\n\n\n\n\nAdelie\n\n\n2007\n38.8\n18.8\n186.6\n3,696.4\n\n\n2008\n38.6\n18.2\n191.0\n3,742.0\n\n\n2009\n39.0\n18.1\n192.1\n3,664.9\n\n\nChinstrap\n\n\n2007\n48.7\n18.5\n192.4\n3,694.2\n\n\n2008\n48.7\n18.4\n197.7\n3,800.0\n\n\n2009\n49.1\n18.3\n198.1\n3,725.0\n\n\nGentoo\n\n\n2007\n47.0\n14.7\n215.1\n5,070.6\n\n\n2008\n46.9\n14.9\n217.6\n5,019.6\n\n\n2009\n48.5\n15.3\n218.4\n5,140.7"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#gtgt-2",
+    "href": "slides/w6_quarto.html#gtgt-2",
+    "title": "Week 6: Quarto",
+    "section": "gt::gt()",
+    "text": "gt::gt()\npenguins %&gt;% \n  group_by(species, year) %&gt;% \n  summarize(across(c(bill_length_mm:body_mass_g), ~mean(., na.rm = TRUE))) %&gt;% \n  gt() %&gt;%\n  fmt_number( \n    columns = 3:6, \n    decimals = 1 \n  ) %&gt;% \n  tab_header( \n    title = md(\"`{gt}` Table\")) \n\n\n\n\n\n\n{gt} Table\n\n\nyear\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\n\n\n\n\nAdelie\n\n\n2007\n38.8\n18.8\n186.6\n3,696.4\n\n\n2008\n38.6\n18.2\n191.0\n3,742.0\n\n\n2009\n39.0\n18.1\n192.1\n3,664.9\n\n\nChinstrap\n\n\n2007\n48.7\n18.5\n192.4\n3,694.2\n\n\n2008\n48.7\n18.4\n197.7\n3,800.0\n\n\n2009\n49.1\n18.3\n198.1\n3,725.0\n\n\nGentoo\n\n\n2007\n47.0\n14.7\n215.1\n5,070.6\n\n\n2008\n46.9\n14.9\n217.6\n5,019.6\n\n\n2009\n48.5\n15.3\n218.4\n5,140.7"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#gtgt-3",
+    "href": "slides/w6_quarto.html#gtgt-3",
+    "title": "Week 6: Quarto",
+    "section": "gt::gt()",
+    "text": "gt::gt()\npenguins %&gt;% \n  group_by(species, year) %&gt;% \n  summarize(across(c(bill_length_mm:body_mass_g), ~mean(., na.rm = TRUE))) %&gt;% \n  gt() %&gt;%\n  fmt_number( \n    columns = 3:6, \n    decimals = 1 \n  ) %&gt;% \n  tab_header(\n    title = md(\"`{gt}` Table\")\n  ) %&gt;% \n  cols_label(\n    year = \"\", \n    bill_length_mm = \"Bill Length\", \n    bill_depth_mm = \"Bill Depth\", \n    flipper_length_mm = \"Flipper Length\", \n    body_mass_g = \"Body Mass\") \n\n\n\n\n\n\n{gt} Table\n\n\n\nBill Length\nBill Depth\nFlipper Length\nBody Mass\n\n\n\n\nAdelie\n\n\n2007\n38.8\n18.8\n186.6\n3,696.4\n\n\n2008\n38.6\n18.2\n191.0\n3,742.0\n\n\n2009\n39.0\n18.1\n192.1\n3,664.9\n\n\nChinstrap\n\n\n2007\n48.7\n18.5\n192.4\n3,694.2\n\n\n2008\n48.7\n18.4\n197.7\n3,800.0\n\n\n2009\n49.1\n18.3\n198.1\n3,725.0\n\n\nGentoo\n\n\n2007\n47.0\n14.7\n215.1\n5,070.6\n\n\n2008\n46.9\n14.9\n217.6\n5,019.6\n\n\n2009\n48.5\n15.3\n218.4\n5,140.7"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#gtgt-4",
+    "href": "slides/w6_quarto.html#gtgt-4",
+    "title": "Week 6: Quarto",
+    "section": "gt::gt()",
+    "text": "gt::gt()\npenguins %&gt;%\n  group_by(species, year) %&gt;% \n  summarize(across(c(bill_length_mm:body_mass_g), ~mean(., na.rm = TRUE))) %&gt;% \n  gt() %&gt;%\n  fmt_number( \n    columns = 3:6, \n    decimals = 1 \n  ) %&gt;% \n  tab_header(\n    title = md(\"`{gt}` Table\")\n  ) %&gt;% \n  cols_label( \n    year = \"\", \n    bill_length_mm = \"Bill Length\", \n    bill_depth_mm = \"Bill Depth\", \n    flipper_length_mm = \"Flipper Length\", \n    body_mass_g = \"Body Mass\") %&gt;% \n  tab_style( \n    style = list( \n      cell_fill(color = \"magenta\"), \n      cell_text(color = \"white\") \n      ), \n    locations = cells_body( \n      rows = c(1, 4, 7))) \n\n\n\n\n\n\n{gt} Table\n\n\n\nBill Length\nBill Depth\nFlipper Length\nBody Mass\n\n\n\n\nAdelie\n\n\n2007\n38.8\n18.8\n186.6\n3,696.4\n\n\n2008\n38.6\n18.2\n191.0\n3,742.0\n\n\n2009\n39.0\n18.1\n192.1\n3,664.9\n\n\nChinstrap\n\n\n2007\n48.7\n18.5\n192.4\n3,694.2\n\n\n2008\n48.7\n18.4\n197.7\n3,800.0\n\n\n2009\n49.1\n18.3\n198.1\n3,725.0\n\n\nGentoo\n\n\n2007\n47.0\n14.7\n215.1\n5,070.6\n\n\n2008\n46.9\n14.9\n217.6\n5,019.6\n\n\n2009\n48.5\n15.3\n218.4\n5,140.7"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#dtdatatable",
+    "href": "slides/w6_quarto.html#dtdatatable",
+    "title": "Week 6: Quarto",
+    "section": "DT::datatable()",
+    "text": "DT::datatable()\npenguins %&gt;% \n  DT::datatable()"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#reactablereactable",
+    "href": "slides/w6_quarto.html#reactablereactable",
+    "title": "Week 6: Quarto",
+    "section": "reactable::reactable()",
+    "text": "reactable::reactable()\npenguins %&gt;% \n  reactable::reactable()"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#reactablereactable-1",
+    "href": "slides/w6_quarto.html#reactablereactable-1",
+    "title": "Week 6: Quarto",
+    "section": "reactable::reactable()",
+    "text": "reactable::reactable()\npenguins %&gt;% \n  reactable::reactable(filterable = TRUE, searchable = TRUE)"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#gtsummary",
+    "href": "slides/w6_quarto.html#gtsummary",
+    "title": "Week 6: Quarto",
+    "section": "{gtsummary}",
+    "text": "{gtsummary}\npenguins %&gt;% \n  gtsummary::tbl_summary()\n\n\n\n\n\n\n\n\n\n\nCharacteristic\nN = 3441\n\n\n\n\nspecies\n\n\n\n\n    Adelie\n152 (44%)\n\n\n    Chinstrap\n68 (20%)\n\n\n    Gentoo\n124 (36%)\n\n\nisland\n\n\n\n\n    Biscoe\n168 (49%)\n\n\n    Dream\n124 (36%)\n\n\n    Torgersen\n52 (15%)\n\n\nbill_length_mm\n44.5 (39.2, 48.5)\n\n\n    Unknown\n2\n\n\nbill_depth_mm\n17.30 (15.60, 18.70)\n\n\n    Unknown\n2\n\n\nflipper_length_mm\n197 (190, 213)\n\n\n    Unknown\n2\n\n\nbody_mass_g\n4,050 (3,550, 4,750)\n\n\n    Unknown\n2\n\n\nsex\n\n\n\n\n    female\n165 (50%)\n\n\n    male\n168 (50%)\n\n\n    Unknown\n11\n\n\nyear\n\n\n\n\n    2007\n110 (32%)\n\n\n    2008\n114 (33%)\n\n\n    2009\n120 (35%)\n\n\n\n1 n (%); Median (Q1, Q3)"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#gtsummary-1",
+    "href": "slides/w6_quarto.html#gtsummary-1",
+    "title": "Week 6: Quarto",
+    "section": "{gtsummary}",
+    "text": "{gtsummary}\n\nm &lt;- lm(body_mass_g ~ 1 + bill_length_mm + flipper_length_mm,\n        data = penguins)\n\nm %&gt;% \n  gtsummary::tbl_regression()\n\n\n\n\n\n\n\n\n\nCharacteristic\nBeta\n95% CI1\np-value\n\n\n\n\nbill_length_mm\n6.0\n-4.1, 16\n0.2\n\n\nflipper_length_mm\n48\n44, 52\n&lt;0.001\n\n\n\n1 CI = Confidence Interval"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#before-next-class",
+    "href": "slides/w6_quarto.html#before-next-class",
+    "title": "Week 6: Quarto",
+    "section": "Before next class",
+    "text": "Before next class\n\nHomework\n\nHomework 6 (let’s take a look)\nHomework 7 (let’s take a look)\n\nReading\n\nR4DS(2e) 13\n\nSupplemental Learning\n\nCodecademy: Joining Tables in R"
+  },
+  {
+    "objectID": "slides/w6_quarto.html#old-shortcuts",
+    "href": "slides/w6_quarto.html#old-shortcuts",
+    "title": "Week 6: Quarto",
+    "section": "old SHORTCUTS",
+    "text": "old SHORTCUTS"
   }
 ]
