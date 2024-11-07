@@ -1022,6 +1022,10 @@ bibliography: references.bib
 
 Quick intro
 
+## 
+
+![](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdDBkb255bTE5a2xxYmh1NmF5ajJ3ajdoNm13d2xhd2NwcjlzcGlkOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PyZoZpCSM4dDyqU40D/giphy.webp)
+
 ## Tables {.smaller}
 
 **Many options**
@@ -1273,6 +1277,10 @@ m <- lm(body_mass_g ~ 1 + bill_length_mm + flipper_length_mm,
 m %>% 
   gtsummary::tbl_regression()
 ```
+
+##
+
+![](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExczEwd25qamIwZTgwazhjZ2VkZ25odXIxcHN3dm9mOXlrMjk1aDA0MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NtgXnAp0EUGaV2N3aK/giphy.webp)
 
 # Next time
 
