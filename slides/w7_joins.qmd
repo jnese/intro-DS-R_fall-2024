@@ -30,8 +30,6 @@ theme_set(theme_minimal(24))
 
 ```
 
-# Share!
-
 # Homework Review
 
 Homework 6
