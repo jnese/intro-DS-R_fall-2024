@@ -1,0 +1,130 @@
+---
+title: "Homework 7"
+author: "Key"
+format:
+  html:
+    highlight-style: pygments
+execute: 
+  echo: true
+  message: false
+  warning: false
+fig-width: 9
+fig-height: 7
+---
+
+<br> <br>
+
+------------------------------------------------------------------------
+
+#### Please submit Homework 5 as a .qmd file **AND** as a rendered document (.pdf or .html)
+
+------------------------------------------------------------------------
+
+<br> <br>
+
+#### 1. Create a new Quarto document and modify the YAML to
+
+-   Include your name
+-   Change the syntax highlighting to any scheme but the default. The options are `default`, `tango`, `pygments`, `kate`, `monochrome`, `espresso`, `zenburn`, `haddock`, and `textmate`. You can also use `NULL` if you want no highlighting. <br> <br> <br>
+-   Set the global chunk option to make all figures 9" wide and the height to a value that makes sense to you, and does not display the code, or any warnings or messages from the code, but evaluates every function/line of the code.
+
+#### 2. Create a code chunk that:
+
+-   Loads all the packages you decide to use for the lab.
+-   Sets the theme for your visualizations.
+
+```{r setup, include = FALSE}
+library(rio)
+library(here)
+library(tidyverse)
+library(janitor)
+
+theme_set(theme_minimal())
+```
+
+<br> <br> <br>
+
+#### 3. Import the *ecls-k_samp.sav* dataset (found [here](https://jnese.github.io/intro-DS-R-fall-2023/data_list.html)), and produce the plot below. Do not show the code you used (colors, themes, etc. don't matter here).
+
+```{r}
+#| label: load-data
+#| echo: false
+
+eclsk <- import(here("data" , "ecls-k_samp.sav")) %>%
+  characterize() %>%
+  clean_names() 
+
+eclsk %>%
+  filter(ethnic == "WHITE, NON-HISPANIC" |
+         ethnic == "BLACK OR AFRICAN AMERICAN, NON-HISPANIC" |
+         ethnic == "HISPANIC, RACE SPECIFIED" |
+         ethnic == "HISPANIC, RACE NOT SPECIFIED") %>%
+ggplot(aes(t1mscale, t2mscale)) +
+  geom_point() +
+  geom_smooth(aes(color = school_type),
+              method = "lm") +
+  facet_wrap(~ethnic)
+```
+
+<br> <br> <br>
+
+#### 4. Run The following lines of code to store the mean and standard deviation of `t1mscale`. Extend this code to calculate (in the same code chunk) the mean and standard deviation of `t2mscale`. Note this code assumes you read the **ecls-k** dataset in as an object called `eclsk` - you should substitute in whatever the name is for your data object. The code below also assumes you have used `clean_names` and one more thing about the data we talked about in class.
+
+```{r}
+#| label: means-sd
+#| echo: true
+
+t1mean <- mean(eclsk$t1mscale, na.rm = TRUE)
+t1sd <- sd(eclsk$t1mscale, na.rm = TRUE)
+
+t2mean <- mean(eclsk$t2mscale, na.rm = TRUE)
+t2sd <- sd(eclsk$t2mscale, na.rm = TRUE)
+```
+
+<br> <br> <br>
+
+#### 5. Using the values you calculated above, use an inline code evaluation below to report the *means* and *SD*s for each of the two time points (`t1mscale` and `t2mscale`). Also report the difference between the means (i.e., the average gain).
+
+<br>
+
+The mean for time point one was `r round(t1mean, 2)`, with a standard deviation of `r round(t1sd, 2)`. At time point two, the mean was `r round(t2mean, 2)`, with a standard deviation of `r round(t2sd, 2)`. The difference between the means was between the time points was thus `r abs(round(t2mean - t1mean, 2))` points.
+
+<br> <br>
+
+#### 6. Pretend you are trying to teach somebody how to load data. Describe the process below that we've discussed in class, including why it helps reproducibility, and echo chunks of code as necessary without actually evaluating any of it.
+
+-   Include some text that is **bold** and some that is *italics*.
+
+------------------------------------------------------------------------
+
+Create and RStudio project. This will serve as the root directory. Create empty *data* and *scripts* folders. Place any data you have in the data folder.
+
+To import the data, create a new script, then **load the following packages**:
+
+```{r}
+#| label: load-tutorial
+#| eval: false
+
+library(rio)
+library(here)
+```
+
+If you don't have these packages installed, you'll need to install them first, using `install.packages(c("rio", "here"))`.
+
+Finally, use the `{here}` library to navigate file paths, and `rio::import()` to import data of basically any type. For example, assuming you have created an RStudio project and you are working from that project, and you've put the data you want to load in at folder called *data*, any of the following should work
+
+```{r}
+#| label: import-data
+#| eval: false
+
+d <- import(here("data", "data_to_load.sav"),
+            setclass = "tbl_df")
+
+d <- import(here("data", "data_to_load.xlsx"),
+            setclass = "tbl_df")
+
+d <- import(here("data", "data_to_load.dta"),
+            setclass = "tbl_df")
+```
+
+Note that the `setclass` argument is optional, and changes the import to a tibble instead of a standard data frame.

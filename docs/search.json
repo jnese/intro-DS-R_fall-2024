@@ -3561,5 +3561,712 @@
     "title": "Week 7: Mutating Joins",
     "section": "Four types of joins",
     "text": "Four types of joins\nMutating joins\nleft_join left dataset, drop any non-matching cases from the right dataset\n\nright_join\n\nkeep all the data in the right dataset, drop any non-matching cases from the left dataset\n\n\n\nFiltering joins\n\ninner_join\n\nkeep only data that matches in both datasets\n\nfull_join\n\nkeep all the data in both datasets (also sometimes referred to as an outer join)"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#share",
+    "href": "slides/w8_tidydata.html#share",
+    "title": "Week 8: Tidy Data",
+    "section": "Share",
+    "text": "Share\n{tidylog}\n\nProvides feedback about {dplyr} and {tidyr} operations\n\nview link"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#how-i-feel-about-my-r-code-sometimes",
+    "href": "slides/w8_tidydata.html#how-i-feel-about-my-r-code-sometimes",
+    "title": "Week 8: Tidy Data",
+    "section": "How I feel about my R code sometimes",
+    "text": "How I feel about my R code sometimes"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#agenda",
+    "href": "slides/w8_tidydata.html#agenda",
+    "title": "Week 8: Tidy Data",
+    "section": "Agenda",
+    "text": "Agenda\n\nIntroduce the concept of tidy data\nTidy a simple dataset together with {tidyr}\nSummarize and transform tidy data with {dplyr}\n\nLearning Objectives\n\nUnderstand that the concept of tidy data is useful\nUnderstand and be able to apply the pivot_longer() and pivot_wider() functions"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#section",
+    "href": "slides/w8_tidydata.html#section",
+    "title": "Week 8: Tidy Data",
+    "section": "",
+    "text": "Credit Allison Horst"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#providing-grammar-for",
+    "href": "slides/w8_tidydata.html#providing-grammar-for",
+    "title": "Week 8: Tidy Data",
+    "section": "Providing grammar for:",
+    "text": "Providing grammar for:\n\nGraphics\n\n{ggplot2}\n\nData manipulations\n\n{dplyr}\n{tidyr}\n\nExpanding area of specialized topics\n\n{lubridate}\n{glue}\n{tidymodels}\n\nMany more…"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#providing-grammar-for-1",
+    "href": "slides/w8_tidydata.html#providing-grammar-for-1",
+    "title": "Week 8: Tidy Data",
+    "section": "Providing grammar for:",
+    "text": "Providing grammar for:\n\nGraphics\n\n{ggplot2}\n\nData manipulations\n\n{dplyr}\n{tidyr}\n\nExpanding area of specialized topics\n\n{lubridate}\n{glue}\n{tidymodels}\n\nMany more…"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#dplyr-vs-tidyr",
+    "href": "slides/w8_tidydata.html#dplyr-vs-tidyr",
+    "title": "Week 8: Tidy Data",
+    "section": "{dplyr} vs {tidyr}",
+    "text": "{dplyr} vs {tidyr}\n\n\n{dplyr}\nHelps you manipulate your data\n\nselect()\nfilter()\nmutate()\nsummarize()\nmore…\n\n\n{tidyr}\nHelps you get your data into a tidy format\n\npivot_longer()\npivot_wider()\nseparate_wider_position() and separate_wider_delim()\nseparate_wider_regex()\nunite()\nnest()"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#pivot_",
+    "href": "slides/w8_tidydata.html#pivot_",
+    "title": "Week 8: Tidy Data",
+    "section": "pivot_*()",
+    "text": "pivot_*()\nTalk with a neighbor about what you think pivot_longer() and pivot_wider() do\n\n\n\n−+\n01:30"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#data-cleaning",
+    "href": "slides/w8_tidydata.html#data-cleaning",
+    "title": "Week 8: Tidy Data",
+    "section": "Data cleaning",
+    "text": "Data cleaning\n\n“It is often said that 80% of data analysis is spent on the process of cleaning and preparing the data (Dasu & Johnson, 2003).” - Hadley Wickham (Tidy Data)\n\n\n\nPersistent and varied challenge\nLittle research on how to do it well"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#activity",
+    "href": "slides/w8_tidydata.html#activity",
+    "title": "Week 8: Tidy Data",
+    "section": "Activity",
+    "text": "Activity\nRun this code\n\nlibrary(rio)\nlibrary(here)\nlibrary(tidyverse)\n\nstar &lt;- import(here(\"data\", \"star.csv\")) %&gt;% \n  as_tibble()\n\n\n\n\n# A tibble: 5,748 × 12\n   schidkn sex   frl   reg_size reg_size_aid small_size white black other totexp\n     &lt;int&gt; &lt;chr&gt; &lt;chr&gt;    &lt;int&gt;        &lt;int&gt;      &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;  &lt;int&gt;\n 1      63 girl  no           0            0          1     1     0     0      7\n 2      20 girl  no           0            0          1     0     1     0     21\n 3      19 boy   yes          0            1          0     0     1     0      0\n 4      69 boy   no           1            0          0     1     0     0     16\n 5      79 boy   yes          0            0          1     1     0     0      5\n 6       5 boy   yes          1            0          0     1     0     0      8\n 7      16 girl  yes          0            1          0     0     1     0     17\n 8      56 girl  no           1            0          0     1     0     0      3\n 9      11 girl  no           0            0          1     0     1     0     11\n10      66 girl  no           0            0          1     1     0     0     10\n# ℹ 5,738 more rows\n# ℹ 2 more variables: tmathss &lt;int&gt;, treadss &lt;int&gt;"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#produce-this-plot",
+    "href": "slides/w8_tidydata.html#produce-this-plot",
+    "title": "Week 8: Tidy Data",
+    "section": "Produce this plot",
+    "text": "Produce this plot\nWhat do we need here?"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#great-now-produce-this-plot",
+    "href": "slides/w8_tidydata.html#great-now-produce-this-plot",
+    "title": "Week 8: Tidy Data",
+    "section": "Great! Now produce this plot",
+    "text": "Great! Now produce this plot\nWhat’s different?"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#awesome-now-this-one",
+    "href": "slides/w8_tidydata.html#awesome-now-this-one",
+    "title": "Week 8: Tidy Data",
+    "section": "Awesome! Now this one",
+    "text": "Awesome! Now this one"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#tidy-data-1",
+    "href": "slides/w8_tidydata.html#tidy-data-1",
+    "title": "Week 8: Tidy Data",
+    "section": "Tidy Data",
+    "text": "Tidy Data\n\nEach variable is a column\nEach observation is a row\nEach cell is a single measurement\nEach type of observational unit forms a table\n\nWe won’t talk much about this point\n\n\n\n\n\nR4DS"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#section-2",
+    "href": "slides/w8_tidydata.html#section-2",
+    "title": "Week 8: Tidy Data",
+    "section": "",
+    "text": "Allison Horst"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#common-ways-data-are-messy",
+    "href": "slides/w8_tidydata.html#common-ways-data-are-messy",
+    "title": "Week 8: Tidy Data",
+    "section": "Common ways data are “messy”",
+    "text": "Common ways data are “messy”\n\nColumn headers are values, not variable names\nMultiple variables stored in one column\nVariables are stored in both rows and columns\nSee the pivoting vignette for examples and solutions"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#section-3",
+    "href": "slides/w8_tidydata.html#section-3",
+    "title": "Week 8: Tidy Data",
+    "section": "",
+    "text": "Allison Horst"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#defining-tidy-data",
+    "href": "slides/w8_tidydata.html#defining-tidy-data",
+    "title": "Week 8: Tidy Data",
+    "section": "Defining tidy data",
+    "text": "Defining tidy data\nEssentially, two rules define tidy data 1\n\nEach row is a case representing the same underlying attribute\nEach column is a variable containing the same type of value for each case\n\nThe combination of rows and columns make each observational unit (row) unique, even though cells may be repeated many times (e.g., student identifier)\nModern Data Science with R"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#why-tidy",
+    "href": "slides/w8_tidydata.html#why-tidy",
+    "title": "Week 8: Tidy Data",
+    "section": "Why tidy?",
+    "text": "Why tidy?\n\nThere are many reasons why you might want to have “messy” data\n\ne.g., for other software or specific modeling purposes\n\n\n\n\nHowever, tidy data is an extremely useful format generally, and particularly useful when applying tools within the {tidyverse}\n\n\n\n\nAll packages within the {tidyverse} are designed to either help you get your data in a tidy format, or assume your data are already in a tidy format\n\n\n\n\nAssuming a common data format leads to large jumps in efficiency, as the output from certain functions can be directly input into others"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#section-4",
+    "href": "slides/w8_tidydata.html#section-4",
+    "title": "Week 8: Tidy Data",
+    "section": "",
+    "text": "Allison Horst"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#section-5",
+    "href": "slides/w8_tidydata.html#section-5",
+    "title": "Week 8: Tidy Data",
+    "section": "",
+    "text": "R4DS"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#tidyr-verbs",
+    "href": "slides/w8_tidydata.html#tidyr-verbs",
+    "title": "Week 8: Tidy Data",
+    "section": "{tidyr} verbs",
+    "text": "{tidyr} verbs\n\npivot_longer()\n\n“lengthens” data, increasing the number of rows and decreasing the number of columns\n\n\n\n\npivot_wider()\n\n“widens” data, increasing the number of columns and decreasing the number of rows\n\n\n\n\n\nseparate_wider_position() and separate_wider_delim()\n\nturns a single character column into multiple columns\n\n\n\n\n\nseparate_wider_regex()\n\ngiven a regular expression for capturing groups, turns each group into a new column\n\n\n\n\n\nunite()\n\npaste together multiple columns into one\n\n\n\n\n\nnest()\n\ncreates a list-column of data frames; you get one row for each group defined by the non-nested columns. This is useful in conjunction with other summaries that work with whole datasets, like models\n\n\n\nso powerful"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#pivot_longer-1",
+    "href": "slides/w8_tidydata.html#pivot_longer-1",
+    "title": "Week 8: Tidy Data",
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\nThere are different ways to pivot_longer() that will depend on what your data look like"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#pivot_longer-2",
+    "href": "slides/w8_tidydata.html#pivot_longer-2",
+    "title": "Week 8: Tidy Data",
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\n\n\n\npivot_longer(\n  data,\n  cols,\n  names_to = \"name\",\n  names_prefix = NULL,\n  names_sep = NULL,\n  names_pattern = NULL,\n  names_ptypes = list(),\n  names_transform = list(),\n  names_repair = \"check_unique\",\n  values_to = \"value\",\n  values_drop_na = FALSE,\n  values_ptypes = list(),\n  values_transform = list(),\n)"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#pivot_longer-3",
+    "href": "slides/w8_tidydata.html#pivot_longer-3",
+    "title": "Week 8: Tidy Data",
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\n\n\n\npivot_longer(\n  data, \n  cols, \n  names_to = \"name\", \n  values_to = \"value\", \n)"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#pivot_longer-4",
+    "href": "slides/w8_tidydata.html#pivot_longer-4",
+    "title": "Week 8: Tidy Data",
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\n\n\n\npivot_longer(\n  data, \n  cols, \n  names_to = \"name\", \n  values_to = \"value\",\n)\n\n\na data frame to pivot\n\ndf %&gt;% \n  pivot_wider()\n\nor\n\npivot_wider(df)"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#pivot_longer-5",
+    "href": "slides/w8_tidydata.html#pivot_longer-5",
+    "title": "Week 8: Tidy Data",
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\n\n\n\npivot_longer(\n  data, \n  cols, \n  names_to = \"name\", \n  values_to = \"value\",\n)\n\n\nThe names of the columns you want to pivot into longer format"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#pivot_longer-6",
+    "href": "slides/w8_tidydata.html#pivot_longer-6",
+    "title": "Week 8: Tidy Data",
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\n\n\n\npivot_longer(\n  data, \n  cols, \n  names_to = \"name\", \n  values_to = \"value\",\n)\n\n\nA string specifying the name of the new column to create from the data stored in the column names of data\nCan be a character vector, creating multiple columns, if names_sep or names_pattern is provided"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#pivot_longer-7",
+    "href": "slides/w8_tidydata.html#pivot_longer-7",
+    "title": "Week 8: Tidy Data",
+    "section": "pivot_longer()",
+    "text": "pivot_longer()\n\n\n\npivot_longer(\n  data, \n  cols, \n  names_to = \"name\", \n  values_to = \"value\",\n)\n\n\nA string specifying the name of the new column to create from the data stored in cell values of the columns"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#messy-data",
+    "href": "slides/w8_tidydata.html#messy-data",
+    "title": "Week 8: Tidy Data",
+    "section": "Messy data",
+    "text": "Messy data\nWhat makes this data messy? Or, why is this data not tidy?\n\ntidyr::relig_income\n\n# A tibble: 18 × 11\n   religion `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`\n   &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 Agnostic      27        34        60        81        76       137        122\n 2 Atheist       12        27        37        52        35        70         73\n 3 Buddhist      27        21        30        34        33        58         62\n 4 Catholic     418       617       732       670       638      1116        949\n 5 Don’t k…      15        14        15        11        10        35         21\n 6 Evangel…     575       869      1064       982       881      1486        949\n 7 Hindu          1         9         7         9        11        34         47\n 8 Histori…     228       244       236       238       197       223        131\n 9 Jehovah…      20        27        24        24        21        30         15\n10 Jewish        19        19        25        25        30        95         69\n11 Mainlin…     289       495       619       655       651      1107        939\n12 Mormon        29        40        48        51        56       112         85\n13 Muslim         6         7         9        10         9        23         16\n14 Orthodox      13        17        23        32        32        47         38\n15 Other C…       9         7        11        13        13        14         18\n16 Other F…      20        33        40        46        49        63         46\n17 Other W…       5         2         3         4         2         7          3\n18 Unaffil…     217       299       374       365       341       528        407\n# ℹ 3 more variables: `$100-150k` &lt;dbl&gt;, `&gt;150k` &lt;dbl&gt;,\n#   `Don't know/refused` &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#messy-data-1",
+    "href": "slides/w8_tidydata.html#messy-data-1",
+    "title": "Week 8: Tidy Data",
+    "section": "Messy data",
+    "text": "Messy data\nColumn headers are values (data!), not variable names\n\ntidyr::relig_income\n\n# A tibble: 18 × 11\n   religion `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`\n   &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 Agnostic      27        34        60        81        76       137        122\n 2 Atheist       12        27        37        52        35        70         73\n 3 Buddhist      27        21        30        34        33        58         62\n 4 Catholic     418       617       732       670       638      1116        949\n 5 Don’t k…      15        14        15        11        10        35         21\n 6 Evangel…     575       869      1064       982       881      1486        949\n 7 Hindu          1         9         7         9        11        34         47\n 8 Histori…     228       244       236       238       197       223        131\n 9 Jehovah…      20        27        24        24        21        30         15\n10 Jewish        19        19        25        25        30        95         69\n11 Mainlin…     289       495       619       655       651      1107        939\n12 Mormon        29        40        48        51        56       112         85\n13 Muslim         6         7         9        10         9        23         16\n14 Orthodox      13        17        23        32        32        47         38\n15 Other C…       9         7        11        13        13        14         18\n16 Other F…      20        33        40        46        49        63         46\n17 Other W…       5         2         3         4         2         7          3\n18 Unaffil…     217       299       374       365       341       528        407\n# ℹ 3 more variables: `$100-150k` &lt;dbl&gt;, `&gt;150k` &lt;dbl&gt;,\n#   `Don't know/refused` &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#lets-pivot_longer",
+    "href": "slides/w8_tidydata.html#lets-pivot_longer",
+    "title": "Week 8: Tidy Data",
+    "section": "Let’s pivot_longer()",
+    "text": "Let’s pivot_longer()\nNecessary arguments\n\ndata - of course\ncols – which columns you will pivot longer\nnames_to – new variable name (in quotes) for those cols\nvalues_to – new variable name (in quotes) for the cell values"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#lets-pivot_longer-1",
+    "href": "slides/w8_tidydata.html#lets-pivot_longer-1",
+    "title": "Week 8: Tidy Data",
+    "section": "Let’s pivot_longer()",
+    "text": "Let’s pivot_longer()\n\nrelig_income %&gt;% \n pivot_longer(\n  cols = _____,\n  names_to = \"_____\",\n  values_to = \"_____\"\n )\n\n\n\n\n# A tibble: 18 × 11\n   religion `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`\n   &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 Agnostic      27        34        60        81        76       137        122\n 2 Atheist       12        27        37        52        35        70         73\n 3 Buddhist      27        21        30        34        33        58         62\n 4 Catholic     418       617       732       670       638      1116        949\n 5 Don’t k…      15        14        15        11        10        35         21\n 6 Evangel…     575       869      1064       982       881      1486        949\n 7 Hindu          1         9         7         9        11        34         47\n 8 Histori…     228       244       236       238       197       223        131\n 9 Jehovah…      20        27        24        24        21        30         15\n10 Jewish        19        19        25        25        30        95         69\n11 Mainlin…     289       495       619       655       651      1107        939\n12 Mormon        29        40        48        51        56       112         85\n13 Muslim         6         7         9        10         9        23         16\n14 Orthodox      13        17        23        32        32        47         38\n15 Other C…       9         7        11        13        13        14         18\n16 Other F…      20        33        40        46        49        63         46\n17 Other W…       5         2         3         4         2         7          3\n18 Unaffil…     217       299       374       365       341       528        407\n# ℹ 3 more variables: `$100-150k` &lt;dbl&gt;, `&gt;150k` &lt;dbl&gt;,\n#   `Don't know/refused` &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#lets-pivot_longer-2",
+    "href": "slides/w8_tidydata.html#lets-pivot_longer-2",
+    "title": "Week 8: Tidy Data",
+    "section": "Let’s pivot_longer()",
+    "text": "Let’s pivot_longer()\nWhich cols do we want to pivot?\n\n\nrelig_income %&gt;% \n pivot_longer(\n  cols = c(`&lt;$10k`:`&gt;150k`),\n  names_to = \"_____\",\n  values_to = \"_____\"\n )\n\n\n\n# A tibble: 18 × 11\n   religion `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`\n   &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 Agnostic      27        34        60        81        76       137        122\n 2 Atheist       12        27        37        52        35        70         73\n 3 Buddhist      27        21        30        34        33        58         62\n 4 Catholic     418       617       732       670       638      1116        949\n 5 Don’t k…      15        14        15        11        10        35         21\n 6 Evangel…     575       869      1064       982       881      1486        949\n 7 Hindu          1         9         7         9        11        34         47\n 8 Histori…     228       244       236       238       197       223        131\n 9 Jehovah…      20        27        24        24        21        30         15\n10 Jewish        19        19        25        25        30        95         69\n11 Mainlin…     289       495       619       655       651      1107        939\n12 Mormon        29        40        48        51        56       112         85\n13 Muslim         6         7         9        10         9        23         16\n14 Orthodox      13        17        23        32        32        47         38\n15 Other C…       9         7        11        13        13        14         18\n16 Other F…      20        33        40        46        49        63         46\n17 Other W…       5         2         3         4         2         7          3\n18 Unaffil…     217       299       374       365       341       528        407\n# ℹ 3 more variables: `$100-150k` &lt;dbl&gt;, `&gt;150k` &lt;dbl&gt;,\n#   `Don't know/refused` &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#why-are-tidy-data-useful",
+    "href": "slides/w8_tidydata.html#why-are-tidy-data-useful",
+    "title": "Week 8: Tidy Data",
+    "section": "Why are tidy data useful?",
+    "text": "Why are tidy data useful?\nWhen used with {dplyr}, tidy data can result in large gains in efficiency\nFor example, suppose we want to calculate the percent of respondents in each income category by religion\n\nFirst let’s save our pivoted data\n\nrelig_long &lt;- relig_income %&gt;% \n  pivot_longer(\n    cols = -religion,\n    names_to = \"income\",\n    values_to = \"frequency\"\n  )"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#why-are-tidy-data-useful-1",
+    "href": "slides/w8_tidydata.html#why-are-tidy-data-useful-1",
+    "title": "Week 8: Tidy Data",
+    "section": "Why are tidy data useful?",
+    "text": "Why are tidy data useful?\nThen let’s relevel the income variable so it is ordered in a meaningful way\n\nrelig_long &lt;- relig_long %&gt;% \n  mutate(income = fct_relevel(income, \n                              \"Don't know/refused\", \n                              \"&lt;$10k\", \n                              \"$10-20k\", \n                              \"$20-30k\", \n                              \"$30-40k\", \n                              \"$40-50k\", \n                              \"$50-75k\", \n                              \"$75-100k\", \n                              \"$100-150k\", \n                              \"&gt;150k\"))"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#why-are-tidy-data-useful-2",
+    "href": "slides/w8_tidydata.html#why-are-tidy-data-useful-2",
+    "title": "Week 8: Tidy Data",
+    "section": "Why are tidy data useful?",
+    "text": "Why are tidy data useful?\nNow let’s group by religion to create a pct variable that indicates the percent of respondents in each income category within each religion category\n\nrelig_long %&gt;% \n  group_by(religion) %&gt;% \n  mutate(pct = frequency/sum(frequency) * 100)\n\n# A tibble: 180 × 4\n# Groups:   religion [18]\n   religion income             frequency   pct\n   &lt;chr&gt;    &lt;fct&gt;                  &lt;dbl&gt; &lt;dbl&gt;\n 1 Agnostic &lt;$10k                     27  3.27\n 2 Agnostic $10-20k                   34  4.12\n 3 Agnostic $20-30k                   60  7.26\n 4 Agnostic $30-40k                   81  9.81\n 5 Agnostic $40-50k                   76  9.20\n 6 Agnostic $50-75k                  137 16.6 \n 7 Agnostic $75-100k                 122 14.8 \n 8 Agnostic $100-150k                109 13.2 \n 9 Agnostic &gt;150k                     84 10.2 \n10 Agnostic Don't know/refused        96 11.6 \n# ℹ 170 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#why-are-tidy-data-useful-3",
+    "href": "slides/w8_tidydata.html#why-are-tidy-data-useful-3",
+    "title": "Week 8: Tidy Data",
+    "section": "Why are tidy data useful?",
+    "text": "Why are tidy data useful?\nNow we can facet by religion and see all data at once!\n\nrelig_long %&gt;% \n  group_by(religion) %&gt;% \n  mutate(pct = frequency/sum(frequency) * 100) %&gt;% \n  ggplot(aes(income, pct)) +\n  geom_point() +\n  geom_line(group = 1) +\n  facet_wrap(~religion)"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#messy-data-2",
+    "href": "slides/w8_tidydata.html#messy-data-2",
+    "title": "Week 8: Tidy Data",
+    "section": "Messy data",
+    "text": "Messy data\nMany variables in column names\ntidyr::who (modified slightly)\n\n\n# A tibble: 7,240 × 60\n   country     iso2  iso3   year new_sp_m_014 new_sp_m_1524 new_sp_m_2534\n   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;\n 1 Afghanistan AF    AFG    1980           NA            NA            NA\n 2 Afghanistan AF    AFG    1981           NA            NA            NA\n 3 Afghanistan AF    AFG    1982           NA            NA            NA\n 4 Afghanistan AF    AFG    1983           NA            NA            NA\n 5 Afghanistan AF    AFG    1984           NA            NA            NA\n 6 Afghanistan AF    AFG    1985           NA            NA            NA\n 7 Afghanistan AF    AFG    1986           NA            NA            NA\n 8 Afghanistan AF    AFG    1987           NA            NA            NA\n 9 Afghanistan AF    AFG    1988           NA            NA            NA\n10 Afghanistan AF    AFG    1989           NA            NA            NA\n# ℹ 7,230 more rows\n# ℹ 53 more variables: new_sp_m_3544 &lt;dbl&gt;, new_sp_m_4554 &lt;dbl&gt;,\n#   new_sp_m_5564 &lt;dbl&gt;, new_sp_m_65 &lt;dbl&gt;, new_sp_f_014 &lt;dbl&gt;,\n#   new_sp_f_1524 &lt;dbl&gt;, new_sp_f_2534 &lt;dbl&gt;, new_sp_f_3544 &lt;dbl&gt;,\n#   new_sp_f_4554 &lt;dbl&gt;, new_sp_f_5564 &lt;dbl&gt;, new_sp_f_65 &lt;dbl&gt;,\n#   new_sn_m_014 &lt;dbl&gt;, new_sn_m_1524 &lt;dbl&gt;, new_sn_m_2534 &lt;dbl&gt;,\n#   new_sn_m_3544 &lt;dbl&gt;, new_sn_m_4554 &lt;dbl&gt;, new_sn_m_5564 &lt;dbl&gt;, …"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#messy-data-3",
+    "href": "slides/w8_tidydata.html#messy-data-3",
+    "title": "Week 8: Tidy Data",
+    "section": "Messy data",
+    "text": "Messy data\nMany variables in column names\n\n\nExample column names\nnew_sp_m_014\nnew_rel_f_65\n\nall col names start with new_, which we don’t need\nfollowed by a diagnosis category: “sp_” “sn_” “ep_” “rel_”\nthen gender, which in these data are limited to “m_” or “f_”\nand last an age range\nand these are separated by underscores _ which is quite convenient, as we’ll see\n\n\n\nThat’s a lot of information in the column names!"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#messy-data-4",
+    "href": "slides/w8_tidydata.html#messy-data-4",
+    "title": "Week 8: Tidy Data",
+    "section": "Messy data",
+    "text": "Messy data\nMany variables in column names\nNecessary arguments\n\ndata - of course\ncols – which columns you will pivot longer\nnames_to – new variable names (in quotes) for those cols\nvalues_to – new variable name (in quotes) for the cell values\n\n\n\nnames_separate – how to separate those cols names"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#lets-apply-it",
+    "href": "slides/w8_tidydata.html#lets-apply-it",
+    "title": "Week 8: Tidy Data",
+    "section": "Let’s apply it",
+    "text": "Let’s apply it\n\nwho_r %&gt;%\n pivot_longer(\n  cols = new_sp_m_014:new_rel_f_65,\n  names_to = c(\"new\", \"diagnosis\", \"sex\", \"age\"), \n  names_sep = \"_\",\n  values_to = \"count\"\n)\n\n# A tibble: 405,440 × 9\n   country     iso2  iso3   year new   diagnosis sex   age   count\n   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;\n 1 Afghanistan AF    AFG    1980 new   sp        m     014      NA\n 2 Afghanistan AF    AFG    1980 new   sp        m     1524     NA\n 3 Afghanistan AF    AFG    1980 new   sp        m     2534     NA\n 4 Afghanistan AF    AFG    1980 new   sp        m     3544     NA\n 5 Afghanistan AF    AFG    1980 new   sp        m     4554     NA\n 6 Afghanistan AF    AFG    1980 new   sp        m     5564     NA\n 7 Afghanistan AF    AFG    1980 new   sp        m     65       NA\n 8 Afghanistan AF    AFG    1980 new   sp        f     014      NA\n 9 Afghanistan AF    AFG    1980 new   sp        f     1524     NA\n10 Afghanistan AF    AFG    1980 new   sp        f     2534     NA\n# ℹ 405,430 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#dont-get-discouraged",
+    "href": "slides/w8_tidydata.html#dont-get-discouraged",
+    "title": "Week 8: Tidy Data",
+    "section": "Don’t get discouraged",
+    "text": "Don’t get discouraged\n\nThis is tricky!\nTakes practice\nTakes trial and error\nTakes looking at the help documentation and the vignette - a lot\nTakes trial and error!\nBut you are rarely never gifted with tidy data"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#declaring-cols-to-pivot_longer",
+    "href": "slides/w8_tidydata.html#declaring-cols-to-pivot_longer",
+    "title": "Week 8: Tidy Data",
+    "section": "Declaring cols to pivot_longer",
+    "text": "Declaring cols to pivot_longer\nWe can declare the columns to pivot other ways\nThe important part is just being clear which columns should be part of the gather\nAll of the below are equivalent\n\n\nrelig_income data\n\nrelig_income %&gt;% \n  pivot_longer(\n    cols = -religion,\n    ...\n\n\nrelig_income %&gt;% \n  pivot_longer(\n    cols = -1,\n    ...\n\n\nnames(relig_income) %&gt;% \n  pivot_longer(\n    cols = c(`&lt;$10k`:`Don't know/refused`),\n    ...\n\n\nwho data\n\nnames(who) %&gt;% \n  pivot_longer(\n    cols = new_sp_m_014:new_rel_f_65,\n    ...\n\n\nnames(who) %&gt;% \n  pivot_longer(\n    cols = starts_with(\"new_\"),\n    ..."
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#lets-look-at-some-education-data",
+    "href": "slides/w8_tidydata.html#lets-look-at-some-education-data",
+    "title": "Week 8: Tidy Data",
+    "section": "Let’s look at some education data",
+    "text": "Let’s look at some education data\nLoad the exam1.csv data from the course website or from your cloned course repo\n\nDid you clone the course repo?\n\nStart a new R script or qmd\n\nlibrary(tidyverse)\nlibrary(here)\nexam &lt;- read_csv(here(\"data\", \"exam1.csv\"))"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#exam1-data",
+    "href": "slides/w8_tidydata.html#exam1-data",
+    "title": "Week 8: Tidy Data",
+    "section": "exam1 data",
+    "text": "exam1 data\n\n\n# A tibble: 35 × 20\n   stu_name gender item_1 item_2 item_3 item_4 item_5 item_6 item_7 item_8\n   &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n 1 Adam     M           1      1      1      1      1      1      1      0\n 2 Anne     F           1      1      1      1      1      1      1      1\n 3 Audrey   F           1      1      1      1      1      1      1      1\n 4 Barbara  F           1      1      1      1      0      0      1      0\n 5 Bert     M           1      1      1      1      1      0      1      0\n 6 Betty    F           1      1      1      1      1      1      1      1\n 7 Blaise   M           1      1      1      1      1      1      1      1\n 8 Brenda   F           1      1      1      1      1      1      1      1\n 9 Britton  F           1      1      1      0      1      1      1      1\n10 Carol    F           1      1      1      1      0      0      1      0\n# ℹ 25 more rows\n# ℹ 10 more variables: item_9 &lt;dbl&gt;, item_10 &lt;dbl&gt;, item_11 &lt;dbl&gt;,\n#   item_12 &lt;dbl&gt;, item_13 &lt;dbl&gt;, item_14 &lt;dbl&gt;, item_15 &lt;dbl&gt;, item_16 &lt;dbl&gt;,\n#   item_17 &lt;dbl&gt;, item_18 &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#talk-with-a-neighbor",
+    "href": "slides/w8_tidydata.html#talk-with-a-neighbor",
+    "title": "Week 8: Tidy Data",
+    "section": "Talk with a neighbor",
+    "text": "Talk with a neighbor\n\nAre these data tidy?\nIf not, what needs to happen to make them tidy?\nWhat are the variables? What are the values?\n\n\n\n\n−+\n03:00"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#exam1-data-1",
+    "href": "slides/w8_tidydata.html#exam1-data-1",
+    "title": "Week 8: Tidy Data",
+    "section": "exam1 data",
+    "text": "exam1 data\nWhat do we want?\n\nLet’s change all item variables into two variables: item and score\n\n\n\n\n# A tibble: 630 × 4\n   stu_name gender item    score\n   &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;\n 1 Adam     M      item_1      1\n 2 Adam     M      item_2      1\n 3 Adam     M      item_3      1\n 4 Adam     M      item_4      1\n 5 Adam     M      item_5      1\n 6 Adam     M      item_6      1\n 7 Adam     M      item_7      1\n 8 Adam     M      item_8      0\n 9 Adam     M      item_9      0\n10 Adam     M      item_10     0\n# ℹ 620 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#try-to-tidy",
+    "href": "slides/w8_tidydata.html#try-to-tidy",
+    "title": "Week 8: Tidy Data",
+    "section": "Try to tidy!",
+    "text": "Try to tidy!\nNecessary arguments\n\ndata - of course\ncols – which columns you will pivot longer\nnames_to – new variable name (in quotes) for those cols\n\n“item”\n\nvalues_to – new variable name (in quotes) for the cell values\n\n“score”\n\n\n\n\n\n−+\n05:00\n\n\n\nDon’t look ahead!"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#exam1-tidy",
+    "href": "slides/w8_tidydata.html#exam1-tidy",
+    "title": "Week 8: Tidy Data",
+    "section": "exam1 tidy",
+    "text": "exam1 tidy\n\nexam %&gt;% \n  pivot_longer(\n    cols = starts_with(\"item\"),\n    names_to = \"item\",\n    values_to = \"score\"\n  )\n\n# A tibble: 630 × 4\n   stu_name gender item    score\n   &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;\n 1 Adam     M      item_1      1\n 2 Adam     M      item_2      1\n 3 Adam     M      item_3      1\n 4 Adam     M      item_4      1\n 5 Adam     M      item_5      1\n 6 Adam     M      item_6      1\n 7 Adam     M      item_7      1\n 8 Adam     M      item_8      0\n 9 Adam     M      item_9      0\n10 Adam     M      item_10     0\n# ℹ 620 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#exam1-tidy-1",
+    "href": "slides/w8_tidydata.html#exam1-tidy-1",
+    "title": "Week 8: Tidy Data",
+    "section": "exam1 tidy",
+    "text": "exam1 tidy\nLet’s go one step further\n\nexam %&gt;% \n  pivot_longer(\n    cols = starts_with(\"item\"),\n    names_to = \"item\",\n    names_prefix = \"item_\", \n    values_to = \"score\"\n  )\n\n# A tibble: 630 × 4\n   stu_name gender item  score\n   &lt;chr&gt;    &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt;\n 1 Adam     M      1         1\n 2 Adam     M      2         1\n 3 Adam     M      3         1\n 4 Adam     M      4         1\n 5 Adam     M      5         1\n 6 Adam     M      6         1\n 7 Adam     M      7         1\n 8 Adam     M      8         0\n 9 Adam     M      9         0\n10 Adam     M      10        0\n# ℹ 620 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#exam1-tidy-2",
+    "href": "slides/w8_tidydata.html#exam1-tidy-2",
+    "title": "Week 8: Tidy Data",
+    "section": "exam1 tidy",
+    "text": "exam1 tidy\nAnd another step\n\n(exam_tidy &lt;- exam %&gt;% \n  pivot_longer(\n    cols = starts_with(\"item\"),\n    names_to = \"item\",\n    names_prefix = \"item_\",\n    names_transform = list(item = as.integer),\n    values_to = \"score\"\n  ))\n\n# A tibble: 630 × 4\n   stu_name gender  item score\n   &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt;\n 1 Adam     M          1     1\n 2 Adam     M          2     1\n 3 Adam     M          3     1\n 4 Adam     M          4     1\n 5 Adam     M          5     1\n 6 Adam     M          6     1\n 7 Adam     M          7     1\n 8 Adam     M          8     0\n 9 Adam     M          9     0\n10 Adam     M         10     0\n# ℹ 620 more rows\n\n\n\nWhy not quotes around item here, but quotes as it appears in names_to?"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#one-more-look-at-names_prefix",
+    "href": "slides/w8_tidydata.html#one-more-look-at-names_prefix",
+    "title": "Week 8: Tidy Data",
+    "section": "One more look at names_prefix =",
+    "text": "One more look at names_prefix =\n\nwho_r %&gt;%\n pivot_longer(\n  cols = new_sp_m_014:new_rel_f_65,\n  names_to = c(\"new\", \"diagnosis\", \"sex\", \"age\"), \n  names_sep = \"_\",\n  values_to = \"count\"\n)\n\n# A tibble: 405,440 × 9\n   country     iso2  iso3   year new   diagnosis sex   age   count\n   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;\n 1 Afghanistan AF    AFG    1980 new   sp        m     014      NA\n 2 Afghanistan AF    AFG    1980 new   sp        m     1524     NA\n 3 Afghanistan AF    AFG    1980 new   sp        m     2534     NA\n 4 Afghanistan AF    AFG    1980 new   sp        m     3544     NA\n 5 Afghanistan AF    AFG    1980 new   sp        m     4554     NA\n 6 Afghanistan AF    AFG    1980 new   sp        m     5564     NA\n 7 Afghanistan AF    AFG    1980 new   sp        m     65       NA\n 8 Afghanistan AF    AFG    1980 new   sp        f     014      NA\n 9 Afghanistan AF    AFG    1980 new   sp        f     1524     NA\n10 Afghanistan AF    AFG    1980 new   sp        f     2534     NA\n# ℹ 405,430 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#one-more-look-at-names_prefix-1",
+    "href": "slides/w8_tidydata.html#one-more-look-at-names_prefix-1",
+    "title": "Week 8: Tidy Data",
+    "section": "One more look at names_prefix",
+    "text": "One more look at names_prefix\n\nwho_r %&gt;%\n pivot_longer(\n  cols = new_sp_m_014:new_rel_f_65,\n  names_to = c(\"diagnosis\", \"sex\", \"age\"), \n  names_prefix = \"new_\",\n  names_sep = \"_\",\n  values_to = \"count\"\n)\n\n# A tibble: 405,440 × 8\n   country     iso2  iso3   year diagnosis sex   age   count\n   &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;\n 1 Afghanistan AF    AFG    1980 sp        m     014      NA\n 2 Afghanistan AF    AFG    1980 sp        m     1524     NA\n 3 Afghanistan AF    AFG    1980 sp        m     2534     NA\n 4 Afghanistan AF    AFG    1980 sp        m     3544     NA\n 5 Afghanistan AF    AFG    1980 sp        m     4554     NA\n 6 Afghanistan AF    AFG    1980 sp        m     5564     NA\n 7 Afghanistan AF    AFG    1980 sp        m     65       NA\n 8 Afghanistan AF    AFG    1980 sp        f     014      NA\n 9 Afghanistan AF    AFG    1980 sp        f     1524     NA\n10 Afghanistan AF    AFG    1980 sp        f     2534     NA\n# ℹ 405,430 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#why-are-tidy-data-useful-4",
+    "href": "slides/w8_tidydata.html#why-are-tidy-data-useful-4",
+    "title": "Week 8: Tidy Data",
+    "section": "Why are tidy data useful?",
+    "text": "Why are tidy data useful?\nQuestion: How would we calculate the proportion of students responding correctly to each item?\n\n\n# A tibble: 18 × 2\n    item   prop\n   &lt;int&gt;  &lt;dbl&gt;\n 1     1 1     \n 2     2 1     \n 3     3 1     \n 4     4 0.914 \n 5     5 0.886 \n 6     6 0.857 \n 7     7 0.886 \n 8     8 0.771 \n 9     9 0.857 \n10    10 0.686 \n11    11 0.343 \n12    12 0.171 \n13    13 0.2   \n14    14 0.0857\n15    15 0.0286\n16    16 0.0286\n17    17 0.0286\n18    18 0"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#why-are-tidy-data-useful-5",
+    "href": "slides/w8_tidydata.html#why-are-tidy-data-useful-5",
+    "title": "Week 8: Tidy Data",
+    "section": "Why are tidy data useful?",
+    "text": "Why are tidy data useful?\nAnswer: We group_by(item) and summarize()\n\nexam_tidy %&gt;% \n  group_by(item) %&gt;% \n  summarize(prop = mean(score))\n\n# A tibble: 18 × 2\n    item   prop\n   &lt;int&gt;  &lt;dbl&gt;\n 1     1 1     \n 2     2 1     \n 3     3 1     \n 4     4 0.914 \n 5     5 0.886 \n 6     6 0.857 \n 7     7 0.886 \n 8     8 0.771 \n 9     9 0.857 \n10    10 0.686 \n11    11 0.343 \n12    12 0.171 \n13    13 0.2   \n14    14 0.0857\n15    15 0.0286\n16    16 0.0286\n17    17 0.0286\n18    18 0"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#why-are-tidy-data-useful-6",
+    "href": "slides/w8_tidydata.html#why-are-tidy-data-useful-6",
+    "title": "Week 8: Tidy Data",
+    "section": "Why are tidy data useful?",
+    "text": "Why are tidy data useful?\nQuestion: What if we wanted to know the proportion correct for each item by gender?\n\nexam_tidy %&gt;% \n  group_by(item, gender) %&gt;% \n  summarize(prop = mean(score))\n\n\n\n# A tibble: 36 × 3\n# Groups:   item [18]\n    item gender  prop\n   &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;\n 1     1 F      1    \n 2     1 M      1    \n 3     2 F      1    \n 4     2 M      1    \n 5     3 F      1    \n 6     3 M      1    \n 7     4 F      0.889\n 8     4 M      0.941\n 9     5 F      0.833\n10     5 M      0.941\n# ℹ 26 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#why-are-tidy-data-useful-7",
+    "href": "slides/w8_tidydata.html#why-are-tidy-data-useful-7",
+    "title": "Week 8: Tidy Data",
+    "section": "Why are tidy data useful?",
+    "text": "Why are tidy data useful?\nQuestion: What if we wanted to know the proportion correct for each item by gender?"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#why-are-tidy-data-useful-8",
+    "href": "slides/w8_tidydata.html#why-are-tidy-data-useful-8",
+    "title": "Week 8: Tidy Data",
+    "section": "Why are tidy data useful?",
+    "text": "Why are tidy data useful?\nQuestion: What if we wanted to know the proportion correct for each item by gender?\n\nexam_tidy %&gt;% \n  group_by(item, gender) %&gt;% \n  summarize(prop = mean(score))\n\n# A tibble: 36 × 3\n# Groups:   item [18]\n    item gender  prop\n   &lt;int&gt; &lt;chr&gt;  &lt;dbl&gt;\n 1     1 F      1    \n 2     1 M      1    \n 3     2 F      1    \n 4     2 M      1    \n 5     3 F      1    \n 6     3 M      1    \n 7     4 F      0.889\n 8     4 M      0.941\n 9     5 F      0.833\n10     5 M      0.941\n# ℹ 26 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#more-data",
+    "href": "slides/w8_tidydata.html#more-data",
+    "title": "Week 8: Tidy Data",
+    "section": "More data",
+    "text": "More data\nLoad the year-end_scores.csv data from the course website or from your cloned course repo\nName the data scores\n\n(scores &lt;- read_csv(here(\"data\", \"year-end_scores.csv\")))\n\n\n\n# A tibble: 10 × 7\n      id   sex ethnicity  sped frl    math  read\n   &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1     1     0         5     0 NA      101    99\n 2     2     1         2     0 NA       96    NA\n 3     3     1         5     0 NA      131   119\n 4     4     1         4     0 NA       84    93\n 5     5     0         1     0 NA      110   118\n 6     6     0         5     1 NA       NA   105\n 7     7     1         5     1 NA       93    99\n 8     8     0         3     0 NA       81    77\n 9     9     1         2     0 NA      129   135\n10    10     0         1     0 NA      117   122"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#talk-as-a-class",
+    "href": "slides/w8_tidydata.html#talk-as-a-class",
+    "title": "Week 8: Tidy Data",
+    "section": "Talk as a class",
+    "text": "Talk as a class\n\nAre these data tidy?\n\nIf you wanted to summarize scores, or plot and use facet, what would you use to group_by() or facet_wrap()?\n\nWhat do we need to do to make these tidy?\n\nWhat pivot_longer() arguments do we need?\n\n\n\nWork as a class to tidy, name new data scores_tidy\n\n\n\n−+\n03:00"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#lets-try-another",
+    "href": "slides/w8_tidydata.html#lets-try-another",
+    "title": "Week 8: Tidy Data",
+    "section": "Let’s try another",
+    "text": "Let’s try another\nLoad the longitudinal_sim.csv data from course website or your cloned course repo\nName the data sim\n\nsim &lt;- read_csv(here(\"data\", \"longitudinal_sim.csv\"))"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#talk-with-a-neighbor-1",
+    "href": "slides/w8_tidydata.html#talk-with-a-neighbor-1",
+    "title": "Week 8: Tidy Data",
+    "section": "Talk with a neighbor",
+    "text": "Talk with a neighbor\n\nAre these data tidy?\n\nIf you wanted to summarize scores, or plot and use facet, what would you use to group_by() or facet_wrap()?\n\nWhat do we need to do to make these tidy?\n\nWhat pivot_longer() arguments do we need?\n\n\n\nWork with your neighbor to tidy, name new data tidy_sim\n\n\n\n−+\n05:00\n\n\n\nTell me your solutions demo a couple"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#other-possible-issues",
+    "href": "slides/w8_tidydata.html#other-possible-issues",
+    "title": "Week 8: Tidy Data",
+    "section": "Other possible issues",
+    "text": "Other possible issues\nThe hiv data\n\nhiv &lt;- read_csv(here(\"data\", \"hiv.csv\"))"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#other-possible-issues-1",
+    "href": "slides/w8_tidydata.html#other-possible-issues-1",
+    "title": "Week 8: Tidy Data",
+    "section": "Other possible issues",
+    "text": "Other possible issues\nLet’s make some manipulations to get a sample of the data\n\n(just {dplyr} variety filter() and select())\n\n\n(hiv_r &lt;- hiv %&gt;% \n  filter(country == \"France\" |\n          country == \"South Africa\" |\n            country == \"United States\") %&gt;% \n  select(country, `1979`, `1989`, `1999`, `2009`))\n\n# A tibble: 3 × 5\n  country        `1979` `1989` `1999` `2009`\n  &lt;chr&gt;           &lt;dbl&gt; &lt;lgl&gt;   &lt;dbl&gt;  &lt;dbl&gt;\n1 France        NA      NA        0.3    0.4\n2 South Africa  NA      NA       14.8   17.2\n3 United States  0.0318 NA        0.5    0.6\n\n\n\n\nAre these data tidy?\nHow would you add a new variable - say, percent HIV?\nDiscuss how you would transform these data, if at all"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#tidy-the-data",
+    "href": "slides/w8_tidydata.html#tidy-the-data",
+    "title": "Week 8: Tidy Data",
+    "section": "Tidy the data",
+    "text": "Tidy the data\n\n(hiv_tidy &lt;- hiv_r %&gt;% \n  pivot_longer(\n    cols = -1,\n    names_to = \"year\",\n    values_to = \"percentage\"\n  )\n)\n\n# A tibble: 12 × 3\n   country       year  percentage\n   &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;\n 1 France        1979     NA     \n 2 France        1989     NA     \n 3 France        1999      0.3   \n 4 France        2009      0.4   \n 5 South Africa  1979     NA     \n 6 South Africa  1989     NA     \n 7 South Africa  1999     14.8   \n 8 South Africa  2009     17.2   \n 9 United States 1979      0.0318\n10 United States 1989     NA     \n11 United States 1999      0.5   \n12 United States 2009      0.6"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#lets-plot-it",
+    "href": "slides/w8_tidydata.html#lets-plot-it",
+    "title": "Week 8: Tidy Data",
+    "section": "Let’s plot it",
+    "text": "Let’s plot it\n\nhiv_tidy %&gt;% \n  ggplot(aes(year, percentage, color = country, group = country)) +\n  geom_point(size = 4) +\n  geom_line(size = 2)"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#lets-plot-it-1",
+    "href": "slides/w8_tidydata.html#lets-plot-it-1",
+    "title": "Week 8: Tidy Data",
+    "section": "Let’s plot it",
+    "text": "Let’s plot it\nThere is a problem with the data – what is it?\n\n\nWhy aren’t lines connecting for the United States?"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#missing-data",
+    "href": "slides/w8_tidydata.html#missing-data",
+    "title": "Week 8: Tidy Data",
+    "section": "Missing data",
+    "text": "Missing data\n\nhiv_tidy\n\n# A tibble: 12 × 3\n   country       year  percentage\n   &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;\n 1 France        1979     NA     \n 2 France        1989     NA     \n 3 France        1999      0.3   \n 4 France        2009      0.4   \n 5 South Africa  1979     NA     \n 6 South Africa  1989     NA     \n 7 South Africa  1999     14.8   \n 8 South Africa  2009     17.2   \n 9 United States 1979      0.0318\n10 United States 1989     NA     \n11 United States 1999      0.5   \n12 United States 2009      0.6"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#drop-nas",
+    "href": "slides/w8_tidydata.html#drop-nas",
+    "title": "Week 8: Tidy Data",
+    "section": "Drop NAs",
+    "text": "Drop NAs\n\nhiv_tidy %&gt;% \n  drop_na(percentage)\n\nOR\n(not generally ideal unless you are certain you can remove these missing data)\n\nhiv_tidy &lt;- hiv_r %&gt;% \n  pivot_longer(\n    cols = -1,\n    names_to = \"year\",\n    values_to = \"percentage\",\n    names_transform = list(year = as.integer),\n    values_drop_na = TRUE\n  )"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#plot-again",
+    "href": "slides/w8_tidydata.html#plot-again",
+    "title": "Week 8: Tidy Data",
+    "section": "Plot again",
+    "text": "Plot again\n\nhiv_tidy %&gt;% \n  ggplot(aes(year, percentage, color = country, group = country)) +\n  geom_point(size = 4) +\n  geom_line(size = 2)"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#pivot_wider-1",
+    "href": "slides/w8_tidydata.html#pivot_wider-1",
+    "title": "Week 8: Tidy Data",
+    "section": "pivot_wider()",
+    "text": "pivot_wider()\nTidy data are excellent when conducting preliminary descriptive analyses, plotting data, linear models\n\nOccasionally, you need the data in a different format\n\nFor example, if you’re using other packages for analysis"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#pivot_wider-2",
+    "href": "slides/w8_tidydata.html#pivot_wider-2",
+    "title": "Week 8: Tidy Data",
+    "section": "pivot_wider()",
+    "text": "pivot_wider()\n\n\n\npivot_wider(\n  data,\n  ...,\n  id_cols = NULL,\n  names_from = name,\n  names_prefix = \"\",\n  names_sep = \"_\",\n  names_glue = NULL,\n  names_sort = FALSE,\n  names_vary = \"fastest\",\n  names_expand = FALSE\n  names_repair = \"check_unique\",\n  values_from = value,\n  values_fill = NULL,\n  values_fn = NULL,\n  unused_fn = NULL\n)"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#pivot_wider-3",
+    "href": "slides/w8_tidydata.html#pivot_wider-3",
+    "title": "Week 8: Tidy Data",
+    "section": "pivot_wider()",
+    "text": "pivot_wider()\n\n\n\npivot_wider(\n  data,\n  ...,\n  id_cols = NULL,\n  names_from = name,\n  names_prefix = \"\",\n  names_sep = \"_\",\n  names_glue = NULL,\n  names_sort = FALSE,\n  names_vary = \"fastest\",\n  names_expand = FALSE\n  names_repair = \"check_unique\",\n  values_from = value,\n  values_fill = NULL,\n  values_fn = NULL,\n  unused_fn = NULL\n)"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#pivot_wider-4",
+    "href": "slides/w8_tidydata.html#pivot_wider-4",
+    "title": "Week 8: Tidy Data",
+    "section": "pivot_wider()",
+    "text": "pivot_wider()\n\n\n\npivot_wider(\n  data, \n  names_from = name, \n  values_from = value \n)"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#pivot_wider-5",
+    "href": "slides/w8_tidydata.html#pivot_wider-5",
+    "title": "Week 8: Tidy Data",
+    "section": "pivot_wider()",
+    "text": "pivot_wider()\n\n\n\npivot_wider(\n  data, \n  names_from = name, \n  values_from = value \n)\n\n\nThe names of the (tidy) column (or columns) from which to get the name of the new data columns"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#pivot_wider-6",
+    "href": "slides/w8_tidydata.html#pivot_wider-6",
+    "title": "Week 8: Tidy Data",
+    "section": "pivot_wider()",
+    "text": "pivot_wider()\n\n\n\npivot_wider(\n  data, \n  names_from = name, \n  values_from = value \n)\n\n\nThe names of the (tidy) column (or columns) from which to get the the cell values"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#an-example",
+    "href": "slides/w8_tidydata.html#an-example",
+    "title": "Week 8: Tidy Data",
+    "section": "An example",
+    "text": "An example\ntidyr::fish_encounters: when fish swimming down a river are detected by automatic monitoring stations\n\ntidyr::fish_encounters\n\n# A tibble: 114 × 3\n   fish  station  seen\n   &lt;fct&gt; &lt;fct&gt;   &lt;int&gt;\n 1 4842  Release     1\n 2 4842  I80_1       1\n 3 4842  Lisbon      1\n 4 4842  Rstr        1\n 5 4842  Base_TD     1\n 6 4842  BCE         1\n 7 4842  BCW         1\n 8 4842  BCE2        1\n 9 4842  BCW2        1\n10 4842  MAE         1\n# ℹ 104 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#an-example-1",
+    "href": "slides/w8_tidydata.html#an-example-1",
+    "title": "Week 8: Tidy Data",
+    "section": "An example",
+    "text": "An example\nSo tidy, so nice…let’s muck it up\n\nfish_encounters %&gt;% \n  pivot_wider(\n    names_from = station, \n    values_from = seen,\n)\n\n# A tibble: 19 × 12\n   fish  Release I80_1 Lisbon  Rstr Base_TD   BCE   BCW  BCE2  BCW2   MAE   MAW\n   &lt;fct&gt;   &lt;int&gt; &lt;int&gt;  &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1 4842        1     1      1     1       1     1     1     1     1     1     1\n 2 4843        1     1      1     1       1     1     1     1     1     1     1\n 3 4844        1     1      1     1       1     1     1     1     1     1     1\n 4 4845        1     1      1     1       1    NA    NA    NA    NA    NA    NA\n 5 4847        1     1      1    NA      NA    NA    NA    NA    NA    NA    NA\n 6 4848        1     1      1     1      NA    NA    NA    NA    NA    NA    NA\n 7 4849        1     1     NA    NA      NA    NA    NA    NA    NA    NA    NA\n 8 4850        1     1     NA     1       1     1     1    NA    NA    NA    NA\n 9 4851        1     1     NA    NA      NA    NA    NA    NA    NA    NA    NA\n10 4854        1     1     NA    NA      NA    NA    NA    NA    NA    NA    NA\n11 4855        1     1      1     1       1    NA    NA    NA    NA    NA    NA\n12 4857        1     1      1     1       1     1     1     1     1    NA    NA\n13 4858        1     1      1     1       1     1     1     1     1     1     1\n14 4859        1     1      1     1       1    NA    NA    NA    NA    NA    NA\n15 4861        1     1      1     1       1     1     1     1     1     1     1\n16 4862        1     1      1     1       1     1     1     1     1    NA    NA\n17 4863        1     1     NA    NA      NA    NA    NA    NA    NA    NA    NA\n18 4864        1     1     NA    NA      NA    NA    NA    NA    NA    NA    NA\n19 4865        1     1      1    NA      NA    NA    NA    NA    NA    NA    NA"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#an-example-2",
+    "href": "slides/w8_tidydata.html#an-example-2",
+    "title": "Week 8: Tidy Data",
+    "section": "An example",
+    "text": "An example\nThat’s a lot of NA values. But are they really “missing”?\n\nfish_encounters %&gt;% \n  pivot_wider(\n    names_from = station, \n    values_from = seen,\n)\n\n# A tibble: 19 × 12\n   fish  Release I80_1 Lisbon  Rstr Base_TD   BCE   BCW  BCE2  BCW2   MAE   MAW\n   &lt;fct&gt;   &lt;int&gt; &lt;int&gt;  &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1 4842        1     1      1     1       1     1     1     1     1     1     1\n 2 4843        1     1      1     1       1     1     1     1     1     1     1\n 3 4844        1     1      1     1       1     1     1     1     1     1     1\n 4 4845        1     1      1     1       1    NA    NA    NA    NA    NA    NA\n 5 4847        1     1      1    NA      NA    NA    NA    NA    NA    NA    NA\n 6 4848        1     1      1     1      NA    NA    NA    NA    NA    NA    NA\n 7 4849        1     1     NA    NA      NA    NA    NA    NA    NA    NA    NA\n 8 4850        1     1     NA     1       1     1     1    NA    NA    NA    NA\n 9 4851        1     1     NA    NA      NA    NA    NA    NA    NA    NA    NA\n10 4854        1     1     NA    NA      NA    NA    NA    NA    NA    NA    NA\n11 4855        1     1      1     1       1    NA    NA    NA    NA    NA    NA\n12 4857        1     1      1     1       1     1     1     1     1    NA    NA\n13 4858        1     1      1     1       1     1     1     1     1     1     1\n14 4859        1     1      1     1       1    NA    NA    NA    NA    NA    NA\n15 4861        1     1      1     1       1     1     1     1     1     1     1\n16 4862        1     1      1     1       1     1     1     1     1    NA    NA\n17 4863        1     1     NA    NA      NA    NA    NA    NA    NA    NA    NA\n18 4864        1     1     NA    NA      NA    NA    NA    NA    NA    NA    NA\n19 4865        1     1      1    NA      NA    NA    NA    NA    NA    NA    NA"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#remember-scores_tidy",
+    "href": "slides/w8_tidydata.html#remember-scores_tidy",
+    "title": "Week 8: Tidy Data",
+    "section": "Remember scores_tidy?",
+    "text": "Remember scores_tidy?\n\nscores_tidy\n\n# A tibble: 20 × 7\n      id   sex ethnicity  sped frl   content score\n   &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;chr&gt;   &lt;dbl&gt;\n 1     1     0         5     0 NA    math      101\n 2     1     0         5     0 NA    read       99\n 3     2     1         2     0 NA    math       96\n 4     2     1         2     0 NA    read       NA\n 5     3     1         5     0 NA    math      131\n 6     3     1         5     0 NA    read      119\n 7     4     1         4     0 NA    math       84\n 8     4     1         4     0 NA    read       93\n 9     5     0         1     0 NA    math      110\n10     5     0         1     0 NA    read      118\n11     6     0         5     1 NA    math       NA\n12     6     0         5     1 NA    read      105\n13     7     1         5     1 NA    math       93\n14     7     1         5     1 NA    read       99\n15     8     0         3     0 NA    math       81\n16     8     0         3     0 NA    read       77\n17     9     1         2     0 NA    math      129\n18     9     1         2     0 NA    read      135\n19    10     0         1     0 NA    math      117\n20    10     0         1     0 NA    read      122"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#untidy-scores_tidy",
+    "href": "slides/w8_tidydata.html#untidy-scores_tidy",
+    "title": "Week 8: Tidy Data",
+    "section": "Untidy scores_tidy",
+    "text": "Untidy scores_tidy\n\n\n\nscores_tidy %&gt;% \n  pivot_wider(\n    names_from = content,\n    values_from = score\n  )\n\n# A tibble: 10 × 7\n      id   sex ethnicity  sped frl    math  read\n   &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1     1     0         5     0 NA      101    99\n 2     2     1         2     0 NA       96    NA\n 3     3     1         5     0 NA      131   119\n 4     4     1         4     0 NA       84    93\n 5     5     0         1     0 NA      110   118\n 6     6     0         5     1 NA       NA   105\n 7     7     1         5     1 NA       93    99\n 8     8     0         3     0 NA       81    77\n 9     9     1         2     0 NA      129   135\n10    10     0         1     0 NA      117   122\n\n\n\nSame as the original data\n\nread_csv(here(\"data\", \"year-end_scores.csv\"))\n\n# A tibble: 10 × 7\n      id   sex ethnicity  sped frl    math  read\n   &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;lgl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1     1     0         5     0 NA      101    99\n 2     2     1         2     0 NA       96    NA\n 3     3     1         5     0 NA      131   119\n 4     4     1         4     0 NA       84    93\n 5     5     0         1     0 NA      110   118\n 6     6     0         5     1 NA       NA   105\n 7     7     1         5     1 NA       93    99\n 8     8     0         3     0 NA       81    77\n 9     9     1         2     0 NA      129   135\n10    10     0         1     0 NA      117   122"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#lets-do-this-together",
+    "href": "slides/w8_tidydata.html#lets-do-this-together",
+    "title": "Week 8: Tidy Data",
+    "section": "Let’s do this together",
+    "text": "Let’s do this together\nUse pivot_wider() to change sim_tidy back to sim\n\n\n\nsim_tidy\n\n# A tibble: 40 × 4\n     sid wave  content score\n   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;\n 1     1 1     math       95\n 2     1 2     math       98\n 3     1 3     math      102\n 4     1 4     math      105\n 5     1 1     rdg        96\n 6     1 2     rdg        98\n 7     1 3     rdg       101\n 8     1 4     rdg       103\n 9     2 1     math      101\n10     2 2     math      103\n# ℹ 30 more rows\n\n\n\n\nsim\n\n# A tibble: 5 × 9\n    sid wave_1_math wave_2_math wave_3_math wave_4_math wave_1_rdg wave_2_rdg\n  &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n1     1          95          98         102         105         96         98\n2     2         101         103         107         109        108        110\n3     3          99         103         106         110        103        106\n4     4         109         111         115         116        108        109\n5     5         101         104         107         113         92         95\n# ℹ 2 more variables: wave_3_rdg &lt;dbl&gt;, wave_4_rdg &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#longer-then-wider",
+    "href": "slides/w8_tidydata.html#longer-then-wider",
+    "title": "Week 8: Tidy Data",
+    "section": "Longer then wider",
+    "text": "Longer then wider\nSome problems can’t be solved by pivoting in a single direction\nHere is an example of how you might combine pivot_longer() and pivot_wider() to solve more complex problems\n\n\nsim2 &lt;- read_csv(here(\"data\", \"longitudinal_sim2.csv\"))\nsim2\n\n# A tibble: 100 × 19\n     SID male_g6 male_g7 male_g8 ell_g6 ell_g7 ell_g8 sped_g6 sped_g7 sped_g8\n   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n 1     1       1       1       1      0      0      0       0       0       0\n 2     2       0       0       0      0      0      0       0       0       0\n 3     3       1       1       1      0      0      0       0       0       0\n 4     4       1       1       1      0      0      0       0       0       0\n 5     5       0       0       0      0      0      0       1       1       1\n 6     6       0       0       0      0      0      0       0       0       0\n 7     7       1       1       1      0      0      0       0       0       0\n 8     8       1       1       1      1      1      1       0       0       0\n 9     9       0       0       0      0      0      0       0       0       0\n10    10       0       0       0      0      0      0       0       0       0\n# ℹ 90 more rows\n# ℹ 9 more variables: pullouts_g6 &lt;dbl&gt;, pullouts_g7 &lt;dbl&gt;, pullouts_g8 &lt;dbl&gt;,\n#   disability_g6 &lt;chr&gt;, disability_g7 &lt;chr&gt;, disability_g8 &lt;chr&gt;,\n#   score_g6 &lt;dbl&gt;, score_g7 &lt;dbl&gt;, score_g8 &lt;dbl&gt;\n\n\n\n\nView() data"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#first-pivot_longer",
+    "href": "slides/w8_tidydata.html#first-pivot_longer",
+    "title": "Week 8: Tidy Data",
+    "section": "First pivot_longer()",
+    "text": "First pivot_longer()\n\nsim2 %&gt;% \n  pivot_longer(\n    cols = -1,\n    names_to = c(\"variable\", \"grade\"),\n    values_to = \"values\",\n    names_sep = \"_\")\n\nError in `pivot_longer()`:\n! Can't combine `male_g6` &lt;double&gt; and `disability_g6` &lt;character&gt;."
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#first-pivot_longer-1",
+    "href": "slides/w8_tidydata.html#first-pivot_longer-1",
+    "title": "Week 8: Tidy Data",
+    "section": "First pivot_longer()",
+    "text": "First pivot_longer()\n\nsim2 %&gt;% \n  pivot_longer(\n    cols = -1,\n    names_to = c(\"variable\", \"grade\"),\n    values_to = \"values\",\n    names_sep = \"_\",\n    values_transform = list(values = as.character)) # to combine numeric & character \n\n# A tibble: 1,800 × 4\n     SID variable grade values\n   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; \n 1     1 male     g6    1     \n 2     1 male     g7    1     \n 3     1 male     g8    1     \n 4     1 ell      g6    0     \n 5     1 ell      g7    0     \n 6     1 ell      g8    0     \n 7     1 sped     g6    0     \n 8     1 sped     g7    0     \n 9     1 sped     g8    0     \n10     1 pullouts g6    0     \n# ℹ 1,790 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#lets-refine-a-column-using-mutate",
+    "href": "slides/w8_tidydata.html#lets-refine-a-column-using-mutate",
+    "title": "Week 8: Tidy Data",
+    "section": "Let’s refine a column using mutate()",
+    "text": "Let’s refine a column using mutate()\n\nsim2 %&gt;% \n  pivot_longer(\n    cols = -1,\n    names_to = c(\"variable\", \"grade\"),\n    values_to = \"values\",\n    names_sep = \"_\",\n    values_transform = list(values = as.character)) %&gt;% \n  mutate(grade = parse_number(grade)) \n\n# A tibble: 1,800 × 4\n     SID variable grade values\n   &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; \n 1     1 male         6 1     \n 2     1 male         7 1     \n 3     1 male         8 1     \n 4     1 ell          6 0     \n 5     1 ell          7 0     \n 6     1 ell          8 0     \n 7     1 sped         6 0     \n 8     1 sped         7 0     \n 9     1 sped         8 0     \n10     1 pullouts     6 0     \n# ℹ 1,790 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#then-pivot_wider",
+    "href": "slides/w8_tidydata.html#then-pivot_wider",
+    "title": "Week 8: Tidy Data",
+    "section": "Then pivot_wider()",
+    "text": "Then pivot_wider()\n\nsim2 %&gt;% \n  pivot_longer(\n    cols = -1,\n    names_to = c(\"variable\", \"grade\"),\n    values_to = \"values\",\n    names_sep = \"_\",\n    values_transform = list(values = as.character)) %&gt;% \n  mutate(grade = parse_number(grade)) %&gt;% \n  pivot_wider( \n    names_from = variable, \n    values_from = values \n  )\n\n\n\n# A tibble: 300 × 8\n     SID grade male  ell   sped  pullouts disability score           \n   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;           \n 1     1     6 1     0     0     0        none       204.711224219096\n 2     1     7 1     0     0     0        none       207.641655929138\n 3     1     8 1     0     0     0        none       211.468672710232\n 4     2     6 0     0     0     1        none       212.343498534668\n 5     2     7 0     0     0     1        none       217.565910013073\n 6     2     8 0     0     0     1        none       227.036910872597\n 7     3     6 1     0     0     0        none       215.436668173264\n 8     3     7 1     0     0     0        none       217.029498660224\n 9     3     8 1     0     0     0        none       222.232373013961\n10     4     6 1     0     0     0        none       219.182457533654\n# ℹ 290 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#section-6",
+    "href": "slides/w8_tidydata.html#section-6",
+    "title": "Week 8: Tidy Data",
+    "section": "",
+    "text": "Credit Allison Horst"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#before-next-class",
+    "href": "slides/w8_tidydata.html#before-next-class",
+    "title": "Week 8: Tidy Data",
+    "section": "Before next class",
+    "text": "Before next class\n\nFinal Project\n\nFinal Project: Draft Data Script\n\nHomework\n\nHomework 9\n\nReading\n\nR4DS(2e) 17\n\nAMA"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#lets-pivot_longer-3",
+    "href": "slides/w8_tidydata.html#lets-pivot_longer-3",
+    "title": "Week 8: Tidy Data",
+    "section": "Let’s pivot_longer()",
+    "text": "Let’s pivot_longer()\nWhich cols do we want to pivot?\n\n\nrelig_income %&gt;% \n pivot_longer(\n  cols = -1,\n  names_to = \"_____\",\n  values_to = \"_____\"\n )\n\n\n\n# A tibble: 18 × 11\n   religion `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`\n   &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 Agnostic      27        34        60        81        76       137        122\n 2 Atheist       12        27        37        52        35        70         73\n 3 Buddhist      27        21        30        34        33        58         62\n 4 Catholic     418       617       732       670       638      1116        949\n 5 Don’t k…      15        14        15        11        10        35         21\n 6 Evangel…     575       869      1064       982       881      1486        949\n 7 Hindu          1         9         7         9        11        34         47\n 8 Histori…     228       244       236       238       197       223        131\n 9 Jehovah…      20        27        24        24        21        30         15\n10 Jewish        19        19        25        25        30        95         69\n11 Mainlin…     289       495       619       655       651      1107        939\n12 Mormon        29        40        48        51        56       112         85\n13 Muslim         6         7         9        10         9        23         16\n14 Orthodox      13        17        23        32        32        47         38\n15 Other C…       9         7        11        13        13        14         18\n16 Other F…      20        33        40        46        49        63         46\n17 Other W…       5         2         3         4         2         7          3\n18 Unaffil…     217       299       374       365       341       528        407\n# ℹ 3 more variables: `$100-150k` &lt;dbl&gt;, `&gt;150k` &lt;dbl&gt;,\n#   `Don't know/refused` &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#lets-pivot_longer-4",
+    "href": "slides/w8_tidydata.html#lets-pivot_longer-4",
+    "title": "Week 8: Tidy Data",
+    "section": "Let’s pivot_longer()",
+    "text": "Let’s pivot_longer()\nWhich cols to we want to pivot?\n\n\nrelig_income %&gt;% \n pivot_longer(\n  cols = -religion,\n  names_to = \"_____\",\n  values_to = \"_____\"\n )\n\n\n\n# A tibble: 18 × 11\n   religion `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`\n   &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 Agnostic      27        34        60        81        76       137        122\n 2 Atheist       12        27        37        52        35        70         73\n 3 Buddhist      27        21        30        34        33        58         62\n 4 Catholic     418       617       732       670       638      1116        949\n 5 Don’t k…      15        14        15        11        10        35         21\n 6 Evangel…     575       869      1064       982       881      1486        949\n 7 Hindu          1         9         7         9        11        34         47\n 8 Histori…     228       244       236       238       197       223        131\n 9 Jehovah…      20        27        24        24        21        30         15\n10 Jewish        19        19        25        25        30        95         69\n11 Mainlin…     289       495       619       655       651      1107        939\n12 Mormon        29        40        48        51        56       112         85\n13 Muslim         6         7         9        10         9        23         16\n14 Orthodox      13        17        23        32        32        47         38\n15 Other C…       9         7        11        13        13        14         18\n16 Other F…      20        33        40        46        49        63         46\n17 Other W…       5         2         3         4         2         7          3\n18 Unaffil…     217       299       374       365       341       528        407\n# ℹ 3 more variables: `$100-150k` &lt;dbl&gt;, `&gt;150k` &lt;dbl&gt;,\n#   `Don't know/refused` &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#lets-pivot_longer-5",
+    "href": "slides/w8_tidydata.html#lets-pivot_longer-5",
+    "title": "Week 8: Tidy Data",
+    "section": "Let’s pivot_longer()",
+    "text": "Let’s pivot_longer()\nThose cols names will become a new column.\nWhat should we that new column of col names?\n\n\nrelig_income %&gt;% \n pivot_longer(\n  cols = -religion,\n  names_to = \"income\",\n  values_to = \"_____\"\n )\n\n\n\n# A tibble: 18 × 11\n   religion `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`\n   &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 Agnostic      27        34        60        81        76       137        122\n 2 Atheist       12        27        37        52        35        70         73\n 3 Buddhist      27        21        30        34        33        58         62\n 4 Catholic     418       617       732       670       638      1116        949\n 5 Don’t k…      15        14        15        11        10        35         21\n 6 Evangel…     575       869      1064       982       881      1486        949\n 7 Hindu          1         9         7         9        11        34         47\n 8 Histori…     228       244       236       238       197       223        131\n 9 Jehovah…      20        27        24        24        21        30         15\n10 Jewish        19        19        25        25        30        95         69\n11 Mainlin…     289       495       619       655       651      1107        939\n12 Mormon        29        40        48        51        56       112         85\n13 Muslim         6         7         9        10         9        23         16\n14 Orthodox      13        17        23        32        32        47         38\n15 Other C…       9         7        11        13        13        14         18\n16 Other F…      20        33        40        46        49        63         46\n17 Other W…       5         2         3         4         2         7          3\n18 Unaffil…     217       299       374       365       341       528        407\n# ℹ 3 more variables: `$100-150k` &lt;dbl&gt;, `&gt;150k` &lt;dbl&gt;,\n#   `Don't know/refused` &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#lets-pivot_longer-6",
+    "href": "slides/w8_tidydata.html#lets-pivot_longer-6",
+    "title": "Week 8: Tidy Data",
+    "section": "Let’s pivot_longer()",
+    "text": "Let’s pivot_longer()\nThe values of those “income” cols will become a new column.\nWhat should we that new column of col values?\n\n\nrelig_income %&gt;% \n pivot_longer(\n  cols = -religion,\n  names_to = \"income\",\n  values_to = \"frequency\"\n )\n\n\n\n# A tibble: 18 × 11\n   religion `&lt;$10k` `$10-20k` `$20-30k` `$30-40k` `$40-50k` `$50-75k` `$75-100k`\n   &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;\n 1 Agnostic      27        34        60        81        76       137        122\n 2 Atheist       12        27        37        52        35        70         73\n 3 Buddhist      27        21        30        34        33        58         62\n 4 Catholic     418       617       732       670       638      1116        949\n 5 Don’t k…      15        14        15        11        10        35         21\n 6 Evangel…     575       869      1064       982       881      1486        949\n 7 Hindu          1         9         7         9        11        34         47\n 8 Histori…     228       244       236       238       197       223        131\n 9 Jehovah…      20        27        24        24        21        30         15\n10 Jewish        19        19        25        25        30        95         69\n11 Mainlin…     289       495       619       655       651      1107        939\n12 Mormon        29        40        48        51        56       112         85\n13 Muslim         6         7         9        10         9        23         16\n14 Orthodox      13        17        23        32        32        47         38\n15 Other C…       9         7        11        13        13        14         18\n16 Other F…      20        33        40        46        49        63         46\n17 Other W…       5         2         3         4         2         7          3\n18 Unaffil…     217       299       374       365       341       528        407\n# ℹ 3 more variables: `$100-150k` &lt;dbl&gt;, `&gt;150k` &lt;dbl&gt;,\n#   `Don't know/refused` &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#lets-pivot_longer-7",
+    "href": "slides/w8_tidydata.html#lets-pivot_longer-7",
+    "title": "Week 8: Tidy Data",
+    "section": "Let’s pivot_longer()",
+    "text": "Let’s pivot_longer()\n\nrelig_income %&gt;% \n  pivot_longer(\n    cols = -religion,\n    names_to = \"income\",\n    values_to = \"frequency\"\n  )\n\n\n\n# A tibble: 180 × 3\n   religion income             frequency\n   &lt;chr&gt;    &lt;chr&gt;                  &lt;dbl&gt;\n 1 Agnostic &lt;$10k                     27\n 2 Agnostic $10-20k                   34\n 3 Agnostic $20-30k                   60\n 4 Agnostic $30-40k                   81\n 5 Agnostic $40-50k                   76\n 6 Agnostic $50-75k                  137\n 7 Agnostic $75-100k                 122\n 8 Agnostic $100-150k                109\n 9 Agnostic &gt;150k                     84\n10 Agnostic Don't know/refused        96\n# ℹ 170 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#an-example-3",
+    "href": "slides/w8_tidydata.html#an-example-3",
+    "title": "Week 8: Tidy Data",
+    "section": "An example",
+    "text": "An example\nThose NAs should be zeroes.\n\nfish_encounters %&gt;% \n  pivot_wider(\n    names_from = station, \n    values_from = seen,\n    values_fill = list(seen = 0)\n)\n\n\n\n# A tibble: 19 × 12\n   fish  Release I80_1 Lisbon  Rstr Base_TD   BCE   BCW  BCE2  BCW2   MAE   MAW\n   &lt;fct&gt;   &lt;int&gt; &lt;int&gt;  &lt;int&gt; &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1 4842        1     1      1     1       1     1     1     1     1     1     1\n 2 4843        1     1      1     1       1     1     1     1     1     1     1\n 3 4844        1     1      1     1       1     1     1     1     1     1     1\n 4 4845        1     1      1     1       1     0     0     0     0     0     0\n 5 4847        1     1      1     0       0     0     0     0     0     0     0\n 6 4848        1     1      1     1       0     0     0     0     0     0     0\n 7 4849        1     1      0     0       0     0     0     0     0     0     0\n 8 4850        1     1      0     1       1     1     1     0     0     0     0\n 9 4851        1     1      0     0       0     0     0     0     0     0     0\n10 4854        1     1      0     0       0     0     0     0     0     0     0\n11 4855        1     1      1     1       1     0     0     0     0     0     0\n12 4857        1     1      1     1       1     1     1     1     1     0     0\n13 4858        1     1      1     1       1     1     1     1     1     1     1\n14 4859        1     1      1     1       1     0     0     0     0     0     0\n15 4861        1     1      1     1       1     1     1     1     1     1     1\n16 4862        1     1      1     1       1     1     1     1     1     0     0\n17 4863        1     1      0     0       0     0     0     0     0     0     0\n18 4864        1     1      0     0       0     0     0     0     0     0     0\n19 4865        1     1      1     0       0     0     0     0     0     0     0"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#combine-numeric-and-character-as.character",
+    "href": "slides/w8_tidydata.html#combine-numeric-and-character-as.character",
+    "title": "Week 8: Tidy Data",
+    "section": "Combine numeric and character as.character",
+    "text": "Combine numeric and character as.character\n\nsim2 %&gt;% \n  pivot_longer(\n    cols = -1,\n    names_to = c(\"variable\", \"grade\"),\n    values_to = \"values\",\n    names_sep = \"_\",\n    values_transform = list(values = as.character)) # to combine numeric & character \n\n# A tibble: 1,800 × 4\n     SID variable grade values\n   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; \n 1     1 male     g6    1     \n 2     1 male     g7    1     \n 3     1 male     g8    1     \n 4     1 ell      g6    0     \n 5     1 ell      g7    0     \n 6     1 ell      g8    0     \n 7     1 sped     g6    0     \n 8     1 sped     g7    0     \n 9     1 sped     g8    0     \n10     1 pullouts g6    0     \n# ℹ 1,790 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#one-of-my-favorite-functionsparse_number",
+    "href": "slides/w8_tidydata.html#one-of-my-favorite-functionsparse_number",
+    "title": "Week 8: Tidy Data",
+    "section": "One of my favorite functions:parse_number()",
+    "text": "One of my favorite functions:parse_number()\n\nsim2 %&gt;% \n  pivot_longer(\n    cols = -1,\n    names_to = c(\"variable\", \"grade\"),\n    values_to = \"values\",\n    names_sep = \"_\",\n    values_transform = list(values = as.character)) %&gt;% \n  mutate(grade = parse_number(grade)) \n\n# A tibble: 1,800 × 4\n     SID variable grade values\n   &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; \n 1     1 male         6 1     \n 2     1 male         7 1     \n 3     1 male         8 1     \n 4     1 ell          6 0     \n 5     1 ell          7 0     \n 6     1 ell          8 0     \n 7     1 sped         6 0     \n 8     1 sped         7 0     \n 9     1 sped         8 0     \n10     1 pullouts     6 0     \n# ℹ 1,790 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#combine-numeric-character---as.character",
+    "href": "slides/w8_tidydata.html#combine-numeric-character---as.character",
+    "title": "Week 8: Tidy Data",
+    "section": "Combine numeric & character - as.character",
+    "text": "Combine numeric & character - as.character\n\nsim2 %&gt;% \n  pivot_longer(\n    cols = -1,\n    names_to = c(\"variable\", \"grade\"),\n    values_to = \"values\",\n    names_sep = \"_\",\n    values_transform = list(values = as.character)) # to combine numeric & character \n\n# A tibble: 1,800 × 4\n     SID variable grade values\n   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt; \n 1     1 male     g6    1     \n 2     1 male     g7    1     \n 3     1 male     g8    1     \n 4     1 ell      g6    0     \n 5     1 ell      g7    0     \n 6     1 ell      g8    0     \n 7     1 sped     g6    0     \n 8     1 sped     g7    0     \n 9     1 sped     g8    0     \n10     1 pullouts g6    0     \n# ℹ 1,790 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#one-of-my-favorite-functions---parse_number",
+    "href": "slides/w8_tidydata.html#one-of-my-favorite-functions---parse_number",
+    "title": "Week 8: Tidy Data",
+    "section": "One of my favorite functions - parse_number()",
+    "text": "One of my favorite functions - parse_number()\n\nsim2 %&gt;% \n  pivot_longer(\n    cols = -1,\n    names_to = c(\"variable\", \"grade\"),\n    values_to = \"values\",\n    names_sep = \"_\",\n    values_transform = list(values = as.character)) %&gt;% \n  mutate(grade = parse_number(grade)) \n\n# A tibble: 1,800 × 4\n     SID variable grade values\n   &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt; \n 1     1 male         6 1     \n 2     1 male         7 1     \n 3     1 male         8 1     \n 4     1 ell          6 0     \n 5     1 ell          7 0     \n 6     1 ell          8 0     \n 7     1 sped         6 0     \n 8     1 sped         7 0     \n 9     1 sped         8 0     \n10     1 pullouts     6 0     \n# ℹ 1,790 more rows"
+  },
+  {
+    "objectID": "slides/w8_tidydata.html#section-7",
+    "href": "slides/w8_tidydata.html#section-7",
+    "title": "Week 8: Tidy Data",
+    "section": "",
+    "text": "Credit Allison Horst"
   }
 ]
