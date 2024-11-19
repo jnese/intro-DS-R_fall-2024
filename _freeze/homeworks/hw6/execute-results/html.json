@@ -1,0 +1,17 @@
+{
+  "hash": "0eed2a0d9a5020d5ed312c56163b58fc",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Homework 6\"\nformat: html\nexecute: \n  echo: false\n  message: false\n  warning: false\n  fig-width: 6.5\n  fig-height: 8\nembed-resources: true\n---\n\n\n<br> <br>\n\n------------------------------------------------------------------------\n\nNote, this is a group project. You will need to work with your final project group on this lab. **Each member of your group should make at least one commit**. Once you have completed the assignment, provide a link to the repository in the text box for the lab on Canvas.\n\n### Create a shared GitHub repo for this lab. Call it **hw_6**\n\n------------------------------------------------------------------------\n\n<br> <br>\n\n### Commit 1\n\n1.  Add a *data* folder to the repo. Place **star.csv** into the folder.\n2.  Add a folder for your scripts documents.\n3.  Write code in a `.qmd` document to load all the libraries that will be used in the document\n4.  Set global YAML options to make the code not show anywhere in the document, set figure width to 6.5 and figure height to 8, and specify a *.pdf* file as output.\n5.  Write the code to load the data.\n\n\n\n\n::: {.cell}\n\n:::\n\n\n<br> <br> <br>\n\n### Commit 2\n\n1.  Add the bibliography (*.bib*) file and include at least four additional references.\n2.  Include in-text examples of citations formatted as **Author (Year)** and **(Author, Year)**.\n3.  Render the document and make sure the reference section has a Level 1 header of \"**References**\", and the references are displayed on their own page. <br> <br> <br>\n\n### Commit 3\n\n1.  Write the code to create the summary statistics shown in the table below. Output the table below and briefly describe it in text.\n\n\n\n|sex  |frl | math_mean| math_sd| rdg_mean| rdg_sd|\n|:----|:---|---------:|-------:|--------:|------:|\n|boy  |no  |    492.85|   46.34|   441.46|  32.32|\n|boy  |yes |    469.87|   46.09|   425.38|  26.63|\n|girl |no  |    501.21|   45.96|   448.54|  34.52|\n|girl |yes |    477.51|   46.30|   430.80|  27.42|\n\n\n<br> <br> <br>\n\n### Commit 4\n\n1.  Create the following plot, using whatever theme you'd like, and briefly discuss it in text. (Note that might need to problem-solve how to put the legend at the bottom.)\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](hw6_files/figure-html/unnamed-chunk-4-1.png){width=624}\n:::\n:::\n",
+    "supporting": [
+      "hw6_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
