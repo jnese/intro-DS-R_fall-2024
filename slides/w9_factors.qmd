@@ -46,7 +46,6 @@ Week 9
 * Final Project Review
 * Discuss factors and factor re-leveling
 * Walk through a [pull request (PR)]{style='color:#009E73'}
-* AMA
 
 **Overall Purpose**
 
@@ -57,7 +56,7 @@ Week 9
 
 Homework 9
 
-##
+## Your code!
 
 ![](https://media2.giphy.com/media/8X6UFXpJFndo4/giphy.gif?cid=ecf05e47ov2j4bec7wwcp7el1ob0b0oe7towmyta3ml46kvz&rid=giphy.gif&ct=g)
 
@@ -730,9 +729,8 @@ Making your code publicly available can feel daunting
     + edit the .qmd file directly
     + edit code
     + provide comments in code and/or text (`Ctrl/Command + Shift + C`)
-    + [commit]{style='color:#009E73'} & [push]{style='color:#009E73'}
-
-5. Create [Pull Request (PR)]{style='color:#009E73'}
+5. [commit]{style='color:#009E73'} & [push]{style='color:#009E73'}!
+6. Create [Pull Request (PR)]{style='color:#009E73'}
 
 * Write brief summary of the PR that includes
   + \>= 3 strengths
@@ -790,7 +788,7 @@ peer_review %>%
 
 1. Navigate to the (host) GitHub repo
 2. Click Fork in the upper right corner
-3. Where to fork? – **your GitHub account**
+3. Owner? – **your GitHub account**
 
 ![](./images/gh_fork.png)
 
@@ -822,7 +820,7 @@ Where will it live on your local machine? It's own folder, with no other RProjec
     + include a comment for each edit!
     + Provide comments in code **and/or** text (`Ctrl/Command + Shift + C`)
 * Commit as you go (if you are working on this across sessions/days)
-* [Push]{style='color:#009E73'}**only when you are finished**
+* [Push]{style='color:#009E73'} **only when you are finished**
 
 ## 5. Create Pull Request (PR) {.smaller}
 
@@ -840,7 +838,16 @@ Where will it live on your local machine? It's own folder, with no other RProjec
 
 ![](./images/gh_newpr.png)
 
-## 5. Create Pull Request (PR) {.smaller}
+## 5. [commit]{style='color:#009E73'} & [push]{style='color:#009E73'}
+
+Once you have provided comments and code suggestions to the script
+
+- save the changes
+- go to GitKraken
+- [commit]{style='color:#009E73'}
+- [push]{style='color:#009E73'}
+
+## 6. Create Pull Request (PR) {.smaller}
 
 (4) Click *"Compare across forks"*
 
@@ -858,13 +865,13 @@ Use drop-downs so that:
 
 You will be able view the changes you made to the .qmd document
 
-## 5. Create Pull Request (PR)
+## 6. Create Pull Request (PR)
 
 (5) Click *"Create pull request"*
 
 ![](./images/gh_comparechanges.png)
 
-## 5. Create Pull Request (PR) {.smaller}
+## 6. Create Pull Request (PR) {.smaller}
 
 Write a brief summary list of the PR that includes
 
@@ -873,15 +880,15 @@ Write a brief summary list of the PR that includes
 * 1 to 3 three areas of improvement
 * **Use markdown formatting, headers or list!**
 
-![](./images/gh_comparechanges.png)
+![](./images/gh_writereview.png)
 
-## 5. Create Pull Request (PR)
+## 6. Create Pull Request (PR)
 
 (6) Click *"Create pull request"* when you're done
 
 ![](./images/gh_comparechanges.png)
 
-## 5. Create Pull Request (PR) {.smaller}
+## 6. Create Pull Request (PR) {.smaller}
 
 Recap
 
@@ -922,8 +929,7 @@ You will get an email from GitHub
     + [Final Project: Presentations]{style='color:#FF0000'} - email me your content before class
 * Homework
     + **Homework 10**
-
-# AMA
+* AMA
 
 
 
