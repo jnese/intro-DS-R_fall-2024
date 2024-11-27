@@ -46,6 +46,7 @@ Week 9
 * Final Project Review
 * Discuss factors and factor re-leveling
 * Walk through a [pull request (PR)]{style='color:#009E73'}
+* ~~AMA~~ *next week instead*
 
 **Overall Purpose**
 
@@ -77,7 +78,7 @@ Homework 9
 
 ## Final Project – Presentation
 
-* Groups are expected to present for about **25 minutes** (split evenly among members). Group order randomly assigned. 
+* Groups are expected to present for about **15-20 minutes** (split evenly among members). Group order randomly assigned. 
 
 * Email me your presentation by midnight 12/3 so I can share through my machine.
 
