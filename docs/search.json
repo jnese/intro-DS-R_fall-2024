@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Before Week 1\nPlease complete the following five installs before our first class.\nInstructions for each are on the Installs page.\n\nInstall R\nInstall RStudio\nRegister a GitHub account\nInstall Git\nInstall GitKraken\n\n\n\nWeek 1: Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned2\nDue\n\n\n\n\nOct-02\nR4DS(2e) 5\n\n\nA Quick Tour of the RStudio IDE\nInstalls\n\n\n\n\nR4DS(2e) 3\n\n\n\n\nCodecademy: Introduction to R Syntax\n\n\n\n\n\n\nR4DS(2e) 7\n\n\n\n\n\nFinal Project\nFinal Project\n\n\n\n\n\n\nOptional: MD 1.1\n\n\n\n\n\n\n\n\n\n\n\n1 Passcode: %Rh3eBMt\n\n\n2 I do not rearrange my RStudio panes as he does.\n\n\n\n\n\n\n\n\n\n\nWeek 2: Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nOct-09\nProject-oriented Workflow\n\n\nCodecademy: Introduction to Data Frames in R\nA Quick Tour of the RStudio IDE\n\n\n\n\nR4DS(2e) 29\n\n\n\n\nCodecademy: Introduction to Visualization with R\nCodecademy: Introduction to R Syntax\n\n\n\n\nhere::here() Jenny Bryan\n\n\n\n\nHomework 1\n\n\n\n\n\n\n{rio} vignette\n\n\n\n\n\n\n\n\n\n\n\n1 Passcode: m7&FgDnv\n\n\n\n\n\n\n\n\n\n\nWeek 3: {ggplot2}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nOct-16\nR4DS(2e) 2\n\n\nCodecademy: Modifying Data Frames\nCodecademy: Introduction to Data Frames in R\n\n\n\n\nOptional: MD 2.0 to 2.9\n\n\n\n\nCodecademy: Aggregates in R\nCodecademy: Introduction to Visualization with R\n\n\n\n\nOptional: Healy Ch 3\n\n\n\n\nHomework 2\nHomework 1\n\n\n\n\n\n\n\n\n\n\nHomework 3\n\nFinal Project: Finalize Groups\nFinal Project: Finalize Groups\n\n\n\n1 Passcode: @7hE8pW8\n\n\n\n\n\n\n\n\n\n\nWeek 4: {dplyr}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nOct-23\nR4DS(2e) 4\n\n\nDownload GitKraken\nCodecademy: Modifying Data Frames\n\n\n\n\nOptional: MD 3.1 to 3.6, 3.8\n\n\n\n\nWatch What is a Git repository?\nCodecademy: Aggregates in R\n\n\n\n\n\n\n\n\n\n\nWatch What is a remote repository?\nHomework 2\n\n\n\n\n\n\n\n\n\n\nHomework 4\nHomework 3\n\n\n\n1 Passcode: 4zWSh+Fj\n\n\n\n\n\n\n\n\n\n\nWeek 5: GitHub\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nOct-30\nBryan 2017\n\n\nMarkdown Tutorial\nDownload GitKraken\n\n\n\n\n\n\n\n\n\n\nHomework 5\nWatch What is a Git repository?\n\n\n\n\n\n\n\n\n\n\n\n\nWatch What is a remote repository?\n\n\n\n\n\n\n\n\n\n\n\n\nHomework 4\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal Project: Outline\nFinal Project: Outline\n\n\n\n1 Passcode: 5g9TEdK.\n\n\n\n\n\n\n\n\n\n\nWeek 6: Quarto\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nNov-06\nR4DS(2e) 29\n\n\nCodecademy: Joining Tables in R\nMarkdown Tutorial\n\n\n\n\n\n\n\n\n\n\nHomework 6\nHomework 5\n\n\n\n\n\n\n\n\n\n\nHomework 7\n\n\n\n\n\n1 Passcode: @Ld1y9H7\n\n\n\n\n\n\n\n\n\n\nWeek 7: Mutating Joins\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nNov-13\nR4DS(2e) 13\n\n\nCodecademy: Data Cleaning in R\nCodecademy: Joining Tables in R\n\n\n\n\n\n\n\n\n\n\nHomework 8\nHomework 6\n\n\n\n\n\n\n\n\n\n\n\n\nHomework 7\n\n\n\n1 Passcode: 0cSNE5s+\n\n\n\n\n\n\n\n\n\n\nWeek 8: Tidy Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nNov-20\nR4DS(2e) 12\n\n\nHomework 9\nCodecademy: Data Cleaning in R\n\n\n\n\nWickham 2014\n\n\n\n\n\n\nHomework 8\n\n\n\n\nR-Ladies Sydney CleanItUp 5\n\n\n\n\n\nFinal Project: Draft Data Script\nFinal Project: Draft Data Script\n\n\n\n\n\n\nOptional: MD 4.2 - 4.4\n\n\n\n\n\n\n\n\n\n\n\n1 Passcode: fk7?Pk12\n\n\n\n\n\n\n\n\n\n\nWeek 9: Factors & Pull Request\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nNov-27\nR4DS(2e) 17\n\n\n\nHomework 10\nHomework 9\n\n\n\n\n\n\n\n\n\n\n\nFinal Project: Peer Review of Script\nFinal Project: Peer Review of Script\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal Project: Draft Data Script\nFinal Project: Draft Data Script\n\n\n\n1 Passcode: NA\n\n\n\n\n\n\n\n\n\n\nWeek 10: Presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nDec-04\n\n\n\n\n\n\n\n\nHomework 10\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal Project: Presentation\nFinal Project: Presentation\n\n\n\n1 Passcode: NA\n\n\n\n\n\n\n\n\n\n\nWeek 11: No class: Final papers due"
+    "text": "Before Week 1\nPlease complete the following five installs before our first class.\nInstructions for each are on the Installs page.\n\nInstall R\nInstall RStudio\nRegister a GitHub account\nInstall Git\nInstall GitKraken\n\n\n\nWeek 1: Introduction\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned2\nDue\n\n\n\n\nOct-02\nR4DS(2e) 5\n\n\nA Quick Tour of the RStudio IDE\nInstalls\n\n\n\n\nR4DS(2e) 3\n\n\n\n\nCodecademy: Introduction to R Syntax\n\n\n\n\n\n\nR4DS(2e) 7\n\n\n\n\n\nFinal Project\nFinal Project\n\n\n\n\n\n\nOptional: MD 1.1\n\n\n\n\n\n\n\n\n\n\n\n1 Passcode: %Rh3eBMt\n\n\n2 I do not rearrange my RStudio panes as he does.\n\n\n\n\n\n\n\n\n\n\nWeek 2: Workflow\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nOct-09\nProject-oriented Workflow\n\n\nCodecademy: Introduction to Data Frames in R\nA Quick Tour of the RStudio IDE\n\n\n\n\nR4DS(2e) 29\n\n\n\n\nCodecademy: Introduction to Visualization with R\nCodecademy: Introduction to R Syntax\n\n\n\n\nhere::here() Jenny Bryan\n\n\n\n\nHomework 1\n\n\n\n\n\n\n{rio} vignette\n\n\n\n\n\n\n\n\n\n\n\n1 Passcode: m7&FgDnv\n\n\n\n\n\n\n\n\n\n\nWeek 3: {ggplot2}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nOct-16\nR4DS(2e) 2\n\n\nCodecademy: Modifying Data Frames\nCodecademy: Introduction to Data Frames in R\n\n\n\n\nOptional: MD 2.0 to 2.9\n\n\n\n\nCodecademy: Aggregates in R\nCodecademy: Introduction to Visualization with R\n\n\n\n\nOptional: Healy Ch 3\n\n\n\n\nHomework 2\nHomework 1\n\n\n\n\n\n\n\n\n\n\nHomework 3\n\nFinal Project: Finalize Groups\nFinal Project: Finalize Groups\n\n\n\n1 Passcode: @7hE8pW8\n\n\n\n\n\n\n\n\n\n\nWeek 4: {dplyr}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nOct-23\nR4DS(2e) 4\n\n\nDownload GitKraken\nCodecademy: Modifying Data Frames\n\n\n\n\nOptional: MD 3.1 to 3.6, 3.8\n\n\n\n\nWatch What is a Git repository?\nCodecademy: Aggregates in R\n\n\n\n\n\n\n\n\n\n\nWatch What is a remote repository?\nHomework 2\n\n\n\n\n\n\n\n\n\n\nHomework 4\nHomework 3\n\n\n\n1 Passcode: 4zWSh+Fj\n\n\n\n\n\n\n\n\n\n\nWeek 5: GitHub\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nOct-30\nBryan 2017\n\n\nMarkdown Tutorial\nDownload GitKraken\n\n\n\n\n\n\n\n\n\n\nHomework 5\nWatch What is a Git repository?\n\n\n\n\n\n\n\n\n\n\n\n\nWatch What is a remote repository?\n\n\n\n\n\n\n\n\n\n\n\n\nHomework 4\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal Project: Outline\nFinal Project: Outline\n\n\n\n1 Passcode: 5g9TEdK.\n\n\n\n\n\n\n\n\n\n\nWeek 6: Quarto\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nNov-06\nR4DS(2e) 29\n\n\nCodecademy: Joining Tables in R\nMarkdown Tutorial\n\n\n\n\n\n\n\n\n\n\nHomework 6\nHomework 5\n\n\n\n\n\n\n\n\n\n\nHomework 7\n\n\n\n\n\n1 Passcode: @Ld1y9H7\n\n\n\n\n\n\n\n\n\n\nWeek 7: Mutating Joins\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nNov-13\nR4DS(2e) 13\n\n\nCodecademy: Data Cleaning in R\nCodecademy: Joining Tables in R\n\n\n\n\n\n\n\n\n\n\nHomework 8\nHomework 6\n\n\n\n\n\n\n\n\n\n\n\n\nHomework 7\n\n\n\n1 Passcode: 0cSNE5s+\n\n\n\n\n\n\n\n\n\n\nWeek 8: Tidy Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nNov-20\nR4DS(2e) 12\n\n\nHomework 9\nCodecademy: Data Cleaning in R\n\n\n\n\nWickham 2014\n\n\n\n\n\n\nHomework 8\n\n\n\n\nR-Ladies Sydney CleanItUp 5\n\n\n\n\n\nFinal Project: Draft Data Script\nFinal Project: Draft Data Script\n\n\n\n\n\n\nOptional: MD 4.2 - 4.4\n\n\n\n\n\n\n\n\n\n\n\n1 Passcode: fk7?Pk12\n\n\n\n\n\n\n\n\n\n\nWeek 9: Factors & Pull Request\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nNov-27\nR4DS(2e) 17\n\n\nHomework 10\nHomework 9\n\n\n\n\n\n\n\n\n\n\n\nFinal Project: Peer Review of Script\nFinal Project: Peer Review of Script\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal Project: Draft Data Script\nFinal Project: Draft Data Script\n\n\n\n1 Passcode: s%WH9heX\n\n\n\n\n\n\n\n\n\n\nWeek 10: Presentations\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReading\nSlides\nLecture1\nAssigned\nDue\n\n\n\n\nDec-04\n\n\n\n\n\n\n\n\nHomework 10\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinal Project: Presentation\nFinal Project: Presentation\n\n\n\n1 Passcode: NA\n\n\n\n\n\n\n\n\n\n\nWeek 11: No class: Final papers due"
   },
   {
     "objectID": "slides/w2_workflow.html#housekeeping",
@@ -4351,63 +4351,63 @@
     "href": "slides/w9_factors.html#creating-factors",
     "title": "Week 9: Factors &Pull Requests",
     "section": "Creating factors",
-    "text": "Creating factors\nImagine you have a vector of months\n\nmonths_4 &lt;- c(\"Dec\", \"Apr\", \"Jan\", \"Mar\")\n\n\nWe could store this as a string, but there are issues with this:\n\nThere are only 12 possible months\n\nfactors will help us weed out values that don’t conform to our predefined levels, which helps safeguard against typos, etc.\n\nYou can’t sort this vector in a meaningful way\n\ndefault is alphabetic sorting\n\n\n\n\n\nsort(months_4)\n\n[1] \"Apr\" \"Dec\" \"Jan\" \"Mar\""
+    "text": "Creating factors\nImagine you have a vector of months\n\nmonths_4 &lt;- c(\"Dec\", \"Apr\", \"Jan\", \"Mar\")\n\n. . .\nWe could store this as a string, but there are issues with this:\n\nThere are only 12 possible months\n\nfactors will help us weed out values that don’t conform to our predefined levels, which helps safeguard against typos, etc.\n\nYou can’t sort this vector in a meaningful way\n\ndefault is alphabetic sorting\n\n\n. . .\n\nsort(months_4)\n\n[1] \"Apr\" \"Dec\" \"Jan\" \"Mar\""
   },
   {
     "objectID": "slides/w9_factors.html#define-it-as-a-factor",
     "href": "slides/w9_factors.html#define-it-as-a-factor",
     "title": "Week 9: Factors &Pull Requests",
     "section": "Define it as a factor",
-    "text": "Define it as a factor\n\nmonths_4 &lt;- factor(months_4, levels = c(\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\", \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\"))\nmonths_4\n\n[1] Dec Apr Jan Mar\nLevels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec\n\n\n\nNow we can sort\n\nsort(months_4)\n\n[1] Jan Mar Apr Dec\nLevels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec"
+    "text": "Define it as a factor\n\nmonths_4 &lt;- factor(months_4, levels = c(\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\", \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\"))\nmonths_4\n\n[1] Dec Apr Jan Mar\nLevels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec\n\n\n. . .\nNow we can sort\n\nsort(months_4)\n\n[1] Jan Mar Apr Dec\nLevels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec"
   },
   {
     "objectID": "slides/w9_factors.html#accessing-and-modifying-levels",
     "href": "slides/w9_factors.html#accessing-and-modifying-levels",
     "title": "Week 9: Factors &Pull Requests",
     "section": "Accessing and modifying levels",
-    "text": "Accessing and modifying levels\nUse the levels() function\n\n\nlevels(months_4)\n\n [1] \"Jan\" \"Feb\" \"Mar\" \"Apr\" \"May\" \"Jun\" \"Jul\" \"Aug\" \"Sep\" \"Oct\" \"Nov\" \"Dec\""
+    "text": "Accessing and modifying levels\nUse the levels() function\n. . .\n\nlevels(months_4)\n\n [1] \"Jan\" \"Feb\" \"Mar\" \"Apr\" \"May\" \"Jun\" \"Jul\" \"Aug\" \"Sep\" \"Oct\" \"Nov\" \"Dec\""
   },
   {
     "objectID": "slides/w9_factors.html#provides-an-error-check-of-sorts",
     "href": "slides/w9_factors.html#provides-an-error-check-of-sorts",
     "title": "Week 9: Factors &Pull Requests",
     "section": "Provides an error check of sorts",
-    "text": "Provides an error check of sorts\n\nmonths_4[5] &lt;- \"Jam\"\n\nWarning in `[&lt;-.factor`(`*tmp*`, 5, value = \"Jam\"): invalid factor level, NA\ngenerated\n\n\n\n\nmonths_4\n\n[1] Dec  Apr  Jan  Mar  &lt;NA&gt;\nLevels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec"
+    "text": "Provides an error check of sorts\n\nmonths_4[5] &lt;- \"Jam\"\n\nWarning in `[&lt;-.factor`(`*tmp*`, 5, value = \"Jam\"): invalid factor level, NA\ngenerated\n\n\n. . .\n\nmonths_4\n\n[1] Dec  Apr  Jan  Mar  &lt;NA&gt;\nLevels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec"
   },
   {
     "objectID": "slides/w9_factors.html#what-if-we-dont-specify-levels",
     "href": "slides/w9_factors.html#what-if-we-dont-specify-levels",
     "title": "Week 9: Factors &Pull Requests",
     "section": "What if we don’t specify levels?",
-    "text": "What if we don’t specify levels?\nIf you define a factor without specifying the levels, it will assign them alphabetically\n\nmnths &lt;- factor(c(\"Dec\", \"Apr\", \"Jan\", \"Mar\"))\n\n\n\n\n[1] Dec Apr Jan Mar\nLevels: Apr Dec Jan Mar"
+    "text": "What if we don’t specify levels?\nIf you define a factor without specifying the levels, it will assign them alphabetically\n\nmnths &lt;- factor(c(\"Dec\", \"Apr\", \"Jan\", \"Mar\"))\n\n. . .\n\n\n[1] Dec Apr Jan Mar\nLevels: Apr Dec Jan Mar"
   },
   {
     "objectID": "slides/w9_factors.html#forcats",
     "href": "slides/w9_factors.html#forcats",
     "title": "Week 9: Factors &Pull Requests",
     "section": "{forcats} ",
-    "text": "{forcats} \n\nWhen working with factors, we can use the {forcats} package\n\nfor categorical variables\nanagram of factors\n\n\n\n\nPart of the {tidyverse} so should be good to go\n\n\n\n\nAll functions start with fct_\n\nuse the autofill in RStudio"
+    "text": "{forcats} \n\nWhen working with factors, we can use the {forcats} package\n\nfor categorical variables\nanagram of factors\n\n\n. . .\n\nPart of the {tidyverse} so should be good to go\n\n. . .\n\nAll functions start with fct_\n\nuse the autofill in RStudio"
   },
   {
     "objectID": "slides/w9_factors.html#change-level-order-fct_inorder",
     "href": "slides/w9_factors.html#change-level-order-fct_inorder",
     "title": "Week 9: Factors &Pull Requests",
     "section": "Change level order – fct_inorder()",
-    "text": "Change level order – fct_inorder()\nBy the order in which they first appear\n\n(mnths &lt;- factor(c(\"Dec\", \"Apr\", \"Jan\", \"Mar\")))\n\n[1] Dec Apr Jan Mar\nLevels: Apr Dec Jan Mar\n\n\n\n\nmnths %&gt;% \n  factor(., levels = c(\"Jan\", \"Mar\", \"Apr\", \"Dec\")) %&gt;% \n  sort(.)\n\n[1] Jan Mar Apr Dec\nLevels: Jan Mar Apr Dec"
+    "text": "Change level order – fct_inorder()\nBy the order in which they first appear\n\n(mnths &lt;- factor(c(\"Dec\", \"Apr\", \"Jan\", \"Mar\")))\n\n[1] Dec Apr Jan Mar\nLevels: Apr Dec Jan Mar\n\n\n. . .\n\nmnths %&gt;% \n  factor(., levels = c(\"Jan\", \"Mar\", \"Apr\", \"Dec\")) %&gt;% \n  sort(.)\n\n[1] Jan Mar Apr Dec\nLevels: Jan Mar Apr Dec"
   },
   {
     "objectID": "slides/w9_factors.html#change-level-order-fct_inorder-1",
     "href": "slides/w9_factors.html#change-level-order-fct_inorder-1",
     "title": "Week 9: Factors &Pull Requests",
     "section": "Change level order – fct_inorder()",
-    "text": "Change level order – fct_inorder()\nBy the order in which they first appear\n\n(mnths &lt;- factor(c(\"Dec\", \"Apr\", \"Jan\", \"Mar\")))\n\n[1] Dec Apr Jan Mar\nLevels: Apr Dec Jan Mar\n\n\n\n\nmnths %&gt;% \n  factor(., levels = c(\"Jan\", \"Mar\", \"Apr\", \"Dec\")) %&gt;% \n  fct_inorder() %&gt;%\n  sort(.)\n\n[1] Dec Apr Jan Mar\nLevels: Dec Apr Jan Mar"
+    "text": "Change level order – fct_inorder()\nBy the order in which they first appear\n\n(mnths &lt;- factor(c(\"Dec\", \"Apr\", \"Jan\", \"Mar\")))\n\n[1] Dec Apr Jan Mar\nLevels: Apr Dec Jan Mar\n\n\n. . .\n\nmnths %&gt;% \n  factor(., levels = c(\"Jan\", \"Mar\", \"Apr\", \"Dec\")) %&gt;% \n  fct_inorder() %&gt;%\n  sort(.)\n\n[1] Dec Apr Jan Mar\nLevels: Dec Apr Jan Mar"
   },
   {
     "objectID": "slides/w9_factors.html#change-level-order-fct_infreq",
     "href": "slides/w9_factors.html#change-level-order-fct_infreq",
     "title": "Week 9: Factors &Pull Requests",
     "section": "Change level order – fct_infreq()",
-    "text": "Change level order – fct_infreq()\nBy number of observations with each level (largest first)\n\nc(\"b\", \"b\", \"c\", \"a\", \"a\", \"a\") %&gt;% \n    fct_infreq() \n\n[1] b b c a a a\nLevels: a b c\n\n\n\nThis can be especially useful for plotting\n\nggplot(aes(x, fct_infreq(y))"
+    "text": "Change level order – fct_infreq()\nBy number of observations with each level (largest first)\n\nc(\"b\", \"b\", \"c\", \"a\", \"a\", \"a\") %&gt;% \n    fct_infreq() \n\n[1] b b c a a a\nLevels: a b c\n\n\n. . .\nThis can be especially useful for plotting\n\nggplot(aes(x, fct_infreq(y))"
   },
   {
     "objectID": "slides/w9_factors.html#investigate-factors",
@@ -4428,14 +4428,14 @@
     "href": "slides/w9_factors.html#section",
     "title": "Week 9: Factors &Pull Requests",
     "section": "",
-    "text": "gss_cat %&gt;% \n  count(partyid)\n\n# A tibble: 10 × 2\n   partyid                n\n   &lt;fct&gt;              &lt;int&gt;\n 1 No answer            154\n 2 Don't know             1\n 3 Other party          393\n 4 Strong republican   2314\n 5 Not str republican  3032\n 6 Ind,near rep        1791\n 7 Independent         4119\n 8 Ind,near dem        2499\n 9 Not str democrat    3690\n10 Strong democrat     3490\n\n\n\n\nlevels(gss_cat$partyid)\n\n [1] \"No answer\"          \"Don't know\"         \"Other party\"       \n [4] \"Strong republican\"  \"Not str republican\" \"Ind,near rep\"      \n [7] \"Independent\"        \"Ind,near dem\"       \"Not str democrat\"  \n[10] \"Strong democrat\""
+    "text": "gss_cat %&gt;% \n  count(partyid)\n\n# A tibble: 10 × 2\n   partyid                n\n   &lt;fct&gt;              &lt;int&gt;\n 1 No answer            154\n 2 Don't know             1\n 3 Other party          393\n 4 Strong republican   2314\n 5 Not str republican  3032\n 6 Ind,near rep        1791\n 7 Independent         4119\n 8 Ind,near dem        2499\n 9 Not str democrat    3690\n10 Strong democrat     3490\n\n\n. . .\n\nlevels(gss_cat$partyid)\n\n [1] \"No answer\"          \"Don't know\"         \"Other party\"       \n [4] \"Strong republican\"  \"Not str republican\" \"Ind,near rep\"      \n [7] \"Independent\"        \"Ind,near dem\"       \"Not str democrat\"  \n[10] \"Strong democrat\""
   },
   {
     "objectID": "slides/w9_factors.html#section-1",
     "href": "slides/w9_factors.html#section-1",
     "title": "Week 9: Factors &Pull Requests",
     "section": "",
-    "text": "unique(gss_cat$partyid)\n\n [1] Ind,near rep       Not str republican Independent        Not str democrat  \n [5] Strong democrat    Ind,near dem       Strong republican  Other party       \n [9] No answer          Don't know        \n10 Levels: No answer Don't know Other party ... Strong democrat\n\n\n\nHow many unique categories are there (if you have a lot)?\n\nlength(unique(gss_cat$partyid))\n\n[1] 10"
+    "text": "unique(gss_cat$partyid)\n\n [1] Ind,near rep       Not str republican Independent        Not str democrat  \n [5] Strong democrat    Ind,near dem       Strong republican  Other party       \n [9] No answer          Don't know        \n10 Levels: No answer Don't know Other party ... Strong democrat\n\n\n. . .\nHow many unique categories are there (if you have a lot)?\n\nlength(unique(gss_cat$partyid))\n\n[1] 10"
   },
   {
     "objectID": "slides/w9_factors.html#section-2",
@@ -4449,7 +4449,7 @@
     "href": "slides/w9_factors.html#section-3",
     "title": "Week 9: Factors &Pull Requests",
     "section": "",
-    "text": "ggplot(gss_cat, aes(fct_infreq(partyid))) +\n    geom_bar()\n\nggplot(gss_cat, aes(fct_infreq(partyid))) + geom_bar()"
+    "text": "ggplot(gss_cat, aes(fct_infreq(partyid))) +\n    geom_bar()\n\nggplot(gss_cat, aes(fct_infreq(partyid))) + geom_bar()\n. . ."
   },
   {
     "objectID": "slides/w9_factors.html#change-level-order-fct_relevel",
@@ -4505,7 +4505,7 @@
     "href": "slides/w9_factors.html#section-9",
     "title": "Week 9: Factors &Pull Requests",
     "section": "",
-    "text": "ggplot(relig_summary, aes(tvhours, fct_reorder(relig, tvhours))) + \n  geom_point()\n\nggplot(relig_summary, aes(tvhours, fct_reorder(relig, tvhours))) + geom_point()"
+    "text": "ggplot(relig_summary, aes(tvhours, fct_reorder(relig, tvhours))) + \n  geom_point()\n\nggplot(relig_summary, aes(tvhours, fct_reorder(relig, tvhours))) + geom_point()\n. . ."
   },
   {
     "objectID": "slides/w9_factors.html#or-mutate-the-factor-reorder",
@@ -4540,7 +4540,7 @@
     "href": "slides/w9_factors.html#collapsing-levels-fct_recode",
     "title": "Week 9: Factors &Pull Requests",
     "section": "Collapsing levels – fct_recode()",
-    "text": "Collapsing levels – fct_recode()\nfct_recode() can also be used to collapse levels easily\n\ngss_cat %&gt;%\n  mutate(partyid = fct_recode(partyid,\n    \"Republican, strong\"    = \"Strong republican\",\n    \"Republican, weak\"      = \"Not str republican\",\n    \"Independent, near rep\" = \"Ind,near rep\",\n    \"Independent, near dem\" = \"Ind,near dem\",\n    \"Democrat, weak\"        = \"Not str democrat\",\n    \"Democrat, strong\"      = \"Strong democrat\",\n    \"Other\"                 = \"No answer\", \n    \"Other\"                 = \"Don't know\", \n    \"Other\"                 = \"Other party\")) %&gt;% \n  count(partyid)\n\n\n\n# A tibble: 8 × 2\n  partyid                   n\n  &lt;fct&gt;                 &lt;int&gt;\n1 Other                   548\n2 Republican, strong     2314\n3 Republican, weak       3032\n4 Independent, near rep  1791\n5 Independent            4119\n6 Independent, near dem  2499\n7 Democrat, weak         3690\n8 Democrat, strong       3490"
+    "text": "Collapsing levels – fct_recode()\nfct_recode() can also be used to collapse levels easily\n\ngss_cat %&gt;%\n  mutate(partyid = fct_recode(partyid,\n    \"Republican, strong\"    = \"Strong republican\",\n    \"Republican, weak\"      = \"Not str republican\",\n    \"Independent, near rep\" = \"Ind,near rep\",\n    \"Independent, near dem\" = \"Ind,near dem\",\n    \"Democrat, weak\"        = \"Not str democrat\",\n    \"Democrat, strong\"      = \"Strong democrat\",\n    \"Other\"                 = \"No answer\", \n    \"Other\"                 = \"Don't know\", \n    \"Other\"                 = \"Other party\")) %&gt;% \n  count(partyid)\n\n# A tibble: 8 × 2\n  partyid                   n\n  &lt;fct&gt;                 &lt;int&gt;\n1 Other                   548\n2 Republican, strong     2314\n3 Republican, weak       3032\n4 Independent, near rep  1791\n5 Independent            4119\n6 Independent, near dem  2499\n7 Democrat, weak         3690\n8 Democrat, strong       3490"
   },
   {
     "objectID": "slides/w9_factors.html#collapsing-levels-fct_collapse",
@@ -4554,7 +4554,7 @@
     "href": "slides/w9_factors.html#collapsing-levels-fct_lump_",
     "title": "Week 9: Factors &Pull Requests",
     "section": "Collapsing levels – fct_lump_?()",
-    "text": "Collapsing levels – fct_lump_?()\nfct_lump_?() – “lump” a bunch of categories together\n\nfct_lump_n(factor_variable, n)\n\nlumps all levels except for the n most frequent (or least frequent if n &lt; 0) into “Other” level\n\n\n\n\nfct_lump_min(factor_variable, min)\n\nlumps levels that appear fewer than min times\n\n\n\n\n\nfct_lump_prop(factor_variable, prop)\n\nlumps levels that appear in fewer prop \\(\\times\\) n times"
+    "text": "Collapsing levels – fct_lump_?()\nfct_lump_?() – “lump” a bunch of categories together\n\nfct_lump_n(factor_variable, n)\n\nlumps all levels except for the n most frequent (or least frequent if n &lt; 0) into “Other” level\n\n\n. . .\n\nfct_lump_min(factor_variable, min)\n\nlumps levels that appear fewer than min times\n\n\n. . .\n\nfct_lump_prop(factor_variable, prop)\n\nlumps levels that appear in fewer prop \\(\\times\\) n times"
   },
   {
     "objectID": "slides/w9_factors.html#collapsing-levels-fct_lump_n",
@@ -4582,7 +4582,7 @@
     "href": "slides/w9_factors.html#missing-levels",
     "title": "Week 9: Factors &Pull Requests",
     "section": "Missing levels",
-    "text": "Missing levels\n\nlevels(gss_cat$race)\n\n[1] \"Other\"          \"Black\"          \"White\"          \"Not applicable\"\n\n\n\n\ngss_cat %&gt;% \n  count(race)\n\n# A tibble: 3 × 2\n  race      n\n  &lt;fct&gt; &lt;int&gt;\n1 Other  1959\n2 Black  3129\n3 White 16395\n\n\n\n\n\ntable(gss_cat$race)\n\n\n         Other          Black          White Not applicable \n          1959           3129          16395              0"
+    "text": "Missing levels\n\nlevels(gss_cat$race)\n\n[1] \"Other\"          \"Black\"          \"White\"          \"Not applicable\"\n\n\n. . .\n\ngss_cat %&gt;% \n  count(race)\n\n# A tibble: 3 × 2\n  race      n\n  &lt;fct&gt; &lt;int&gt;\n1 Other  1959\n2 Black  3129\n3 White 16395\n\n\n. . .\n\ntable(gss_cat$race)\n\n\n         Other          Black          White Not applicable \n          1959           3129          16395              0"
   },
   {
     "objectID": "slides/w9_factors.html#missing-levels-1",
@@ -4603,7 +4603,7 @@
     "href": "slides/w9_factors.html#review",
     "title": "Week 9: Factors &Pull Requests",
     "section": "Review",
-    "text": "Review\n\nfct_inorder()\n\nBy the order in which they first appear\n\n\n\n\nfct_infreq()\n\nBy number of observations with each level (largest first)\n\n\n\n\n\nfct_relevel()\n\nChange level order by hand, or move any number of levels to any location\n\n\n\n\n\nfct_reorder()\n\nChange level order according to another variable\n\n\n\n\n\nfct_recode()\n\nRecode levels into new named levels\n\n\n\n\n\nfct_collapse()\n\nCollapse many levels into fewer levels\n\n\n\n\n\nfct_lump_?()\n\nRecode all levels into “Other”:\n\n\n\nexcept for the n most frequent - fct_lump_n()\nthat appear fewer than min times - fct_lump_min()\nthat appear less than prop% - fct_lump_prop()"
+    "text": "Review\n\nfct_inorder()\n\nBy the order in which they first appear\n\n\n. . .\n\nfct_infreq()\n\nBy number of observations with each level (largest first)\n\n\n. . .\n\nfct_relevel()\n\nChange level order by hand, or move any number of levels to any location\n\n\n. . .\n\nfct_reorder()\n\nChange level order according to another variable\n\n\n. . .\n\nfct_recode()\n\nRecode levels into new named levels\n\n\n. . .\n\nfct_collapse()\n\nCollapse many levels into fewer levels\n\n\n. . .\n\nfct_lump_?()\n\nRecode all levels into “Other”:\n\n\n\nexcept for the n most frequent - fct_lump_n()\nthat appear fewer than min times - fct_lump_min()\nthat appear less than prop% - fct_lump_prop()"
   },
   {
     "objectID": "slides/w9_factors.html#lets-revisit-git",
@@ -4617,7 +4617,7 @@
     "href": "slides/w9_factors.html#peer-review-of-data-prep-script",
     "title": "Week 9: Factors &Pull Requests",
     "section": "Peer Review of Data Prep Script",
-    "text": "Peer Review of Data Prep Script\nExpectations\nFeedback:\n\nNote at least three areas of strength\nNote at least one thing you learned from reviewing their script\nNote at least one and no more than three areas for improvement\n\n\nMaking your code publicly available can feel daunting\n\nThe purpose of this portion of the final project is to help us all learn from each other\nWe are all learning\n\nBe constructive in your feedback\nBe kind\n\nUnder no circumstances will negative comments be tolerated\n\nAny comments that could be perceived as negative, and outside the scope of the code, will result in an immediate score of zero"
+    "text": "Peer Review of Data Prep Script\nExpectations\nFeedback:\n\nNote at least three areas of strength\nNote at least one thing you learned from reviewing their script\nNote at least one and no more than three areas for improvement\n\n. . .\nMaking your code publicly available can feel daunting\n\nThe purpose of this portion of the final project is to help us all learn from each other\nWe are all learning\n\nBe constructive in your feedback\nBe kind\n\nUnder no circumstances will negative comments be tolerated\n\nAny comments that could be perceived as negative, and outside the scope of the code, will result in an immediate score of zero"
   },
   {
     "objectID": "slides/w9_factors.html#peer-review-github-process",
@@ -4666,14 +4666,14 @@
     "href": "slides/w9_factors.html#create-pull-request-pr",
     "title": "Week 9: Factors &Pull Requests",
     "section": "5. Create Pull Request (PR)",
-    "text": "5. Create Pull Request (PR)\n\nNavigate back to the (host) GitHub repo\n\n\n\nClick “Pull requests”\n\n\n\n\n\nClick “New pull request”"
+    "text": "5. Create Pull Request (PR)\n\nNavigate back to the (host) GitHub repo\n\n. . .\n\nClick “Pull requests”\n\n\n. . .\n\nClick “New pull request”"
   },
   {
     "objectID": "slides/w9_factors.html#create-pull-request-pr-1",
     "href": "slides/w9_factors.html#create-pull-request-pr-1",
     "title": "Week 9: Factors &Pull Requests",
     "section": "6. Create Pull Request (PR)",
-    "text": "6. Create Pull Request (PR)\n\nClick “Compare across forks”\n\n\n\nUse drop-downs so that:\n\nleft = host repo\nright = your repo\n\n . . .\nYou will be able view the changes you made to the .qmd document"
+    "text": "6. Create Pull Request (PR)\n\nClick “Compare across forks”\n\n\n. . .\nUse drop-downs so that:\n\nleft = host repo\nright = your repo\n\n . . .\nYou will be able view the changes you made to the .qmd document"
   },
   {
     "objectID": "slides/w9_factors.html#create-pull-request-pr-2",

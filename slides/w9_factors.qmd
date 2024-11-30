@@ -757,17 +757,26 @@ random_draw <- function(x){
 set.seed(651)
 peer_review <- random_draw(roster)
 
-peer_review %>% 
+peer_review_tbl <- peer_review %>% 
   select(Student, group = samp) %>% 
   left_join(
     roster %>% 
       select(group, git_page, file) %>% 
       distinct()
   ) %>% 
-  select(Student, `Repo to Review` = git_page, `File to Review` = file) %>% 
+  select(Student, `Repo to Review` = git_page, `File to Review` = file) 
+
+peer_review_tbl %>% 
   kable() %>% 
   kable_styling(font_size = 12)
+
+write_csv(peer_review_tbl, here::here("nopublish", "peer_review_tbl.csv"))
 ```
+
+```{r}
+
+```
+
 
 ## 
 
@@ -823,6 +832,15 @@ Where will it live on your local machine? It's own folder, with no other RProjec
 * Commit as you go (if you are working on this across sessions/days)
 * [Push]{style='color:#009E73'} **only when you are finished**
 
+## 5. [commit]{style='color:#009E73'} & [push]{style='color:#009E73'}
+
+Once you have provided comments and code suggestions to the script
+
+- save the changes
+- go to GitKraken
+- [commit]{style='color:#009E73'}
+- [push]{style='color:#009E73'}
+
 ## 5. Create Pull Request (PR) {.smaller}
 
 (1) Navigate back to the (host) GitHub repo
@@ -838,15 +856,6 @@ Where will it live on your local machine? It's own folder, with no other RProjec
 (3) Click “New pull request”
 
 ![](./images/gh_newpr.png)
-
-## 5. [commit]{style='color:#009E73'} & [push]{style='color:#009E73'}
-
-Once you have provided comments and code suggestions to the script
-
-- save the changes
-- go to GitKraken
-- [commit]{style='color:#009E73'}
-- [push]{style='color:#009E73'}
 
 ## 6. Create Pull Request (PR) {.smaller}
 
