@@ -1,0 +1,80 @@
+---
+title: "Week 10: Presentations"
+author: "Joe Nese"
+institute: "University of Oregon<br>Fall 2024"
+format:
+  revealjs: 
+    theme: default
+    highlight-style: github
+    incremental: false
+    fig-width: 9
+    fig-height: 3.5
+    scrollable: true
+    multiplex: true
+execute: 
+  echo: true
+  warning: false
+embed-resources: true
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(here)
+library(janitor)
+library(kableExtra)
+library(readxl)
+
+source(here("nopublish", "colors.R"))
+```
+
+# Presentations!
+
+## Agenda
+
+- Group Presentations
+- AMA
+
+## Student Experience Survey
+
+**Please complete!**
+
+![](./images/student-experience-surveys-slide.png)
+
+
+## Randomize Order
+
+```{r}
+#| echo: false
+
+
+groups <- read_xlsx(here::here("nopublish", "groups.xlsx")) %>% 
+  select(first, group) %>% 
+  arrange(group, first) %>% 
+  group_by(group) %>% 
+  dplyr::mutate(id = row_number()) %>%
+  ungroup() %>% 
+  pivot_wider(
+    names_from = id,
+    values_from = first
+  ) %>% 
+  unite("people", `1`:`4`, sep = ", ", na.rm = TRUE)
+
+set.seed(651)
+groups %>% 
+  mutate(order = sample(c(1:length(groups$group)))) %>% 
+  arrange(order) %>% 
+  select(Order = order, Group = people) %>% 
+  kable()
+```
+
+
+# Next time
+
+## Week 11
+
+* [Final Project: Final Paper]{style='color:#FF0000'} 
+    + Due 12/11 by 1pm
+
+
+

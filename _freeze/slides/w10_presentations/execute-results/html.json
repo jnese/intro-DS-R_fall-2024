@@ -1,0 +1,19 @@
+{
+  "hash": "a105d444580de603100956e1f00f0d2e",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Week 10: Presentations\"\nauthor: \"Joe Nese\"\ninstitute: \"University of Oregon<br>Fall 2024\"\nformat:\n  revealjs: \n    theme: default\n    highlight-style: github\n    incremental: false\n    fig-width: 9\n    fig-height: 3.5\n    scrollable: true\n    multiplex: true\nexecute: \n  echo: true\n  warning: false\nembed-resources: true\n---\n\n\n\n\n# Presentations!\n\n## Agenda\n\n- Group Presentations\n- AMA\n\n## Student Experience Survey\n\n**Please complete!**\n\n![](./images/student-experience-surveys-slide.png)\n\n\n## Randomize Order\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n\n| Order|Group                       |\n|-----:|:---------------------------|\n|     1|Maiko, Michelle             |\n|     2|Marcus, Saratessa, Will     |\n|     3|Fiona, Sophia, Stephen      |\n|     4|Emily, Haley, Sabine, Suzie |\n|     5|Aden, Andrew, Emily, Maya   |\n|     6|Nakyung, Nishat, Songyi     |\n\n\n:::\n:::\n\n\n\n# Next time\n\n## Week 11\n\n* [Final Project: Final Paper]{style='color:#FF0000'} \n    + Due 12/11 by 1pm\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
